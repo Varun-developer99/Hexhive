@@ -4,9 +4,7 @@
         <a href="{{ $item->image_url ?? asset('no_image.jpg') }}" target="_blank"><img src="{{ $item->thumb_url ?? asset('no_image.jpg') }}" alt="" style="width: 60px; height: 60px; object-fit: contain"></a>
     </div>
 </td>
-<td>
-    <span class="badge badge-light-{{ $item->is_featured == '1' ? 'success':'danger' }}">{{ ($item->is_featured ?? '0') == 1 ? 'Yes' : 'No' }}</span>
-</td>
+
 <td>
     <span class="badge badge-{{ $item->status == '1' ? 'success':'danger' }} pointer" id="status_{{ $item->id }}" onclick="change_status({{ $item->id }})">{{ $item->status == '1' ? 'Active':'Inactive' }}</span>
 </td>

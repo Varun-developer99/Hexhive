@@ -64,7 +64,6 @@ class CategoryController extends Controller
 
             $input['created_by_id'] = Auth::user()->id;
             $input['status'] = $request->status ?? 0;
-            $input['is_featured'] = $request->is_featured ?? 0;
             $input['slug'] = Str::slug($request->name, '-');
 
             $item = Category::updateOrCreate(['id' => $input['id']],$input);

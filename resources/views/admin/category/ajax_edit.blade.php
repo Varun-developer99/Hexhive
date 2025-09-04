@@ -18,12 +18,7 @@
                     <a href="{{ $category->image_url ?? asset('no_image.jpg') }}" target="_blank"><img src="{{ $category->thumb_url ?? asset('no_image.jpg') }}" alt="" style="width: 60px; height: 60px; object-fit: contain"></a>
                 </div>
             </div>
-            <div class="col-md-6 form-group">
-                <h6>Is Featured</h6>
-                <label class="switch">
-                    <input type="checkbox"  name="is_featured" value="1" {{ ($category->is_featured ?? 0) == 1 ? 'checked':'' }}><span class="switch-state"></span>
-                </label>
-            </div>
+            
             <div class="col-md-6 form-group">
                 <h6>Status</h6>
                 <label class="switch">
