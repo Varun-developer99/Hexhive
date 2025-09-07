@@ -16,14 +16,7 @@ class DashboardController extends Controller
         {
             return redirect()->route('admin.dashboard')->with('error', session('error'))->with('status', session('status'));
         }
-        else if(Auth::user()->role_as == 'Warehouse')
-        {
-            return redirect()->route('warehouse.dashboard')->with('error', session('error'))->with('status', session('status'));
-        }
-        else
-        {
-            return redirect()->route('user.dashboard')->with('error', session('error'))->with('status', session('status'));
-        }
+        
     }
 
    

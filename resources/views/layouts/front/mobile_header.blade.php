@@ -1,5 +1,4 @@
-    <!-- mobile menu -->
-    <div class="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
+  <div class="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
         <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
         <div class="mb-canvas-content">
             <div class="mb-body">
@@ -23,7 +22,7 @@
                             </a>
                             <div id="dropdown-menu-one" class="collapse">
                                 <ul class="sub-nav-menu">
-                                    <li><a href="index.html" class="sub-nav-link">Fashion Womenswear</a></li>
+                                    <li><a href="index.html" class="sub-nav-link active">Fashion Womenswear</a></li>
                                     <li><a href="home-fashion-eleganceNest.html" class="sub-nav-link">Fashion EleganceNest</a></li>
                                     <li><a href="home-fashion-main.html" class="sub-nav-link">Fashion Main</a></li>
                                     <li><a href="home-fashion-trendset.html" class="sub-nav-link">Fashion TrendsetHome</a></li>
@@ -40,7 +39,7 @@
                                     <li><a href="home-skincare.html" class="sub-nav-link">Skin Care</a></li>
                                     <li><a href="home-cosmetic.html" class="sub-nav-link">Cosmetic</a></li>
                                     <li><a href="home-decor.html" class="sub-nav-link">Decor</a></li>
-                                    <li><a href="home-furniture.html" class="sub-nav-link active">Furniture</a></li>
+                                    <li><a href="home-furniture.html" class="sub-nav-link">Furniture</a></li>
                                     <li><a href="home-jewelry-01.html" class="sub-nav-link">Jewelry ElegantGems</a></li>
                                     <li><a href="home-jewelry-02.html" class="sub-nav-link">Jewelry GlitterGlam</a></li>
                                     <li><a href="home-activewear.html" class="sub-nav-link">Activewear</a></li>
@@ -110,7 +109,6 @@
                                                 <li><a href="product-style-05.html" class="sub-nav-link">Product Style 5</a></li>
                                                 <li><a href="product-style-06.html" class="sub-nav-link">Product Style 6</a></li>
                                                 <li><a href="product-style-07.html" class="sub-nav-link">Product Style 7</a></li>
-                                                
                                             </ul>
                                         </div>
                                     </li>
@@ -289,8 +287,8 @@
                 <div class="bottom-bar-language">
                     <div class="tf-currencies">
                         <select class="image-select center style-default type-currencies">
-                            <option selected="" data-thumbnail="images/country/us.svg') }}">USD</option>
-                            <option data-thumbnail="images/country/vn.svg') }}">VND</option>
+                            <option selected="" data-thumbnail="images/country/us.svg">USD</option>
+                            <option data-thumbnail="images/country/vn.svg">VND</option>
                         </select>
                     </div>
                     <div class="tf-languages">
@@ -303,4 +301,3 @@
             </div>
         </div>       
     </div>
-    <!-- /mobile menu -->

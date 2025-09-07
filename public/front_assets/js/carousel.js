@@ -164,54 +164,6 @@ if ($(".tf-sw-collection").length > 0) {
     },
   });
 }
-if ($(".tf-sw-collection-video").length > 0) {
-  var tfSwCls = $(".tf-sw-collection-video");
-  var preview = tfSwCls.data("preview");
-  var tablet = tfSwCls.data("tablet");
-  var mobile = tfSwCls.data("mobile");
-  var mobileSm = tfSwCls.data("mobile-sm") !== undefined ? tfSwCls.data("mobile-sm") : mobile;
-  var spacingLg = tfSwCls.data("space-lg");
-  var spacingMd = tfSwCls.data("space-md");
-  var spacing = tfSwCls.data("space");
-  var loop = tfSwCls.data("loop");
-  var perGroup = tfSwCls.data("pagination") || 1;
-  var perGroupMd = tfSwCls.data("pagination-md") || 1;
-  var perGroupLg = tfSwCls.data("pagination-lg") || 1;
-  var swiper = new Swiper(".tf-sw-collection-video", {
-    slidesPerView: mobile,
-    spaceBetween: spacing,
-    speed: 1000,
-    pagination: {
-      el: ".sw-pagination-collection",
-      clickable: true,
-    },
-    observer: true,
-    observeParents: true,
-    slidesPerGroup: perGroup,
-    navigation: {
-      clickable: true,
-      nextEl: ".nav-next-collection",
-      prevEl: ".nav-prev-collection",
-    },
-    breakpoints: {
-      575: {
-        slidesPerView: mobileSm,
-        spaceBetween: spacing,
-        slidesPerGroup: perGroup,
-      },
-      768: {
-        slidesPerView: tablet,
-        spaceBetween: spacingMd,
-        slidesPerGroup: perGroupMd,
-      },
-      1200: {
-        slidesPerView: preview,
-        spaceBetween: spacingLg,
-        slidesPerGroup: perGroupLg,
-      },
-    },
-  });
-}
 
 if ($(".tf-sw-categories").length > 0) {
   var tfSwCategories = $(".tf-sw-categories");

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
@@ -34,7 +35,7 @@ use App\Http\Controllers\Warehouse\WarehouseDashboardController;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [FrontController::class, 'home'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -196,3 +197,8 @@ Route::group(['middleware' => ['auth','is_User'], 'prefix' => 'user'], function 
     // Product
     Route::get('inactive_dashboard', [UserDashboardController::class, 'inactive_dashboard'])->name('user.inactive_dashboard');
 });
+
+
+
+// Front Routes
+

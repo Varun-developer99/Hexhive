@@ -1,29 +1,35 @@
 <!DOCTYPE html>
+
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
-    <title>@yield('title') - {{ env('App_NAME') }}</title>
+    <title>@yield('title') - {{ env('APP_NAME') }}</title>
 
-    {{-- <meta name="author" content="themesflat.com"> --}}
+    <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    {{-- <meta name="description" content="Themesflat Modave, Multipurpose eCommerce Template"> --}}
+    <meta name="description" content="Themesflat Modave, Multipurpose eCommerce Template">
 
-    <!-- font -->
-    <link rel="stylesheet" href="{{ asset('front_assets/fonts/fonts.css') }}">
-    <link rel="stylesheet" href="{{ asset('front_assets/fonts/font-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('front_assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('front_assets/css/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('front_assets/css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('front_assets/css/sib-styles.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('front_assets/css/styles.css') }}">
+   <!-- font -->
+   <link rel="stylesheet" href="{{ asset('front_assets/fonts/fonts.css') }}">
+   <link rel="stylesheet" href="{{ asset('front_assets/fonts/font-icons.css') }}">
+   <!-- css -->
+   <link rel="stylesheet" href="{{ asset('front_assets/css/bootstrap.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('front_assets/css/swiper-bundle.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('front_assets/css/animate.css') }}">
+   {{-- <link rel="stylesheet" href="../../forms/end-form/build/sib-styles.css"> --}}
+   <link rel="stylesheet" type="text/css" href="{{ asset('front_assets/css/styles.css') }}">
+
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="{{ asset('front_assets/images/logo/fidelity-icon.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('front_assets/images/logo/fidelity-icon.png') }}">
-    @yield('css')
+    <link rel="shortcut icon" href="{{ asset('front_assets/images/logo/favicon.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('front_assets/images/logo/favicon.png') }}">
+     @yield('css')
 </head>
 
-<body class="preload-wrapper">
+<body class="preload-wrapper popup-loader">
 
 
     <!-- Scroll Top -->
@@ -52,6 +58,33 @@
 
     <div id="wrapper">
         <!-- Top bar -->
+        <div class="tf-topbar bg-main">
+            <div class="container">
+                <div class="tf-topbar_wrap d-flex align-items-center justify-content-center justify-content-xl-between">
+                    <ul class="topbar-left">
+                        <li><a class="text-caption-1 text-white" href="tel:315-666-6688">315-666-6688</a></li>
+                        <li><a class="text-caption-1 text-white" href="#">themesflat@gmail.com</a></li>
+                        <li><a class="text-caption-1 text-white text-decoration-underline" href="store-list.html">Our Store</a></li>
+                    </ul>
+                    <div class="topbar-right d-none d-xl-block">
+                        <div class="tf-cur justify-content-end">
+                            <div class="tf-currencies">
+                                <select class="image-select center style-default type-currencies color-white">
+                                    <option selected="" data-thumbnail="images/country/us.svg">USD</option>
+                                    <option data-thumbnail="images/country/vn.svg">VND</option>
+                                </select>
+                            </div>
+                            <div class="tf-languages">
+                                <select class="image-select center style-default type-languages color-white">
+                                    <option>English</option>
+                                    <option>Vietnam</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         @include('layouts.front.header')
 
@@ -61,7 +94,7 @@
         <!-- End Footer -->
 
         <!-- toolbar-bottom -->
-        <div class="tf-toolbar-bottom">
+        {{-- <div class="tf-toolbar-bottom">
             <div class="toolbar-item">
                 <a href="#">
                     <div class="toolbar-icon">
@@ -129,13 +162,13 @@
                     <div class="toolbar-label">Cart</div>
                 </a>
             </div>
-        </div>
+        </div> --}}
         <!-- /toolbar-bottom -->
 
     </div>
 
     <!-- search -->
-    <div class="modal fade modal-search" id="search">
+    {{-- <div class="modal fade modal-search" id="search">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="d-flex justify-content-between align-items-center">
@@ -982,11 +1015,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- /search -->
 
     <!-- modalDemo -->
-    <div class="modal fade modalDemo" id="modalDemo">
+    {{-- <div class="modal fade modalDemo" id="modalDemo">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="mega-menu">
@@ -1296,13 +1329,13 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- /modalDemo -->
 
     @include('layouts.front.mobile_header')
 
     <!-- Categories -->
-    <div class="offcanvas offcanvas-start canvas-filter canvas-categories" id="shopCategories">
+    {{-- <div class="offcanvas offcanvas-start canvas-filter canvas-categories" id="shopCategories">
         <div class="canvas-wrapper">
             <div class="canvas-header">
                 <span class="icon-left icon-filter"></span>
@@ -1442,11 +1475,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- /Categories -->
 
     <!-- quickView -->
-    <div class="modal fullRight fade modal-quick-view" id="quickView">
+    {{-- <div class="modal fullRight fade modal-quick-view" id="quickView">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="tf-quick-view-image">
@@ -1624,11 +1657,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- /quickView -->
 
     <!-- shoppingCart -->
-    <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
+    {{-- <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="tf-minicart-recommendations">
@@ -2207,11 +2240,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- /shoppingCart -->
 
     <!-- wishlist -->
-    <div class="modal fullRight fade modal-wishlist" id="wishlist">
+    {{-- <div class="modal fullRight fade modal-wishlist" id="wishlist">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="header">
@@ -2341,11 +2374,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- /wishlist -->
 
     <!-- size-guide -->
-    <div class="modal fade modal-size-guide" id="size-guide">
+    {{-- <div class="modal fade modal-size-guide" id="size-guide">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content widget-tabs style-2">
                 <div class="header">
@@ -2481,11 +2514,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- /size-guide -->
 
     <!-- compare -->
-    <div class="offcanvas offcanvas-bottom offcanvas-compare" id="compare">
+    {{-- <div class="offcanvas offcanvas-bottom offcanvas-compare" id="compare">
         <div class="offcanvas-content">
             <div class="header">
                 <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
@@ -2645,11 +2678,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- /compare -->
 
     <!-- quickAdd -->
-    <div class="modal fade modal-quick-add" id="quickAdd">
+    {{-- <div class="modal fade modal-quick-add" id="quickAdd">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="header">
@@ -2754,7 +2787,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- /quickAdd -->
 
     <!-- Javascript -->
@@ -2768,9 +2801,27 @@
     <script type="text/javascript" src="{{ asset('front_assets/js/wow.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front_assets/js/multiple-modal.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front_assets/js/main.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('front_assets/js/maintwo.js') }}"></script>
 
-    @yield('scripts')
+    <script defer="" src="../../forms/end-form/build/main.js"></script>
+    <script>
+        window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+        window.LOCALE = 'en';
+        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+
+        window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+
+        window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+
+        window.translation = {
+            common: {
+                selectedList: '{quantity} list selected',
+                selectedLists: '{quantity} lists selected'
+            }
+        };
+
+        var AUTOHIDE = Boolean(0);
+    </script>
+
 </body>
 
 </html>
