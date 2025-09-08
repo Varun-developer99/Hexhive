@@ -8,15 +8,15 @@
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
                         <a href="index.html" class="logo-header">
-                            <img src="images/logo/logo.svg" alt="logo" class="logo">
+                            <img src="{{ asset('front_assets/images/logo/logo.svg') }}" alt="logo" class="logo">
                         </a>
                     </div>
                     <div class="col-xl-6 d-none d-xl-block">
                         <nav class="box-navigation text-center">
                             <ul class="box-nav-ul d-flex align-items-center justify-content-center">
                                 <li class="menu-item active">
-                                    <a href="#" class="item-link">Home<i class="icon icon-arrow-down"></i></a>
-                                    <div class="sub-menu mega-menu">
+                                    <a href="{{ url('/') }}" class="item-link">Home</a>
+                                    {{-- <div class="sub-menu mega-menu">
                                         <div class="container">
                                             <div class="row-demo">
                                                 <div class="demo-item active">
@@ -248,11 +248,14 @@
                                                 <a href="#modalDemo" data-bs-toggle="modal" class="tf-btn"><span class="text">View All Demos</span></a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
+                                </li>
+                                  <li class="menu-item position-relative">
+                                    <a href="{{ route('front.about_us') }}" class="item-link">About Us</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#" class="item-link">Shop<i class="icon icon-arrow-down"></i></a>
-                                    <div class="sub-menu mega-menu">
+                                    <a href="{{ route('front.shop') }}" class="item-link">Shop</a>
+                                    {{-- <div class="sub-menu mega-menu">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-lg-2">
@@ -450,11 +453,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#" class="item-link">Products<i class="icon icon-arrow-down"></i></a>
-                                    <div class="sub-menu mega-menu">
+                                    <a href="{{ route('front.shop') }}" class="item-link">Products</a>
+                                    {{-- <div class="sub-menu mega-menu">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-lg-3">
@@ -531,11 +534,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </li>
                                 <li class="menu-item position-relative">
-                                    <a href="#" class="item-link">Blog<i class="icon icon-arrow-down"></i></a>
-                                    <div class="sub-menu submenu-default">
+                                    <a href="{{ route('front.blog') }}" class="item-link">Blog</a>
+                                    {{-- <div class="sub-menu submenu-default">
                                         <ul class="menu-list">
                                             <li><a href="blog-default.html" class="menu-link-text">Blog Default</a></li>
                                             <li><a href="blog-list.html" class="menu-link-text">Blog List</a></li>
@@ -543,11 +546,11 @@
                                             <li><a href="blog-detail.html" class="menu-link-text">Blog Detail 1</a></li>
                                             <li><a href="blog-detail-02.html" class="menu-link-text">Blog Detail 2</a></li>
                                         </ul>
-                                    </div>
+                                    </div> --}}
                                 </li>
                                 <li class="menu-item position-relative">
-                                    <a href="#" class="item-link">Pages<i class="icon icon-arrow-down"></i></a>
-                                    <div class="sub-menu submenu-default">
+                                    <a href="{{ route('front.contact_us') }}" class="item-link">Contact Us</a>
+                                    {{-- <div class="sub-menu submenu-default">
                                         <ul class="menu-list">
                                             <li><a href="about-us.html" class="menu-link-text">About Us</a></li>
                                             <li><a href="store-list.html" class="menu-link-text">Store List 1</a></li>
@@ -561,9 +564,9 @@
                                             <li><a href="customer-feedback.html" class="menu-link-text">Customer Feedbacks</a></li>
                                             <li><a href="my-account.html" class="menu-link-text">My Account</a></li>
                                         </ul>
-                                    </div>
+                                    </div> --}}
                                 </li>
-                                <li class="menu-item"><a href="https://themeforest.net/user/themesflat" class="item-link">Buy Theme</a></li>
+                                {{-- <li class="menu-item"><a href="https://themeforest.net/user/themesflat" class="item-link">Buy Theme</a></li> --}}
                             </ul>
                         </nav>
                     </div>

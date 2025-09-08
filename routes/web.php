@@ -201,4 +201,11 @@ Route::group(['middleware' => ['auth','is_User'], 'prefix' => 'user'], function 
 
 
 // Front Routes
+Route::get('about_us', [FrontController::class, 'about'])->name('front.about_us');
+Route::get('contact_us', [FrontController::class, 'contact'])->name('front.contact_us');
+Route::get('shop', [FrontController::class, 'shop'])->name('front.shop');
+Route::get('shop_detail', [FrontController::class, 'shop_detail'])->name('front.shop_detail');
+Route::get('blog', [FrontController::class, 'blog'])->name('front.blog');
+Route::get('blog_detail', [FrontController::class, 'blog_detail'])->name('front.blog_detail');
+
 

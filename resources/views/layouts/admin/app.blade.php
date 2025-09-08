@@ -36,7 +36,7 @@
     <style>
       /* For Logo Setting  */
       .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .logo-wrapper{
-        padding: 0px 30px;
+        padding: 6px 20px;
       }
       .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .logo-icon-wrapper{
         padding: 20px 30px;

@@ -285,16 +285,16 @@
             </div>
             <div class="mb-bottom">
                 <div class="bottom-bar-language">
-                    <div class="tf-currencies">
+                    {{-- <div class="tf-currencies">
                         <select class="image-select center style-default type-currencies">
-                            <option selected="" data-thumbnail="images/country/us.svg">USD</option>
-                            <option data-thumbnail="images/country/vn.svg">VND</option>
+                            <option selected="" data-thumbnail="{{ asset('front_assets/images/country/us.svg') }}">USD</option>
+                            <option data-thumbnail="{{ asset('front_assets/images/country/vn.svg') }}">VND</option>
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="tf-languages">
                         <select class="image-select center style-default type-languages">
                             <option>English</option>
-                            <option>Vietnam</option>
+                            <option>Hindi</option>
                         </select>
                     </div>
                 </div>

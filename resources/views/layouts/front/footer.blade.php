@@ -7,7 +7,7 @@
                                 <div class="footer-infor">
                                     <div class="footer-logo">
                                         <a href="index.html">
-                                            <img src="images/logo/logo.svg" alt="">
+                                            <img src="{{ asset('front_assets/images/logo/logo.svg') }}" alt="">
                                         </a>
                                     </div>
                                     <div class="footer-address">
@@ -135,18 +135,18 @@
                             <div class="col-12">
                                 <div class="footer-bottom-wrap">
                                     <div class="left">
-                                        <p class="text-caption-1">©2024 Modave. All Rights Reserved.</p>
+                                        <p class="text-caption-1">© {{ date("Y") }} Hexhive . All Rights Reserved.</p>
                                         <div class="tf-cur justify-content-end">
-                                            <div class="tf-currencies">
+                                            {{-- <div class="tf-currencies">
                                                 <select class="image-select center style-default type-currencies">
-                                                    <option selected="" data-thumbnail="images/country/us.svg">USD</option>
-                                                    <option data-thumbnail="images/country/vn.svg">VND</option>
+                                                    <option selected="" data-thumbnail="{{ asset('front_assets/images/country/us.svg') }}">USD</option>
+                                                    <option data-thumbnail="{{ asset('front_assets/images/country/vn.svg') }}">VND</option>
                                                 </select>
-                                            </div>
+                                            </div> --}}
                                             <div class="tf-languages">
                                                 <select class="image-select center style-default type-languages">
                                                     <option>English</option>
-                                                    <option>Vietnam</option>
+                                                    <option>Hindi</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -155,22 +155,22 @@
                                         <p class="text-caption-1">Payment:</p>
                                         <ul>
                                             <li>
-                                                <img src="images/payment/img-1.png" alt="">
+                                                <img src="{{ asset('front_assets/images/payment/img-1.png') }}" alt="">
                                             </li>
                                             <li>
-                                                <img src="images/payment/img-2.png" alt="">
+                                                <img src="{{ asset('front_assets/images/payment/img-2.png') }}" alt="">
                                             </li>
                                             <li>
-                                                <img src="images/payment/img-3.png" alt="">
+                                                <img src="{{ asset('front_assets/images/payment/img-3.png') }}" alt="">
                                             </li>
                                             <li>
-                                                <img src="images/payment/img-4.png" alt="">
+                                                <img src="{{ asset('front_assets/images/payment/img-4.png') }}" alt="">
                                             </li>
                                             <li>
-                                                <img src="images/payment/img-5.png" alt="">
+                                                <img src="{{ asset('front_assets/images/payment/img-5.png') }}" alt="">
                                             </li>
                                             <li>
-                                                <img src="images/payment/img-6.png" alt="">
+                                                <img src="{{ asset('front_assets/images/payment/img-6.png') }}" alt="">
                                             </li>
                                         </ul>
                                     </div>
