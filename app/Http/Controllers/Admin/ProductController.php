@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Brand;
 use App\Models\Product;
+use App\Models\Botteltypes;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\ProductFeatures;
@@ -19,7 +20,10 @@ class ProductController extends Controller
 {
      public function index()
     {
-        return view('admin.product.index');
+        $brands = Brand::where('status', 1)->get();
+        $categories = Category::where('status', 1)->get();
+        $botteltypes = Botteltypes::where('status', 1)->get();
+        return view('admin.product.index', compact('brands', 'categories', 'botteltypes'));
     }
 
     public function datatable(Request $request)
@@ -63,7 +67,7 @@ class ProductController extends Controller
         // Step 1: Validate inputs
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|'. Rule::unique('products', 'name')->ignore($request->id)->whereNull('deleted_at'),
-            'main_img' => 'nullable|image|mimes:png,webp,webp|max:2048',
+            'main_img' => 'nullable|image|mimes:png,webp,jpg|max:2048',
         ]);
 
         // Step 2: If validation fails, return 422 JSON response
@@ -84,7 +88,6 @@ class ProductController extends Controller
             $input['slug'] = Str::slug($request->name, '-');
             $input['enable_product_benefits'] = $request->enable_product_benefits ?? 0;
             $input['enable_product_features'] = $request->enable_product_features ?? 0;
-            $input['video_url'] = $request->video_url ?? '';
 
             $product = Product::updateOrCreate(['id' => $input['id']],$input);
             $product->code = 'P-' . str_pad($product->id, 3, '0', STR_PAD_LEFT);

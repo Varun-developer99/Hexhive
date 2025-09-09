@@ -3,13 +3,14 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Product Code</th>
-                <th>Name</th>
                 <th>Image</th>
+                <th>Name</th>
+                <th>Product Code</th>
                 <th>Brand</th>
                 <th>Category</th>
                 <th>Price</th>
-                <th>Is Featured</th>
+                <th>Product Weight</th>
+                <th>Product dimension (cm) L*B*H</th>
                 <th>Status</th>
                 <th>Options</th>
             </tr>

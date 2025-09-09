@@ -7,19 +7,11 @@
     </div>
     <div class="modal-body dark-modal">
         <div class="row">
-            <div class="col-md-6 form-group mb-3">
+            <div class="col-md-4 form-group mb-3">
                 <h6>Product Name <span>*</span></h6>
                 <input type="text" class="form-control" name="name" id="" value="{{ $product->name ?? '' }}" required>
             </div>
-            {{-- <div class="col-md-2 form-group mb-3">
-                <h6>Brand/Manufacturer <span>*</span></h6>
-                <select name="brand_id" class="js-example-basic-single" id="" required>
-                    <option value="" disabled selected>Select Brand...</option>
-                    @foreach ($brands as $brand)
-                        <option value="{{ $brand->id }}" {{ ($product->brand_id ?? 0) == $brand->id ? 'selected':'' }}>{{ $brand->name }}</option>
-                    @endforeach
-                </select>
-            </div> --}}
+            
             <div class="col-md-2 form-group mb-3">
                 <h6>Category <span>*</span></h6>
                 <select name="category_id" class="js-example-basic-single" id="" required>
@@ -29,36 +21,6 @@
                     @endforeach
                 </select>
             </div>
-            {{-- <div class="col-md-2 form-group mb-3">
-                <h6>Sub Category <span>*</span></h6>
-                <select name="sub_category_id" class="js-example-basic-single" id="sub_category_id" required>
-                    <option value="" disabled selected>Select Sub Category...</option>
-                    @foreach ($sub_categories as $sub_category)
-                        <option value="{{ $sub_category->id }}" {{ ($product->sub_category_id ?? 0) == $sub_category->id ? 'selected':'' }}>{{ $sub_category->name }}</option>
-                    @endforeach
-                </select>
-            </div> --}}
-            <div class="col-md-2 form-group mb-3">
-                <h6>Unit <span>*</span></h6>
-                <input type="text" class="form-control" name="unit" id="" value="{{ $product->unit ?? '' }}" placeholder="KG, PCs, MG, ML, etc." required>
-            </div>
-            <div class="col-md-2 form-group mb-3">
-                <h6>Quantity <span>*</span></h6>
-                <input type="text" class="form-control" name="qty" id="" value="{{ $product->qty ?? '' }}" placeholder="10 Tables." required>
-            </div>
-            {{-- <div class="col-md-2 form-group mb-3">
-                <h6>Prescription Required <span>*</span></h6>
-                <div class="form-check-size rtl-input">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input me-2" id="prescription_required_no" type="radio" name="prescription_required" value="No" checked="">
-                        <label class="form-check-label" for="prescription_required_no">No</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input me-2" id="prescription_required_yes" type="radio" name="prescription_required" value="Yes" {{ ($product->prescription_required ?? 'No') == 'Yes' ? 'checked':'' }}>
-                        <label class="form-check-label" for="prescription_required_yes">Yes</label>
-                    </div>
-                </div>
-            </div> --}}
             <div class="col-md-2 form-group mb-3">
                 <h6>MRP Price <span>*</span></h6>
                 <input type="number" class="form-control" name="mrp_price" id="" value="{{ $product->mrp_price ?? '' }}" required>
@@ -67,13 +29,84 @@
                 <h6>Sale Price <span>*</span></h6>
                 <input type="number" class="form-control" name="sale_price" id="" value="{{ $product->sale_price ?? '' }}" required>
             </div>
+          
             <div class="col-md-2 form-group mb-3">
-                <h6>Tax Rate <small class="text-muted">(Included)</small> <span>*</span></h6>
-                <select name="tax_rate" id="" class="form-select" required>
-                    <option value="5" {{ ($product->tax_rate ?? 0) == 5 ? 'selected':'' }}>5%</option>
-                    <option value="12" {{ ($product->tax_rate ?? 0) == 12 ? 'selected':'' }}>12%</option>
+                <h6>HSN Code <span>*</span></h6>
+                <input type="number" class="form-control" name="hsn_code" id="" value="{{ $product->hsn_code ?? '' }}" required>
+            </div>
+            
+            <div class="col-md-2 form-group mb-3">
+                <h6>GST Rate <small class="text-muted">(Included)</small> <span>*</span></h6>
+                <select name="gst_rate" id="" class="form-select" required>
+                    <option value="5" {{ ($product->gst_rate ?? 0) == 5 ? 'selected':'' }}>5%</option>
+                    <option value="18" {{ ($product->gst_rate ?? 0) == 18 ? 'selected':'' }}>18%</option>
                 </select>
             </div>
+
+            <div class="col-md-2 form-group mb-3">
+                <h6>Product Weight</h6>
+                <input type="text" class="form-control" name="product_weight" id="product_weight" placeholder="Enter product weight" value="{{ $product->product_weight ?? '' }}"/>
+            </div>
+            
+            <div class="col-md-2 form-group mb-3">
+                <h6>Length</h6>
+                <input type="text" class="form-control" name="length" id="length" placeholder="Enter product length" value="{{ $product->length ?? '' }}"/>
+            </div>
+
+            <div class="col-md-2 form-group mb-3">
+                <h6>Width</h6>
+                <input type="text" class="form-control" name="width" id="width" placeholder="Enter product width" value="{{ $product->width ?? '' }}"/>
+            </div>
+
+            <div class="col-md-2 form-group mb-3">
+                <h6>Height</h6>
+                <input type="text" class="form-control" name="height" id="height" placeholder="Enter product height" value="{{ $product->height ?? '' }}"/>
+            </div>
+
+            <div class="col-md-2 form-group mb-3">
+                <h6>Product Shelf Life</h6>
+                <input type="text" class="form-control" name="product_shelf_life" id="product_shelf_life" placeholder="Enter product shelf life" value="{{ $product->product_shelf_life ?? '' }}"/>
+            </div>
+
+            <div class="col-md-2 form-group mb-3">
+                <h6>Ingredients</h6>
+                <input type="text" class="form-control" name="ingredients" id="ingredients" placeholder="Enter ingredients" value="{{ $product->ingredients ?? '' }}"/>
+            </div>
+
+            <div class="col-md-2 form-group mb-3">
+                <h6>Allergent Info</h6>
+                <input type="text" class="form-control" name="allergent_info" id="allergent_info" placeholder="Enter allergent info" value="{{ $product->allergent_info ?? '' }}"/>
+            </div>
+
+            <div class="col-md-2 form-group mb-3">
+                <h6>Manufacturer</h6>
+                <select name="brand_id" class="js-example-basic-single" id="">
+                    <option value="" disabled selected>Select Manufacturer...</option>
+                    @foreach ($brands as $brand)
+                        <option value="{{ $brand->id }}" {{ ($product->brand_id ?? 0) == $brand->id ? 'selected':'' }}>{{ $brand->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-md-2 form-group mb-3">
+                <h6>Bottel Type</h6>
+                <select name="bottel_type" class="js-example-basic-single" id="">
+                    <option value="" disabled selected>Select Bottel Type...</option>
+                    @foreach (App\Models\Botteltypes::where('status', 1)->get() as $botteltype)
+                        <option value="{{ $botteltype->name }}" {{ ($product->bottel_type ?? 0) == $botteltype->name ? 'selected':'' }}>{{ $botteltype->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-md-2 form-group mb-3">
+                <h6>Case Pack <span>*</span></h6>
+                <input type="text" class="form-control" name="casepack" id="" value="{{ $product->casepack ?? '' }}" placeholder="KG, PCs, MG, ML, etc." required>
+            </div>
+            <div class="col-md-2 form-group mb-3">
+                <h6>Quantity <span>*</span></h6>
+                <input type="text" class="form-control" name="quantity" id="" value="{{ $product->quantity ?? '' }}" placeholder="10 Tables." required>
+            </div>
+
             <div class="col-md-2 form-group">
                 <h6>Top Product <span>*</span></h6>
                 <label class="switch">
@@ -105,7 +138,7 @@
                     @endforeach
                 @endif
             </div>
-            <div class="col-md-5 form-group mb-3">
+            <div class="col-md-3 form-group mb-3">
                 <h6>Gallery Images <small class="text-muted">(Multiple)</small> <span>*</span></h6>
                 <input type="file" class="form-control" name="gallery_imgs[]" id="gallery_imgs" accept="image/*" multiple>
                  @if (($product ?? '') != '')
@@ -118,14 +151,9 @@
                 @endif
             </div>
 
-            <div class="col-md-4 form-group mb-3">
-                <h6>How To Use <small class="text-muted">(video link)</small></h6>
-                <input type="text" class="form-control" name="video_url" id="video_url" placeholder="Enter video URL" value="{{ $product->video_url ?? '' }}"/>
-            </div>
-            
             <div class="col-md-12 form-group mb-3">
                 <h6>Short Description <span>*</span></h6>
-                <textarea class="form-control" name="use_case" id="" cols="30" rows="5">{!! $product->use_case ?? '' !!}</textarea>
+                <textarea class="form-control" name="short_description" id="" cols="30" rows="5">{!! $product->short_description ?? '' !!}</textarea>
             </div>
             <div class="col-md-12 form-group mb-3">
                 <h6>Description <span>*</span></h6>

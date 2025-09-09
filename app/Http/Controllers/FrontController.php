@@ -32,4 +32,13 @@ class FrontController extends Controller
     public function blog_detail(){
         return view('front.blog_detail');
     }
+
+
+    public function cart(){
+        return view('front.cart');
+    }
+
+    public function check_out(){
+        return view('front.check_out');
+    }
 }

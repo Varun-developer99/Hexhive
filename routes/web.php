@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\WarehouseController;
 use App\Http\Controllers\Warehouse\OrderController;
+use App\Http\Controllers\Admin\BotteltypeController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Admin\ComboProductsController;
@@ -60,6 +61,14 @@ Route::group(['middleware' => ['auth','is_Admin'], 'prefix' => 'admin'], functio
     Route::get('category/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
     Route::get('category/delete/{id}', [CategoryController::class, 'delete'])->name('admin.category.delete');
     Route::get('category/status/{id}', [CategoryController::class, 'status'])->name('admin.category.status');
+
+    // Bottel Type
+    Route::get('botteltype', [BotteltypeController::class, 'index'])->name('admin.botteltype.index');
+    Route::get('botteltype/datatable', [BotteltypeController::class, 'datatable'])->name('admin.botteltype.datatable');
+    Route::post('botteltype/store', [BotteltypeController::class, 'store'])->name('admin.botteltype.store');
+    Route::get('botteltype/edit', [BotteltypeController::class, 'edit'])->name('admin.botteltype.edit');
+    Route::get('botteltype/delete/{id}', [BotteltypeController::class, 'delete'])->name('admin.botteltype.delete');
+    Route::get('botteltype/status/{id}', [BotteltypeController::class, 'status'])->name('admin.botteltype.status');
 
     // SubCategory
     Route::get('sub_category', [SubCategoryController::class, 'index'])->name('admin.sub_category.index');
@@ -207,5 +216,8 @@ Route::get('shop', [FrontController::class, 'shop'])->name('front.shop');
 Route::get('shop_detail', [FrontController::class, 'shop_detail'])->name('front.shop_detail');
 Route::get('blog', [FrontController::class, 'blog'])->name('front.blog');
 Route::get('blog_detail', [FrontController::class, 'blog_detail'])->name('front.blog_detail');
+Route::get('cart', [FrontController::class, 'cart'])->name('front.cart');
+Route::get('check_out', [FrontController::class, 'check_out'])->name('front.check_out');
+Route::get('thank_you', [FrontController::class, 'thank_you'])->name('front.thank_you');
 
 

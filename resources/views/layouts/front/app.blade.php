@@ -24,8 +24,8 @@
    <link rel="stylesheet" type="text/css" href="{{ asset('front_assets/css/styles.css') }}">
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="{{ asset('front_assets/images/logo/favicon.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('front_assets/images/logo/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('front_assets/images/logo/favicon175732812854007.ico') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('front_assets/images/logo/favicon175732812854007.ico') }}">
      @yield('css')
 </head>
 
@@ -58,33 +58,7 @@
 
     <div id="wrapper">
         <!-- Top bar -->
-        <div class="tf-topbar bg-main">
-            <div class="container">
-                <div class="tf-topbar_wrap d-flex align-items-center justify-content-center justify-content-xl-between">
-                    <ul class="topbar-left">
-                        <li><a class="text-caption-1 text-white" href="tel:315-666-6688">315-666-6688</a></li>
-                        <li><a class="text-caption-1 text-white" href="#">themesflat@gmail.com</a></li>
-                        <li><a class="text-caption-1 text-white text-decoration-underline" href="store-list.html">Our Store</a></li>
-                    </ul>
-                    <div class="topbar-right d-none d-xl-block">
-                        <div class="tf-cur justify-content-end">
-                            {{-- <div class="tf-currencies">
-                                <select class="image-select center style-default type-currencies color-white">
-                                    <option selected="" data-thumbnail="{{ asset('front_assets/images/country/us.svg') }}">USD</option>
-                                    <option data-thumbnail="{{ asset('front_assets/images/country/vn.svg') }}">VND</option>
-                                </select>
-                            </div> --}}
-                            <div class="tf-languages">
-                                <select class="image-select center style-default type-languages color-white">
-                                    <option>English</option>
-                                    <option>Hindi</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
 
         @include('layouts.front.header')
 
@@ -1348,7 +1322,7 @@
     <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="tf-minicart-recommendations">
+                {{-- <div class="tf-minicart-recommendations">
                     <h6 class="title">You May Also Like</h6>
                     <div class="wrap-recommendations">
                         <div class="list-cart">
@@ -1438,14 +1412,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="d-flex flex-column flex-grow-1 h-100">
                     <div class="header">
                         <h5 class="title">Shopping Cart</h5>
                         <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
                     </div>
                     <div class="wrap">
-                        <div class="tf-mini-cart-threshold">
+                        {{-- <div class="tf-mini-cart-threshold">
                             <div class="tf-progress-bar">
                                 <div class="value" style="width: 0%;" data-progress="75">
                                     <i class="icon icon-shipping"></i>
@@ -1454,7 +1428,7 @@
                             <div class="text-caption-1">
                                 Congratulations! You've got free shipping!
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="tf-mini-cart-wrap">
                             <div class="tf-mini-cart-main">
                                 <div class="tf-mini-cart-sroll">
@@ -1540,7 +1514,7 @@
                                 </div>
                             </div>
                             <div class="tf-mini-cart-bottom">
-                                <div class="tf-mini-cart-tool">
+                                {{-- <div class="tf-mini-cart-tool">
                                     <div class="tf-mini-cart-tool-btn btn-add-note">
                                         <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g clip-path="url(#clip0_6133_36620)">
@@ -1578,13 +1552,13 @@
                                         </svg>
                                         <div class="text-caption-1">Coupon</div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="tf-mini-cart-bottom-wrap">
                                     <div class="tf-cart-totals-discounts">
                                         <h5>Subtotal</h5>
                                         <h5 class="tf-totals-total-value">$186,99</h5>
                                     </div>
-                                    <div class="tf-cart-checkbox">
+                                    {{-- <div class="tf-cart-checkbox">
                                         <div class="tf-checkbox-wrapp">
                                             <input class="" type="checkbox" id="CartDrawer-Form_agree" name="agree_checkbox">
                                             <div>
@@ -1595,13 +1569,13 @@
                                             I agree with 
                                             <a href="term-of-use.html" title="Terms of Service">Terms & Conditions</a>
                                         </label>
-                                    </div>
+                                    </div> --}}
                                     <div class="tf-mini-cart-view-checkout">
-                                        <a href="shopping-cart.html" class="tf-btn w-100 btn-white radius-4 has-border"><span class="text">View cart</span></a>
-                                        <a href="shopping-cart.html" class="tf-btn w-100 btn-fill radius-4"><span class="text">Check Out</span></a>
+                                        <a href="{{ route('front.cart') }}" class="tf-btn w-100 btn-white radius-4 has-border"><span class="text">View cart</span></a>
+                                        <a href="{{ route('front.cart') }}" class="tf-btn w-100 btn-fill radius-4"><span class="text">Check Out</span></a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="link text-btn-uppercase" href="shop-default-grid.html">Or continue shopping</a>
+                                        <a class="link text-btn-uppercase" href="{{ route('front.shop') }}">Or continue shopping</a>
                                     </div>
                                 </div>
                             </div>

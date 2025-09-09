@@ -734,7 +734,7 @@
                                     </div>
                                     <div class="box-avt">
                                         <div class="avatar avt-60 round">
-                                            <img src="images/avatar/user-10.jpg" alt="avt">
+                                            <img src="{{ asset('front_assets/images/avatar/user-10.jpg') }}" alt="avt">
                                         </div>
                                         <div class="box-price">
                                             <p class="text-title text-line-clamp-1">Sweet Strawberry Delight</p>
@@ -780,7 +780,7 @@
                                     </div>
                                     <div class="box-avt">
                                         <div class="avatar avt-60 round">
-                                            <img src="images/avatar/user-11.jpg" alt="avt">
+                                            <img src="{{ asset('front_assets/images/avatar/user-11.jpg') }}" alt="avt">
                                         </div>
                                         <div class="box-price">
                                             <p class="text-title text-line-clamp-1">Tender Beef Cuts</p>

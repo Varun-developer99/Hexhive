@@ -6,8 +6,8 @@
                             <div class="col-lg-4">
                                 <div class="footer-infor">
                                     <div class="footer-logo">
-                                        <a href="index.html">
-                                            <img src="{{ asset('front_assets/images/logo/logo.svg') }}" alt="">
+                                        <a href="{{ url('/') }}">
+                                            <img class="w-50" src="{{ asset('front_assets/images/logo/logo_dark175732706240217.png') }}" alt="">
                                         </a>
                                     </div>
                                     <div class="footer-address">
@@ -143,12 +143,12 @@
                                                     <option data-thumbnail="{{ asset('front_assets/images/country/vn.svg') }}">VND</option>
                                                 </select>
                                             </div> --}}
-                                            <div class="tf-languages">
+                                            {{-- <div class="tf-languages">
                                                 <select class="image-select center style-default type-languages">
                                                     <option>English</option>
                                                     <option>Hindi</option>
                                                 </select>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     <div class="tf-payment">

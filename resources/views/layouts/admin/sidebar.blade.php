@@ -39,6 +39,8 @@
             </a>
             <ul class="sidebar-submenu">
               <li><a href="{{ route('admin.category.index') }}">All Categories</a></li>
+              <li><a href="{{ route('admin.botteltype.index') }}">All Bottel Types</a></li>
+              <li><a href="{{ route('admin.brand.index') }}">All Brands/Manufacturers</a></li>
             </ul>
           </li>
           <li class="sidebar-list">
@@ -78,7 +80,6 @@
               <li><a href="{{ route('warehouse.stock_details.index') }}?in_out_filter=In">All Stock In</a></li>
               <li><a href="{{ route('warehouse.stock_details.index') }}?in_out_filter=Out">All Stock Out</a></li>
               <li><a href="{{ route('warehouse.stock_details.index') }}">All Stock Details</a></li>
-              <li><a href="#">Stock Out Report</a></li>
               <li><a href="{{ route('warehouse.current_stock.index') }}">Current Stock</a></li>
               <li><a href="{{ route('warehouse.current_stock.index') }}?stock_filter=Out Of Stock">Out Of Stock</a></li>
             </ul>
