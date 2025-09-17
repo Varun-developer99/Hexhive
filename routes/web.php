@@ -30,10 +30,6 @@ use App\Http\Controllers\Warehouse\RefundRequestController;
 use App\Http\Controllers\Warehouse\ProductRequestController;
 use App\Http\Controllers\Warehouse\WarehouseDashboardController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
 Route::get('/', [FrontController::class, 'home'])->name('home');
@@ -156,23 +152,17 @@ Route::group(['middleware' => ['auth','is_Admin'], 'prefix' => 'admin'], functio
     Route::get('customer/edit', [CustomerController::class, 'edit'])->name('admin.customer.edit');
     Route::get('customer/delete/{id}', [CustomerController::class, 'delete'])->name('admin.customer.delete');
     Route::get('customer/status/{id}', [CustomerController::class, 'status'])->name('admin.customer.status');
-});
 
-Route::group(['middleware' => ['auth','is_Warehouse'], 'prefix' => 'warehouse'], function () {
-
-    Route::get('dashboard', [WarehouseDashboardController::class, 'index'])->name('warehouse.dashboard');
-    
     // CurrentStock
     Route::get('current_stock', [CurrentStockController::class, 'index'])->name('warehouse.current_stock.index');
     Route::get('current_stock/datatable', [CurrentStockController::class, 'datatable'])->name('warehouse.current_stock.datatable');
-
+    
     // Stock Details
     Route::get('stock_details', [StockDetailsController::class, 'index'])->name('warehouse.stock_details.index');
     Route::get('stock_details/datatable', [StockDetailsController::class, 'datatable'])->name('warehouse.stock_details.datatable');
     Route::post('stock_details/store', [StockDetailsController::class, 'store'])->name('warehouse.stock_details.store');
     Route::get('stock_details/edit', [StockDetailsController::class, 'edit'])->name('warehouse.stock_details.edit');
     Route::get('stock_details/delete/{id}', [StockDetailsController::class, 'delete'])->name('warehouse.stock_details.delete');
-
     Route::get('stock_details/current_stock', [StockDetailsController::class, 'current_stock'])->name('warehouse.stock_details.current_stock');
     Route::get('stock_details/current_stock_datatable', [StockDetailsController::class, 'current_stock_datatable'])->name('warehouse.stock_details.current_stock_datatable');
 
@@ -199,15 +189,8 @@ Route::group(['middleware' => ['auth','is_Warehouse'], 'prefix' => 'warehouse'],
 
     //Refunded
     Route::get('refunded', [RefundRequestController::class, 'index'])->name('warehouse.refunded.index');
+
 });
-
-Route::group(['middleware' => ['auth','is_User'], 'prefix' => 'user'], function () {
-    
-    // Product
-    Route::get('inactive_dashboard', [UserDashboardController::class, 'inactive_dashboard'])->name('user.inactive_dashboard');
-});
-
-
 
 // Front Routes
 Route::get('about_us', [FrontController::class, 'about'])->name('front.about_us');
