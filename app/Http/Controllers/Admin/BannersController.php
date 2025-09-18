@@ -47,8 +47,8 @@ class BannersController extends Controller
         // Step 1: Validate inputs
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|'. Rule::unique('banners', 'name')->ignore($request->id)->whereNull('deleted_at'),
-            'main_img' => 'nullable|image|mimes:png,webp|max:2048',
-            'mobile_img' => 'nullable|image|mimes:png,webp|max:2048',
+            'main_img' => 'nullable|image|mimes:png,webp,jpg|max:2048',
+            'mobile_img' => 'nullable|image|mimes:png,webp,jpg|max:2048',
         ]);
 
         // Step 2: If validation fails, return 422 JSON response
