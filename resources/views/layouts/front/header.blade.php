@@ -590,9 +590,9 @@
                                         <a href="#" class="tf-btn btn-reset">Login</a>
                                         <p class="text-center text-secondary-2">Don’t have an account? <a href="register.html">Register</a></p>
                                     </div>
-                                    <div class="sub-bot">
+                                    {{-- <div class="sub-bot">
                                         <span class="body-text-">Support</span>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </li>
                             {{-- <li class="nav-wishlist"><a href="wish-list.html" class="nav-icon-item">

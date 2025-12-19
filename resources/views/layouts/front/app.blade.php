@@ -13,20 +13,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Themesflat Modave, Multipurpose eCommerce Template">
 
-   <!-- font -->
-   <link rel="stylesheet" href="{{ asset('front_assets/fonts/fonts.css') }}">
-   <link rel="stylesheet" href="{{ asset('front_assets/fonts/font-icons.css') }}">
-   <!-- css -->
-   <link rel="stylesheet" href="{{ asset('front_assets/css/bootstrap.min.css') }}">
-   <link rel="stylesheet" href="{{ asset('front_assets/css/swiper-bundle.min.css') }}">
-   <link rel="stylesheet" href="{{ asset('front_assets/css/animate.css') }}">
-   {{-- <link rel="stylesheet" href="../../forms/end-form/build/sib-styles.css"> --}}
-   <link rel="stylesheet" type="text/css" href="{{ asset('front_assets/css/styles.css') }}">
+    <!-- font -->
+    <link rel="stylesheet" href="{{ asset('front_assets/fonts/fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('front_assets/fonts/font-icons.css') }}">
+    <!-- css -->
+    <link rel="stylesheet" href="{{ asset('front_assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front_assets/css/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front_assets/css/animate.css') }}">
+    {{-- <link rel="stylesheet" href="../../forms/end-form/build/sib-styles.css"> --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('front_assets/css/styles.css') }}">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="{{ asset('front_assets/images/logo/favicon175732812854007.ico') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('front_assets/images/logo/favicon175732812854007.ico') }}">
-     @yield('css')
+    @yield('css')
 </head>
 
 <body class="preload-wrapper popup-loader">
@@ -58,7 +58,7 @@
 
     <div id="wrapper">
         <!-- Top bar -->
-      
+
 
         @include('layouts.front.header')
 
@@ -67,14 +67,17 @@
         @include('layouts.front.footer')
         <!-- End Footer -->
 
-       <!-- toolbar-bottom -->
+        <!-- toolbar-bottom -->
         <div class="tf-toolbar-bottom">
             <div class="toolbar-item">
                 <a href="shop-default-grid.html">
                     <div class="toolbar-icon">
-                        <svg class="icon" width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.125 3.125H4.375C4.04348 3.125 3.72554 3.2567 3.49112 3.49112C3.2567 3.72554 3.125 4.04348 3.125 4.375V8.125C3.125 8.45652 3.2567 8.77446 3.49112 9.00888C3.72554 9.2433 4.04348 9.375 4.375 9.375H8.125C8.45652 9.375 8.77446 9.2433 9.00888 9.00888C9.2433 8.77446 9.375 8.45652 9.375 8.125V4.375C9.375 4.04348 9.2433 3.72554 9.00888 3.49112C8.77446 3.2567 8.45652 3.125 8.125 3.125ZM8.125 8.125H4.375V4.375H8.125V8.125ZM15.625 3.125H11.875C11.5435 3.125 11.2255 3.2567 10.9911 3.49112C10.7567 3.72554 10.625 4.04348 10.625 4.375V8.125C10.625 8.45652 10.7567 8.77446 10.9911 9.00888C11.2255 9.2433 11.5435 9.375 11.875 9.375H15.625C15.9565 9.375 16.2745 9.2433 16.5089 9.00888C16.7433 8.77446 16.875 8.45652 16.875 8.125V4.375C16.875 4.04348 16.7433 3.72554 16.5089 3.49112C16.2745 3.2567 15.9565 3.125 15.625 3.125ZM15.625 8.125H11.875V4.375H15.625V8.125ZM8.125 10.625H4.375C4.04348 10.625 3.72554 10.7567 3.49112 10.9911C3.2567 11.2255 3.125 11.5435 3.125 11.875V15.625C3.125 15.9565 3.2567 16.2745 3.49112 16.5089C3.72554 16.7433 4.04348 16.875 4.375 16.875H8.125C8.45652 16.875 8.77446 16.7433 9.00888 16.5089C9.2433 16.2745 9.375 15.9565 9.375 15.625V11.875C9.375 11.5435 9.2433 11.2255 9.00888 10.9911C8.77446 10.7567 8.45652 10.625 8.125 10.625ZM8.125 15.625H4.375V11.875H8.125V15.625ZM15.625 10.625H11.875C11.5435 10.625 11.2255 10.7567 10.9911 10.9911C10.7567 11.2255 10.625 11.5435 10.625 11.875V15.625C10.625 15.9565 10.7567 16.2745 10.9911 16.5089C11.2255 16.7433 11.5435 16.875 11.875 16.875H15.625C15.9565 16.875 16.2745 16.7433 16.5089 16.5089C16.7433 16.2745 16.875 15.9565 16.875 15.625V11.875C16.875 11.5435 16.7433 11.2255 16.5089 10.9911C16.2745 10.7567 15.9565 10.625 15.625 10.625ZM15.625 15.625H11.875V11.875H15.625V15.625Z" fill="#4D4E4F"></path>
-                        </svg>    
+                        <svg class="icon" width="20" height="20" viewbox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8.125 3.125H4.375C4.04348 3.125 3.72554 3.2567 3.49112 3.49112C3.2567 3.72554 3.125 4.04348 3.125 4.375V8.125C3.125 8.45652 3.2567 8.77446 3.49112 9.00888C3.72554 9.2433 4.04348 9.375 4.375 9.375H8.125C8.45652 9.375 8.77446 9.2433 9.00888 9.00888C9.2433 8.77446 9.375 8.45652 9.375 8.125V4.375C9.375 4.04348 9.2433 3.72554 9.00888 3.49112C8.77446 3.2567 8.45652 3.125 8.125 3.125ZM8.125 8.125H4.375V4.375H8.125V8.125ZM15.625 3.125H11.875C11.5435 3.125 11.2255 3.2567 10.9911 3.49112C10.7567 3.72554 10.625 4.04348 10.625 4.375V8.125C10.625 8.45652 10.7567 8.77446 10.9911 9.00888C11.2255 9.2433 11.5435 9.375 11.875 9.375H15.625C15.9565 9.375 16.2745 9.2433 16.5089 9.00888C16.7433 8.77446 16.875 8.45652 16.875 8.125V4.375C16.875 4.04348 16.7433 3.72554 16.5089 3.49112C16.2745 3.2567 15.9565 3.125 15.625 3.125ZM15.625 8.125H11.875V4.375H15.625V8.125ZM8.125 10.625H4.375C4.04348 10.625 3.72554 10.7567 3.49112 10.9911C3.2567 11.2255 3.125 11.5435 3.125 11.875V15.625C3.125 15.9565 3.2567 16.2745 3.49112 16.5089C3.72554 16.7433 4.04348 16.875 4.375 16.875H8.125C8.45652 16.875 8.77446 16.7433 9.00888 16.5089C9.2433 16.2745 9.375 15.9565 9.375 15.625V11.875C9.375 11.5435 9.2433 11.2255 9.00888 10.9911C8.77446 10.7567 8.45652 10.625 8.125 10.625ZM8.125 15.625H4.375V11.875H8.125V15.625ZM15.625 10.625H11.875C11.5435 10.625 11.2255 10.7567 10.9911 10.9911C10.7567 11.2255 10.625 11.5435 10.625 11.875V15.625C10.625 15.9565 10.7567 16.2745 10.9911 16.5089C11.2255 16.7433 11.5435 16.875 11.875 16.875H15.625C15.9565 16.875 16.2745 16.7433 16.5089 16.5089C16.7433 16.2745 16.875 15.9565 16.875 15.625V11.875C16.875 11.5435 16.7433 11.2255 16.5089 10.9911C16.2745 10.7567 15.9565 10.625 15.625 10.625ZM15.625 15.625H11.875V11.875H15.625V15.625Z"
+                                fill="#4D4E4F"></path>
+                        </svg>
                     </div>
                     <div class="toolbar-label">Shop</div>
                 </a>
@@ -82,9 +85,12 @@
             <div class="toolbar-item">
                 <a href="#" class="filterShop">
                     <div class="toolbar-icon">
-                        <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3.125 6.87502H5.70312C5.84081 7.41278 6.15356 7.88942 6.59207 8.22979C7.03057 8.57017 7.56989 8.75492 8.125 8.75492C8.68011 8.75492 9.21943 8.57017 9.65793 8.22979C10.0964 7.88942 10.4092 7.41278 10.5469 6.87502H16.875C17.0408 6.87502 17.1997 6.80917 17.3169 6.69196C17.4342 6.57475 17.5 6.41578 17.5 6.25002C17.5 6.08426 17.4342 5.92529 17.3169 5.80808C17.1997 5.69087 17.0408 5.62502 16.875 5.62502H10.5469C10.4092 5.08726 10.0964 4.61062 9.65793 4.27024C9.21943 3.92987 8.68011 3.74512 8.125 3.74512C7.56989 3.74512 7.03057 3.92987 6.59207 4.27024C6.15356 4.61062 5.84081 5.08726 5.70312 5.62502H3.125C2.95924 5.62502 2.80027 5.69087 2.68306 5.80808C2.56585 5.92529 2.5 6.08426 2.5 6.25002C2.5 6.41578 2.56585 6.57475 2.68306 6.69196C2.80027 6.80917 2.95924 6.87502 3.125 6.87502ZM8.125 5.00002C8.37223 5.00002 8.6139 5.07333 8.81946 5.21068C9.02502 5.34803 9.18524 5.54326 9.27985 5.77167C9.37446 6.00007 9.39921 6.25141 9.35098 6.49388C9.30275 6.73636 9.1837 6.95909 9.00888 7.1339C8.83407 7.30872 8.61134 7.42777 8.36886 7.476C8.12639 7.52423 7.87505 7.49948 7.64665 7.40487C7.41824 7.31026 7.22301 7.15004 7.08566 6.94448C6.94831 6.73892 6.875 6.49725 6.875 6.25002C6.875 5.9185 7.0067 5.60056 7.24112 5.36614C7.47554 5.13172 7.79348 5.00002 8.125 5.00002ZM16.875 13.125H15.5469C15.4092 12.5873 15.0964 12.1106 14.6579 11.7702C14.2194 11.4299 13.6801 11.2451 13.125 11.2451C12.5699 11.2451 12.0306 11.4299 11.5921 11.7702C11.1536 12.1106 10.8408 12.5873 10.7031 13.125H3.125C2.95924 13.125 2.80027 13.1909 2.68306 13.3081C2.56585 13.4253 2.5 13.5843 2.5 13.75C2.5 13.9158 2.56585 14.0748 2.68306 14.192C2.80027 14.3092 2.95924 14.375 3.125 14.375H10.7031C10.8408 14.9128 11.1536 15.3894 11.5921 15.7298C12.0306 16.0702 12.5699 16.2549 13.125 16.2549C13.6801 16.2549 14.2194 16.0702 14.6579 15.7298C15.0964 15.3894 15.4092 14.9128 15.5469 14.375H16.875C17.0408 14.375 17.1997 14.3092 17.3169 14.192C17.4342 14.0748 17.5 13.9158 17.5 13.75C17.5 13.5843 17.4342 13.4253 17.3169 13.3081C17.1997 13.1909 17.0408 13.125 16.875 13.125ZM13.125 15C12.8778 15 12.6361 14.9267 12.4305 14.7894C12.225 14.652 12.0648 14.4568 11.9701 14.2284C11.8755 14 11.8508 13.7486 11.899 13.5062C11.9472 13.2637 12.0663 13.041 12.2411 12.8661C12.4159 12.6913 12.6387 12.5723 12.8811 12.524C13.1236 12.4758 13.3749 12.5006 13.6034 12.5952C13.8318 12.6898 14.027 12.85 14.1643 13.0556C14.3017 13.2611 14.375 13.5028 14.375 13.75C14.375 14.0815 14.2433 14.3995 14.0089 14.6339C13.7745 14.8683 13.4565 15 13.125 15Z" fill="#4D4E4F"></path>
-                        </svg>   
+                        <svg width="20" height="20" viewbox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M3.125 6.87502H5.70312C5.84081 7.41278 6.15356 7.88942 6.59207 8.22979C7.03057 8.57017 7.56989 8.75492 8.125 8.75492C8.68011 8.75492 9.21943 8.57017 9.65793 8.22979C10.0964 7.88942 10.4092 7.41278 10.5469 6.87502H16.875C17.0408 6.87502 17.1997 6.80917 17.3169 6.69196C17.4342 6.57475 17.5 6.41578 17.5 6.25002C17.5 6.08426 17.4342 5.92529 17.3169 5.80808C17.1997 5.69087 17.0408 5.62502 16.875 5.62502H10.5469C10.4092 5.08726 10.0964 4.61062 9.65793 4.27024C9.21943 3.92987 8.68011 3.74512 8.125 3.74512C7.56989 3.74512 7.03057 3.92987 6.59207 4.27024C6.15356 4.61062 5.84081 5.08726 5.70312 5.62502H3.125C2.95924 5.62502 2.80027 5.69087 2.68306 5.80808C2.56585 5.92529 2.5 6.08426 2.5 6.25002C2.5 6.41578 2.56585 6.57475 2.68306 6.69196C2.80027 6.80917 2.95924 6.87502 3.125 6.87502ZM8.125 5.00002C8.37223 5.00002 8.6139 5.07333 8.81946 5.21068C9.02502 5.34803 9.18524 5.54326 9.27985 5.77167C9.37446 6.00007 9.39921 6.25141 9.35098 6.49388C9.30275 6.73636 9.1837 6.95909 9.00888 7.1339C8.83407 7.30872 8.61134 7.42777 8.36886 7.476C8.12639 7.52423 7.87505 7.49948 7.64665 7.40487C7.41824 7.31026 7.22301 7.15004 7.08566 6.94448C6.94831 6.73892 6.875 6.49725 6.875 6.25002C6.875 5.9185 7.0067 5.60056 7.24112 5.36614C7.47554 5.13172 7.79348 5.00002 8.125 5.00002ZM16.875 13.125H15.5469C15.4092 12.5873 15.0964 12.1106 14.6579 11.7702C14.2194 11.4299 13.6801 11.2451 13.125 11.2451C12.5699 11.2451 12.0306 11.4299 11.5921 11.7702C11.1536 12.1106 10.8408 12.5873 10.7031 13.125H3.125C2.95924 13.125 2.80027 13.1909 2.68306 13.3081C2.56585 13.4253 2.5 13.5843 2.5 13.75C2.5 13.9158 2.56585 14.0748 2.68306 14.192C2.80027 14.3092 2.95924 14.375 3.125 14.375H10.7031C10.8408 14.9128 11.1536 15.3894 11.5921 15.7298C12.0306 16.0702 12.5699 16.2549 13.125 16.2549C13.6801 16.2549 14.2194 16.0702 14.6579 15.7298C15.0964 15.3894 15.4092 14.9128 15.5469 14.375H16.875C17.0408 14.375 17.1997 14.3092 17.3169 14.192C17.4342 14.0748 17.5 13.9158 17.5 13.75C17.5 13.5843 17.4342 13.4253 17.3169 13.3081C17.1997 13.1909 17.0408 13.125 16.875 13.125ZM13.125 15C12.8778 15 12.6361 14.9267 12.4305 14.7894C12.225 14.652 12.0648 14.4568 11.9701 14.2284C11.8755 14 11.8508 13.7486 11.899 13.5062C11.9472 13.2637 12.0663 13.041 12.2411 12.8661C12.4159 12.6913 12.6387 12.5723 12.8811 12.524C13.1236 12.4758 13.3749 12.5006 13.6034 12.5952C13.8318 12.6898 14.027 12.85 14.1643 13.0556C14.3017 13.2611 14.375 13.5028 14.375 13.75C14.375 14.0815 14.2433 14.3995 14.0089 14.6339C13.7745 14.8683 13.4565 15 13.125 15Z"
+                                fill="#4D4E4F"></path>
+                        </svg>
                     </div>
                     <div class="toolbar-label">Filters</div>
                 </a>
@@ -92,9 +98,12 @@
             <div class="toolbar-item">
                 <a href="#search" data-bs-toggle="modal">
                     <div class="toolbar-icon">
-                        <svg class="icon" width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.9419 17.058L14.0302 13.1471C15.1639 11.7859 15.7293 10.04 15.6086 8.27263C15.488 6.50524 14.6906 4.85241 13.3823 3.65797C12.074 2.46353 10.3557 1.81944 8.58462 1.85969C6.81357 1.89994 5.12622 2.62143 3.87358 3.87407C2.62094 5.12671 1.89945 6.81406 1.8592 8.5851C1.81895 10.3561 2.46304 12.0745 3.65748 13.3828C4.85192 14.691 6.50475 15.4884 8.27214 15.6091C10.0395 15.7298 11.7854 15.1644 13.1466 14.0306L17.0575 17.9424C17.1156 18.0004 17.1845 18.0465 17.2604 18.0779C17.3363 18.1094 17.4176 18.1255 17.4997 18.1255C17.5818 18.1255 17.6631 18.1094 17.739 18.0779C17.8149 18.0465 17.8838 18.0004 17.9419 17.9424C17.9999 17.8843 18.046 17.8154 18.0774 17.7395C18.1089 17.6636 18.125 17.5823 18.125 17.5002C18.125 17.4181 18.1089 17.3367 18.0774 17.2609C18.046 17.185 17.9999 17.1161 17.9419 17.058ZM3.12469 8.75018C3.12469 7.63766 3.45459 6.55012 4.07267 5.6251C4.69076 4.70007 5.56926 3.9791 6.5971 3.55336C7.62493 3.12761 8.75593 3.01622 9.84707 3.23326C10.9382 3.4503 11.9405 3.98603 12.7272 4.7727C13.5138 5.55937 14.0496 6.56165 14.2666 7.6528C14.4837 8.74394 14.3723 9.87494 13.9465 10.9028C13.5208 11.9306 12.7998 12.8091 11.8748 13.4272C10.9497 14.0453 9.86221 14.3752 8.74969 14.3752C7.25836 14.3735 5.82858 13.7804 4.77404 12.7258C3.71951 11.6713 3.12634 10.2415 3.12469 8.75018Z" fill="#4D4E4F"></path>
-                        </svg>                            
+                        <svg class="icon" width="20" height="20" viewbox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17.9419 17.058L14.0302 13.1471C15.1639 11.7859 15.7293 10.04 15.6086 8.27263C15.488 6.50524 14.6906 4.85241 13.3823 3.65797C12.074 2.46353 10.3557 1.81944 8.58462 1.85969C6.81357 1.89994 5.12622 2.62143 3.87358 3.87407C2.62094 5.12671 1.89945 6.81406 1.8592 8.5851C1.81895 10.3561 2.46304 12.0745 3.65748 13.3828C4.85192 14.691 6.50475 15.4884 8.27214 15.6091C10.0395 15.7298 11.7854 15.1644 13.1466 14.0306L17.0575 17.9424C17.1156 18.0004 17.1845 18.0465 17.2604 18.0779C17.3363 18.1094 17.4176 18.1255 17.4997 18.1255C17.5818 18.1255 17.6631 18.1094 17.739 18.0779C17.8149 18.0465 17.8838 18.0004 17.9419 17.9424C17.9999 17.8843 18.046 17.8154 18.0774 17.7395C18.1089 17.6636 18.125 17.5823 18.125 17.5002C18.125 17.4181 18.1089 17.3367 18.0774 17.2609C18.046 17.185 17.9999 17.1161 17.9419 17.058ZM3.12469 8.75018C3.12469 7.63766 3.45459 6.55012 4.07267 5.6251C4.69076 4.70007 5.56926 3.9791 6.5971 3.55336C7.62493 3.12761 8.75593 3.01622 9.84707 3.23326C10.9382 3.4503 11.9405 3.98603 12.7272 4.7727C13.5138 5.55937 14.0496 6.56165 14.2666 7.6528C14.4837 8.74394 14.3723 9.87494 13.9465 10.9028C13.5208 11.9306 12.7998 12.8091 11.8748 13.4272C10.9497 14.0453 9.86221 14.3752 8.74969 14.3752C7.25836 14.3735 5.82858 13.7804 4.77404 12.7258C3.71951 11.6713 3.12634 10.2415 3.12469 8.75018Z"
+                                fill="#4D4E4F"></path>
+                        </svg>
                     </div>
                     <div class="toolbar-label">Search</div>
                 </a>
@@ -102,9 +111,12 @@
             <div class="toolbar-item">
                 <a href="#wishlist" data-bs-toggle="modal">
                     <div class="toolbar-icon">
-                        <svg class="icon" width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.4215 4.45326C16.5724 3.60627 15.4225 3.12997 14.2231 3.1285C13.0238 3.12704 11.8727 3.60054 11.0215 4.44545L9.99965 5.39467L8.97699 4.44232C8.12602 3.59373 6.9728 3.11795 5.77103 3.11963C4.56926 3.12132 3.41738 3.60034 2.56879 4.45131C1.7202 5.30228 1.24441 6.4555 1.2461 7.65727C1.24778 8.85904 1.7268 10.0109 2.57777 10.8595L9.55824 17.9423C9.6164 18.0014 9.68572 18.0483 9.76217 18.0803C9.83862 18.1123 9.92067 18.1288 10.0036 18.1288C10.0864 18.1288 10.1685 18.1123 10.2449 18.0803C10.3214 18.0483 10.3907 18.0014 10.4489 17.9423L17.4215 10.8595C18.2707 10.0098 18.7477 8.85768 18.7477 7.65639C18.7477 6.45509 18.2707 5.30296 17.4215 4.45326ZM16.5348 9.98139L9.99965 16.6095L3.46059 9.97514C2.8452 9.35975 2.49948 8.52511 2.49948 7.65482C2.49948 6.78454 2.8452 5.9499 3.46059 5.33451C4.07597 4.71913 4.91061 4.37341 5.7809 4.37341C6.65118 4.37341 7.48583 4.71913 8.10121 5.33451L8.11684 5.35014L9.57387 6.7056C9.68953 6.81324 9.84166 6.87307 9.99965 6.87307C10.1576 6.87307 10.3098 6.81324 10.4254 6.7056L11.8825 5.35014L11.8981 5.33451C12.5139 4.71954 13.3488 4.37438 14.219 4.37497C15.0893 4.37555 15.9237 4.72184 16.5387 5.33764C17.1537 5.95344 17.4988 6.78831 17.4983 7.6586C17.4977 8.52888 17.1514 9.36329 16.5356 9.97826L16.5348 9.98139Z" fill="#4D4E4F"></path>
-                        </svg>  
+                        <svg class="icon" width="20" height="20" viewbox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17.4215 4.45326C16.5724 3.60627 15.4225 3.12997 14.2231 3.1285C13.0238 3.12704 11.8727 3.60054 11.0215 4.44545L9.99965 5.39467L8.97699 4.44232C8.12602 3.59373 6.9728 3.11795 5.77103 3.11963C4.56926 3.12132 3.41738 3.60034 2.56879 4.45131C1.7202 5.30228 1.24441 6.4555 1.2461 7.65727C1.24778 8.85904 1.7268 10.0109 2.57777 10.8595L9.55824 17.9423C9.6164 18.0014 9.68572 18.0483 9.76217 18.0803C9.83862 18.1123 9.92067 18.1288 10.0036 18.1288C10.0864 18.1288 10.1685 18.1123 10.2449 18.0803C10.3214 18.0483 10.3907 18.0014 10.4489 17.9423L17.4215 10.8595C18.2707 10.0098 18.7477 8.85768 18.7477 7.65639C18.7477 6.45509 18.2707 5.30296 17.4215 4.45326ZM16.5348 9.98139L9.99965 16.6095L3.46059 9.97514C2.8452 9.35975 2.49948 8.52511 2.49948 7.65482C2.49948 6.78454 2.8452 5.9499 3.46059 5.33451C4.07597 4.71913 4.91061 4.37341 5.7809 4.37341C6.65118 4.37341 7.48583 4.71913 8.10121 5.33451L8.11684 5.35014L9.57387 6.7056C9.68953 6.81324 9.84166 6.87307 9.99965 6.87307C10.1576 6.87307 10.3098 6.81324 10.4254 6.7056L11.8825 5.35014L11.8981 5.33451C12.5139 4.71954 13.3488 4.37438 14.219 4.37497C15.0893 4.37555 15.9237 4.72184 16.5387 5.33764C17.1537 5.95344 17.4988 6.78831 17.4983 7.6586C17.4977 8.52888 17.1514 9.36329 16.5356 9.97826L16.5348 9.98139Z"
+                                fill="#4D4E4F"></path>
+                        </svg>
                         <!-- <div class="toolbar-count">1</div> -->
                     </div>
                     <div class="toolbar-label">Wishlist</div>
@@ -113,9 +125,13 @@
             <div class="toolbar-item">
                 <a href="#shoppingCart" data-bs-toggle="modal">
                     <div class="toolbar-icon">
-                        <svg class="icon" width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.75 8.23389V4.48389C13.75 3.48932 13.3549 2.5355 12.6517 1.83224C11.9484 1.12897 10.9946 0.733887 10 0.733887C9.00544 0.733887 8.05161 1.12897 7.34835 1.83224C6.64509 2.5355 6.25 3.48932 6.25 4.48389V8.23389M3.4375 6.35889H16.5625L17.5 17.6089H2.5L3.4375 6.35889Z" stroke="#4D4E4F" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>  
+                        <svg class="icon" width="20" height="20" viewbox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.75 8.23389V4.48389C13.75 3.48932 13.3549 2.5355 12.6517 1.83224C11.9484 1.12897 10.9946 0.733887 10 0.733887C9.00544 0.733887 8.05161 1.12897 7.34835 1.83224C6.64509 2.5355 6.25 3.48932 6.25 4.48389V8.23389M3.4375 6.35889H16.5625L17.5 17.6089H2.5L3.4375 6.35889Z"
+                                stroke="#4D4E4F" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
                     </div>
                     <div class="toolbar-label">Cart</div>
                 </a>
@@ -126,7 +142,7 @@
 
     </div>
 
-   <!-- search -->
+    <!-- search -->
     <div class="modal fade modal-search" id="search">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -136,12 +152,18 @@
                 </div>
                 <form class="form-search">
                     <fieldset class="text">
-                        <input type="text" placeholder="Searching..." class="" name="text" tabindex="0" value="" aria-required="true" required="">
+                        <input type="text" placeholder="Searching..." class="" name="text"
+                            tabindex="0" value="" aria-required="true" required="">
                     </fieldset>
                     <button class="" type="submit">
-                        <svg class="icon" width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M21.35 21.0004L17 16.6504" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <svg class="icon" width="20" height="20" viewbox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M21.35 21.0004L17 16.6504" stroke="#181818" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                     </button>
                 </form>
@@ -156,12 +178,19 @@
                 </div>
                 <div>
                     <h6 class="mb_16">Recently viewed products</h6>
-                    <div class="tf-grid-layout tf-col-2 lg-col-3 xl-col-4 loadmore-item" data-display="4" data-count="4">
+                    <div class="tf-grid-layout tf-col-2 lg-col-3 xl-col-4 loadmore-item" data-display="4"
+                        data-count="4">
                         <div class="fl-item card-product card-product-size">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-8.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-8.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-9.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-9.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-8.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-8.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-9.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-9.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="variant-wrap size-list">
                                     <ul class="variant-box">
@@ -176,71 +205,95 @@
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
                                     <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                </div> 
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Ribbed cotton-blend top</a>
+                                <a href="#" class="title link">Ribbed cotton-blend
+                                    top</a>
                                 <span class="price current-price">$39.99</span>
                             </div>
                         </div>
                         <div class="fl-item card-product">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-171.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-171.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-172.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-172.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-171.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-171.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-172.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-172.jpg') }}"
+                                        alt="image-product">
                                 </a>
-                                
+
                                 <div class="list-product-btn">
                                     <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
                                     <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                </div> 
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Faux-leather trousers</a>
+                                <a href="#" class="title link">Faux-leather
+                                    trousers</a>
                                 <span class="price current-price">$79.99</span>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active">
                                         <span class="d-none text-capitalize color-filter">Orange</span>
                                         <span class="swatch-value bg-orange"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-171.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-171.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-171.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-171.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch">
                                         <span class="d-none text-capitalize color-filter">Pink</span>
                                         <span class="swatch-value bg-dark-pink"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-172.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-172.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-172.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-172.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="fl-item card-product card-product-size">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-84.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-84.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-84.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-84.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="on-sale-wrap"><span class="on-sale-item">-25%</span></div>
                                 <div class="variant-wrap size-list">
@@ -256,46 +309,64 @@
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
                                     <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                </div> 
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Belt wrap dress</a>
-                                <div class="price"><span class="old-price">$98.00</span><span class="current-price">$129.99</span></div>
+                                <a href="#" class="title link">Belt wrap dress</a>
+                                <div class="price"><span class="old-price">$98.00</span><span
+                                        class="current-price">$129.99</span></div>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active">
                                         <span class="d-none text-capitalize color-filter">Green</span>
                                         <span class="swatch-value bg-light-green"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch">
                                         <span class="d-none text-capitalize color-filter">Grey</span>
                                         <span class="swatch-value bg-grey"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-94.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-94.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-94.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-94.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch line">
                                         <span class="d-none text-capitalize color-filter">White</span>
                                         <span class="swatch-value bg-white"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-87.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-87.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-87.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-87.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="fl-item card-product card-product-size">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-102.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-102.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-103.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-103.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-102.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-102.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-103.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-103.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="on-sale-wrap"><span class="on-sale-item">-25%</span></div>
                                 <div class="variant-wrap size-list">
@@ -311,106 +382,140 @@
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
                                     <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                </div> 
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Double-button trench coat</a>
-                                <div class="price"><span class="old-price">$98.00</span><span class="current-price">$219.99</span></div>
+                                <a href="#" class="title link">Double-button trench
+                                    coat</a>
+                                <div class="price"><span class="old-price">$98.00</span><span
+                                        class="current-price">$219.99</span></div>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active">
                                         <span class="d-none text-capitalize color-filter">Grey</span>
                                         <span class="swatch-value bg-grey-2"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-102.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-102.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-102.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-102.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch">
                                         <span class="d-none text-capitalize color-filter">Orange</span>
                                         <span class="swatch-value bg-light-orange"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-111.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-111.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-111.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-111.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch line">
                                         <span class="d-none text-capitalize color-filter">White</span>
                                         <span class="swatch-value bg-white"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-104.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-104.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-104.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-104.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="fl-item card-product">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/mens/men-11.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-11.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/mens/men-12.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-12.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-11.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-11.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-12.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-12.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="list-product-btn">
                                     <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
-                                    <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                </div> 
+                                    <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To
+                                        cart</a>
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">V-neck cotton T-shirt</a>
+                                <a href="#" class="title link">V-neck cotton
+                                    T-shirt</a>
                                 <span class="price current-price">$59.99</span>
                             </div>
                         </div>
                         <div class="fl-item card-product">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/mens/men-14.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-14.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-14.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-14.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="on-sale-wrap"><span class="on-sale-item">-25%</span></div>
                                 <div class="marquee-product bg-main">
                                     <div class="marquee-wrapper">
                                         <div class="initial-child-container">
                                             <div class="marquee-child-item">
-                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
+                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF
+                                                </p>
                                             </div>
                                             <div class="marquee-child-item">
                                                 <span class="icon icon-lightning text-critical"></span>
                                             </div>
                                             <div class="marquee-child-item">
-                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
+                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF
+                                                </p>
                                             </div>
                                             <div class="marquee-child-item">
                                                 <span class="icon icon-lightning text-critical"></span>
                                             </div>
                                             <div class="marquee-child-item">
-                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
+                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF
+                                                </p>
                                             </div>
                                             <div class="marquee-child-item">
                                                 <span class="icon icon-lightning text-critical"></span>
                                             </div>
                                             <div class="marquee-child-item">
-                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
+                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF
+                                                </p>
                                             </div>
                                             <div class="marquee-child-item">
                                                 <span class="icon icon-lightning text-critical"></span>
                                             </div>
                                             <div class="marquee-child-item">
-                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
+                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF
+                                                </p>
                                             </div>
                                             <div class="marquee-child-item">
                                                 <span class="icon icon-lightning text-critical"></span>
@@ -420,31 +525,36 @@
                                     <div class="marquee-wrapper">
                                         <div class="initial-child-container">
                                             <div class="marquee-child-item">
-                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
+                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF
+                                                </p>
                                             </div>
                                             <div class="marquee-child-item">
                                                 <span class="icon icon-lightning text-critical"></span>
                                             </div>
                                             <div class="marquee-child-item">
-                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
+                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF
+                                                </p>
                                             </div>
                                             <div class="marquee-child-item">
                                                 <span class="icon icon-lightning text-critical"></span>
                                             </div>
                                             <div class="marquee-child-item">
-                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
+                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF
+                                                </p>
                                             </div>
                                             <div class="marquee-child-item">
                                                 <span class="icon icon-lightning text-critical"></span>
                                             </div>
                                             <div class="marquee-child-item">
-                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
+                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF
+                                                </p>
                                             </div>
                                             <div class="marquee-child-item">
                                                 <span class="icon icon-lightning text-critical"></span>
                                             </div>
                                             <div class="marquee-child-item">
-                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
+                                                <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF
+                                                </p>
                                             </div>
                                             <div class="marquee-child-item">
                                                 <span class="icon icon-lightning text-critical"></span>
@@ -457,41 +567,58 @@
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
-                                    <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                </div> 
+                                    <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To
+                                        cart</a>
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Polarized sunglasses</a>
-                                <div class="price"><span class="old-price">$98.00</span> <span class="current-price">$79.99</span></div>
+                                <a href="#" class="title link">Polarized
+                                    sunglasses</a>
+                                <div class="price"><span class="old-price">$98.00</span> <span
+                                        class="current-price">$79.99</span></div>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active">
                                         <span class="d-none text-capitalize color-filter">Beige</span>
                                         <span class="swatch-value bg-beige"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch">
                                         <span class="d-none text-capitalize color-filter">Light Blue</span>
                                         <span class="swatch-value bg-light-blue-2"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/mens/men-12.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-12.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/mens/men-12.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/mens/men-12.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="fl-item card-product card-product-size">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/mens/men-7.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-7.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/mens/men-8.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-8.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-7.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-7.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-8.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-8.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="on-sale-wrap"><span class="on-sale-item">-25%</span></div>
                                 <div class="variant-wrap size-list">
@@ -504,7 +631,8 @@
                                 </div>
                                 <div class="variant-wrap countdown-wrap">
                                     <div class="variant-box">
-                                        <div class="js-countdown" data-timer="1007500" data-labels="D :,H :,M :,S"></div>
+                                        <div class="js-countdown" data-timer="1007500" data-labels="D :,H :,M :,S">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="list-product-btn">
@@ -512,88 +640,123 @@
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
                                     <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                </div> 
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Ramie shirt with pockets </a>
-                                <div class="price"><span class="old-price">$98.00</span> <span class="current-price">$89.99</span></div>
+                                <a href="#" class="title link">Ramie shirt with
+                                    pockets </a>
+                                <div class="price"><span class="old-price">$98.00</span> <span
+                                        class="current-price">$89.99</span></div>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active line">
                                         <span class="d-none text-capitalize color-filter">Green</span>
                                         <span class="swatch-value bg-light-green"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/mens/men-7.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-7.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/mens/men-7.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/mens/men-7.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch">
                                         <span class="d-none text-capitalize color-filter">Grey</span>
                                         <span class="swatch-value bg-light-grey"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/mens/men-11.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-11.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/mens/men-11.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/mens/men-11.jpg') }}"
+                                            alt="image-product">
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
                         <div class="fl-item card-product">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/mens/men-1.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-1.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/mens/men-3.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-3.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-1.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-1.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-3.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-3.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="list-product-btn">
                                     <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
-                                    <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                </div> 
+                                    <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To
+                                        cart</a>
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Ribbed cotton-blend top</a>
+                                <a href="#" class="title link">Ribbed cotton-blend
+                                    top</a>
                                 <span class="price current-price">$69.99</span>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active line">
                                         <span class="d-none text-capitalize color-filter">Light Blue</span>
                                         <span class="swatch-value bg-light-blue"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/mens/men-1.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-1.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/mens/men-1.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/mens/men-1.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch">
                                         <span class="d-none text-capitalize color-filter">Pink</span>
                                         <span class="swatch-value bg-light-pink"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/mens/men-13.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch">
                                         <span class="d-none text-capitalize color-filter">Grey</span>
                                         <span class="swatch-value bg-dark-grey-2"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/mens/men-9.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-9.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/mens/men-9.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/mens/men-9.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="fl-item card-product card-product-size">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-38.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-38.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-38.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-38.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="variant-wrap size-list">
                                     <ul class="variant-box">
@@ -609,41 +772,56 @@
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
                                     <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                </div> 
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Buttoned cotton shirt</a>
+                                <a href="#" class="title link">Buttoned cotton
+                                    shirt</a>
                                 <span class="price current-price">$89.99</span>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active">
                                         <span class="d-none text-capitalize color-filter">Light Blue</span>
                                         <span class="swatch-value bg-light-blue"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch line">
                                         <span class="d-none text-capitalize color-filter">White</span>
                                         <span class="swatch-value bg-white"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-41.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-41.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-41.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-41.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="fl-item card-product card-product-size">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/mens/men-15.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-15.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/mens/men-16.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-16.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-15.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-15.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-16.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-16.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="variant-wrap size-list">
                                     <ul class="variant-box">
@@ -660,88 +838,121 @@
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
                                     <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                </div> 
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Chest pocket cotton over shirt</a>
+                                <a href="#" class="title link">Chest pocket cotton
+                                    over shirt</a>
                                 <span class="price current-price">$99.25</span>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active">
                                         <span class="d-none text-capitalize color-filter">Beige</span>
                                         <span class="swatch-value bg-beige"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/mens/men-15.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-15.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/mens/men-15.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/mens/men-15.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch">
                                         <span class="d-none text-capitalize color-filter">Black</span>
                                         <span class="swatch-value bg-main"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/mens/men-18.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-18.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/mens/men-18.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/mens/men-18.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch">
                                         <span class="d-none text-capitalize color-filter">Dark Blue</span>
                                         <span class="swatch-value bg-dark-blue"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/mens/men-17.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-17.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/mens/men-17.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/mens/men-17.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="fl-item card-product">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-168.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-168.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/womens/women-168.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/womens/women-168.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="list-product-btn">
                                     <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
-                                    <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                </div> 
+                                    <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To
+                                        cart</a>
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Cotton shopper bag</a>
+                                <a href="#" class="title link">Cotton shopper bag</a>
                                 <span class="price current-price">$199.25</span>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active line">
                                         <span class="d-none text-capitalize color-filter">White</span>
                                         <span class="swatch-value bg-white"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}"
+                                            alt="image-product">
                                     </li>
                                     <li class="list-color-item color-swatch">
                                         <span class="d-none text-capitalize color-filter">Beige</span>
                                         <span class="swatch-value bg-beige"></span>
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-162.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-162.jpg') }}" alt="image-product">
+                                        <img class="lazyload"
+                                            data-src="{{ asset('front_assets/images/products/womens/women-162.jpg') }}"
+                                            src="{{ asset('front_assets/images/products/womens/women-162.jpg') }}"
+                                            alt="image-product">
                                     </li>
-                                   
+
                                 </ul>
                             </div>
                         </div>
                         <div class="fl-item card-product card-product-size">
                             <div class="card-product-wrapper">
-                                <a href="{{ route('front.shop_detail') }}" class="product-img">
-                                    <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/mens/men-19.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-19.jpg') }}" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/mens/men-20.jpg') }}" src="{{ asset('front_assets/images/products/mens/men-20.jpg') }}" alt="image-product">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-product"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-19.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-19.jpg') }}"
+                                        alt="image-product">
+                                    <img class="lazyload img-hover"
+                                        data-src="{{ asset('front_assets/images/products/mens/men-20.jpg') }}"
+                                        src="{{ asset('front_assets/images/products/mens/men-20.jpg') }}"
+                                        alt="image-product">
                                 </a>
                                 <div class="variant-wrap size-list">
                                     <ul class="variant-box">
@@ -758,36 +969,40 @@
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Wishlist</span>
                                     </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon compare btn-icon-action">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip">Compare</span>
                                     </a>
-                                    <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
+                                    <a href="#quickView" data-bs-toggle="modal"
+                                        class="box-icon quickview tf-btn-loading">
                                         <span class="icon icon-eye"></span>
                                         <span class="tooltip">Quick View</span>
                                     </a>
                                 </div>
                                 <div class="list-btn-main">
                                     <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                </div> 
+                                </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="{{ route('front.shop_detail') }}" class="title link">Chest pocket cotton over shirt</a>
+                                <a href="#" class="title link">Chest pocket cotton
+                                    over shirt</a>
                                 <span class="price current-price">$250.00</span>
-                                
+
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </div>
                 <!-- Load Item -->
                 <div class="wd-load view-more-button text-center">
-                    <button class="tf-loading btn-loadmore tf-btn btn-reset"><span class="text text-btn text-btn-uppercase">Load more</span></button>
-                </div> 
+                    <button class="tf-loading btn-loadmore tf-btn btn-reset"><span
+                            class="text text-btn text-btn-uppercase">Load more</span></button>
+                </div>
             </div>
         </div>
     </div>
     <!-- /search -->
-    
+
     <!-- modalDemo -->
     <div class="modal fade modalDemo" id="modalDemo">
         <div class="modal-dialog modal-dialog-centered">
@@ -797,7 +1012,10 @@
                         <div class="demo-item">
                             <a href="index.html">
                                 <div class="demo-image position-relative">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-womenswear.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-womenswear.jpg') }}" alt="home-fashion-womenswear">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-womenswear.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-womenswear.jpg') }}"
+                                        alt="home-fashion-womenswear">
                                     <div class="demo-label">
                                         <span class="demo-new">New</span>
                                         <span>Trend</span>
@@ -809,7 +1027,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-eleganceNest.html">
                                 <div class="demo-image position-relative">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-eleganceNest.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-eleganceNest.jpg') }}" alt="home-fashion-eleganceNest">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-eleganceNest.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-eleganceNest.jpg') }}"
+                                        alt="home-fashion-eleganceNest">
                                     <div class="demo-label">
                                         <span class="demo-new">New</span>
                                         <span class="demo-hot">Hot</span>
@@ -821,7 +1042,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-main.html">
                                 <div class="demo-image position-relative">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-main.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-main.jpg') }}" alt="home-fashion-main">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-main.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-main.jpg') }}"
+                                        alt="home-fashion-main">
                                     <div class="demo-label">
                                         <span class="demo-hot">Hot</span>
                                     </div>
@@ -832,7 +1056,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-trendset.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-trendset.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-trendset.jpg') }}" alt="home-fashion-trendset">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-trendset.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-trendset.jpg') }}"
+                                        alt="home-fashion-trendset">
                                 </div>
                                 <span class="demo-name">Fashion TrendsetHome</span>
                             </a>
@@ -840,7 +1067,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-vogueLing.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-vogueLiving.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-vogueLiving.jpg') }}" alt="home-fashion-vogueLiving">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-vogueLiving.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-vogueLiving.jpg') }}"
+                                        alt="home-fashion-vogueLiving">
                                 </div>
                                 <span class="demo-name">Fashion VogueLiving</span>
                             </a>
@@ -848,7 +1078,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-elegantAbode.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-elegantAbode.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-elegantAbode.jpg') }}" alt="home-fashion-elegantAbode">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-elegantAbode.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-elegantAbode.jpg') }}"
+                                        alt="home-fashion-elegantAbode">
                                 </div>
                                 <span class="demo-name">Fashion ElegantAbode</span>
                             </a>
@@ -856,7 +1089,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-glamDwell.html">
                                 <div class="demo-image position-relative">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-glamDwell.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-glamDwell.jpg') }}" alt="home-fashion-glamDwell">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-glamDwell.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-glamDwell.jpg') }}"
+                                        alt="home-fashion-glamDwell">
                                     <div class="demo-label">
                                         <span class="demo-new">New</span>
                                     </div>
@@ -867,7 +1103,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-classyCove.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-classycove.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-classycove.jpg') }}" alt="home-fashion-classyCove">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-classycove.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-classycove.jpg') }}"
+                                        alt="home-fashion-classyCove">
                                 </div>
                                 <span class="demo-name">Fashion ClassyCove</span>
                             </a>
@@ -875,7 +1114,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-chicHaven.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-chicHaven.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-chicHaven.jpg') }}" alt="home-fashion-chicHaven1">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-chicHaven.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-chicHaven.jpg') }}"
+                                        alt="home-fashion-chicHaven1">
                                 </div>
                                 <span class="demo-name">Fashion ChicHaven 1</span>
                             </a>
@@ -883,7 +1125,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-chicHaven-02.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-chicHaven2.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-chicHaven2.jpg') }}" alt="home-fashion-chicHaven2">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-chicHaven2.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-chicHaven2.jpg') }}"
+                                        alt="home-fashion-chicHaven2">
                                 </div>
                                 <span class="demo-name">Fashion ChicHaven 2</span>
                             </a>
@@ -891,7 +1136,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-tiktok.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-tiktok.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-tiktok.jpg') }}" alt="home-fashion-tiktok">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-tiktok.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-tiktok.jpg') }}"
+                                        alt="home-fashion-tiktok">
                                 </div>
                                 <span class="demo-name">Fashion TikTok</span>
                             </a>
@@ -899,7 +1147,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-luxeLiving.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-luxeLiving.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-luxeLiving.jpg') }}" alt="home-fashion-luxeLiving">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-luxeLiving.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-luxeLiving.jpg') }}"
+                                        alt="home-fashion-luxeLiving">
                                 </div>
                                 <span class="demo-name">Fashion LuxeLiving</span>
                             </a>
@@ -907,7 +1158,10 @@
                         <div class="demo-item">
                             <a href="home-fashion-modernRetreat.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-fashion-modernRetreat.jpg') }}" src="{{ asset('front_assets/images/demo/home-fashion-modernRetreat.jpg') }}" alt="home-fashion-modernRetreat">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-fashion-modernRetreat.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-fashion-modernRetreat.jpg') }}"
+                                        alt="home-fashion-modernRetreat">
                                 </div>
                                 <span class="demo-name">Fashion ModernRetreat</span>
                             </a>
@@ -915,7 +1169,10 @@
                         <div class="demo-item">
                             <a href="home-beauty.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-beauty.jpg') }}" src="{{ asset('front_assets/images/demo/home-beauty.jpg') }}" alt="home-beauty">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-beauty.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-beauty.jpg') }}"
+                                        alt="home-beauty">
                                 </div>
                                 <span class="demo-name">Beauty</span>
                             </a>
@@ -923,7 +1180,10 @@
                         <div class="demo-item">
                             <a href="home-skincare.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-skinCare.jpg') }}" src="{{ asset('front_assets/images/demo/home-skinCare.jpg') }}" alt="home-skincare">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-skinCare.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-skinCare.jpg') }}"
+                                        alt="home-skincare">
                                 </div>
                                 <span class="demo-name">Skin Care</span>
                             </a>
@@ -931,7 +1191,10 @@
                         <div class="demo-item">
                             <a href="home-cosmetic.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-cosmetic.jpg') }}" src="{{ asset('front_assets/images/demo/home-cosmetic.jpg') }}" alt="home-cosmetic">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-cosmetic.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-cosmetic.jpg') }}"
+                                        alt="home-cosmetic">
                                 </div>
                                 <span class="demo-name">Cosmetic</span>
                             </a>
@@ -939,7 +1202,10 @@
                         <div class="demo-item">
                             <a href="home-decor.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-decor.jpg') }}" src="{{ asset('front_assets/images/demo/home-decor.jpg') }}" alt="home-decor">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-decor.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-decor.jpg') }}"
+                                        alt="home-decor">
                                 </div>
                                 <span class="demo-name">Decor</span>
                             </a>
@@ -947,7 +1213,10 @@
                         <div class="demo-item">
                             <a href="home-furniture.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-furniture.jpg') }}" src="{{ asset('front_assets/images/demo/home-furniture.jpg') }}" alt="home-furniture">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-furniture.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-furniture.jpg') }}"
+                                        alt="home-furniture">
                                 </div>
                                 <span class="demo-name">Furniture</span>
                             </a>
@@ -955,7 +1224,10 @@
                         <div class="demo-item">
                             <a href="home-jewelry-01.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-jewelry.jpg') }}" src="{{ asset('front_assets/images/demo/home-jewelry.jpg') }}" alt="home-jewelry-elegantGems">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-jewelry.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-jewelry.jpg') }}"
+                                        alt="home-jewelry-elegantGems">
                                 </div>
                                 <span class="demo-name">Jewelry ElegantGems</span>
                             </a>
@@ -963,7 +1235,10 @@
                         <div class="demo-item">
                             <a href="home-jewelry-02.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-jewelry2.jpg') }}" src="{{ asset('front_assets/images/demo/home-jewelry2.jpg') }}" alt="home-jewelry-glitterGlam">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-jewelry2.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-jewelry2.jpg') }}"
+                                        alt="home-jewelry-glitterGlam">
                                 </div>
                                 <span class="demo-name">Jewelry GlitterGlam</span>
                             </a>
@@ -971,7 +1246,10 @@
                         <div class="demo-item">
                             <a href="home-activewear.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-activewear.jpg') }}" src="{{ asset('front_assets/images/demo/home-activewear.jpg') }}" alt="home-activewear">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-activewear.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-activewear.jpg') }}"
+                                        alt="home-activewear">
                                 </div>
                                 <span class="demo-name">Activewear</span>
                             </a>
@@ -979,7 +1257,10 @@
                         <div class="demo-item">
                             <a href="home-organic.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-organic.jpg') }}" src="{{ asset('front_assets/images/demo/home-organic.jpg') }}" alt="home-organic">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-organic.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-organic.jpg') }}"
+                                        alt="home-organic">
                                 </div>
                                 <span class="demo-name">Organic</span>
                             </a>
@@ -987,7 +1268,10 @@
                         <div class="demo-item">
                             <a href="home-sock.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-sock.jpg') }}" src="{{ asset('front_assets/images/demo/home-sock.jpg') }}" alt="home-sock">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-sock.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-sock.jpg') }}"
+                                        alt="home-sock">
                                 </div>
                                 <span class="demo-name">Socks</span>
                             </a>
@@ -995,7 +1279,10 @@
                         <div class="demo-item">
                             <a href="home-camping.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-camping.jpg') }}" src="{{ asset('front_assets/images/demo/home-camping.jpg') }}" alt="home-camping">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-camping.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-camping.jpg') }}"
+                                        alt="home-camping">
                                 </div>
                                 <span class="demo-name">Camping</span>
                             </a>
@@ -1003,7 +1290,10 @@
                         <div class="demo-item">
                             <a href="home-electronic.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-electronic.jpg') }}" src="{{ asset('front_assets/images/demo/home-electronic.jpg') }}" alt="home-electronic">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-electronic.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-electronic.jpg') }}"
+                                        alt="home-electronic">
                                 </div>
                                 <span class="demo-name">Electronic Market</span>
                             </a>
@@ -1011,18 +1301,21 @@
                         <div class="demo-item">
                             <a href="home-pet-store.html">
                                 <div class="demo-image">
-                                    <img class="lazyload" data-src="{{ asset('front_assets/images/demo/home-pet-store.jpg') }}" src="{{ asset('front_assets/images/demo/home-pet-store.jpg') }}" alt="home-pet-store">
+                                    <img class="lazyload"
+                                        data-src="{{ asset('front_assets/images/demo/home-pet-store.jpg') }}"
+                                        src="{{ asset('front_assets/images/demo/home-pet-store.jpg') }}"
+                                        alt="home-pet-store">
                                 </div>
                                 <span class="demo-name">Pet Store</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                
-            </div> 
+
+            </div>
         </div>
     </div>
-    <!-- /modalDemo -->  
+    <!-- /modalDemo -->
 
     @include('layouts.front.mobile_header')
 
@@ -1177,22 +1470,40 @@
                 <div class="tf-quick-view-image">
                     <div class="wrap-quick-view wrapper-scroll-quickview">
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="beige">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="">
+                            <img class="lazyload"
+                                data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}"
+                                src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}"
+                                alt="">
                         </div>
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="beige">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="">
+                            <img class="lazyload"
+                                data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}"
+                                src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}"
+                                alt="">
                         </div>
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="gray">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" alt="">
+                            <img class="lazyload"
+                                data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}"
+                                src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}"
+                                alt="">
                         </div>
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="gray">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}" alt="">
+                            <img class="lazyload"
+                                data-src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}"
+                                src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}"
+                                alt="">
                         </div>
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="grey">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="">
+                            <img class="lazyload"
+                                data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
+                                src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
+                                alt="">
                         </div>
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="grey">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" alt="">
+                            <img class="lazyload"
+                                data-src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}"
+                                src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}"
+                                alt="">
                         </div>
                     </div>
                 </div>
@@ -1231,10 +1542,12 @@
                                         -25%
                                     </div>
                                 </div>
-                                <p>The garments labelled as Committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
+                                <p>The garments labelled as Committed are products that have been produced using
+                                    sustainable fibres or processes, reducing their environmental impact.</p>
                                 <div class="tf-product-info-liveview">
                                     <i class="icon icon-eye"></i>
-                                    <p class="text-caption-1"><span class="liveview-count">28</span> people are viewing this right now</p>
+                                    <p class="text-caption-1"><span class="liveview-count">28</span> people are
+                                        viewing this right now</p>
                                 </div>
                             </div>
                         </div>
@@ -1245,17 +1558,24 @@
                                 </div>
                                 <div class="variant-picker-values">
                                     <input id="values-beige1" type="radio" name="color2" checked="">
-                                    <label class="hover-tooltip tooltip-bot radius-60 color-btn btn-scroll-quickview active" data-slide="0" data-price="79.99" for="values-beige1" data-value="Beige" data-scroll-quickview="beige">
+                                    <label
+                                        class="hover-tooltip tooltip-bot radius-60 color-btn btn-scroll-quickview active"
+                                        data-slide="0" data-price="79.99" for="values-beige1" data-value="Beige"
+                                        data-scroll-quickview="beige">
                                         <span class="btn-checkbox bg-color-beige1"></span>
                                         <span class="tooltip">Beige</span>
                                     </label>
                                     <input id="values-gray1" type="radio" name="color2">
-                                    <label class="hover-tooltip tooltip-bot radius-60 color-btn btn-scroll-quickview" data-slide="1" data-price="79.99" for="values-gray1" data-value="Gray" data-scroll-quickview="gray">
+                                    <label class="hover-tooltip tooltip-bot radius-60 color-btn btn-scroll-quickview"
+                                        data-slide="1" data-price="79.99" for="values-gray1" data-value="Gray"
+                                        data-scroll-quickview="gray">
                                         <span class="btn-checkbox bg-color-gray"></span>
                                         <span class="tooltip">Gray</span>
                                     </label>
                                     <input id="values-grey1" type="radio" name="color2">
-                                    <label class="hover-tooltip tooltip-bot radius-60 color-btn btn-scroll-quickview" data-slide="2" data-price="89.99" for="values-grey1" data-value="Grey" data-scroll-quickview="grey">
+                                    <label class="hover-tooltip tooltip-bot radius-60 color-btn btn-scroll-quickview"
+                                        data-slide="2" data-price="89.99" for="values-grey1" data-value="Grey"
+                                        data-scroll-quickview="grey">
                                         <span class="btn-checkbox bg-color-grey"></span>
                                         <span class="tooltip">Grey</span>
                                     </label>
@@ -1278,11 +1598,13 @@
                                         <span class="text-title">M</span>
                                     </label>
                                     <input type="radio" name="size2" id="values-l1" checked="">
-                                    <label class="style-text size-btn" for="values-l1" data-value="L" data-price="89.99">
+                                    <label class="style-text size-btn" for="values-l1" data-value="L"
+                                        data-price="89.99">
                                         <span class="text-title">L</span>
                                     </label>
                                     <input type="radio" name="size2" id="values-xl1">
-                                    <label class="style-text size-btn" for="values-xl1" data-value="XL" data-price="89.99">
+                                    <label class="style-text size-btn" for="values-xl1" data-value="XL"
+                                        data-price="89.99">
                                         <span class="text-title">XL</span>
                                     </label>
                                 </div>
@@ -1291,18 +1613,23 @@
                                 <div class="title mb_12">Quantity:</div>
                                 <div class="wg-quantity">
                                     <span class="btn-quantity btn-decrease">-</span>
-                                    <input class="quantity-product" type="text" name="number" value="1">
+                                    <input class="quantity-product" type="text" name="number"
+                                        value="1">
                                     <span class="btn-quantity btn-increase">+</span>
                                 </div>
                             </div>
                             <div>
                                 <div class="tf-product-info-by-btn mb_10">
-                                    <a class="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 show-shopping-cart"><span>Add to cart -&nbsp;</span><span class="tf-qty-price total-price">$79.99</span></a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon hover-tooltip compare btn-icon-action show-compare">
+                                    <a class="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 show-shopping-cart"><span>Add
+                                            to cart -&nbsp;</span><span
+                                            class="tf-qty-price total-price">$79.99</span></a>
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon hover-tooltip compare btn-icon-action show-compare">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip text-caption-2">Compare</span>
                                     </a>
-                                    <a href="javascript:void(0);" class="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action">
+                                    <a href="javascript:void(0);"
+                                        class="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action">
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip text-caption-2">Wishlist</span>
                                     </a>
@@ -1310,7 +1637,7 @@
                                 <a href="#" class="btn-style-3 text-btn-uppercase">Buy it now</a>
                             </div>
                         </div>
-                            
+
                     </div>
                 </div>
             </div>
@@ -1332,7 +1659,7 @@
                                 </div>
                                 <div class="content">
                                     <div class="name">
-                                        <a class="link text-line-clamp-1" href="{{ route('front.shop_detail') }}">Belt wrap dress</a>
+                                        <a class="link text-line-clamp-1" href="#">Belt wrap dress</a>
                                     </div>
                                     <div class="cart-item-bot">
                                         <div class="text-button price">$59.99</div>
@@ -1346,7 +1673,7 @@
                                 </div>
                                 <div class="content">
                                     <div class="name">
-                                        <a class="link text-line-clamp-1" href="{{ route('front.shop_detail') }}">Double-button coat</a>
+                                        <a class="link text-line-clamp-1" href="#">Double-button coat</a>
                                     </div>
                                     <div class="cart-item-bot">
                                         <div class="text-button price">$59.99</div>
@@ -1360,7 +1687,7 @@
                                 </div>
                                 <div class="content">
                                     <div class="name">
-                                        <a class="link text-line-clamp-1" href="{{ route('front.shop_detail') }}">Belted Manteco coat</a>
+                                        <a class="link text-line-clamp-1" href="#">Belted Manteco coat</a>
                                     </div>
                                     <div class="cart-item-bot">
                                         <div class="text-button price">$59.99</div>
@@ -1374,7 +1701,7 @@
                                 </div>
                                 <div class="content">
                                     <div class="name">
-                                        <a class="link text-line-clamp-1" href="{{ route('front.shop_detail') }}">Belt wrap dress</a>
+                                        <a class="link text-line-clamp-1" href="#">Belt wrap dress</a>
                                     </div>
                                     <div class="cart-item-bot">
                                         <div class="text-button price">$59.99</div>
@@ -1388,7 +1715,7 @@
                                 </div>
                                 <div class="content">
                                     <div class="name">
-                                        <a class="link text-line-clamp-1" href="{{ route('front.shop_detail') }}">Belt wrap dress</a>
+                                        <a class="link text-line-clamp-1" href="#">Belt wrap dress</a>
                                     </div>
                                     <div class="cart-item-bot">
                                         <div class="text-button price">$59.99</div>
@@ -1402,7 +1729,7 @@
                                 </div>
                                 <div class="content">
                                     <div class="name">
-                                        <a class="link text-line-clamp-1" href="{{ route('front.shop_detail') }}">Belt wrap dress</a>
+                                        <a class="link text-line-clamp-1" href="#">Belt wrap dress</a>
                                     </div>
                                     <div class="cart-item-bot">
                                         <div class="text-button price">$59.99</div>
@@ -1435,14 +1762,22 @@
                                     <div class="tf-mini-cart-items">
                                         <div class="tf-mini-cart-item file-delete">
                                             <div class="tf-mini-cart-image">
-                                                <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="">
+                                                <img class="lazyload"
+                                                    data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
+                                                    src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
+                                                    alt="">
                                             </div>
                                             <div class="tf-mini-cart-info flex-grow-1">
-                                                <div class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
-                                                    <div class="text-title"><a href="{{ route('front.shop_detail') }}" class="link text-line-clamp-1">Contrasting sheepskin</a></div>
+                                                <div
+                                                    class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                    <div class="text-title"><a
+                                                            href="#"
+                                                            class="link text-line-clamp-1">Contrasting sheepskin</a>
+                                                    </div>
                                                     <div class="text-button tf-btn-remove remove">Remove</div>
                                                 </div>
-                                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                                     <div class="text-secondary-2">XL/Blue</div>
                                                     <div class="text-button">1 X $60.00</div>
                                                 </div>
@@ -1450,14 +1785,21 @@
                                         </div>
                                         <div class="tf-mini-cart-item file-delete">
                                             <div class="tf-mini-cart-image">
-                                                <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="">
+                                                <img class="lazyload"
+                                                    data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}"
+                                                    src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}"
+                                                    alt="">
                                             </div>
                                             <div class="tf-mini-cart-info flex-grow-1">
-                                                <div class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
-                                                    <div class="text-title"><a href="{{ route('front.shop_detail') }}" class="link text-line-clamp-1">Suede leggings</a></div>
+                                                <div
+                                                    class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                    <div class="text-title"><a
+                                                            href="#"
+                                                            class="link text-line-clamp-1">Suede leggings</a></div>
                                                     <div class="text-button tf-btn-remove remove">Remove</div>
                                                 </div>
-                                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                                     <div class="text-secondary-2">XL/Blue</div>
                                                     <div class="text-button">1 X $60.00</div>
                                                 </div>
@@ -1465,14 +1807,22 @@
                                         </div>
                                         <div class="tf-mini-cart-item file-delete">
                                             <div class="tf-mini-cart-image">
-                                                <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="">
+                                                <img class="lazyload"
+                                                    data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}"
+                                                    src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}"
+                                                    alt="">
                                             </div>
                                             <div class="tf-mini-cart-info flex-grow-1">
-                                                <div class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
-                                                    <div class="text-title"><a href="{{ route('front.shop_detail') }}" class="link text-line-clamp-1">Faux-leather trousers</a></div>
+                                                <div
+                                                    class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                    <div class="text-title"><a
+                                                            href="#"
+                                                            class="link text-line-clamp-1">Faux-leather trousers</a>
+                                                    </div>
                                                     <div class="text-button tf-btn-remove remove">Remove</div>
                                                 </div>
-                                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                                     <div class="text-secondary-2">XL/Blue</div>
                                                     <div class="text-button">1 X $60.00</div>
                                                 </div>
@@ -1480,14 +1830,22 @@
                                         </div>
                                         <div class="tf-mini-cart-item file-delete">
                                             <div class="tf-mini-cart-image">
-                                                <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" alt="">
+                                                <img class="lazyload"
+                                                    data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}"
+                                                    src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}"
+                                                    alt="">
                                             </div>
                                             <div class="tf-mini-cart-info flex-grow-1">
-                                                <div class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
-                                                    <div class="text-title"><a href="{{ route('front.shop_detail') }}" class="link text-line-clamp-1">Biker-style leggings</a></div>
+                                                <div
+                                                    class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                    <div class="text-title"><a
+                                                            href="#"
+                                                            class="link text-line-clamp-1">Biker-style leggings</a>
+                                                    </div>
                                                     <div class="text-button tf-btn-remove remove">Remove</div>
                                                 </div>
-                                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                                     <div class="text-secondary-2">XL/Blue</div>
                                                     <div class="text-button">1 X $60.00</div>
                                                 </div>
@@ -1495,87 +1853,128 @@
                                         </div>
                                         <div class="tf-mini-cart-item file-delete">
                                             <div class="tf-mini-cart-image">
-                                                <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}" alt="">
+                                                <img class="lazyload"
+                                                    data-src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}"
+                                                    src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}"
+                                                    alt="">
                                             </div>
                                             <div class="tf-mini-cart-info flex-grow-1">
-                                                <div class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
-                                                    <div class="text-title"><a href="{{ route('front.shop_detail') }}" class="link text-line-clamp-1">Jacquard fluid trousers</a></div>
+                                                <div
+                                                    class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                    <div class="text-title"><a
+                                                            href="#"
+                                                            class="link text-line-clamp-1">Jacquard fluid trousers</a>
+                                                    </div>
                                                     <div class="text-button tf-btn-remove remove">Remove</div>
                                                 </div>
-                                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                                     <div class="text-secondary-2">XL/Blue</div>
                                                     <div class="text-button">1 X $60.00</div>
                                                 </div>
                                             </div>
                                         </div>
-                                    
+
 
                                     </div>
                                 </div>
                             </div>
                             <div class="tf-mini-cart-bottom">
-                                {{-- <div class="tf-mini-cart-tool">
+                                <div class="tf-mini-cart-tool">
                                     <div class="tf-mini-cart-tool-btn btn-add-note">
-                                        <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg width="21" height="20" viewbox="0 0 21 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
                                             <g clip-path="url(#clip0_6133_36620)">
-                                            <path d="M10 3.33325H4.16667C3.72464 3.33325 3.30072 3.50885 2.98816 3.82141C2.67559 4.13397 2.5 4.55789 2.5 4.99992V16.6666C2.5 17.1086 2.67559 17.5325 2.98816 17.8451C3.30072 18.1577 3.72464 18.3333 4.16667 18.3333H15.8333C16.2754 18.3333 16.6993 18.1577 17.0118 17.8451C17.3244 17.5325 17.5 17.1086 17.5 16.6666V10.8333" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M16.25 2.0832C16.5815 1.75168 17.0312 1.56543 17.5 1.56543C17.9688 1.56543 18.4185 1.75168 18.75 2.0832C19.0815 2.41472 19.2678 2.86436 19.2678 3.3332C19.2678 3.80204 19.0815 4.25168 18.75 4.5832L10.8333 12.4999L7.5 13.3332L8.33333 9.99986L16.25 2.0832Z" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path
+                                                    d="M10 3.33325H4.16667C3.72464 3.33325 3.30072 3.50885 2.98816 3.82141C2.67559 4.13397 2.5 4.55789 2.5 4.99992V16.6666C2.5 17.1086 2.67559 17.5325 2.98816 17.8451C3.30072 18.1577 3.72464 18.3333 4.16667 18.3333H15.8333C16.2754 18.3333 16.6993 18.1577 17.0118 17.8451C17.3244 17.5325 17.5 17.1086 17.5 16.6666V10.8333"
+                                                    stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                                <path
+                                                    d="M16.25 2.0832C16.5815 1.75168 17.0312 1.56543 17.5 1.56543C17.9688 1.56543 18.4185 1.75168 18.75 2.0832C19.0815 2.41472 19.2678 2.86436 19.2678 3.3332C19.2678 3.80204 19.0815 4.25168 18.75 4.5832L10.8333 12.4999L7.5 13.3332L8.33333 9.99986L16.25 2.0832Z"
+                                                    stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
                                             </g>
                                             <defs>
-                                            <clippath id="clip0_6133_36620">
-                                            <rect width="20" height="20" fill="white" transform="translate(0.833008)"></rect>
-                                            </clippath>
+                                                <clippath id="clip0_6133_36620">
+                                                    <rect width="20" height="20" fill="white"
+                                                        transform="translate(0.833008)"></rect>
+                                                </clippath>
                                             </defs>
                                         </svg>
                                         <div class="text-caption-1">Note</div>
                                     </div>
                                     <div class="tf-mini-cart-tool-btn btn-estimate-shipping">
-                                        <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13.333 2.5H0.833008V13.3333H13.333V2.5Z" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M13.333 6.66675H16.6663L19.1663 9.16675V13.3334H13.333V6.66675Z" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M4.58333 17.4999C5.73393 17.4999 6.66667 16.5672 6.66667 15.4166C6.66667 14.266 5.73393 13.3333 4.58333 13.3333C3.43274 13.3333 2.5 14.266 2.5 15.4166C2.5 16.5672 3.43274 17.4999 4.58333 17.4999Z" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M15.4163 17.4999C16.5669 17.4999 17.4997 16.5672 17.4997 15.4166C17.4997 14.266 16.5669 13.3333 15.4163 13.3333C14.2657 13.3333 13.333 14.266 13.333 15.4166C13.333 16.5672 14.2657 17.4999 15.4163 17.4999Z" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <svg width="20" height="20" viewbox="0 0 20 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.333 2.5H0.833008V13.3333H13.333V2.5Z" stroke="#181818"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            </path>
+                                            <path d="M13.333 6.66675H16.6663L19.1663 9.16675V13.3334H13.333V6.66675Z"
+                                                stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <path
+                                                d="M4.58333 17.4999C5.73393 17.4999 6.66667 16.5672 6.66667 15.4166C6.66667 14.266 5.73393 13.3333 4.58333 13.3333C3.43274 13.3333 2.5 14.266 2.5 15.4166C2.5 16.5672 3.43274 17.4999 4.58333 17.4999Z"
+                                                stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <path
+                                                d="M15.4163 17.4999C16.5669 17.4999 17.4997 16.5672 17.4997 15.4166C17.4997 14.266 16.5669 13.3333 15.4163 13.3333C14.2657 13.3333 13.333 14.266 13.333 15.4166C13.333 16.5672 14.2657 17.4999 15.4163 17.4999Z"
+                                                stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
                                         </svg>
                                         <div class="text-caption-1">Shipping</div>
                                     </div>
                                     <div class="tf-mini-cart-tool-btn btn-add-gift">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewbox="0 0 17 18" fill="currentColor">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.99566 2.73409C2.99566 0.55401 5.42538 -0.746668 7.23916 0.463462L8.50073 1.30516L9.7623 0.463462C11.5761 -0.746668 14.0058 0.55401 14.0058 2.73409V3.24744H14.8225C15.9633 3.24744 16.8881 4.17233 16.8881 5.31312V6.82566C16.8881 7.21396 16.5734 7.52873 16.1851 7.52873H15.8905V15.1877C15.8905 15.1905 15.8905 15.1933 15.8905 15.196C15.886 16.7454 14.6286 18 13.0782 18H3.92323C2.37003 18 1.11091 16.7409 1.11091 15.1877V7.52877H0.81636C0.42806 7.52877 0.113281 7.21399 0.113281 6.82569V5.31316C0.113281 4.17228 1.03812 3.24744 2.179 3.24744H2.99566V2.73409ZM4.40181 3.24744H7.79765V2.52647L6.45874 1.63317C5.57987 1.0468 4.40181 1.67677 4.40181 2.73409V3.24744ZM9.20381 2.52647V3.24744H12.5996V2.73409C12.5996 1.67677 11.4216 1.0468 10.5427 1.63317L9.20381 2.52647ZM2.179 4.6536C1.81472 4.6536 1.51944 4.94888 1.51944 5.31316V6.12261H5.73398L5.734 4.6536H2.179ZM5.73401 7.52877V13.9306C5.73401 14.1806 5.86682 14.4119 6.08281 14.5379C6.29879 14.6639 6.56545 14.6657 6.78312 14.5426L8.50073 13.5715L10.2183 14.5426C10.436 14.6657 10.7027 14.6639 10.9187 14.5379C11.1346 14.4119 11.2674 14.1806 11.2674 13.9306V7.52873H14.4844V15.1603C14.4844 15.1627 14.4843 15.1651 14.4843 15.1675V15.1877C14.4843 15.9643 13.8548 16.5938 13.0782 16.5938H3.92323C3.14663 16.5938 2.51707 15.9643 2.51707 15.1877V7.52877H5.73401ZM15.482 6.12258V5.31312C15.482 4.94891 15.1867 4.6536 14.8225 4.6536H11.2674V6.12258H15.482ZM9.86129 4.6536H7.14017V12.7254L8.15469 12.1518C8.36941 12.0304 8.63204 12.0304 8.84676 12.1518L9.86129 12.7254V4.6536Z">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18"
+                                            viewbox="0 0 17 18" fill="currentColor">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M2.99566 2.73409C2.99566 0.55401 5.42538 -0.746668 7.23916 0.463462L8.50073 1.30516L9.7623 0.463462C11.5761 -0.746668 14.0058 0.55401 14.0058 2.73409V3.24744H14.8225C15.9633 3.24744 16.8881 4.17233 16.8881 5.31312V6.82566C16.8881 7.21396 16.5734 7.52873 16.1851 7.52873H15.8905V15.1877C15.8905 15.1905 15.8905 15.1933 15.8905 15.196C15.886 16.7454 14.6286 18 13.0782 18H3.92323C2.37003 18 1.11091 16.7409 1.11091 15.1877V7.52877H0.81636C0.42806 7.52877 0.113281 7.21399 0.113281 6.82569V5.31316C0.113281 4.17228 1.03812 3.24744 2.179 3.24744H2.99566V2.73409ZM4.40181 3.24744H7.79765V2.52647L6.45874 1.63317C5.57987 1.0468 4.40181 1.67677 4.40181 2.73409V3.24744ZM9.20381 2.52647V3.24744H12.5996V2.73409C12.5996 1.67677 11.4216 1.0468 10.5427 1.63317L9.20381 2.52647ZM2.179 4.6536C1.81472 4.6536 1.51944 4.94888 1.51944 5.31316V6.12261H5.73398L5.734 4.6536H2.179ZM5.73401 7.52877V13.9306C5.73401 14.1806 5.86682 14.4119 6.08281 14.5379C6.29879 14.6639 6.56545 14.6657 6.78312 14.5426L8.50073 13.5715L10.2183 14.5426C10.436 14.6657 10.7027 14.6639 10.9187 14.5379C11.1346 14.4119 11.2674 14.1806 11.2674 13.9306V7.52873H14.4844V15.1603C14.4844 15.1627 14.4843 15.1651 14.4843 15.1675V15.1877C14.4843 15.9643 13.8548 16.5938 13.0782 16.5938H3.92323C3.14663 16.5938 2.51707 15.9643 2.51707 15.1877V7.52877H5.73401ZM15.482 6.12258V5.31312C15.482 4.94891 15.1867 4.6536 14.8225 4.6536H11.2674V6.12258H15.482ZM9.86129 4.6536H7.14017V12.7254L8.15469 12.1518C8.36941 12.0304 8.63204 12.0304 8.84676 12.1518L9.86129 12.7254V4.6536Z">
                                             </path>
                                         </svg>
                                         <div class="text-caption-1">Gift</div>
                                     </div>
                                     <div class="tf-mini-cart-tool-btn btn-add-coupon">
-                                        <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M17.3247 11.1751L11.3497 17.1501C11.1949 17.305 11.0111 17.428 10.8087 17.5118C10.6064 17.5957 10.3895 17.6389 10.1705 17.6389C9.95148 17.6389 9.7346 17.5957 9.53227 17.5118C9.32994 17.428 9.14613 17.305 8.99134 17.1501L1.83301 10.0001V1.66675H10.1663L17.3247 8.82508C17.6351 9.13735 17.8093 9.55977 17.8093 10.0001C17.8093 10.4404 17.6351 10.8628 17.3247 11.1751V11.1751Z" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M5.99902 5.83325H6.00902" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <svg width="21" height="20" viewbox="0 0 21 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17.3247 11.1751L11.3497 17.1501C11.1949 17.305 11.0111 17.428 10.8087 17.5118C10.6064 17.5957 10.3895 17.6389 10.1705 17.6389C9.95148 17.6389 9.7346 17.5957 9.53227 17.5118C9.32994 17.428 9.14613 17.305 8.99134 17.1501L1.83301 10.0001V1.66675H10.1663L17.3247 8.82508C17.6351 9.13735 17.8093 9.55977 17.8093 10.0001C17.8093 10.4404 17.6351 10.8628 17.3247 11.1751V11.1751Z"
+                                                stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <path d="M5.99902 5.83325H6.00902" stroke="#181818" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
                                         <div class="text-caption-1">Coupon</div>
                                     </div>
-                                </div> --}}
+                                </div>
                                 <div class="tf-mini-cart-bottom-wrap">
                                     <div class="tf-cart-totals-discounts">
                                         <h5>Subtotal</h5>
                                         <h5 class="tf-totals-total-value">$186,99</h5>
                                     </div>
-                                    {{-- <div class="tf-cart-checkbox">
+                                    <div class="tf-cart-checkbox">
                                         <div class="tf-checkbox-wrapp">
-                                            <input class="" type="checkbox" id="CartDrawer-Form_agree" name="agree_checkbox">
+                                            <input class="" type="checkbox" id="CartDrawer-Form_agree"
+                                                name="agree_checkbox">
                                             <div>
                                                 <i class="icon-check"></i>
                                             </div>
                                         </div>
                                         <label for="CartDrawer-Form_agree">
-                                            I agree with 
-                                            <a href="term-of-use.html" title="Terms of Service">Terms & Conditions</a>
+                                            I agree with
+                                            <a href="term-of-use.html" title="Terms of Service">Terms &
+                                                Conditions</a>
                                         </label>
-                                    </div> --}}
+                                    </div>
                                     <div class="tf-mini-cart-view-checkout">
-                                        <a href="{{ route('front.cart') }}" class="tf-btn w-100 btn-white radius-4 has-border"><span class="text">View cart</span></a>
-                                        <a href="{{ route('front.cart') }}" class="tf-btn w-100 btn-fill radius-4"><span class="text">Check Out</span></a>
+                                        <a href="{{ route('front.cart') }}"
+                                            class="tf-btn w-100 btn-white radius-4 has-border"><span
+                                                class="text">View cart</span></a>
+                                        <a href="{{ route('front.cart') }}"
+                                            class="tf-btn w-100 btn-fill radius-4"><span class="text">Check
+                                                Out</span></a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="link text-btn-uppercase" href="{{ route('front.shop') }}">Or continue shopping</a>
+                                        <a class="link text-btn-uppercase" href="{{ route('front.shop') }}">Or
+                                            continue shopping</a>
                                     </div>
                                 </div>
                             </div>
@@ -1583,15 +1982,22 @@
                                 <div class="tf-mini-cart-tool-content">
                                     <label for="Cart-note" class="tf-mini-cart-tool-text">
                                         <span class="icon">
-                                            <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="20" height="20" viewbox="0 0 20 20"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g clip-path="url(#clip0_6766_32777)">
-                                                <path d="M9.16699 3.33325H3.33366C2.89163 3.33325 2.46771 3.50885 2.15515 3.82141C1.84259 4.13397 1.66699 4.55789 1.66699 4.99992V16.6666C1.66699 17.1086 1.84259 17.5325 2.15515 17.8451C2.46771 18.1577 2.89163 18.3333 3.33366 18.3333H15.0003C15.4424 18.3333 15.8663 18.1577 16.1788 17.8451C16.4914 17.5325 16.667 17.1086 16.667 16.6666V10.8333" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M15.417 2.0832C15.7485 1.75168 16.1981 1.56543 16.667 1.56543C17.1358 1.56543 17.5855 1.75168 17.917 2.0832C18.2485 2.41472 18.4348 2.86436 18.4348 3.3332C18.4348 3.80204 18.2485 4.25168 17.917 4.5832L10.0003 12.4999L6.66699 13.3332L7.50033 9.99986L15.417 2.0832Z" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M9.16699 3.33325H3.33366C2.89163 3.33325 2.46771 3.50885 2.15515 3.82141C1.84259 4.13397 1.66699 4.55789 1.66699 4.99992V16.6666C1.66699 17.1086 1.84259 17.5325 2.15515 17.8451C2.46771 18.1577 2.89163 18.3333 3.33366 18.3333H15.0003C15.4424 18.3333 15.8663 18.1577 16.1788 17.8451C16.4914 17.5325 16.667 17.1086 16.667 16.6666V10.8333"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M15.417 2.0832C15.7485 1.75168 16.1981 1.56543 16.667 1.56543C17.1358 1.56543 17.5855 1.75168 17.917 2.0832C18.2485 2.41472 18.4348 2.86436 18.4348 3.3332C18.4348 3.80204 18.2485 4.25168 17.917 4.5832L10.0003 12.4999L6.66699 13.3332L7.50033 9.99986L15.417 2.0832Z"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
                                                 </g>
                                                 <defs>
-                                                <clippath id="clip0_6766_32777">
-                                                <rect width="20" height="20" fill="white"></rect>
-                                                </clippath>
+                                                    <clippath id="clip0_6766_32777">
+                                                        <rect width="20" height="20" fill="white"></rect>
+                                                    </clippath>
                                                 </defs>
                                             </svg>
                                         </span>
@@ -1602,8 +2008,10 @@
                                             <textarea name="note" id="Cart-note" placeholder="Add special instructions for your order..."></textarea>
                                         </fieldset>
                                         <div class="tf-cart-tool-btns">
-                                            <button type="submit" class="btn-style-2 w-100"><span class="text text-btn-uppercase">Save</span></button>
-                                            <div class="text-center w-100 text-btn-uppercase tf-mini-cart-tool-close">Cancel</div>
+                                            <button type="submit" class="btn-style-2 w-100"><span
+                                                    class="text text-btn-uppercase">Save</span></button>
+                                            <div class="text-center w-100 text-btn-uppercase tf-mini-cart-tool-close">
+                                                Cancel</div>
                                         </div>
                                     </form>
                                 </div>
@@ -1612,15 +2020,22 @@
                                 <div class="tf-mini-cart-tool-content">
                                     <label class="tf-mini-cart-tool-text">
                                         <span class="icon">
-                                            <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="20" height="20" viewbox="0 0 20 20"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g clip-path="url(#clip0_6766_32777)">
-                                                <path d="M9.16699 3.33325H3.33366C2.89163 3.33325 2.46771 3.50885 2.15515 3.82141C1.84259 4.13397 1.66699 4.55789 1.66699 4.99992V16.6666C1.66699 17.1086 1.84259 17.5325 2.15515 17.8451C2.46771 18.1577 2.89163 18.3333 3.33366 18.3333H15.0003C15.4424 18.3333 15.8663 18.1577 16.1788 17.8451C16.4914 17.5325 16.667 17.1086 16.667 16.6666V10.8333" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M15.417 2.0832C15.7485 1.75168 16.1981 1.56543 16.667 1.56543C17.1358 1.56543 17.5855 1.75168 17.917 2.0832C18.2485 2.41472 18.4348 2.86436 18.4348 3.3332C18.4348 3.80204 18.2485 4.25168 17.917 4.5832L10.0003 12.4999L6.66699 13.3332L7.50033 9.99986L15.417 2.0832Z" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M9.16699 3.33325H3.33366C2.89163 3.33325 2.46771 3.50885 2.15515 3.82141C1.84259 4.13397 1.66699 4.55789 1.66699 4.99992V16.6666C1.66699 17.1086 1.84259 17.5325 2.15515 17.8451C2.46771 18.1577 2.89163 18.3333 3.33366 18.3333H15.0003C15.4424 18.3333 15.8663 18.1577 16.1788 17.8451C16.4914 17.5325 16.667 17.1086 16.667 16.6666V10.8333"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M15.417 2.0832C15.7485 1.75168 16.1981 1.56543 16.667 1.56543C17.1358 1.56543 17.5855 1.75168 17.917 2.0832C18.2485 2.41472 18.4348 2.86436 18.4348 3.3332C18.4348 3.80204 18.2485 4.25168 17.917 4.5832L10.0003 12.4999L6.66699 13.3332L7.50033 9.99986L15.417 2.0832Z"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
                                                 </g>
                                                 <defs>
-                                                <clippath id="clip0_6766_32777">
-                                                <rect width="20" height="20" fill="white"></rect>
-                                                </clippath>
+                                                    <clippath id="clip0_6766_32777">
+                                                        <rect width="20" height="20" fill="white"></rect>
+                                                    </clippath>
                                                 </defs>
                                             </svg>
                                         </span>
@@ -1639,46 +2054,82 @@
                                         <div class="mb_12">
                                             <div class="text-caption-1 text-secondary mb_8">State</div>
                                             <div class="tf-select">
-                                        <select class="text-title" name="address[country]" data-default="">
-                                            <option value="Australia" data-provinces="[['Australian Capital Territory','Australian Capital Territory'],['New South Wales','New South Wales'],['Northern Territory','Northern Territory'],['Queensland','Queensland'],['South Australia','South Australia'],['Tasmania','Tasmania'],['Victoria','Victoria'],['Western Australia','Western Australia']]">Australia</option>
-                                            <option value="Austria" data-provinces="[]">Austria</option>
-                                            <option value="Belgium" data-provinces="[]">Belgium</option>
-                                            <option value="Canada" data-provinces="[['Alberta','Alberta'],['British Columbia','British Columbia'],['Manitoba','Manitoba'],['New Brunswick','New Brunswick'],['Newfoundland and Labrador','Newfoundland and Labrador'],['Northwest Territories','Northwest Territories'],['Nova Scotia','Nova Scotia'],['Nunavut','Nunavut'],['Ontario','Ontario'],['Prince Edward Island','Prince Edward Island'],['Quebec','Quebec'],['Saskatchewan','Saskatchewan'],['Yukon','Yukon']]">Canada</option>
-                                            <option value="Czech Republic" data-provinces="[]">Czechia</option>
-                                            <option value="Denmark" data-provinces="[]">Denmark</option>
-                                            <option value="Finland" data-provinces="[]">Finland</option>
-                                            <option value="France" data-provinces="[]">France</option>
-                                            <option value="Germany" data-provinces="[]">Germany</option>
-                                            <option value="Hong Kong" data-provinces="[['Hong Kong Island','Hong Kong Island'],['Kowloon','Kowloon'],['New Territories','New Territories']]">Hong Kong SAR</option>
-                                            <option value="Ireland" data-provinces="[['Carlow','Carlow'],['Cavan','Cavan'],['Clare','Clare'],['Cork','Cork'],['Donegal','Donegal'],['Dublin','Dublin'],['Galway','Galway'],['Kerry','Kerry'],['Kildare','Kildare'],['Kilkenny','Kilkenny'],['Laois','Laois'],['Leitrim','Leitrim'],['Limerick','Limerick'],['Longford','Longford'],['Louth','Louth'],['Mayo','Mayo'],['Meath','Meath'],['Monaghan','Monaghan'],['Offaly','Offaly'],['Roscommon','Roscommon'],['Sligo','Sligo'],['Tipperary','Tipperary'],['Waterford','Waterford'],['Westmeath','Westmeath'],['Wexford','Wexford'],['Wicklow','Wicklow']]">Ireland</option>
-                                            <option value="Israel" data-provinces="[]">Israel</option>
-                                            <option value="Italy" data-provinces="[['Agrigento','Agrigento'],['Alessandria','Alessandria'],['Ancona','Ancona'],['Aosta','Aosta Valley'],['Arezzo','Arezzo'],['Ascoli Piceno','Ascoli Piceno'],['Asti','Asti'],['Avellino','Avellino'],['Bari','Bari'],['Barletta-Andria-Trani','Barletta-Andria-Trani'],['Belluno','Belluno'],['Benevento','Benevento'],['Bergamo','Bergamo'],['Biella','Biella'],['Bologna','Bologna'],['Bolzano','South Tyrol'],['Brescia','Brescia'],['Brindisi','Brindisi'],['Cagliari','Cagliari'],['Caltanissetta','Caltanissetta'],['Campobasso','Campobasso'],['Carbonia-Iglesias','Carbonia-Iglesias'],['Caserta','Caserta'],['Catania','Catania'],['Catanzaro','Catanzaro'],['Chieti','Chieti'],['Como','Como'],['Cosenza','Cosenza'],['Cremona','Cremona'],['Crotone','Crotone'],['Cuneo','Cuneo'],['Enna','Enna'],['Fermo','Fermo'],['Ferrara','Ferrara'],['Firenze','Florence'],['Foggia','Foggia'],['Forlì-Cesena','Forlì-Cesena'],['Frosinone','Frosinone'],['Genova','Genoa'],['Gorizia','Gorizia'],['Grosseto','Grosseto'],['Imperia','Imperia'],['Isernia','Isernia'],['L'Aquila','L’Aquila'],['La Spezia','La Spezia'],['Latina','Latina'],['Lecce','Lecce'],['Lecco','Lecco'],['Livorno','Livorno'],['Lodi','Lodi'],['Lucca','Lucca'],['Macerata','Macerata'],['Mantova','Mantua'],['Massa-Carrara','Massa and Carrara'],['Matera','Matera'],['Medio Campidano','Medio Campidano'],['Messina','Messina'],['Milano','Milan'],['Modena','Modena'],['Monza e Brianza','Monza and Brianza'],['Napoli','Naples'],['Novara','Novara'],['Nuoro','Nuoro'],['Ogliastra','Ogliastra'],['Olbia-Tempio','Olbia-Tempio'],['Oristano','Oristano'],['Padova','Padua'],['Palermo','Palermo'],['Parma','Parma'],['Pavia','Pavia'],['Perugia','Perugia'],['Pesaro e Urbino','Pesaro and Urbino'],['Pescara','Pescara'],['Piacenza','Piacenza'],['Pisa','Pisa'],['Pistoia','Pistoia'],['Pordenone','Pordenone'],['Potenza','Potenza'],['Prato','Prato'],['Ragusa','Ragusa'],['Ravenna','Ravenna'],['Reggio Calabria','Reggio Calabria'],['Reggio Emilia','Reggio Emilia'],['Rieti','Rieti'],['Rimini','Rimini'],['Roma','Rome'],['Rovigo','Rovigo'],['Salerno','Salerno'],['Sassari','Sassari'],['Savona','Savona'],['Siena','Siena'],['Siracusa','Syracuse'],['Sondrio','Sondrio'],['Taranto','Taranto'],['Teramo','Teramo'],['Terni','Terni'],['Torino','Turin'],['Trapani','Trapani'],['Trento','Trentino'],['Treviso','Treviso'],['Trieste','Trieste'],['Udine','Udine'],['Varese','Varese'],['Venezia','Venice'],['Verbano-Cusio-Ossola','Verbano-Cusio-Ossola'],['Vercelli','Vercelli'],['Verona','Verona'],['Vibo Valentia','Vibo Valentia'],['Vicenza','Vicenza'],['Viterbo','Viterbo']]">Italy</option>
-                                            <option value="Japan" data-provinces="[['Aichi','Aichi'],['Akita','Akita'],['Aomori','Aomori'],['Chiba','Chiba'],['Ehime','Ehime'],['Fukui','Fukui'],['Fukuoka','Fukuoka'],['Fukushima','Fukushima'],['Gifu','Gifu'],['Gunma','Gunma'],['Hiroshima','Hiroshima'],['Hokkaidō','Hokkaido'],['Hyōgo','Hyogo'],['Ibaraki','Ibaraki'],['Ishikawa','Ishikawa'],['Iwate','Iwate'],['Kagawa','Kagawa'],['Kagoshima','Kagoshima'],['Kanagawa','Kanagawa'],['Kumamoto','Kumamoto'],['Kyōto','Kyoto'],['Kōchi','Kochi'],['Mie','Mie'],['Miyagi','Miyagi'],['Miyazaki','Miyazaki'],['Nagano','Nagano'],['Nagasaki','Nagasaki'],['Nara','Nara'],['Niigata','Niigata'],['Okayama','Okayama'],['Okinawa','Okinawa'],['Saga','Saga'],['Saitama','Saitama'],['Shiga','Shiga'],['Shimane','Shimane'],['Shizuoka','Shizuoka'],['Tochigi','Tochigi'],['Tokushima','Tokushima'],['Tottori','Tottori'],['Toyama','Toyama'],['Tōkyō','Tokyo'],['Wakayama','Wakayama'],['Yamagata','Yamagata'],['Yamaguchi','Yamaguchi'],['Yamanashi','Yamanashi'],['Ōita','Oita'],['Ōsaka','Osaka']]">Japan</option>
-                                            <option value="Malaysia" data-provinces="[['Johor','Johor'],['Kedah','Kedah'],['Kelantan','Kelantan'],['Kuala Lumpur','Kuala Lumpur'],['Labuan','Labuan'],['Melaka','Malacca'],['Negeri Sembilan','Negeri Sembilan'],['Pahang','Pahang'],['Penang','Penang'],['Perak','Perak'],['Perlis','Perlis'],['Putrajaya','Putrajaya'],['Sabah','Sabah'],['Sarawak','Sarawak'],['Selangor','Selangor'],['Terengganu','Terengganu']]">Malaysia</option>
-                                            <option value="Netherlands" data-provinces="[]">Netherlands</option>
-                                            <option value="New Zealand" data-provinces="[['Auckland','Auckland'],['Bay of Plenty','Bay of Plenty'],['Canterbury','Canterbury'],['Chatham Islands','Chatham Islands'],['Gisborne','Gisborne'],['Hawke's Bay','Hawke’s Bay'],['Manawatu-Wanganui','Manawatū-Whanganui'],['Marlborough','Marlborough'],['Nelson','Nelson'],['Northland','Northland'],['Otago','Otago'],['Southland','Southland'],['Taranaki','Taranaki'],['Tasman','Tasman'],['Waikato','Waikato'],['Wellington','Wellington'],['West Coast','West Coast']]">New Zealand</option>
-                                            <option value="Norway" data-provinces="[]">Norway</option>
-                                            <option value="Poland" data-provinces="[]">Poland</option>
-                                            <option value="Portugal" data-provinces="[['Aveiro','Aveiro'],['Açores','Azores'],['Beja','Beja'],['Braga','Braga'],['Bragança','Bragança'],['Castelo Branco','Castelo Branco'],['Coimbra','Coimbra'],['Faro','Faro'],['Guarda','Guarda'],['Leiria','Leiria'],['Lisboa','Lisbon'],['Madeira','Madeira'],['Portalegre','Portalegre'],['Porto','Porto'],['Santarém','Santarém'],['Setúbal','Setúbal'],['Viana do Castelo','Viana do Castelo'],['Vila Real','Vila Real'],['Viseu','Viseu'],['Évora','Évora']]">Portugal</option>
-                                            <option value="Singapore" data-provinces="[]">Singapore</option>
-                                            <option value="South Korea" data-provinces="[['Busan','Busan'],['Chungbuk','North Chungcheong'],['Chungnam','South Chungcheong'],['Daegu','Daegu'],['Daejeon','Daejeon'],['Gangwon','Gangwon'],['Gwangju','Gwangju City'],['Gyeongbuk','North Gyeongsang'],['Gyeonggi','Gyeonggi'],['Gyeongnam','South Gyeongsang'],['Incheon','Incheon'],['Jeju','Jeju'],['Jeonbuk','North Jeolla'],['Jeonnam','South Jeolla'],['Sejong','Sejong'],['Seoul','Seoul'],['Ulsan','Ulsan']]">South Korea</option>
-                                            <option value="Spain" data-provinces="[['A Coruña','A Coruña'],['Albacete','Albacete'],['Alicante','Alicante'],['Almería','Almería'],['Asturias','Asturias Province'],['Badajoz','Badajoz'],['Balears','Balears Province'],['Barcelona','Barcelona'],['Burgos','Burgos'],['Cantabria','Cantabria Province'],['Castellón','Castellón'],['Ceuta','Ceuta'],['Ciudad Real','Ciudad Real'],['Cuenca','Cuenca'],['Cáceres','Cáceres'],['Cádiz','Cádiz'],['Córdoba','Córdoba'],['Girona','Girona'],['Granada','Granada'],['Guadalajara','Guadalajara'],['Guipúzcoa','Gipuzkoa'],['Huelva','Huelva'],['Huesca','Huesca'],['Jaén','Jaén'],['La Rioja','La Rioja Province'],['Las Palmas','Las Palmas'],['León','León'],['Lleida','Lleida'],['Lugo','Lugo'],['Madrid','Madrid Province'],['Melilla','Melilla'],['Murcia','Murcia'],['Málaga','Málaga'],['Navarra','Navarra'],['Ourense','Ourense'],['Palencia','Palencia'],['Pontevedra','Pontevedra'],['Salamanca','Salamanca'],['Santa Cruz de Tenerife','Santa Cruz de Tenerife'],['Segovia','Segovia'],['Sevilla','Seville'],['Soria','Soria'],['Tarragona','Tarragona'],['Teruel','Teruel'],['Toledo','Toledo'],['Valencia','Valencia'],['Valladolid','Valladolid'],['Vizcaya','Biscay'],['Zamora','Zamora'],['Zaragoza','Zaragoza'],['Álava','Álava'],['Ávila','Ávila']]">Spain</option>
-                                            <option value="Sweden" data-provinces="[]">Sweden</option>
-                                            <option value="Switzerland" data-provinces="[]">Switzerland</option>
-                                            <option value="United Arab Emirates" data-provinces="[['Abu Dhabi','Abu Dhabi'],['Ajman','Ajman'],['Dubai','Dubai'],['Fujairah','Fujairah'],['Ras al-Khaimah','Ras al-Khaimah'],['Sharjah','Sharjah'],['Umm al-Quwain','Umm al-Quwain']]">United Arab Emirates</option>
-                                            <option value="United Kingdom" data-provinces="[['British Forces','British Forces'],['England','England'],['Northern Ireland','Northern Ireland'],['Scotland','Scotland'],['Wales','Wales']]">United Kingdom</option>
-                                            <option selected="" value="United States" data-provinces="[['Alabama','Alabama'],['Alaska','Alaska'],['American Samoa','American Samoa'],['Arizona','Arizona'],['Arkansas','Arkansas'],['Armed Forces Americas','Armed Forces Americas'],['Armed Forces Europe','Armed Forces Europe'],['Armed Forces Pacific','Armed Forces Pacific'],['California','California'],['Colorado','Colorado'],['Connecticut','Connecticut'],['Delaware','Delaware'],['District of Columbia','Washington DC'],['Federated States of Micronesia','Micronesia'],['Florida','Florida'],['Georgia','Georgia'],['Guam','Guam'],['Hawaii','Hawaii'],['Idaho','Idaho'],['Illinois','Illinois'],['Indiana','Indiana'],['Iowa','Iowa'],['Kansas','Kansas'],['Kentucky','Kentucky'],['Louisiana','Louisiana'],['Maine','Maine'],['Marshall Islands','Marshall Islands'],['Maryland','Maryland'],['Massachusetts','Massachusetts'],['Michigan','Michigan'],['Minnesota','Minnesota'],['Mississippi','Mississippi'],['Missouri','Missouri'],['Montana','Montana'],['Nebraska','Nebraska'],['Nevada','Nevada'],['New Hampshire','New Hampshire'],['New Jersey','New Jersey'],['New Mexico','New Mexico'],['New York','New York'],['North Carolina','North Carolina'],['North Dakota','North Dakota'],['Northern Mariana Islands','Northern Mariana Islands'],['Ohio','Ohio'],['Oklahoma','Oklahoma'],['Oregon','Oregon'],['Palau','Palau'],['Pennsylvania','Pennsylvania'],['Puerto Rico','Puerto Rico'],['Rhode Island','Rhode Island'],['South Carolina','South Carolina'],['South Dakota','South Dakota'],['Tennessee','Tennessee'],['Texas','Texas'],['Utah','Utah'],['Vermont','Vermont'],['Virgin Islands','U.S. Virgin Islands'],['Virginia','Virginia'],['Washington','Washington'],['West Virginia','West Virginia'],['Wisconsin','Wisconsin'],['Wyoming','Wyoming']]">United States</option>
-                                            <option value="Vietnam" data-provinces="[]">Vietnam</option>
-                                        </select>
-                                    </div>
+                                                <select class="text-title" name="address[country]"
+                                                    data-default="">
+                                                    <option value="Australia"
+                                                        data-provinces="[['Australian Capital Territory','Australian Capital Territory'],['New South Wales','New South Wales'],['Northern Territory','Northern Territory'],['Queensland','Queensland'],['South Australia','South Australia'],['Tasmania','Tasmania'],['Victoria','Victoria'],['Western Australia','Western Australia']]">
+                                                        Australia</option>
+                                                    <option value="Austria" data-provinces="[]">Austria</option>
+                                                    <option value="Belgium" data-provinces="[]">Belgium</option>
+                                                    <option value="Canada"
+                                                        data-provinces="[['Alberta','Alberta'],['British Columbia','British Columbia'],['Manitoba','Manitoba'],['New Brunswick','New Brunswick'],['Newfoundland and Labrador','Newfoundland and Labrador'],['Northwest Territories','Northwest Territories'],['Nova Scotia','Nova Scotia'],['Nunavut','Nunavut'],['Ontario','Ontario'],['Prince Edward Island','Prince Edward Island'],['Quebec','Quebec'],['Saskatchewan','Saskatchewan'],['Yukon','Yukon']]">
+                                                        Canada</option>
+                                                    <option value="Czech Republic" data-provinces="[]">Czechia
+                                                    </option>
+                                                    <option value="Denmark" data-provinces="[]">Denmark</option>
+                                                    <option value="Finland" data-provinces="[]">Finland</option>
+                                                    <option value="France" data-provinces="[]">France</option>
+                                                    <option value="Germany" data-provinces="[]">Germany</option>
+                                                    <option value="Hong Kong"
+                                                        data-provinces="[['Hong Kong Island','Hong Kong Island'],['Kowloon','Kowloon'],['New Territories','New Territories']]">
+                                                        Hong Kong SAR</option>
+                                                    <option value="Ireland"
+                                                        data-provinces="[['Carlow','Carlow'],['Cavan','Cavan'],['Clare','Clare'],['Cork','Cork'],['Donegal','Donegal'],['Dublin','Dublin'],['Galway','Galway'],['Kerry','Kerry'],['Kildare','Kildare'],['Kilkenny','Kilkenny'],['Laois','Laois'],['Leitrim','Leitrim'],['Limerick','Limerick'],['Longford','Longford'],['Louth','Louth'],['Mayo','Mayo'],['Meath','Meath'],['Monaghan','Monaghan'],['Offaly','Offaly'],['Roscommon','Roscommon'],['Sligo','Sligo'],['Tipperary','Tipperary'],['Waterford','Waterford'],['Westmeath','Westmeath'],['Wexford','Wexford'],['Wicklow','Wicklow']]">
+                                                        Ireland</option>
+                                                    <option value="Israel" data-provinces="[]">Israel</option>
+                                                    <option value="Italy"
+                                                        data-provinces="[['Agrigento','Agrigento'],['Alessandria','Alessandria'],['Ancona','Ancona'],['Aosta','Aosta Valley'],['Arezzo','Arezzo'],['Ascoli Piceno','Ascoli Piceno'],['Asti','Asti'],['Avellino','Avellino'],['Bari','Bari'],['Barletta-Andria-Trani','Barletta-Andria-Trani'],['Belluno','Belluno'],['Benevento','Benevento'],['Bergamo','Bergamo'],['Biella','Biella'],['Bologna','Bologna'],['Bolzano','South Tyrol'],['Brescia','Brescia'],['Brindisi','Brindisi'],['Cagliari','Cagliari'],['Caltanissetta','Caltanissetta'],['Campobasso','Campobasso'],['Carbonia-Iglesias','Carbonia-Iglesias'],['Caserta','Caserta'],['Catania','Catania'],['Catanzaro','Catanzaro'],['Chieti','Chieti'],['Como','Como'],['Cosenza','Cosenza'],['Cremona','Cremona'],['Crotone','Crotone'],['Cuneo','Cuneo'],['Enna','Enna'],['Fermo','Fermo'],['Ferrara','Ferrara'],['Firenze','Florence'],['Foggia','Foggia'],['Forlì-Cesena','Forlì-Cesena'],['Frosinone','Frosinone'],['Genova','Genoa'],['Gorizia','Gorizia'],['Grosseto','Grosseto'],['Imperia','Imperia'],['Isernia','Isernia'],['L'Aquila','L’Aquila'],['La Spezia','La Spezia'],['Latina','Latina'],['Lecce','Lecce'],['Lecco','Lecco'],['Livorno','Livorno'],['Lodi','Lodi'],['Lucca','Lucca'],['Macerata','Macerata'],['Mantova','Mantua'],['Massa-Carrara','Massa and Carrara'],['Matera','Matera'],['Medio Campidano','Medio Campidano'],['Messina','Messina'],['Milano','Milan'],['Modena','Modena'],['Monza e Brianza','Monza and Brianza'],['Napoli','Naples'],['Novara','Novara'],['Nuoro','Nuoro'],['Ogliastra','Ogliastra'],['Olbia-Tempio','Olbia-Tempio'],['Oristano','Oristano'],['Padova','Padua'],['Palermo','Palermo'],['Parma','Parma'],['Pavia','Pavia'],['Perugia','Perugia'],['Pesaro e Urbino','Pesaro and Urbino'],['Pescara','Pescara'],['Piacenza','Piacenza'],['Pisa','Pisa'],['Pistoia','Pistoia'],['Pordenone','Pordenone'],['Potenza','Potenza'],['Prato','Prato'],['Ragusa','Ragusa'],['Ravenna','Ravenna'],['Reggio Calabria','Reggio Calabria'],['Reggio Emilia','Reggio Emilia'],['Rieti','Rieti'],['Rimini','Rimini'],['Roma','Rome'],['Rovigo','Rovigo'],['Salerno','Salerno'],['Sassari','Sassari'],['Savona','Savona'],['Siena','Siena'],['Siracusa','Syracuse'],['Sondrio','Sondrio'],['Taranto','Taranto'],['Teramo','Teramo'],['Terni','Terni'],['Torino','Turin'],['Trapani','Trapani'],['Trento','Trentino'],['Treviso','Treviso'],['Trieste','Trieste'],['Udine','Udine'],['Varese','Varese'],['Venezia','Venice'],['Verbano-Cusio-Ossola','Verbano-Cusio-Ossola'],['Vercelli','Vercelli'],['Verona','Verona'],['Vibo Valentia','Vibo Valentia'],['Vicenza','Vicenza'],['Viterbo','Viterbo']]">
+                                                        Italy</option>
+                                                    <option value="Japan"
+                                                        data-provinces="[['Aichi','Aichi'],['Akita','Akita'],['Aomori','Aomori'],['Chiba','Chiba'],['Ehime','Ehime'],['Fukui','Fukui'],['Fukuoka','Fukuoka'],['Fukushima','Fukushima'],['Gifu','Gifu'],['Gunma','Gunma'],['Hiroshima','Hiroshima'],['Hokkaidō','Hokkaido'],['Hyōgo','Hyogo'],['Ibaraki','Ibaraki'],['Ishikawa','Ishikawa'],['Iwate','Iwate'],['Kagawa','Kagawa'],['Kagoshima','Kagoshima'],['Kanagawa','Kanagawa'],['Kumamoto','Kumamoto'],['Kyōto','Kyoto'],['Kōchi','Kochi'],['Mie','Mie'],['Miyagi','Miyagi'],['Miyazaki','Miyazaki'],['Nagano','Nagano'],['Nagasaki','Nagasaki'],['Nara','Nara'],['Niigata','Niigata'],['Okayama','Okayama'],['Okinawa','Okinawa'],['Saga','Saga'],['Saitama','Saitama'],['Shiga','Shiga'],['Shimane','Shimane'],['Shizuoka','Shizuoka'],['Tochigi','Tochigi'],['Tokushima','Tokushima'],['Tottori','Tottori'],['Toyama','Toyama'],['Tōkyō','Tokyo'],['Wakayama','Wakayama'],['Yamagata','Yamagata'],['Yamaguchi','Yamaguchi'],['Yamanashi','Yamanashi'],['Ōita','Oita'],['Ōsaka','Osaka']]">
+                                                        Japan</option>
+                                                    <option value="Malaysia"
+                                                        data-provinces="[['Johor','Johor'],['Kedah','Kedah'],['Kelantan','Kelantan'],['Kuala Lumpur','Kuala Lumpur'],['Labuan','Labuan'],['Melaka','Malacca'],['Negeri Sembilan','Negeri Sembilan'],['Pahang','Pahang'],['Penang','Penang'],['Perak','Perak'],['Perlis','Perlis'],['Putrajaya','Putrajaya'],['Sabah','Sabah'],['Sarawak','Sarawak'],['Selangor','Selangor'],['Terengganu','Terengganu']]">
+                                                        Malaysia</option>
+                                                    <option value="Netherlands" data-provinces="[]">Netherlands
+                                                    </option>
+                                                    <option value="New Zealand"
+                                                        data-provinces="[['Auckland','Auckland'],['Bay of Plenty','Bay of Plenty'],['Canterbury','Canterbury'],['Chatham Islands','Chatham Islands'],['Gisborne','Gisborne'],['Hawke's Bay','Hawke’s Bay'],['Manawatu-Wanganui','Manawatū-Whanganui'],['Marlborough','Marlborough'],['Nelson','Nelson'],['Northland','Northland'],['Otago','Otago'],['Southland','Southland'],['Taranaki','Taranaki'],['Tasman','Tasman'],['Waikato','Waikato'],['Wellington','Wellington'],['West Coast','West Coast']]">
+                                                        New Zealand</option>
+                                                    <option value="Norway" data-provinces="[]">Norway</option>
+                                                    <option value="Poland" data-provinces="[]">Poland</option>
+                                                    <option value="Portugal"
+                                                        data-provinces="[['Aveiro','Aveiro'],['Açores','Azores'],['Beja','Beja'],['Braga','Braga'],['Bragança','Bragança'],['Castelo Branco','Castelo Branco'],['Coimbra','Coimbra'],['Faro','Faro'],['Guarda','Guarda'],['Leiria','Leiria'],['Lisboa','Lisbon'],['Madeira','Madeira'],['Portalegre','Portalegre'],['Porto','Porto'],['Santarém','Santarém'],['Setúbal','Setúbal'],['Viana do Castelo','Viana do Castelo'],['Vila Real','Vila Real'],['Viseu','Viseu'],['Évora','Évora']]">
+                                                        Portugal</option>
+                                                    <option value="Singapore" data-provinces="[]">Singapore</option>
+                                                    <option value="South Korea"
+                                                        data-provinces="[['Busan','Busan'],['Chungbuk','North Chungcheong'],['Chungnam','South Chungcheong'],['Daegu','Daegu'],['Daejeon','Daejeon'],['Gangwon','Gangwon'],['Gwangju','Gwangju City'],['Gyeongbuk','North Gyeongsang'],['Gyeonggi','Gyeonggi'],['Gyeongnam','South Gyeongsang'],['Incheon','Incheon'],['Jeju','Jeju'],['Jeonbuk','North Jeolla'],['Jeonnam','South Jeolla'],['Sejong','Sejong'],['Seoul','Seoul'],['Ulsan','Ulsan']]">
+                                                        South Korea</option>
+                                                    <option value="Spain"
+                                                        data-provinces="[['A Coruña','A Coruña'],['Albacete','Albacete'],['Alicante','Alicante'],['Almería','Almería'],['Asturias','Asturias Province'],['Badajoz','Badajoz'],['Balears','Balears Province'],['Barcelona','Barcelona'],['Burgos','Burgos'],['Cantabria','Cantabria Province'],['Castellón','Castellón'],['Ceuta','Ceuta'],['Ciudad Real','Ciudad Real'],['Cuenca','Cuenca'],['Cáceres','Cáceres'],['Cádiz','Cádiz'],['Córdoba','Córdoba'],['Girona','Girona'],['Granada','Granada'],['Guadalajara','Guadalajara'],['Guipúzcoa','Gipuzkoa'],['Huelva','Huelva'],['Huesca','Huesca'],['Jaén','Jaén'],['La Rioja','La Rioja Province'],['Las Palmas','Las Palmas'],['León','León'],['Lleida','Lleida'],['Lugo','Lugo'],['Madrid','Madrid Province'],['Melilla','Melilla'],['Murcia','Murcia'],['Málaga','Málaga'],['Navarra','Navarra'],['Ourense','Ourense'],['Palencia','Palencia'],['Pontevedra','Pontevedra'],['Salamanca','Salamanca'],['Santa Cruz de Tenerife','Santa Cruz de Tenerife'],['Segovia','Segovia'],['Sevilla','Seville'],['Soria','Soria'],['Tarragona','Tarragona'],['Teruel','Teruel'],['Toledo','Toledo'],['Valencia','Valencia'],['Valladolid','Valladolid'],['Vizcaya','Biscay'],['Zamora','Zamora'],['Zaragoza','Zaragoza'],['Álava','Álava'],['Ávila','Ávila']]">
+                                                        Spain</option>
+                                                    <option value="Sweden" data-provinces="[]">Sweden</option>
+                                                    <option value="Switzerland" data-provinces="[]">Switzerland
+                                                    </option>
+                                                    <option value="United Arab Emirates"
+                                                        data-provinces="[['Abu Dhabi','Abu Dhabi'],['Ajman','Ajman'],['Dubai','Dubai'],['Fujairah','Fujairah'],['Ras al-Khaimah','Ras al-Khaimah'],['Sharjah','Sharjah'],['Umm al-Quwain','Umm al-Quwain']]">
+                                                        United Arab Emirates</option>
+                                                    <option value="United Kingdom"
+                                                        data-provinces="[['British Forces','British Forces'],['England','England'],['Northern Ireland','Northern Ireland'],['Scotland','Scotland'],['Wales','Wales']]">
+                                                        United Kingdom</option>
+                                                    <option selected="" value="United States"
+                                                        data-provinces="[['Alabama','Alabama'],['Alaska','Alaska'],['American Samoa','American Samoa'],['Arizona','Arizona'],['Arkansas','Arkansas'],['Armed Forces Americas','Armed Forces Americas'],['Armed Forces Europe','Armed Forces Europe'],['Armed Forces Pacific','Armed Forces Pacific'],['California','California'],['Colorado','Colorado'],['Connecticut','Connecticut'],['Delaware','Delaware'],['District of Columbia','Washington DC'],['Federated States of Micronesia','Micronesia'],['Florida','Florida'],['Georgia','Georgia'],['Guam','Guam'],['Hawaii','Hawaii'],['Idaho','Idaho'],['Illinois','Illinois'],['Indiana','Indiana'],['Iowa','Iowa'],['Kansas','Kansas'],['Kentucky','Kentucky'],['Louisiana','Louisiana'],['Maine','Maine'],['Marshall Islands','Marshall Islands'],['Maryland','Maryland'],['Massachusetts','Massachusetts'],['Michigan','Michigan'],['Minnesota','Minnesota'],['Mississippi','Mississippi'],['Missouri','Missouri'],['Montana','Montana'],['Nebraska','Nebraska'],['Nevada','Nevada'],['New Hampshire','New Hampshire'],['New Jersey','New Jersey'],['New Mexico','New Mexico'],['New York','New York'],['North Carolina','North Carolina'],['North Dakota','North Dakota'],['Northern Mariana Islands','Northern Mariana Islands'],['Ohio','Ohio'],['Oklahoma','Oklahoma'],['Oregon','Oregon'],['Palau','Palau'],['Pennsylvania','Pennsylvania'],['Puerto Rico','Puerto Rico'],['Rhode Island','Rhode Island'],['South Carolina','South Carolina'],['South Dakota','South Dakota'],['Tennessee','Tennessee'],['Texas','Texas'],['Utah','Utah'],['Vermont','Vermont'],['Virgin Islands','U.S. Virgin Islands'],['Virginia','Virginia'],['Washington','Washington'],['West Virginia','West Virginia'],['Wisconsin','Wisconsin'],['Wyoming','Wyoming']]">
+                                                        United States</option>
+                                                    <option value="Vietnam" data-provinces="[]">Vietnam</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <fieldset class="">
                                             <div class="text-caption-1 text-secondary mb_8">Postal/Zip Code</div>
-                                            <input class="" type="text" placeholder="100000" name="text" tabindex="2" value="" aria-required="true" required="">
+                                            <input class="" type="text" placeholder="100000"
+                                                name="text" tabindex="2" value=""
+                                                aria-required="true" required="">
                                         </fieldset>
                                         <div class="tf-cart-tool-btns">
-                                            <button type="submit" class="btn-style-2 w-100"><span class="text text-btn-uppercase">Calculator</span></button>
-                                            <div class="text-center w-100 text-btn-uppercase tf-mini-cart-tool-close">Cancel</div>
+                                            <button type="submit" class="btn-style-2 w-100"><span
+                                                    class="text text-btn-uppercase">Calculator</span></button>
+                                            <div class="text-center w-100 text-btn-uppercase tf-mini-cart-tool-close">
+                                                Cancel</div>
                                         </div>
                                     </form>
                                 </div>
@@ -1688,7 +2139,12 @@
                                     <div class="tf-mini-cart-tool-content">
                                         <div class="tf-mini-cart-tool-text">
                                             <div class="icon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.65957 3.64545C4.65957 0.73868 7.89921 -0.995558 10.3176 0.617949L11.9997 1.74021L13.6818 0.617949C16.1001 -0.995558 19.3398 0.73868 19.3398 3.64545V4.32992H20.4286C21.9498 4.32992 23.1829 5.56311 23.1829 7.08416V9.10087C23.1829 9.61861 22.7632 10.0383 22.2454 10.0383H21.8528V20.2502C21.8528 20.254 21.8527 20.2577 21.8527 20.2614C21.8467 22.3272 20.1702 24 18.103 24H5.89634C3.82541 24 2.14658 22.3212 2.14658 20.2502V10.0384H1.75384C1.23611 10.0384 0.816406 9.61865 0.816406 9.10092V7.08421C0.816406 5.56304 2.04953 4.32992 3.57069 4.32992H4.65957V3.64545ZM6.53445 4.32992H11.0622V3.36863L9.27702 2.17757C8.10519 1.39573 6.53445 2.2357 6.53445 3.64545V4.32992ZM12.9371 3.36863V4.32992H17.4649V3.64545C17.4649 2.2357 15.8942 1.39573 14.7223 2.17756L12.9371 3.36863ZM3.57069 6.2048C3.08499 6.2048 2.69128 6.59851 2.69128 7.08421V8.16348H8.31067L8.3107 6.2048H3.57069ZM8.31071 10.0384V18.5741C8.31071 18.9075 8.48779 19.2158 8.77577 19.3838C9.06376 19.5518 9.4193 19.5542 9.70953 19.3901L11.9997 18.0953L14.2898 19.3901C14.58 19.5542 14.9356 19.5518 15.2236 19.3838C15.5115 19.2158 15.6886 18.9075 15.6886 18.5741V10.0383H19.9779V20.2137C19.9778 20.2169 19.9778 20.2201 19.9778 20.2233V20.2502C19.9778 21.2857 19.1384 22.1251 18.103 22.1251H5.89634C4.86088 22.1251 4.02146 21.2857 4.02146 20.2502V10.0384H8.31071ZM21.308 8.16344V7.08416C21.308 6.59854 20.9143 6.2048 20.4286 6.2048H15.6886V8.16344H21.308ZM13.8138 6.2048H10.1856V16.9672L11.5383 16.2024C11.8246 16.0405 12.1748 16.0405 12.461 16.2024L13.8138 16.9672V6.2048Z"></path></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" viewbox="0 0 24 24" fill="currentColor">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M4.65957 3.64545C4.65957 0.73868 7.89921 -0.995558 10.3176 0.617949L11.9997 1.74021L13.6818 0.617949C16.1001 -0.995558 19.3398 0.73868 19.3398 3.64545V4.32992H20.4286C21.9498 4.32992 23.1829 5.56311 23.1829 7.08416V9.10087C23.1829 9.61861 22.7632 10.0383 22.2454 10.0383H21.8528V20.2502C21.8528 20.254 21.8527 20.2577 21.8527 20.2614C21.8467 22.3272 20.1702 24 18.103 24H5.89634C3.82541 24 2.14658 22.3212 2.14658 20.2502V10.0384H1.75384C1.23611 10.0384 0.816406 9.61865 0.816406 9.10092V7.08421C0.816406 5.56304 2.04953 4.32992 3.57069 4.32992H4.65957V3.64545ZM6.53445 4.32992H11.0622V3.36863L9.27702 2.17757C8.10519 1.39573 6.53445 2.2357 6.53445 3.64545V4.32992ZM12.9371 3.36863V4.32992H17.4649V3.64545C17.4649 2.2357 15.8942 1.39573 14.7223 2.17756L12.9371 3.36863ZM3.57069 6.2048C3.08499 6.2048 2.69128 6.59851 2.69128 7.08421V8.16348H8.31067L8.3107 6.2048H3.57069ZM8.31071 10.0384V18.5741C8.31071 18.9075 8.48779 19.2158 8.77577 19.3838C9.06376 19.5518 9.4193 19.5542 9.70953 19.3901L11.9997 18.0953L14.2898 19.3901C14.58 19.5542 14.9356 19.5518 15.2236 19.3838C15.5115 19.2158 15.6886 18.9075 15.6886 18.5741V10.0383H19.9779V20.2137C19.9778 20.2169 19.9778 20.2201 19.9778 20.2233V20.2502C19.9778 21.2857 19.1384 22.1251 18.103 22.1251H5.89634C4.86088 22.1251 4.02146 21.2857 4.02146 20.2502V10.0384H8.31071ZM21.308 8.16344V7.08416C21.308 6.59854 20.9143 6.2048 20.4286 6.2048H15.6886V8.16344H21.308ZM13.8138 6.2048H10.1856V16.9672L11.5383 16.2024C11.8246 16.0405 12.1748 16.0405 12.461 16.2024L13.8138 16.9672V6.2048Z">
+                                                    </path>
+                                                </svg>
                                             </div>
                                             <div class="tf-gift-wrap-infos">
                                                 <p>Do you want a gift wrap?</p>
@@ -1697,8 +2153,10 @@
                                             </div>
                                         </div>
                                         <div class="tf-cart-tool-btns tf-mini-cart-tool-wrap">
-                                            <button type="submit" class="btn-style-2 w-100"><span class="text text-btn-uppercase">Add a gift wrap</span></button>
-                                            <div class="text-center w-100 text-btn-uppercase tf-mini-cart-tool-close">Cancel</div>
+                                            <button type="submit" class="btn-style-2 w-100"><span
+                                                    class="text text-btn-uppercase">Add a gift wrap</span></button>
+                                            <div class="text-center w-100 text-btn-uppercase tf-mini-cart-tool-close">
+                                                Cancel</div>
                                         </div>
                                     </div>
                                 </form>
@@ -1707,15 +2165,22 @@
                                 <div class="tf-mini-cart-tool-content">
                                     <label class="tf-mini-cart-tool-text">
                                         <span class="icon">
-                                            <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="20" height="20" viewbox="0 0 20 20"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g clip-path="url(#clip0_6766_32777)">
-                                                <path d="M9.16699 3.33325H3.33366C2.89163 3.33325 2.46771 3.50885 2.15515 3.82141C1.84259 4.13397 1.66699 4.55789 1.66699 4.99992V16.6666C1.66699 17.1086 1.84259 17.5325 2.15515 17.8451C2.46771 18.1577 2.89163 18.3333 3.33366 18.3333H15.0003C15.4424 18.3333 15.8663 18.1577 16.1788 17.8451C16.4914 17.5325 16.667 17.1086 16.667 16.6666V10.8333" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M15.417 2.0832C15.7485 1.75168 16.1981 1.56543 16.667 1.56543C17.1358 1.56543 17.5855 1.75168 17.917 2.0832C18.2485 2.41472 18.4348 2.86436 18.4348 3.3332C18.4348 3.80204 18.2485 4.25168 17.917 4.5832L10.0003 12.4999L6.66699 13.3332L7.50033 9.99986L15.417 2.0832Z" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M9.16699 3.33325H3.33366C2.89163 3.33325 2.46771 3.50885 2.15515 3.82141C1.84259 4.13397 1.66699 4.55789 1.66699 4.99992V16.6666C1.66699 17.1086 1.84259 17.5325 2.15515 17.8451C2.46771 18.1577 2.89163 18.3333 3.33366 18.3333H15.0003C15.4424 18.3333 15.8663 18.1577 16.1788 17.8451C16.4914 17.5325 16.667 17.1086 16.667 16.6666V10.8333"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M15.417 2.0832C15.7485 1.75168 16.1981 1.56543 16.667 1.56543C17.1358 1.56543 17.5855 1.75168 17.917 2.0832C18.2485 2.41472 18.4348 2.86436 18.4348 3.3332C18.4348 3.80204 18.2485 4.25168 17.917 4.5832L10.0003 12.4999L6.66699 13.3332L7.50033 9.99986L15.417 2.0832Z"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
                                                 </g>
                                                 <defs>
-                                                <clippath id="clip0_6766_32777">
-                                                <rect width="20" height="20" fill="white"></rect>
-                                                </clippath>
+                                                    <clippath id="clip0_6766_32777">
+                                                        <rect width="20" height="20" fill="white"></rect>
+                                                    </clippath>
                                                 </defs>
                                             </svg>
                                         </span>
@@ -1724,11 +2189,15 @@
                                     <form class="form-add-coupon tf-mini-cart-tool-wrap">
                                         <fieldset class="">
                                             <div class="text-caption-1 text-secondary mb_8">Enter Code</div>
-                                            <input class="" type="text" placeholder="Discount code" name="text" tabindex="2" value="" aria-required="true" required="">
+                                            <input class="" type="text" placeholder="Discount code"
+                                                name="text" tabindex="2" value=""
+                                                aria-required="true" required="">
                                         </fieldset>
                                         <div class="tf-cart-tool-btns">
-                                            <button type="submit" class="btn-style-2 w-100"><span class="text text-btn-uppercase">Save</span></button>
-                                            <div class="text-center w-100 text-btn-uppercase tf-mini-cart-tool-close">Cancel</div>
+                                            <button type="submit" class="btn-style-2 w-100"><span
+                                                    class="text text-btn-uppercase">Save</span></button>
+                                            <div class="text-center w-100 text-btn-uppercase tf-mini-cart-tool-close">
+                                                Cancel</div>
                                         </div>
                                     </form>
                                 </div>
@@ -1756,14 +2225,20 @@
                                 <div class="tf-mini-cart-items">
                                     <div class="tf-mini-cart-item file-delete">
                                         <div class="tf-mini-cart-image">
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="">
+                                            <img class="lazyload"
+                                                data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
+                                                src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="tf-mini-cart-info flex-grow-1">
-                                            <div class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
-                                                <div class="text-title"><a href="{{ route('front.shop_detail') }}" class="link text-line-clamp-1">Contrasting sheepskin</a></div>
+                                            <div
+                                                class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                <div class="text-title"><a href="#"
+                                                        class="link text-line-clamp-1">Contrasting sheepskin</a></div>
                                                 <div class="text-button tf-btn-remove remove">Remove</div>
                                             </div>
-                                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                            <div
+                                                class="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                                 <div class="text-secondary-2">XL/Blue</div>
                                                 <div class="text-button">1 X $60.00</div>
                                             </div>
@@ -1771,14 +2246,20 @@
                                     </div>
                                     <div class="tf-mini-cart-item file-delete">
                                         <div class="tf-mini-cart-image">
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="">
+                                            <img class="lazyload"
+                                                data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}"
+                                                src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="tf-mini-cart-info flex-grow-1">
-                                            <div class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
-                                                <div class="text-title"><a href="{{ route('front.shop_detail') }}" class="link text-line-clamp-1">Suede leggings</a></div>
+                                            <div
+                                                class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                <div class="text-title"><a href="#"
+                                                        class="link text-line-clamp-1">Suede leggings</a></div>
                                                 <div class="text-button tf-btn-remove remove">Remove</div>
                                             </div>
-                                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                            <div
+                                                class="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                                 <div class="text-secondary-2">XL/Blue</div>
                                                 <div class="text-button">1 X $60.00</div>
                                             </div>
@@ -1786,14 +2267,20 @@
                                     </div>
                                     <div class="tf-mini-cart-item file-delete">
                                         <div class="tf-mini-cart-image">
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="">
+                                            <img class="lazyload"
+                                                data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}"
+                                                src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="tf-mini-cart-info flex-grow-1">
-                                            <div class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
-                                                <div class="text-title"><a href="{{ route('front.shop_detail') }}" class="link text-line-clamp-1">Faux-leather trousers</a></div>
+                                            <div
+                                                class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                <div class="text-title"><a href="#"
+                                                        class="link text-line-clamp-1">Faux-leather trousers</a></div>
                                                 <div class="text-button tf-btn-remove remove">Remove</div>
                                             </div>
-                                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                            <div
+                                                class="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                                 <div class="text-secondary-2">XL/Blue</div>
                                                 <div class="text-button">1 X $60.00</div>
                                             </div>
@@ -1801,14 +2288,20 @@
                                     </div>
                                     <div class="tf-mini-cart-item file-delete">
                                         <div class="tf-mini-cart-image">
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" alt="">
+                                            <img class="lazyload"
+                                                data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}"
+                                                src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="tf-mini-cart-info flex-grow-1">
-                                            <div class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
-                                                <div class="text-title"><a href="{{ route('front.shop_detail') }}" class="link text-line-clamp-1">Biker-style leggings</a></div>
+                                            <div
+                                                class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                <div class="text-title"><a href="#"
+                                                        class="link text-line-clamp-1">Biker-style leggings</a></div>
                                                 <div class="text-button tf-btn-remove remove">Remove</div>
                                             </div>
-                                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                            <div
+                                                class="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                                 <div class="text-secondary-2">XL/Blue</div>
                                                 <div class="text-button">1 X $60.00</div>
                                             </div>
@@ -1816,14 +2309,21 @@
                                     </div>
                                     <div class="tf-mini-cart-item file-delete">
                                         <div class="tf-mini-cart-image">
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}" alt="">
+                                            <img class="lazyload"
+                                                data-src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}"
+                                                src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="tf-mini-cart-info flex-grow-1">
-                                            <div class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
-                                                <div class="text-title"><a href="{{ route('front.shop_detail') }}" class="link text-line-clamp-1">Jacquard fluid trousers</a></div>
+                                            <div
+                                                class="mb_12 d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                                <div class="text-title"><a href="#"
+                                                        class="link text-line-clamp-1">Jacquard fluid trousers</a>
+                                                </div>
                                                 <div class="text-button tf-btn-remove remove">Remove</div>
                                             </div>
-                                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                                            <div
+                                                class="d-flex align-items-center justify-content-between flex-wrap gap-12">
                                                 <div class="text-secondary-2">XL/Blue</div>
                                                 <div class="text-button">1 X $60.00</div>
                                             </div>
@@ -1833,7 +2333,8 @@
                             </div>
                         </div>
                         <div class="tf-mini-cart-bottom">
-                            <a href="wish-list.html" class="btn-style-2 w-100 radius-4 view-all-wishlist"><span class="text-btn-uppercase">View All Wish List</span></a>
+                            <a href="wish-list.html" class="btn-style-2 w-100 radius-4 view-all-wishlist"><span
+                                    class="text-btn-uppercase">View All Wish List</span></a>
                             <a href="shop-default-grid.html" class="text-btn-uppercase">Or continue shopping</a>
                         </div>
                     </div>
@@ -1875,7 +2376,8 @@
                                             <div class="tow-bar-block">
                                                 <div class="progress-size" style="width: 50%;"></div>
                                             </div>
-                                            <input type="range" min="0" max="200" value="100" class="range-max">
+                                            <input type="range" min="0" max="200" value="100"
+                                                class="range-max">
                                         </div>
                                     </div>
                                     <div class="widget-size">
@@ -1890,7 +2392,8 @@
                                             <div class="tow-bar-block">
                                                 <div class="progress-size" style="width: 50%;"></div>
                                             </div>
-                                            <input type="range" min="0" max="100" value="50" class="range-max">
+                                            <input type="range" min="0" max="100" value="50"
+                                                class="range-max">
                                         </div>
                                     </div>
                                 </div>
@@ -1998,81 +2501,130 @@
                                 <div class="tf-compare-wrap">
                                     <div class="tf-compare-item file-delete">
                                         <span class="btns-repeat">
-                                            <svg width="16" height="17" viewbox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="16" height="17" viewbox="0 0 16 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g clip-path="url(#clip0_5628_27028)">
-                                                <path d="M11.334 1.33301L14.0007 3.99967L11.334 6.66634" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M2 7.99951V6.66618C2 5.95893 2.28095 5.28066 2.78105 4.78056C3.28115 4.28046 3.95942 3.99951 4.66667 3.99951H14" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M4.66667 15.9996L2 13.3329L4.66667 10.6663" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M14 9.33301V10.6663C14 11.3736 13.719 12.0519 13.219 12.552C12.7189 13.0521 12.0406 13.333 11.3333 13.333H2" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    <path d="M11.334 1.33301L14.0007 3.99967L11.334 6.66634"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M2 7.99951V6.66618C2 5.95893 2.28095 5.28066 2.78105 4.78056C3.28115 4.28046 3.95942 3.99951 4.66667 3.99951H14"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path d="M4.66667 15.9996L2 13.3329L4.66667 10.6663"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M14 9.33301V10.6663C14 11.3736 13.719 12.0519 13.219 12.552C12.7189 13.0521 12.0406 13.333 11.3333 13.333H2"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
                                                 </g>
                                                 <defs>
-                                                <clippath id="clip0_5628_27028">
-                                                <rect width="16" height="16" fill="white" transform="translate(0 0.66626)"></rect>
-                                                </clippath>
+                                                    <clippath id="clip0_5628_27028">
+                                                        <rect width="16" height="16" fill="white"
+                                                            transform="translate(0 0.66626)"></rect>
+                                                    </clippath>
                                                 </defs>
                                             </svg>
                                         </span>
                                         <span class="icon-close remove"></span>
-                                        <a href="{{ route('front.shop_detail') }}" class="image">
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="">
+                                        <a href="#" class="image">
+                                            <img class="lazyload"
+                                                data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
+                                                src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
+                                                alt="">
                                         </a>
                                         <div class="content">
                                             <div class="text-title">
-                                                <a class="link text-line-clamp-2" href="{{ route('front.shop_detail') }}">V-neck cotton T-shirt</a>
+                                                <a class="link text-line-clamp-2"
+                                                    href="#">V-neck cotton
+                                                    T-shirt</a>
                                             </div>
                                             <div class="text-button">$59.99</div>
                                         </div>
                                     </div>
                                     <div class="tf-compare-item file-delete">
                                         <span class="btns-repeat">
-                                            <svg width="16" height="17" viewbox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="16" height="17" viewbox="0 0 16 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g clip-path="url(#clip0_5628_27028)">
-                                                <path d="M11.334 1.33301L14.0007 3.99967L11.334 6.66634" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M2 7.99951V6.66618C2 5.95893 2.28095 5.28066 2.78105 4.78056C3.28115 4.28046 3.95942 3.99951 4.66667 3.99951H14" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M4.66667 15.9996L2 13.3329L4.66667 10.6663" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M14 9.33301V10.6663C14 11.3736 13.719 12.0519 13.219 12.552C12.7189 13.0521 12.0406 13.333 11.3333 13.333H2" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    <path d="M11.334 1.33301L14.0007 3.99967L11.334 6.66634"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M2 7.99951V6.66618C2 5.95893 2.28095 5.28066 2.78105 4.78056C3.28115 4.28046 3.95942 3.99951 4.66667 3.99951H14"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path d="M4.66667 15.9996L2 13.3329L4.66667 10.6663"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M14 9.33301V10.6663C14 11.3736 13.719 12.0519 13.219 12.552C12.7189 13.0521 12.0406 13.333 11.3333 13.333H2"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
                                                 </g>
                                                 <defs>
-                                                <clippath id="clip0_5628_27028">
-                                                <rect width="16" height="16" fill="white" transform="translate(0 0.66626)"></rect>
-                                                </clippath>
+                                                    <clippath id="clip0_5628_27028">
+                                                        <rect width="16" height="16" fill="white"
+                                                            transform="translate(0 0.66626)"></rect>
+                                                    </clippath>
                                                 </defs>
                                             </svg>
                                         </span>
                                         <span class="icon-close remove"></span>
-                                        <a href="{{ route('front.shop_detail') }}" class="image">
-                                            <img class="lazyload" data-src="images/products/womens/women-29.jpg" src="images/products/womens/women-29.jpg" alt="">
+                                        <a href="#" class="image">
+                                            <img class="lazyload" data-src="images/products/womens/women-29.jpg"
+                                                src="images/products/womens/women-29.jpg" alt="">
                                         </a>
                                         <div class="content">
                                             <div class="text-title">
-                                                <a class="link text-line-clamp-2" href="{{ route('front.shop_detail') }}">Ramie shirt with pockets </a>
+                                                <a class="link text-line-clamp-2"
+                                                    href="#">Ramie shirt with pockets
+                                                </a>
                                             </div>
                                             <div class="text-button">$72.00</div>
                                         </div>
                                     </div>
                                     <div class="tf-compare-item file-delete">
                                         <span class="btns-repeat">
-                                            <svg width="16" height="17" viewbox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="16" height="17" viewbox="0 0 16 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g clip-path="url(#clip0_5628_27028)">
-                                                <path d="M11.334 1.33301L14.0007 3.99967L11.334 6.66634" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M2 7.99951V6.66618C2 5.95893 2.28095 5.28066 2.78105 4.78056C3.28115 4.28046 3.95942 3.99951 4.66667 3.99951H14" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M4.66667 15.9996L2 13.3329L4.66667 10.6663" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M14 9.33301V10.6663C14 11.3736 13.719 12.0519 13.219 12.552C12.7189 13.0521 12.0406 13.333 11.3333 13.333H2" stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    <path d="M11.334 1.33301L14.0007 3.99967L11.334 6.66634"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M2 7.99951V6.66618C2 5.95893 2.28095 5.28066 2.78105 4.78056C3.28115 4.28046 3.95942 3.99951 4.66667 3.99951H14"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path d="M4.66667 15.9996L2 13.3329L4.66667 10.6663"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path
+                                                        d="M14 9.33301V10.6663C14 11.3736 13.719 12.0519 13.219 12.552C12.7189 13.0521 12.0406 13.333 11.3333 13.333H2"
+                                                        stroke="#181818" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
                                                 </g>
                                                 <defs>
-                                                <clippath id="clip0_5628_27028">
-                                                <rect width="16" height="16" fill="white" transform="translate(0 0.66626)"></rect>
-                                                </clippath>
+                                                    <clippath id="clip0_5628_27028">
+                                                        <rect width="16" height="16" fill="white"
+                                                            transform="translate(0 0.66626)"></rect>
+                                                    </clippath>
                                                 </defs>
                                             </svg>
                                         </span>
                                         <span class="icon-close remove"></span>
-                                        <a href="{{ route('front.shop_detail') }}" class="image">
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="">
+                                        <a href="#" class="image">
+                                            <img class="lazyload"
+                                                data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}"
+                                                src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}"
+                                                alt="">
                                         </a>
                                         <div class="content">
                                             <div class="text-title">
-                                                <a class="link text-line-clamp-2" href="{{ route('front.shop_detail') }}">Ribbed cotton-blend top</a>
+                                                <a class="link text-line-clamp-2"
+                                                    href="#">Ribbed cotton-blend
+                                                    top</a>
                                             </div>
                                             <div class="text-button">$65.00</div>
                                         </div>
@@ -2080,8 +2632,10 @@
                                 </div>
                                 <div class="tf-compare-buttons">
                                     <div class="tf-compare-buttons-wrap">
-                                        <a href="compare-products.html" class="tf-btn w-100 btn-fill radius-4"><span class="text text-btn-uppercase">Compare Products</span></a>
-                                        <div class="tf-compapre-button-clear-all clear-file-delete tf-btn w-100 btn-white radius-4 has-border">
+                                        <a href="compare-products.html" class="tf-btn w-100 btn-fill radius-4"><span
+                                                class="text text-btn-uppercase">Compare Products</span></a>
+                                        <div
+                                            class="tf-compapre-button-clear-all clear-file-delete tf-btn w-100 btn-white radius-4 has-border">
                                             <span class="text text-btn-uppercase">Clear All Products</span>
                                         </div>
                                     </div>
@@ -2106,10 +2660,11 @@
                     <div class="tf-product-info-list">
                         <div class="tf-product-info-item">
                             <div class="image">
-                                <img src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="">
+                                <img src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}"
+                                    alt="">
                             </div>
                             <div class="content">
-                                <a href="{{ route('front.shop_detail') }}">Ribbed Tank Top</a>
+                                <a href="#">Ribbed Tank Top</a>
                                 <div class="tf-product-info-price">
                                     <h5 class="price-on-sale font-2">$79.99</h5>
                                     <div class="compare-at-price font-2">$98.99</div>
@@ -2126,17 +2681,20 @@
                                 </div>
                                 <div class="variant-picker-values type-click">
                                     <input id="values-beige2" type="radio" name="color3" checked="">
-                                    <label class="hover-tooltip tooltip-bot radius-60" for="values-beige2" data-value="Beige">
+                                    <label class="hover-tooltip tooltip-bot radius-60" for="values-beige2"
+                                        data-value="Beige">
                                         <span class="btn-checkbox bg-color-beige1"></span>
                                         <span class="tooltip">Beige</span>
                                     </label>
                                     <input id="values-gray2" type="radio" name="color3">
-                                    <label class="hover-tooltip tooltip-bot radius-60" for="values-gray2" data-value="Gray">
+                                    <label class="hover-tooltip tooltip-bot radius-60" for="values-gray2"
+                                        data-value="Gray">
                                         <span class="btn-checkbox bg-color-gray"></span>
                                         <span class="tooltip">Gray</span>
                                     </label>
                                     <input id="values-grey3" type="radio" name="color3">
-                                    <label class="hover-tooltip tooltip-bot radius-60" for="values-grey3" data-value="Grey">
+                                    <label class="hover-tooltip tooltip-bot radius-60" for="values-grey3"
+                                        data-value="Grey">
                                         <span class="btn-checkbox bg-color-grey"></span>
                                         <span class="tooltip">Grey</span>
                                     </label>
@@ -2169,18 +2727,23 @@
                                 <div class="title mb_12">Quantity:</div>
                                 <div class="wg-quantity">
                                     <span class="btn-quantity btn-decrease">-</span>
-                                    <input class="quantity-product" type="text" name="number" value="1">
+                                    <input class="quantity-product" type="text" name="number"
+                                        value="1">
                                     <span class="btn-quantity btn-increase">+</span>
                                 </div>
                             </div>
                             <div>
                                 <div class="tf-product-info-by-btn mb_10">
-                                    <a class="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 show-shopping-cart"><span>Add to cart -&nbsp;</span><span class="tf-qty-price total-price">$79.99</span></a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon hover-tooltip compare btn-icon-action show-compare">
+                                    <a class="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 show-shopping-cart"><span>Add
+                                            to cart -&nbsp;</span><span
+                                            class="tf-qty-price total-price">$79.99</span></a>
+                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
+                                        class="box-icon hover-tooltip compare btn-icon-action show-compare">
                                         <span class="icon icon-gitDiff"></span>
                                         <span class="tooltip text-caption-2">Compare</span>
                                     </a>
-                                    <a href="javascript:void(0);" class="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action">
+                                    <a href="javascript:void(0);"
+                                        class="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action">
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip text-caption-2">Wishlist</span>
                                     </a>
@@ -2207,15 +2770,17 @@
     <script type="text/javascript" src="{{ asset('front_assets/js/multiple-modal.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front_assets/js/main.js') }}"></script>
 
-    <script defer="" src="../../forms/end-form/build/main.js"></script>
-    <script>
+    {{-- <script defer="" src="../../forms/end-form/build/main.js"></script> --}}
+    {{-- <script>
         window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
         window.LOCALE = 'en';
-        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE =
+            "The information provided is invalid. Please review the field format and try again.";
 
         window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
 
-        window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+        window.GENERIC_INVALID_MESSAGE =
+            "The information provided is invalid. Please review the field format and try again.";
 
         window.translation = {
             common: {
@@ -2225,7 +2790,7 @@
         };
 
         var AUTOHIDE = Boolean(0);
-    </script>
+    </script> --}}
 
 </body>
 

@@ -13,11 +13,11 @@
             <div class="container">
                 <div class="tf-breadcrumb-wrap">
                     <div class="tf-breadcrumb-list">
-                        <a href="{{ url('/') }}" class="text text-caption-1">Homepage</a>
+                        <a href="{{ url('/') }}" class="text text-caption-1">Home</a>
                         <i class="icon icon-arrRight"></i>
-                        <a href="#" class="text text-caption-1">Women</a>
+                        <a href="#" class="text text-caption-1">{{ $product->category->name }}</a>
                         <i class="icon icon-arrRight"></i>
-                        <span class="text text-caption-1">Leather boots with tall leg</span>
+                        <span class="text text-caption-1">{{ $product->name }}</span>
                     </div>
                     <div class="tf-breadcrumb-prev-next">
                         <a href="product-bottom-thumbnails.html" class="tf-breadcrumb-prev">
@@ -43,14 +43,14 @@
             </div>
             <div class="tf-add-cart-product">
                 <div class="image">
-                    <img class=" ls-is-cached lazyloaded" data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" alt="" src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}">
+                    <img class=" ls-is-cached lazyloaded" data-src="{{ asset($product->thumb_url) }}" alt="" src="{{ asset($product->thumb_url) }}">
                 </div>
                 <div class="content">
                     <div class="text-title">
-                        <a class="link" href="product-detail.html">Biker-style leggings</a>
+                        <a class="link" href="{{ route('front.shop_detail', $product->slug) }}">{{ $product->name }}</a>
                     </div>
-                    <div class="text-caption-1 text-secondary-2">Green, XS, Cotton</div>
-                    <div class="text-title">$68.00</div>
+                    {{-- <div class="text-caption-1 text-secondary-2">{{ $product->color }}, {{ $product->size }}, {{ $product->material }}</div> --}}
+                    <div class="text-title">${{ $product->mrp_price }} <del class="text-secondary ms-2">${{ $product->sale_price }}</del></div>
                 </div>
             </div>
             <a href="shopping-cart.html" class="tf-btn w-100 btn-fill radius-4"><span class="text text-btn-uppercase">View cart</span></a>
@@ -68,107 +68,58 @@
                         <div class="col-md-6">
                             <div class="tf-product-media-wrap sticky-top">
                                 <div class="thumbs-slider">
+                                    <!-- Thumbnail Slider -->
                                     <div dir="ltr" class="swiper tf-product-media-thumbs other-image-zoom" data-direction="vertical">
                                         <div class="swiper-wrapper stagger-wrap">
-                                            <div class="swiper-slide stagger-item" data-color="gray">
+                                            <!-- Main Thumbnail -->
+                                            <div class="swiper-slide">
                                                 <div class="item">
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" alt="">
+                                                    <img class="lazyload" data-src="{{ asset($product->thumb_url) }}" src="{{ asset($product->thumb_url) }}" alt="{{ $product->name }}">
                                                 </div>
                                             </div>
-                                            <div class="swiper-slide stagger-item" data-color="gray">
-                                                <div class="item">
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="">
+                                            
+                                            <!-- Gallery Thumbnails -->
+                                            @if(is_array($product->gallery_urls) && count($product->gallery_urls) > 0)
+                                                @foreach($product->gallery_urls as $gallery_url)
+                                                <div class="swiper-slide">
+                                                    <div class="item">
+                                                        <img class="lazyload" data-src="{{ asset($gallery_url) }}" src="{{ asset($gallery_url) }}" alt="{{ $product->name }}">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="swiper-slide stagger-item" data-color="gray">
-                                                <div class="item">
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide stagger-item" data-color="gray">
-                                                <div class="item">
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-5.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-5.jpg') }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide stagger-item" data-color="beige">
-                                                <div class="item">
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-6.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-6.jpg') }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide stagger-item" data-color="beige">
-                                                <div class="item">
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide stagger-item" data-color="beige">
-                                                <div class="item">
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide stagger-item" data-color="grey">
-                                                <div class="item">
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-23.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-23.jpg') }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide stagger-item" data-color="grey">
-                                                <div class="item">
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-24.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-24.jpg') }}" alt="">
-                                                </div>
-                                            </div>
+                                                @endforeach
+                                            @endif
                                         </div>
                                     </div>
+                                    
+                                    <!-- Main Image Display -->
                                     <div dir="ltr" class="swiper tf-product-media-main" id="gallery-swiper-started">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide" data-color="gray">
-                                                <a href="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
-                                                    <img class="tf-image-zoom lazyload" data-zoom="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" alt="">
+                                            <!-- Main Image -->
+                                            <div class="swiper-slide">
+                                                <a href="{{ asset($product->thumb_url) }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
+                                                    <img class="tf-image-zoom lazyload" data-zoom="{{ asset($product->thumb_url) }}" data-src="{{ asset($product->thumb_url) }}" src="{{ asset($product->thumb_url) }}" alt="{{ $product->name }}">
                                                 </a>
                                             </div>
-                                            <div class="swiper-slide" data-color="gray">
-                                                <a href="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
-                                                    <img class="tf-image-zoom lazyload" data-zoom="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide" data-color="gray">
-                                                <a href="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
-                                                    <img class="tf-image-zoom lazyload" data-zoom="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide" data-color="gray">
-                                                <a href="{{ asset('front_assets/images/products/womens/women-5.jpg') }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
-                                                    <img class="tf-image-zoom lazyload" data-zoom="{{ asset('front_assets/images/products/womens/women-5.jpg') }}" data-src="{{ asset('front_assets/images/products/womens/women-5.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-5.jpg') }}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide" data-color="beige">
-                                                <a href="{{ asset('front_assets/images/products/womens/women-6.jpg') }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
-                                                    <img class="tf-image-zoom lazyload" data-zoom="{{ asset('front_assets/images/products/womens/women-6.jpg') }}" data-src="{{ asset('front_assets/images/products/womens/women-6.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-6.jpg') }}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide" data-color="beige">
-                                                <a href="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
-                                                    <img class="tf-image-zoom lazyload" data-zoom="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" data-src="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide" data-color="beige">
-                                                <a href="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
-                                                    <img class="tf-image-zoom lazyload" data-zoom="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" data-src="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-7.jpg') }}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide" data-color="grey">
-                                                <a href="{{ asset('front_assets/images/products/womens/women-23.jpg') }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
-                                                    <img class="tf-image-zoom lazyload" data-zoom="{{ asset('front_assets/images/products/womens/women-23.jpg') }}" data-src="{{ asset('front_assets/images/products/womens/women-23.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-23.jpg') }}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide" data-color="grey">
-                                                <a href="{{ asset('front_assets/images/products/womens/women-24.jpg') }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
-                                                    <img class="tf-image-zoom lazyload" data-zoom="{{ asset('front_assets/images/products/womens/women-24.jpg') }}" data-src="{{ asset('front_assets/images/products/womens/women-24.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-24.jpg') }}" alt="">
-                                                </a>
-                                            </div>
+                                            
+                                            <!-- Gallery Images -->
+                                            @if(is_array($product->gallery_urls) && count($product->gallery_urls) > 0)
+                                                @foreach($product->gallery_urls as $gallery_url)
+                                                <div class="swiper-slide">
+                                                    <a href="{{ asset($gallery_url) }}" target="_blank" class="item" data-pswp-width="600px" data-pswp-height="800px">
+                                                        <img class="tf-image-zoom lazyload" data-zoom="{{ asset($gallery_url) }}" data-src="{{ asset($gallery_url) }}" src="{{ asset($gallery_url) }}" alt="{{ $product->name }}">
+                                                    </a>
+                                                </div>
+                                                @endforeach
+                                            @else
+                                                <!-- Debug: Show if empty -->
+                                                <p style="color:red;">No gallery images available</p>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>  
                             </div>
                         </div>
+
                         <!-- /Product default -->
                         <!-- tf-product-info-list -->
                         <div class="col-md-6">
@@ -177,8 +128,8 @@
                                 <div class="tf-product-info-list other-image-zoom">
                                     <div class="tf-product-info-heading">
                                         <div class="tf-product-info-name">
-                                            <div class="text text-btn-uppercase">Clothing</div>
-                                            <h3 class="name">Stretch Strap Top</h3>
+                                            <div class="text text-btn-uppercase">{{ $product->category->name }}</div>
+                                            <h3 class="name">{{ $product->name }}</h3>
                                             <div class="sub">
                                                 <div class="tf-product-info-rate">
                                                     <div class="list-star">
@@ -198,21 +149,21 @@
                                         </div>
                                         <div class="tf-product-info-desc">
                                             <div class="tf-product-info-price">
-                                                <h5 class="price-on-sale font-2">$79.99</h5>
-                                                <div class="compare-at-price font-2">$98.99</div>
+                                                <h5 class="price-on-sale font-2">${{ $product->mrp_price }}</h5>
+                                                <div class="compare-at-price font-2">${{ $product->sale_price }}</div>
                                                 <div class="badges-on-sale text-btn-uppercase">
                                                     -25%
                                                 </div>
                                             </div>
-                                            <p>The garments labelled as Committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
-                                            <div class="tf-product-info-liveview">
+                                            <p>{!! $product->short_description !!}</p>
+                                            {{-- <div class="tf-product-info-liveview">
                                                 <i class="icon icon-eye"></i>
                                                 <p class="text-caption-1"><span class="liveview-count">28</span> people are viewing this right now</p>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     <div class="tf-product-info-choose-option">
-                                        <div class="variant-picker-item">
+                                        {{-- <div class="variant-picker-item">
                                             <div class="variant-picker-label mb_12">
                                                 Colors:<span class="text-title variant-picker-label-value value-currentColor">Gray</span>
                                             </div>
@@ -233,8 +184,8 @@
                                                     <span class="tooltip">Grey</span>
                                                 </label>
                                             </div>
-                                        </div>
-                                        <div class="variant-picker-item">
+                                        </div> --}}
+                                        {{-- <div class="variant-picker-item">
                                             <div class="d-flex justify-content-between mb_12">
                                                 <div class="variant-picker-label">
                                                     Size:<span class="text-title variant-picker-label-value">L</span>
@@ -263,7 +214,7 @@
                                                     <span class="text-title">XXL</span>
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="tf-product-info-quantity">
                                             <div class="title mb_12">Quantity:</div>
@@ -276,14 +227,14 @@
                                         <div>
                                             <div class="tf-product-info-by-btn mb_10">
                                                 <a href="#shoppingCart" data-bs-toggle="modal" class="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 btn-add-to-cart"><span>Add to cart -&nbsp;</span><span class="tf-qty-price total-price">$79.99</span></a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon hover-tooltip compare btn-icon-action">
+                                                {{-- <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon hover-tooltip compare btn-icon-action">
                                                     <span class="icon icon-gitDiff"></span>
                                                     <span class="tooltip text-caption-2">Compare</span>
                                                 </a>
                                                 <a href="javascript:void(0);" class="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action">
                                                     <span class="icon icon-heart"></span>
                                                     <span class="tooltip text-caption-2">Wishlist</span>
-                                                </a>
+                                                </a> --}}
                                             </div>
                                             <a href="#" class="btn-style-3 text-btn-uppercase">Buy it now</a>
                                         </div>
@@ -350,20 +301,20 @@
                                         </div>
                                         <ul class="tf-product-info-sku">
                                             <li>
-                                                <p class="text-caption-1">SKU:</p>
-                                                <p class="text-caption-1 text-1">53453412</p>
+                                                <p class="text-caption-1">Code:</p>
+                                                <p class="text-caption-1 text-1">{{ $product->code }}</p>
                                             </li>
                                             <li>
-                                                <p class="text-caption-1">Vendor:</p>
-                                                <p class="text-caption-1 text-1">Modave</p>
+                                                <p class="text-caption-1">Brand:</p>
+                                                <p class="text-caption-1 text-1">{{ $product->brand->name }}</p>
                                             </li>
                                             <li>
                                                 <p class="text-caption-1">Available:</p>
-                                                <p class="text-caption-1 text-1">Instock</p>
+                                                <p class="text-caption-1 text-1">{{ $product->availability }}</p>
                                             </li>
                                             <li>
                                                 <p class="text-caption-1">Categories:</p>
-                                                <p class="text-caption-1"><a href="#" class="text-1 link">Clothes</a>, <a href="#" class="text-1 link">women</a>, <a href="#" class="text-1 link">T-shirt</a></p>
+                                                <p class="text-caption-1"><a href="#" class="text-1 link">{{ $product->category->name }}</a>, <a href="#" class="text-1 link">{{ $product->brand->name }}</a></p>
                                             </li>
                                         </ul>
                                         <div class="tf-product-info-guranteed">
@@ -407,18 +358,18 @@
                             <form class="form-sticky-atc">
                                 <div class="tf-sticky-atc-product">
                                     <div class="image">
-                                        <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" alt="" src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}">
+                                        <img class="lazyload" data-src="{{ asset($product->thumb_url) }}" alt="" src="{{ asset($product->thumb_url) }}">
                                     </div>
                                     <div class="content">
                                         <div class="text-title">
-                                            Biker-style leggings
+                                            {{ $product->name }}
                                         </div>
-                                        <div class="text-caption-1 text-secondary-2">Green, XS, Cotton</div>
-                                        <div class="text-title">$68.00</div>
+                                        {{-- <div class="text-caption-1 text-secondary-2">{{ $product->color }}, {{ $product->size }}, {{ $product->material }}</div> --}}
+                                        <div class="text-title">${{ $product->mrp_price }} <del class="text-secondary-2 ms-1">${{ $product->sale_price }}</del></div>
                                     </div>
                                 </div>
                                 <div class="tf-sticky-atc-infos">
-                                    <div class="tf-sticky-atc-size d-flex gap-12 align-items-center">
+                                    {{-- <div class="tf-sticky-atc-size d-flex gap-12 align-items-center">
                                         <div class="tf-sticky-atc-infos-title text-title">Size:</div>
                                         <div class="tf-dropdown-sort style-2" data-bs-toggle="dropdown">
                                             <div class="btn-select">
@@ -440,7 +391,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="tf-sticky-atc-quantity d-flex gap-12 align-items-center">
                                         <div class="tf-sticky-atc-infos-title text-title">Quantity:</div>
                                         <div class="wg-quantity style-1">
@@ -483,14 +434,16 @@
                             </ul>
                             <div class="widget-content-tab">
                                 <div class="widget-content-inner active">
-                                    <div class="tab-description">
+                                    <div class="">
                                         <div class="right">
-                                            <div class="letter-1 text-btn-uppercase mb_12">Stretch strap top</div>
+                                            <p class="mb_12 text-secondary">{!! $product->description !!}</p>
+                                            {{-- <div class="letter-1 text-btn-uppercase mb_12">Stretch strap top</div>
                                             <p class="mb_12 text-secondary">Nodding to retro styles, this Hyperbola T-shirt is defined by its off-the-shoulder design. It's spun from a green stretch cotton jersey and adorned with an embroidered AC logo on the front, a brand's signature.</p>
-                                            <p class="text-secondary">Thick knitted fabric. Short design. Straight design. Rounded neck. Sleeveless. Straps. Unclosed. Cable knit finish. Co-ord.</p>
+                                            <p class="text-secondary">Thick knitted fabric. Short design. Straight design. Rounded neck. Sleeveless. Straps. Unclosed. Cable knit finish. Co-ord.</p> --}}
                                         </div>
                                         <div class="left">
-                                            <div class="letter-1 text-btn-uppercase mb_12">COMPOSITION, ORIGIN AND CARE GUIDELINES</div>
+
+                                            {{-- <div class="letter-1 text-btn-uppercase mb_12">COMPOSITION, ORIGIN AND CARE GUIDELINES</div>
                                             <ul class="list-text type-disc mb_12 gap-6">
                                                 <li class="font-2">Composition: 55% polyester, 30% acrylic, 13% polyamide, 2% elastane</li>
                                                 <li class="font-2">Designed in Barcelona</li>
@@ -554,7 +507,7 @@
                                                     </svg>
                                                 </div>
                                             </div>
-                                            <div class="text-caption-2">MACHINE WASHING MAX 30°C / 85ºF SHORT SPIN DRY</div>
+                                            <div class="text-caption-2">MACHINE WASHING MAX 30°C / 85ºF SHORT SPIN DRY</div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -798,258 +751,35 @@
                     <li class="nav-tab-item" role="presentation">
                         <a href="#ralatedProducts" class="active" data-bs-toggle="tab">Ralated Products</a>
                     </li>
-                    <li class="nav-tab-item" role="presentation">
-                        <a href="#recentlyViewed" data-bs-toggle="tab">Recently Viewed</a>
-                    </li>
+                        {{-- <li class="nav-tab-item" role="presentation">
+                            <a href="#recentlyViewed" data-bs-toggle="tab">Recently Viewed</a>
+                        </li> --}}
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active show" id="ralatedProducts" role="tabpanel">
                         <div dir="ltr" class="swiper tf-sw-latest" data-preview="4" data-tablet="3" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
                             <div class="swiper-wrapper">
+                                @foreach ($related_products as $product)
+
                                 <div class="swiper-slide">
                                     <div class="card-product">
                                         <div class="card-product-wrapper">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="image-product">
-                                                <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" alt="image-product">
+                                            <a href="#" class="product-img">
+                                                <img class="lazyload img-product" data-src="{{ asset($product->image_url) }}" src="{{ asset($product->image_url) }}" alt="{{ $product->name }}">
+                                                <img class="lazyload img-hover" data-src="{{ asset($product->image_url) }}" src="{{ asset($product->image_url) }}" alt="{{ $product->name }}">
                                             </a>
-                                            <div class="list-product-btn">
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
                                             <div class="list-btn-main">
                                                 <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
                                             </div> 
                                         </div>
                                         <div class="card-product-info">
-                                            <a href="product-detail.html" class="title link">V-neck cotton T-shirt</a>
-                                            <span class="price">$59.99</span>
+                                            <a href="#" class="title link">{{ $product->name }}</a>
+                                            <span class="price">₹{{ $product->mrp_price }}</span>
                                             
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product-wrapper">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" alt="image-product">
-                                                <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-179.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-179.jpg') }}" alt="image-product">
-                                            </a>
-                                            <div class="on-sale-wrap"><span class="on-sale-item">-25%</span></div>
-                                            <div class="marquee-product bg-main">
-                                                <div class="marquee-wrapper">
-                                                    <div class="initial-child-container">
-                                                        <div class="marquee-child-item">
-                                                            <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <span class="icon icon-lightning text-critical"></span>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <span class="icon icon-lightning text-critical"></span>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <span class="icon icon-lightning text-critical"></span>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <span class="icon icon-lightning text-critical"></span>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <span class="icon icon-lightning text-critical"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="marquee-wrapper">
-                                                    <div class="initial-child-container">
-                                                        <div class="marquee-child-item">
-                                                            <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <span class="icon icon-lightning text-critical"></span>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <span class="icon icon-lightning text-critical"></span>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <span class="icon icon-lightning text-critical"></span>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <span class="icon icon-lightning text-critical"></span>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                        </div>
-                                                        <div class="marquee-child-item">
-                                                            <span class="icon icon-lightning text-critical"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-product-btn">
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                            <div class="list-btn-main">
-                                                <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                            </div> 
-                                        </div>
-                                        <div class="card-product-info">
-                                            <a href="product-detail.html" class="title link">Polarized sunglasses</a>
-                                            <span class="price"><span class="old-price">$98.00</span> $79.99</span>
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active line">
-                                                    <span class="swatch-value bg-light-blue"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="swatch-value bg-light-blue-2"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-177.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-177.jpg') }}" alt="image-product">
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card-product card-product-size">
-                                        <div class="card-product-wrapper">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" alt="image-product">
-                                                <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-30.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-30.jpg') }}" alt="image-product">
-                                            </a>
-                                            <div class="variant-wrap size-list">
-                                                <ul class="variant-box">
-                                                    <li class="size-item">S</li>
-                                                    <li class="size-item">M</li>
-                                                    <li class="size-item">L</li>
-                                                    <li class="size-item">XL</li>
-                                                </ul>
-                                            </div>
-                                            <div class="variant-wrap countdown-wrap">
-                                                <div class="variant-box">
-                                                    <div class="js-countdown" data-timer="1007500" data-labels="D :,H :,M :,S"></div>
-                                                </div>
-                                            </div>
-                                            <div class="list-product-btn">
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                            <div class="list-btn-main">
-                                                <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                            </div> 
-                                        </div>
-                                        <div class="card-product-info">
-                                            <a href="product-detail.html" class="title link">Ramie shirt with pockets </a>
-                                            <span class="price"><span class="old-price">$98.00</span> $89.99</span>
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active line">
-                                                    <span class="swatch-value bg-light-orange"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="swatch-value bg-light-grey"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-33.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-33.jpg') }}" alt="image-product">
-                                                </li>
-                                                
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product-wrapper">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="image-product">
-                                                <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="image-product">
-                                            </a>
-                                            <div class="list-product-btn">
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                            <div class="list-btn-main">
-                                                <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                            </div> 
-                                        </div>
-                                        <div class="card-product-info">
-                                            <a href="product-detail.html" class="title link">Ribbed cotton-blend top</a>
-                                            <span class="price">$69.99</span>
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active line">
-                                                    <span class="swatch-value bg-dark-grey"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="swatch-value bg-light-pink"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="swatch-value bg-dark-grey-2"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" alt="image-product">
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                             <div class="sw-pagination-latest sw-dots type-circle justify-content-center"></div>
                         </div>
@@ -1060,9 +790,9 @@
                                 <div class="swiper-slide">
                                     <div class="card-product">
                                         <div class="card-product-wrapper">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="image-product">
-                                                <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" alt="image-product">
+                                            <a href="#" class="product-img">
+                                                <img class="lazyload img-product" data-src="{{ asset($product->image_url) }}" src="{{ asset($product->image_url) }}" alt="{{ $product->name }}">
+                                                <img class="lazyload img-hover" data-src="{{ asset($product->image_url) }}" src="{{ asset($product->image_url) }}" alt="{{ $product->name }}">
                                             </a>
                                             <div class="list-product-btn">
                                                 <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
@@ -1083,8 +813,8 @@
                                             </div> 
                                         </div>
                                         <div class="card-product-info">
-                                            <a href="product-detail.html" class="title link">V-neck cotton T-shirt</a>
-                                            <span class="price">$59.99</span>
+                                            <a href="#" class="title link">{{ $product->name }}</a>
+                                            <span class="price">₹{{ $product->mrp_price }}</span>
                                             
                                         </div>
                                     </div>
@@ -1092,9 +822,9 @@
                                 <div class="swiper-slide">
                                     <div class="card-product">
                                         <div class="card-product-wrapper">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" alt="image-product">
-                                                <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-179.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-179.jpg') }}" alt="image-product">
+                                            <a href="#" class="product-img">
+                                                <img class="lazyload img-product" data-src="{{ asset($product->image_url) }}" src="{{ asset($product->image_url) }}" alt="{{ $product->name }}">
+                                                <img class="lazyload img-hover" data-src="{{ asset($product->image_url) }}" src="{{ asset($product->image_url) }}" alt="{{ $product->name }}">
                                             </a>
                                             <div class="on-sale-wrap"><span class="on-sale-item">-25%</span></div>
                                             <div class="marquee-product bg-main">
@@ -1186,12 +916,12 @@
                                             </div> 
                                         </div>
                                         <div class="card-product-info">
-                                            <a href="product-detail.html" class="title link">Polarized sunglasses</a>
-                                            <span class="price"><span class="old-price">$98.00</span> $79.99</span>
+                                            <a href="#" class="title link">{{ $product->name }}</a>
+                                            <span class="price"><span class="old-price">₹{{ $product->mrp_price }}</span> ₹{{ $product->sale_price }}</span>
                                             <ul class="list-color-product">
                                                 <li class="list-color-item color-swatch active line">
                                                     <span class="swatch-value bg-light-blue"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" alt="image-product">
+                                                    <img class="lazyload" data-src="{{ asset($product->image_url) }}" src="{{ asset($product->image_url) }}" alt="image-product">
                                                 </li>
                                                 <li class="list-color-item color-swatch">
                                                     <span class="swatch-value bg-light-blue-2"></span>
