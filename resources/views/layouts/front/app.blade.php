@@ -27,6 +27,520 @@
     <link rel="shortcut icon" href="{{ asset('front_assets/images/logo/favicon175732812854007.ico') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('front_assets/images/logo/favicon175732812854007.ico') }}">
     @yield('css')
+
+    <style>
+        /* ============================================
+   Auth Modals - Glassmorphism Design 2025
+============================================ */
+
+/* Modal Base Styles */
+.modal-content.glass-morphism {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    overflow: hidden;
+    max-width: 480px;
+    padding: 0;
+}
+
+.modal-dialog {
+    max-width: 480px;
+}
+
+/* Close Button */
+.btn-close-custom {
+    padding: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+}
+
+.btn-close-custom:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+}
+
+.btn-close-custom i::before {
+    content: "×";
+    font-size: 24px;
+    color: #1a1a1a;
+    font-weight: 300;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 35px 35px 20px;
+}
+
+/* Auth Header */
+.auth-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.auth-subtitle {
+    font-size: 15px;
+    color: #6b6b6b;
+    margin: 0;
+}
+
+/* Social Login Buttons */
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.btn-social {
+    width: 100%;
+    height: 48px;
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-social::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-social:hover::before {
+    left: 100%;
+}
+
+.btn-social:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn-social svg {
+    flex-shrink: 0;
+}
+
+/* Divider */
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 22px 0;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+}
+
+.divider span {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0 16px;
+    font-size: 13px;
+    color: #6b6b6b;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Form Styles */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Floating Label Input */
+.form-group.floating-label {
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    height: 56px;
+    padding: 24px 16px 8px;
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-size: 15px;
+    color: #1a1a1a;
+    background: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-input:not(:placeholder-shown) {
+    padding-top: 24px;
+}
+
+.floating-label label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    color: #6b6b6b;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fff;
+    padding: 0 4px;
+}
+
+.form-input:focus + label,
+.form-input:not(:placeholder-shown) + label {
+    top: 12px;
+    font-size: 12px;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+/* Input Icons */
+.input-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b6b6b;
+    pointer-events: none;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b6b6b;
+    padding: 8px;
+    transition: color 0.3s;
+}
+
+.toggle-password:hover {
+    color: #1a1a1a;
+}
+
+/* Password Strength Bar */
+.password-strength {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #ff4444, #ffaa00, #00cc66);
+    transition: width 0.3s;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -8px;
+}
+
+/* Custom Checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.checkbox-container input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background: #fff;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.checkbox-container input:checked ~ .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-label {
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+/* Links */
+.link-primary {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.link-primary:hover {
+    opacity: 0.7;
+}
+
+.link-accent {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+.link-accent::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #1a1a1a;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-accent:hover::after {
+    width: 100%;
+}
+
+/* Primary Button */
+.btn-primary.btn-auth {
+    width: 100%;
+    height: 56px;
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.btn-primary.btn-auth::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary.btn-auth:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.btn-primary.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary.btn-auth i {
+    transition: transform 0.3s;
+}
+
+.btn-primary.btn-auth:hover i {
+    transform: translateX(4px);
+}
+
+/* Auth Footer */
+.auth-footer {
+    /* margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06); */
+}
+
+.auth-footer p {
+    font-size: 14px;
+    color: #6b6b6b;
+    margin: 0;
+}
+
+/* Loading State */
+.btn-auth.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-auth.loading span {
+    opacity: 0;
+}
+
+.btn-auth.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Modal Animations */
+.modal.fade .modal-dialog {
+    transform: scale(0.95) translateY(-20px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .modal-body {
+        padding: 48px 24px 32px;
+    }
+    
+    .auth-title {
+        font-size: 28px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    .modal-content.glass-morphism {
+        background: rgba(26, 26, 26, 0.95);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .auth-title,
+    .form-input,
+    .checkbox-label {
+        color: #fff;
+    }
+    
+    .auth-subtitle,
+    .input-icon,
+    .auth-footer p {
+        color: #a0a0a0;
+    }
+    
+    .form-input,
+    .btn-social {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }
+    
+    .btn-primary.btn-auth {
+        background: #fff;
+        color: #1a1a1a;
+    }
+}
+
+    </style>
 </head>
 
 <body class="preload-wrapper popup-loader">
@@ -1003,6 +1517,201 @@
     </div>
     <!-- /search -->
 
+    <!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-morphism">
+            <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                <i class="icon-close"></i>
+            </button>
+            
+            <div class="modal-body">
+                <div class="auth-header">
+                    <h2 class="auth-title">Welcome Back</h2>
+                    <p class="auth-subtitle">Sign in to continue your journey</p>
+                </div>
+
+               
+
+              
+
+                <!-- Login Form -->
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group floating-label">
+                        <input type="email" id="loginEmail" class="form-input" placeholder=" " required>
+                        <label for="loginEmail">Email Address</label>
+                        <span class="input-icon">
+                            <i class="icon-mail"></i>
+                        </span>
+                    </div>
+
+                    <div class="form-group floating-label">
+                        <input type="password" id="loginPassword" class="form-input" placeholder=" " required>
+                        <label for="loginPassword">Password</label>
+                        <span class="input-icon">
+                            <i class="icon-lock"></i>
+                        </span>
+                        <button type="button" class="toggle-password">
+                            <i class="icon-eye"></i>
+                        </button>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">Remember me</span>
+                        </label>
+                        <a href="#" class="link-primary" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-auth">
+                        <span>Sign In</span>
+                        <i class="icon-arrow-right"></i>
+                    </button>
+                </form>
+                <div class="auth-footer">
+                    <p class="text-center">Don't have an account? 
+                        <a href="#" class="link-accent" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registerModal">Create Account</a>
+                    </p>
+                </div>
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                 <!-- Social Login Options -->
+                <div class="social-login">
+                    <button class="btn-social btn-google">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M19.8 10.2c0-.7-.1-1.4-.2-2H10v3.8h5.5c-.2 1.2-1 2.2-2 2.9v2.5h3.2c1.9-1.7 3-4.3 3-7.2z" fill="#4285F4"/>
+                            <path d="M10 20c2.7 0 4.9-.9 6.5-2.4l-3.2-2.5c-.9.6-2 .9-3.3.9-2.5 0-4.7-1.7-5.4-4H1.3v2.6C2.9 17.8 6.2 20 10 20z" fill="#34A853"/>
+                            <path d="M4.6 11.9c-.4-1.2-.4-2.5 0-3.7V5.6H1.3c-1.3 2.5-1.3 5.4 0 7.9l3.3-2.6z" fill="#FBBC04"/>
+                            <path d="M10 4c1.4 0 2.7.5 3.7 1.4l2.8-2.8C14.9 1 12.7 0 10 0 6.2 0 2.9 2.2 1.3 5.6l3.3 2.6C5.3 5.7 7.5 4 10 4z" fill="#EA4335"/>
+                        </svg>
+                        <span>Continue with Google</span>
+                    </button>
+                    <button class="btn-social btn-facebook">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" fill="#1877F2"/>
+                        </svg>
+                        <span>Continue with Facebook</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-morphism">
+            <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                <i class="icon-close"></i>
+            </button>
+            
+            <div class="modal-body">
+                <div class="auth-header">
+                    <h2 class="auth-title">Create Account</h2>
+                    <p class="auth-subtitle">Join us for an exclusive experience</p>
+                </div>
+
+                
+
+                
+
+                <!-- Register Form -->
+                <form class="auth-form" id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group floating-label">
+                            <input type="text" id="firstName" class="form-input" placeholder=" " required>
+                            <label for="firstName">First Name</label>
+                        </div>
+                        <div class="form-group floating-label">
+                            <input type="text" id="lastName" class="form-input" placeholder=" " required>
+                            <label for="lastName">Last Name</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group floating-label">
+                        <input type="email" id="registerEmail" class="form-input" placeholder=" " required>
+                        <label for="registerEmail">Email Address</label>
+                        <span class="input-icon">
+                            <i class="icon-mail"></i>
+                        </span>
+                    </div>
+
+                    <div class="form-group floating-label">
+                        <input type="password" id="registerPassword" class="form-input" placeholder=" " required>
+                        <label for="registerPassword">Password</label>
+                        <span class="input-icon">
+                            <i class="icon-lock"></i>
+                        </span>
+                        <button type="button" class="toggle-password">
+                            <i class="icon-eye"></i>
+                        </button>
+                        <div class="password-strength">
+                            <div class="strength-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group floating-label">
+                        <input type="password" id="confirmPassword" class="form-input" placeholder=" " required>
+                        <label for="confirmPassword">Confirm Password</label>
+                        <span class="input-icon">
+                            <i class="icon-lock"></i>
+                        </span>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">I agree to the <a href="#" class="link-primary">Terms & Conditions</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-auth">
+                        <span>Create Account</span>
+                        <i class="icon-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p class="text-center">Already have an account? 
+                        <a href="#" class="link-accent" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</a>
+                    </p>
+                </div>
+
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+
+                <!-- Social Register Options -->
+                <div class="social-login">
+                    <button class="btn-social btn-google">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M19.8 10.2c0-.7-.1-1.4-.2-2H10v3.8h5.5c-.2 1.2-1 2.2-2 2.9v2.5h3.2c1.9-1.7 3-4.3 3-7.2z" fill="#4285F4"/>
+                            <path d="M10 20c2.7 0 4.9-.9 6.5-2.4l-3.2-2.5c-.9.6-2 .9-3.3.9-2.5 0-4.7-1.7-5.4-4H1.3v2.6C2.9 17.8 6.2 20 10 20z" fill="#34A853"/>
+                            <path d="M4.6 11.9c-.4-1.2-.4-2.5 0-3.7V5.6H1.3c-1.3 2.5-1.3 5.4 0 7.9l3.3-2.6z" fill="#FBBC04"/>
+                            <path d="M10 4c1.4 0 2.7.5 3.7 1.4l2.8-2.8C14.9 1 12.7 0 10 0 6.2 0 2.9 2.2 1.3 5.6l3.3 2.6C5.3 5.7 7.5 4 10 4z" fill="#EA4335"/>
+                        </svg>
+                        <span>Sign up with Google</span>
+                    </button>
+                    <button class="btn-social btn-facebook">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" fill="#1877F2"/>
+                        </svg>
+                        <span>Sign up with Facebook</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <!-- modalDemo -->
     <div class="modal fade modalDemo" id="modalDemo">
         <div class="modal-dialog modal-dialog-centered">
@@ -1649,7 +2358,7 @@
     <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
         <div class="modal-dialog">
             <div class="modal-content">
-                {{-- <div class="tf-minicart-recommendations">
+                <div class="tf-minicart-recommendations">
                     <h6 class="title">You May Also Like</h6>
                     <div class="wrap-recommendations">
                         <div class="list-cart">
@@ -1739,7 +2448,7 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
                 <div class="d-flex flex-column flex-grow-1 h-100">
                     <div class="header">
                         <h5 class="title">Shopping Cart</h5>
@@ -2791,6 +3500,118 @@
 
         var AUTOHIDE = Boolean(0);
     </script> --}}
+
+    <script>
+        // Auth Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Password Toggle
+    document.querySelectorAll('.toggle-password').forEach(button => {
+        button.addEventListener('click', function() {
+            const input = this.parentElement.querySelector('.form-input');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.className = 'icon-eye-off';
+            } else {
+                input.type = 'password';
+                icon.className = 'icon-eye';
+            }
+        });
+    });
+    
+    // Password Strength Indicator
+    const passwordInput = document.getElementById('registerPassword');
+    if (passwordInput) {
+        passwordInput.addEventListener('input', function() {
+            const strength = calculatePasswordStrength(this.value);
+            const strengthBar = this.parentElement.querySelector('.strength-bar');
+            
+            if (strengthBar) {
+                strengthBar.style.width = strength + '%';
+                
+                // Change color based on strength
+                if (strength < 33) {
+                    strengthBar.style.background = '#ff4444';
+                } else if (strength < 66) {
+                    strengthBar.style.background = '#ffaa00';
+                } else {
+                    strengthBar.style.background = '#00cc66';
+                }
+            }
+        });
+    }
+    
+    // Password Strength Calculator
+    function calculatePasswordStrength(password) {
+        let strength = 0;
+        
+        if (password.length >= 8) strength += 25;
+        if (password.length >= 12) strength += 25;
+        if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength += 20;
+        if (/\d/.test(password)) strength += 15;
+        if (/[^a-zA-Z0-9]/.test(password)) strength += 15;
+        
+        return Math.min(strength, 100);
+    }
+    
+    // Form Validation
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const btn = this.querySelector('.btn-auth');
+            btn.classList.add('loading');
+            
+            // Simulate API call
+            setTimeout(() => {
+                btn.classList.remove('loading');
+                // Add your login logic here
+                console.log('Login submitted');
+            }, 2000);
+        });
+    }
+    
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            const btn = this.querySelector('.btn-auth');
+            btn.classList.add('loading');
+            
+            // Simulate API call
+            setTimeout(() => {
+                btn.classList.remove('loading');
+                // Add your registration logic here
+                console.log('Registration submitted');
+            }, 2000);
+        });
+    }
+    
+    // Input Animation on Focus
+    document.querySelectorAll('.form-input').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+        });
+    });
+});
+
+    </script>
 
 </body>
 
