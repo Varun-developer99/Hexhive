@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class Customer extends Model
 {
@@ -19,4 +20,14 @@ class Customer extends Model
         'password',
         'show_password',
     ];
+
+    protected $hidden = [
+        'password',
+    ];
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+        $this->attributes['show_password'] = $value;
+    }
 }

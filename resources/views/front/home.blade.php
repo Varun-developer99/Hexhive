@@ -8,7 +8,7 @@
 
 @section('content')
    
-     <!-- Slider -->
+   <!-- Slider -->
         <div class="slider-padding">
             <div class="tf-slideshow slider-default slider-position slider-effect-fade slider-radius-2">
                 <div dir="ltr" class="swiper tf-sw-slideshow" data-preview="1" data-tablet="1" data-mobile="1" data-centered="false" data-space="0" data-space-mb="0" data-loop="true" data-auto-play="false">
@@ -119,11 +119,11 @@
                 <div dir="ltr" class="swiper tf-sw-recent" data-preview="4" data-tablet="3" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
                     <div class="swiper-wrapper">
                         <!-- 1 -->
-                        @foreach($product as $prod)
+                        @foreach($fresh_arrivals as $prod)
                         <div class="swiper-slide">
                             <div class="card-product card-product-size wow fadeInUp" data-wow-delay="0s">
                                 <div class="card-product-wrapper">
-                                    <a href="{{ route('front.shop_detail', $prod->slug) }}" class="product-img">
+                                    <a href="{{ route('front.product', $prod->slug) }}" class="product-img">
                                         <img class="lazyload img-product" data-src="{{ $prod->thumb_url }}" src="{{ $prod->thumb_url }}" alt="image-product">
                                         <img class="lazyload img-hover" data-src="{{ $prod->thumb_url }}" src="{{ $prod->thumb_url }}" alt="image-product">
                                     </a>
@@ -201,14 +201,16 @@
                                 <div>
                                     <a href="shop-collection.html" class="btn-line style-white">Shop Now</a>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /Collection -->
-      <!-- Gallery shop gram -->
+
+        <!-- Gallery shop gram -->
         <section>
             <div class="container">
                 <div class="heading-section text-center">

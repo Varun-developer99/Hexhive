@@ -615,16 +615,23 @@
       productItem.find(".color-btn, .size-btn").on("click", function () {
         var newPrice = parseFloat($(this).data("price")) || basePrice;
         quantityInput.val(1);
-        productItem.find(".price-on-sale").text(
-          "$" + newPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        productItem.find(".price-on-sale").html(
+          "$" + newPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' <small style="font-size:16px;"> NZD</small>'
         );
         updateTotalPrice(newPrice, productItem);
       });
 
       productItem.find(".btn-increase").on("click", function () {
         var currentQuantity = parseInt(quantityInput.val());
-        quantityInput.val(currentQuantity + 1);
-        updateTotalPrice(null, productItem);
+        var max_quantity = parseInt(quantityInput.attr('max'));
+        if((currentQuantity + 1) <= max_quantity){
+          quantityInput.val(currentQuantity + 1);
+          updateTotalPrice(null, productItem);
+        }
+        else{
+          var product_id = quantityInput.data('product_id');
+          document.getElementById("stock_alert_msg_"+product_id).style.display = "block";
+        }      
       });
 
       productItem.find(".btn-decrease").on("click", function () {
@@ -640,7 +647,7 @@
         var quantity = parseInt(scope.find(".quantity-product").val());
         var totalPrice = currentPrice * quantity;
         scope.find(".total-price").text(
-          "$" + totalPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          "$" + totalPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " NZD"
         );
       }
     });

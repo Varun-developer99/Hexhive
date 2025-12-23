@@ -44,6 +44,9 @@ if ($(".thumbs-slider").length > 0) {
     
         var currentSlide = $(".tf-product-media-main .swiper-slide").eq(activeIndex);
         var currentColor = currentSlide.data("color");
+        if(currentColor == 'N/A') {
+            currentColor = $(".color-btn:first").data("color");
+        }
         if (currentColor) {
           $(".color-btn[data-color='" + currentColor + "']").addClass("active");
           $('.value-currentColor').text(currentColor);

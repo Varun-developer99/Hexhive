@@ -3,44 +3,68 @@
 @section('title', 'Cart')
 
 @section('css')
-
+    <style>
+        
+    </style>
 @endsection
 
 @section('content')
-   <!-- page-title -->
-        <div class="page-title" style="background-image: url('{{ asset('front_assets/images/section/page-title.jpg') }}');">
-            <div class="container">
-                <h3 class="heading text-center">Shopping Cart</h3>
-                <ul class="breadcrumbs d-flex align-items-center justify-content-center">
-                    <li><a class="link" href="{{ url('/') }}">Homepage</a></li>
-                    <li><i class="icon-arrRight"></i></li>
-                    <li><a class="link" href="{{ route('front.shop') }}">Shop</a></li>
-                    <li><i class="icon-arrRight"></i></li>
-                    <li>Shopping Cart</li>
-                </ul>
+
+        <!-- page-title -->
+        <div class="page-title" style="background-image: url({{ asset('front_assets/images/section/page-title.jpg')}})">
+            <div class="container-full">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="heading text-center" style="color: #fff;">Cart</h3>
+                        <ul class="breadcrumbs d-flex align-items-center justify-content-center">
+                            <li><a class="link" style="color: #fff;" href="/">Home</a></li>
+                            <li><i class="icon-arrRight"></i></li>
+                            <li>Cart</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /page-title -->
-        <!-- Section cart -->
+
         <section class="flat-spacing">
             <div class="container">
-                <div class="row">
+                <form action="{{ route('front.update_cart') }}" method="POST" class="row">
+                    @csrf
                     <div class="col-xl-8">
-                        <div class="tf-cart-sold">
+                        {{-- <div class="tf-cart-sold">
                             <div class="notification-sold bg-surface">
-                                <img class="icon" src="{{ asset('front_assets/images/logo/icon-fire.png') }}" alt="img">
-                                <div class="count-text">Your cart will expire in <div class="js-countdown time-count" data-timer="600" data-labels=":,:,:,"></div> minutes! Please checkout now before your items sell out!</div>  
+                                <img class="icon" src="images/logo/icon-fire.png" alt="img">
+                                <div class="count-text">Your cart will expire in <div class="js-countdown time-count" data-timer="600" data-labels=":,:,:,"><div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">:</span></span><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--1 js-countdown__value--1">00</span><span class="countdown__label">:</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">09</span><span class="countdown__label">:</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">38</span><span class="countdown__label"></span></span></div></div> minutes! Please checkout now before your items sell out!</div>  
                             </div>
                             <div class="notification-progress">
                                 <div class="text">Buy <span class="fw-semibold text-primary">$70.00</span> more to get <span class="fw-semibold">Freeship</span></div>
                                 <div class="progress-cart">
-                                    <div class="value" style="width: 0%;" data-progress="50">
+                                    <div class="value" style="width: 50%;" data-progress="50">
                                         <span class="round"></span>
                                     </div>
                                 </div>
                             </div>
+                        </div> --}}
+                        @if (count($cart) == 0)
+                        <div class="container">
+                            <div class="row align-items-center justify-content-center py-5">
+                                <div class="col-8">
+                                    <div class="tf-page-cart-checkout">
+                                        <div class="d-flex gap-10 align-items-center mb_20">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M15.32 3H8.68c-.26 0-.52.11-.7.29L3.29 7.98c-.18.18-.29.44-.29.7v6.63c0 .27.11.52.29.71l4.68 4.68c.19.19.45.3.71.3h6.63c.27 0 .52-.11.71-.29l4.68-4.68c.19-.19.29-.44.29-.71V8.68c0-.27-.11-.52-.29-.71l-4.68-4.68c-.18-.18-.44-.29-.7-.29zM12 17.3c-.72 0-1.3-.58-1.3-1.3s.58-1.3 1.3-1.3 1.3.58 1.3 1.3-.58 1.3-1.3 1.3zm0-4.3c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1z"></path></svg>
+                                            <h5 class="fw-5">Cart is empty</h5>
+                                        </div>
+                                        <p class="mb_20">You have no items in your cart.</p>
+                                        <a href="{{ route('front.shop') }}" class="btn-style-2 mb_20 w-100 radius-3 justify-content-center">
+                                            <span class="text text-btn-uppercase">Continue Shopping</span>
+                                        </a>
+                                        {{-- <p>Have a question? <a href="contact.html" class="text-primary">Contact Support</a></p> --}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <form>
+                        @else
                             <table class="tf-table-page-cart">
                                 <thead>
                                     <tr>
@@ -52,222 +76,100 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse ($cart as $key => $item)
+                                    @php
+                                        $current_stock = 0;
+                                    @endphp
                                     <tr class="tf-cart-item file-delete">
                                         <td class="tf-cart-item_product">
-                                            <a href="product-detail.html" class="img-box">
-                                                <img src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="product">
+                                            <a href="{{ route('front.product', $item->product->slug ?? '#') }}" class="img-box">
+                                                @foreach (($item->product->getMedia('main_img') ?? []) as $file)
+                                                    <img src="{{ $file->getURL() ?? '#' }}" alt="product">
+                                                @endforeach
                                             </a>
                                             <div class="cart-info">
-                                                <a href="product-detail.html" class="cart-title link">V-neck cotton T-shirt</a>
-                                                <div class="variant-box">
-                                                    <div class="tf-select">
-                                                        <select>
-                                                            <option selected="selected">Blue</option>
-                                                            <option>Black</option>
-                                                            <option>White</option>
-                                                            <option>Red</option>
-                                                            <option>Beige</option>
-                                                            <option>Pink</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="tf-select">
-                                                        <select>
-                                                            <option selected="selected">XL</option>
-                                                            <option>XS</option>
-                                                            <option>S</option>
-                                                            <option>M</option>
-                                                            <option>L</option>
-                                                            <option>XL</option>
-                                                            <option>2XL</option>
-                                                        </select>
-                                                    </div>
+                                                <a href="{{ route('front.product', $item->product->slug ?? '#') }}" class="cart-title link">{{ $item->product->name ?? 'N/A' }}</a>
+                                                <div class="variant-box text-muted">
+                                                    @foreach (json_decode($item->attribute_value_ids ?? '[]') as $attribute_value_id){{ attribute_value_data($attribute_value_id)->name ?? 'N/A' }}{{ $loop->last ? '' : '/' }}@endforeach
                                                 </div>
                                             </div>
                                         </td>
                                         <td data-cart-title="Price" class="tf-cart-item_price text-center">
-                                            <div class="cart-price text-button price-on-sale">$60.00</div>
+                                            @if($item->order_type == 'Subscribe')
+                                                <div class="text-muted text-start">Per Day Cost: <b>{{ price($item->per_day_rent ?? 0) }} <small style="font-size:12px;">NZD </small></b></div>
+                                                <div class="text-muted text-start">Subscribe For: <b>{{ $item->rent_days ?? 0 }} Days</b></div>
+                                                <div class="cart-price text-button price-on-sale">{{ price(($item->per_day_rent ?? 0) * ($item->rent_days ?? 0)) }} <small style="font-size:12px;">NZD </small></div>
+                                            @else
+                                                <div class="cart-price text-button price-on-sale">{{ price($item->sale_price ?? 0) }} <small style="font-size:12px;">NZD </small></div>
+                                            @endif
                                         </td>
                                         <td data-cart-title="Quantity" class="tf-cart-item_quantity">
-                                            <div class="wg-quantity mx-md-auto">
+                                            <input type="hidden" name="cart[{{ $key }}][id]" value="{{ $item->id }}">
+                                            <div class="wg-quantity mx-md-auto" onclick="update_cart_amount()">
                                                 <span class="btn-quantity btn-decrease">-</span>
-                                                <input type="text" class="quantity-product" name="number" value="1">
+                                                @if ($item->order_type == 'Subscribe')
+                                                <input type="number" class="quantity-product" name="cart[{{ $key }}][qty]" value="{{ $item->qty ?? 0 }}" max="{{ $current_stock = product_variant_rental_current_stock($item->product_variant_id) }}" min="1" data-product_id="{{ $item->product_id }}">
+                                                @else
+                                                <input type="number" class="quantity-product" name="cart[{{ $key }}][qty]" value="{{ $item->qty ?? 0 }}" max="{{ $current_stock = product_variant_current_stock($item->product_variant_id) }}" min="1" data-product_id="{{ $item->product_id }}">
+                                                @endif
                                                 <span class="btn-quantity btn-increase">+</span>
                                             </div>
+                                            <p class="text-danger text-center" id="stock_alert_msg_{{ $item->product_id }}" style="display: none;">Available Stock: <b>{{ $current_stock }}</b></p>
                                         </td>
                                         <td data-cart-title="Total" class="tf-cart-item_total text-center">
-                                            <div class="cart-total text-button total-price">$60.00</div>
+                                            <div class="cart-total text-button total-price">{{ price($item->total_amount ?? 0) }} <small style="font-size:12px;">NZD </small></div>
                                         </td>
-                                        <td data-cart-title="Remove" class="remove-cart"><span class="remove icon icon-close"></span></td>
+                                        <td data-cart-title="Remove" class="remove-cart" onclick="remove_from_cart({{ $item->id }}); update_cart_amount();"><span class="remove icon icon-close"></span></td>
                                     </tr>
-                                    <tr class="tf-cart-item file-delete">
-                                        <td class="tf-cart-item_product">
-                                            <a href="product-detail.html" class="img-box">
-                                                <img src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="product">
-                                            </a>
-                                            <div class="cart-info">
-                                                <a href="product-detail.html" class="cart-title link">V-neck cotton T-shirt</a>
-                                                <div class="variant-box">
-                                                    <div class="tf-select">
-                                                        <select>
-                                                            <option selected="selected">Blue</option>
-                                                            <option>Black</option>
-                                                            <option>White</option>
-                                                            <option>Red</option>
-                                                            <option>Beige</option>
-                                                            <option>Pink</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="tf-select">
-                                                        <select>
-                                                            <option selected="selected">XL</option>
-                                                            <option>XS</option>
-                                                            <option>S</option>
-                                                            <option>M</option>
-                                                            <option>L</option>
-                                                            <option>XL</option>
-                                                            <option>2XL</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-cart-title="Price" class="tf-cart-item_price text-center">
-                                            <div class="cart-price text-button price-on-sale">$40.00</div>
-                                        </td>
-                                        <td data-cart-title="Quantity" class="tf-cart-item_quantity">
-                                            <div class="wg-quantity mx-md-auto">
-                                                <span class="btn-quantity btn-decrease">-</span>
-                                                <input type="text" class="quantity-product" name="number" value="1">
-                                                <span class="btn-quantity btn-increase">+</span>
-                                            </div>
-                                        </td>
-                                        <td data-cart-title="Total" class="tf-cart-item_total text-center">
-                                            <div class="cart-total text-button total-price">$40.00</div>
-                                        </td>
-                                        <td data-cart-title="Remove" class="remove-cart"><span class="remove icon icon-close"></span></td>
+                                    @empty
+                                    <tr>
+                                        <td colspan="5" class="text-center">Your cart is empty</td> 
                                     </tr>
-                                    <tr class="tf-cart-item file-delete">
-                                        <td class="tf-cart-item_product">
-                                            <a href="product-detail.html" class="img-box">
-                                                <img src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" alt="product">
-                                            </a>
-                                            <div class="cart-info">
-                                                <a href="product-detail.html" class="cart-title link">V-neck cotton T-shirt</a>
-                                                <div class="variant-box">
-                                                    <div class="tf-select">
-                                                        <select>
-                                                            <option selected="selected">Blue</option>
-                                                            <option>Black</option>
-                                                            <option>White</option>
-                                                            <option>Red</option>
-                                                            <option>Beige</option>
-                                                            <option>Pink</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="tf-select">
-                                                        <select>
-                                                            <option selected="selected">XL</option>
-                                                            <option>XS</option>
-                                                            <option>S</option>
-                                                            <option>M</option>
-                                                            <option>L</option>
-                                                            <option>XL</option>
-                                                            <option>2XL</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-cart-title="Price" class="tf-cart-item_price text-center">
-                                            <div class="cart-price"><span class="old-price">$80.00</span><span class="text-button new-price price-on-sale">$129.00</span></div>
-                                        </td>
-                                        <td data-cart-title="Quantity" class="tf-cart-item_quantity">
-                                            <div class="wg-quantity mx-md-auto">
-                                                <span class="btn-quantity btn-decrease">-</span>
-                                                <input type="text" class="quantity-product" name="number" value="1">
-                                                <span class="btn-quantity btn-increase">+</span>
-                                            </div>
-                                        </td>
-                                        <td data-cart-title="Total" class="tf-cart-item_total text-center">
-                                            <div class="cart-total text-button total-price">$129.00</div>
-                                        </td>
-                                        <td data-cart-title="Remove" class="remove-cart"><span class="remove icon icon-close"></span></td>
-                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                             <div class="ip-discount-code">
-                                <input type="text" placeholder="Add voucher discount">
-                                <button class="tf-btn"><span class="text">Apply Code</span></button>
+                                @if ($item->coupon ?? '')
+                                    <div class="alert alert-success">
+                                        Coupon Applied : <strong>{{ $item->coupon->code }}</strong> 
+                                        <span class="btn btn-danger btn-sm float-end" style="cursor:pointer" onclick="remove_coupon()">Remove Coupon</span>
+                                        <input type="hidden" name="coupon_discount" id="coupon_discount" value="{{ $item->coupon->discount }}">
+                                    </div>
+                                @else
+                                    <input type="text" placeholder="Add voucher discount" name="coupon_code" id="coupon_code" value="{{ session('coupon_code') ?? '' }}">
+                                    <button type="button" class="tf-btn" onclick="applyCoupon()"><span class="text">Apply Code</span></button>
+                                @endif
                             </div>
-                            <div class="group-discount">
-                                <div class="box-discount">
-                                    <div class="discount-top">
-                                        <div class="discount-off">
-                                            <div class="text-caption-1">Discount</div>
-                                            <span class="sale-off text-btn-uppercase">10% OFF</span>
-                                        </div>
-                                        <div class="discount-from">
-                                            <p class="text-caption-1">For all orders <br> from 200$</p>
-                                        </div>
-                                    </div>
-                                    <div class="discount-bot">
-                                        <span class="text-btn-uppercase">Mo234231</span>
-                                        <button class="tf-btn"><span class="text">Apply Code</span></button>
-                                    </div>
-                                </div>
-                                <div class="box-discount active">
-                                    <div class="discount-top">
-                                        <div class="discount-off">
-                                            <div class="text-caption-1">Discount</div>
-                                            <span class="sale-off text-btn-uppercase">10% OFF</span>
-                                        </div>
-                                        <div class="discount-from">
-                                            <p class="text-caption-1">For all orders <br> from 200$</p>
-                                        </div>
-                                    </div>
-                                    <div class="discount-bot">
-                                        <span class="text-btn-uppercase">Mo234231</span>
-                                        <button class="tf-btn"><span class="text">Apply Code</span></button>
-                                    </div>
-                                </div>
-                                <div class="box-discount">
-                                    <div class="discount-top">
-                                        <div class="discount-off">
-                                            <div class="text-caption-1">Discount</div>
-                                            <span class="sale-off text-btn-uppercase">10% OFF</span>
-                                        </div>
-                                        <div class="discount-from">
-                                            <p class="text-caption-1">For all orders <br> from 200$</p>
-                                        </div>
-                                    </div>
-                                    <div class="discount-bot">
-                                        <span class="text-btn-uppercase">Mo234231</span>
-                                        <button class="tf-btn"><span class="text">Apply Code</span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                        @endif
                     </div>
                     <div class="col-xl-4">
                         <div class="fl-sidebar-cart">
                             <div class="box-order bg-surface">
                                 <h5 class="title">Order Summary</h5>
                                 <div class="subtotal text-button d-flex justify-content-between align-items-center">
-                                    <span>Subtotal</span>
-                                    <span class="total">-$80.00</span>
+                                    <span>Subtotal </span>
+                                    <span class="total" id="sub_total">{{ price($sub_total = ($cart->sum('total_amount'))) }}<small style="font-size: 12px"> NZD</small></span>
                                 </div>
                                 <div class="discount text-button d-flex justify-content-between align-items-center">
                                     <span>Discounts</span>
-                                    <span class="total">-$80.00</span>
+                                    <span class="discount_amount">-{{ price($discount_amount = ($sub_total * ($item->coupon->discount ?? 0)) / 100) }} <small style="font-size: 12px"> NZD</small></span>
                                 </div>
-                                <div class="ship">
+                                <div class="discount text-button d-flex justify-content-between align-items-center">
+                                    <span>Tax <small style="color: rgba(33, 37, 41, 0.75)">(15% Included)</small></span>
+                                    <span class="tax">{{ price(calculate_tax($sub_total -= ($discount_amount ?? 0))) }} <small style="font-size: 12px"> NZD</small></span>
+                                </div>
+                                <div class="discount text-button d-flex justify-content-between align-items-center">
+                                    <span>Shipped from NewZealand</span>
+                                    <span class="total" id="shipping_cost">${{ $sub_total >= 500 ? ($shipping_cost = 0) : ($shipping_cost = shipping_cost()) }}.00 <small style="font-size: 12px"> NZD</small></span>
+                                </div>
+                                {{-- <div class="ship">
                                     <span class="text-button">Shipping</span>
                                     <div class="flex-grow-1">
                                         <fieldset class="ship-item">
                                             <input type="radio" name="ship-check" class="tf-check-rounded" id="free" checked="">
                                             <label for="free">
                                                 <span>Free Shipping</span>
-                                                <span class="price">$0.00</span>
+                                                <span class="price">${{ shipping_cost() }}.00</span>
                                             </label>
                                         </fieldset>
                                         <fieldset class="ship-item">
@@ -285,285 +187,100 @@
                                             </label>
                                         </fieldset>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <h5 class="total-order d-flex justify-content-between align-items-center">
-                                    <span>Total</span>
-                                    <span class="total">$186,99</span>
+                                    <span>Total <small style="font-size: 12px">(NZD - NewZealand)</small></span>
+                                    <span class="total" id="grand_total">{{ price($sub_total + $shipping_cost) }}</span>
                                 </h5>
                                 <div class="box-progress-checkout">
                                     <fieldset class="check-agree">
-                                        <input type="checkbox" id="check-agree" class="tf-check-rounded">
+                                        <input type="checkbox" id="check-agree" class="tf-check-rounded" required>
                                         <label for="check-agree">
-                                            I agree with the <a href="term-of-use.html">terms and conditions</a>
+                                            I agree with the <a href="{{ url('') }}/p/terms-and-conditions">terms and conditions</a>
                                         </label>
                                     </fieldset>
-                                    <a href="{{ route('front.check_out') }}" class="tf-btn btn-reset">Process To Checkout</a>
-                                    <p class="text-button text-center">Or continue shopping</p>
+                                    <button type="submit" class="tf-btn"><span class="text">Process To Checkout</span></button>
+                                    <p class="text-button text-center">Or <a href="{{ route('front.shop') }}">continue shopping</a></p>
                                 </div>  
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </section>
-        <!-- /Section cart -->
-        <!-- Recent product -->
-        <section class="flat-spacing pt-0"> 
-            <div class="container">
-                <div class="heading-section text-center wow fadeInUp">
-                    <h4 class="heading">You may also like</h4>
-                </div>
-                <div dir="ltr" class="swiper tf-sw-recent" data-preview="4" data-tablet="3" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="card-product wow fadeInUp" data-wow-delay="0s">
-                                <div class="card-product-wrapper">
-                                    <a href="product-detail.html" class="product-img">
-                                        <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="image-product">
-                                        <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" alt="image-product">
-                                    </a>
-                                    <div class="list-product-btn">
-                                        <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                            <span class="icon icon-heart"></span>
-                                            <span class="tooltip">Wishlist</span>
-                                        </a>
-                                        <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                            <span class="icon icon-gitDiff"></span>
-                                            <span class="tooltip">Compare</span>
-                                        </a>
-                                        <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                            <span class="icon icon-eye"></span>
-                                            <span class="tooltip">Quick View</span>
-                                        </a>
-                                    </div>
-                                    <div class="list-btn-main">
-                                        <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                    </div> 
-                                </div>
-                                <div class="card-product-info">
-                                    <a href="product-detail.html" class="title link">V-neck cotton T-shirt</a>
-                                    <span class="price">$59.99</span>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card-product wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="card-product-wrapper">
-                                    <a href="product-detail.html" class="product-img">
-                                        <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" alt="image-product">
-                                        <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-179.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-179.jpg') }}" alt="image-product">
-                                    </a>
-                                    <div class="on-sale-wrap"><span class="on-sale-item">-25%</span></div>
-                                    <div class="marquee-product bg-main">
-                                        <div class="marquee-wrapper">
-                                            <div class="initial-child-container">
-                                                <div class="marquee-child-item">
-                                                    <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <span class="icon icon-lightning text-critical"></span>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <span class="icon icon-lightning text-critical"></span>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <span class="icon icon-lightning text-critical"></span>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <span class="icon icon-lightning text-critical"></span>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <span class="icon icon-lightning text-critical"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="marquee-wrapper">
-                                            <div class="initial-child-container">
-                                                <div class="marquee-child-item">
-                                                    <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <span class="icon icon-lightning text-critical"></span>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <span class="icon icon-lightning text-critical"></span>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <span class="icon icon-lightning text-critical"></span>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <span class="icon icon-lightning text-critical"></span>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <p class="font-2 text-btn-uppercase fw-6 text-white">Hot Sale 25% OFF</p>
-                                                </div>
-                                                <div class="marquee-child-item">
-                                                    <span class="icon icon-lightning text-critical"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-product-btn">
-                                        <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                            <span class="icon icon-heart"></span>
-                                            <span class="tooltip">Wishlist</span>
-                                        </a>
-                                        <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                            <span class="icon icon-gitDiff"></span>
-                                            <span class="tooltip">Compare</span>
-                                        </a>
-                                        <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                            <span class="icon icon-eye"></span>
-                                            <span class="tooltip">Quick View</span>
-                                        </a>
-                                    </div>
-                                    <div class="list-btn-main">
-                                        <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                    </div> 
-                                </div>
-                                <div class="card-product-info">
-                                    <a href="product-detail.html" class="title link">Polarized sunglasses</a>
-                                    <span class="price"><span class="old-price">$98.00</span> $79.99</span>
-                                    <ul class="list-color-product">
-                                        <li class="list-color-item color-swatch active line">
-                                            <span class="swatch-value bg-light-blue"></span>
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-176.jpg') }}" alt="image-product">
-                                        </li>
-                                        <li class="list-color-item color-swatch">
-                                            <span class="swatch-value bg-light-blue-2"></span>
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-177.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-177.jpg') }}" alt="image-product">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card-product card-product-size wow fadeInUp" data-wow-delay="0.2s">
-                                <div class="card-product-wrapper">
-                                    <a href="product-detail.html" class="product-img">
-                                        <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" alt="image-product">
-                                        <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-30.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-30.jpg') }}" alt="image-product">
-                                    </a>
-                                    <div class="variant-wrap size-list">
-                                        <ul class="variant-box">
-                                            <li class="size-item">S</li>
-                                            <li class="size-item">M</li>
-                                            <li class="size-item">L</li>
-                                            <li class="size-item">XL</li>
-                                        </ul>
-                                    </div>
-                                    <div class="variant-wrap countdown-wrap">
-                                        <div class="variant-box">
-                                            <div class="js-countdown" data-timer="1007500" data-labels="D :,H :,M :,S"></div>
-                                        </div>
-                                    </div>
-                                    <div class="list-product-btn">
-                                        <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                            <span class="icon icon-heart"></span>
-                                            <span class="tooltip">Wishlist</span>
-                                        </a>
-                                        <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                            <span class="icon icon-gitDiff"></span>
-                                            <span class="tooltip">Compare</span>
-                                        </a>
-                                        <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                            <span class="icon icon-eye"></span>
-                                            <span class="tooltip">Quick View</span>
-                                        </a>
-                                    </div>
-                                    <div class="list-btn-main">
-                                        <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                    </div> 
-                                </div>
-                                <div class="card-product-info">
-                                    <a href="product-detail.html" class="title link">Ramie shirt with pockets </a>
-                                    <span class="price"><span class="old-price">$98.00</span> $89.99</span>
-                                    <ul class="list-color-product">
-                                        <li class="list-color-item color-swatch active line">
-                                            <span class="swatch-value bg-light-orange"></span>
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" alt="image-product">
-                                        </li>
-                                        <li class="list-color-item color-swatch">
-                                            <span class="swatch-value bg-light-grey"></span>
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-33.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-33.jpg') }}" alt="image-product">
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card-product wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="card-product-wrapper">
-                                    <a href="product-detail.html" class="product-img">
-                                        <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="image-product">
-                                        <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="image-product">
-                                    </a>
-                                    <div class="list-product-btn">
-                                        <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                            <span class="icon icon-heart"></span>
-                                            <span class="tooltip">Wishlist</span>
-                                        </a>
-                                        <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                            <span class="icon icon-gitDiff"></span>
-                                            <span class="tooltip">Compare</span>
-                                        </a>
-                                        <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                            <span class="icon icon-eye"></span>
-                                            <span class="tooltip">Quick View</span>
-                                        </a>
-                                    </div>
-                                    <div class="list-btn-main">
-                                        <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                    </div> 
-                                </div>
-                                <div class="card-product-info">
-                                    <a href="product-detail.html" class="title link">Ribbed cotton-blend top</a>
-                                    <span class="price">$69.99</span>
-                                    <ul class="list-color-product">
-                                        <li class="list-color-item color-swatch active line">
-                                            <span class="swatch-value bg-dark-grey"></span>
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="image-product">
-                                        </li>
-                                        <li class="list-color-item color-swatch">
-                                            <span class="swatch-value bg-light-pink"></span>
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="image-product">
-                                        </li>
-                                        <li class="list-color-item color-swatch">
-                                            <span class="swatch-value bg-dark-grey-2"></span>
-                                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" alt="image-product">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sw-pagination-recent sw-dots type-circle justify-content-center"></div>
-                </div>
-            </div>
-        </section>
-        <!-- /Recent product -->
 
+@endsection
+
+@section('scripts')
+    <script>
+        function applyCoupon(){
+            var coupon_code = $('#coupon_code').val();
+            $.get('{{ url('apply_coupon') }}', { coupon_code: coupon_code }, function(data){
+                if(data.status == 1){
+                    var html = `
+                        <div class="alert alert-success">
+                            Coupon Applied : <strong>${data.coupon.code}</strong> 
+                            <span class="btn btn-danger btn-sm float-end" style="cursor:pointer" onclick="remove_coupon()">Remove Coupon</span>
+                            <input type="hidden" name="coupon_discount" id="coupon_discount" value="${data.coupon.discount}">
+                        </div>`;
+                    $('.ip-discount-code').html(html);
+                    update_cart_amount();
+                    $.notify({ title:'Success', message:data.message }, { type:'success', });
+                }else{
+                    $.notify({ title:'Error', message:data.message }, { type:'danger', });
+                }
+            });
+        }
+
+        function remove_coupon(){
+            $.get('{{ url('remove_coupon') }}', function(data){
+                if(data.status == 1){
+                    $('.ip-discount-code').html('<input type="text" placeholder="Add voucher discount" name="coupon_code" id="coupon_code" value=""> <button type="button" class="tf-btn" onclick="applyCoupon()"><span class="text">Apply Code</span></button>');
+                    update_cart_amount();
+                    $.notify({ title:'Success', message:data.message }, { type:'success', });
+                }else{
+                    $.notify({ title:'Error', message:data.message }, { type:'danger', });
+                }
+            });
+        }
+
+        function update_cart_amount() {
+            var sub_total = 0;
+            $('.total-price').each(function() {
+                sub_total += parseFloat(($(this).text()).replace('$', ''));
+            })
+            if(sub_total >= 500){
+                shipping_cost = 0;
+            }else{
+                shipping_cost = {{ shipping_cost() }};
+            }
+
+            $('#sub_total').html('$' + sub_total.toFixed(2) + '<small style="font-size: 12px"> NZD</small>');
+
+            var coupon_discount = parseFloat($('#coupon_discount').val()) || 0;
+            if (coupon_discount) {
+                var discount_amount = (sub_total * coupon_discount) / 100;
+                sub_total -= discount_amount;
+            }else{
+                discount_amount = 0;
+            }
+
+            $('.discount_amount').html('-$' + discount_amount.toFixed(2) + '<small style="font-size: 12px"> NZD</small>');
+            
+            // Update tax amount display
+            tax = sub_total - (sub_total / 1.15);
+            $('.tax').html('$' + tax.toFixed(2) + '<small style="font-size: 12px"> NZD</small>');
+            $('#shipping_cost').html('$' + shipping_cost.toFixed(2) + '<small style="font-size: 12px"> NZD</small>');
+            var grand_total = sub_total + shipping_cost;
+            $('#grand_total').html('$' + grand_total.toFixed(2));
+        }
+
+        // Trigger applyCoupon() on Enter key press
+        $(document).on('keypress', '#coupon_code', function(e) {
+            if (e.which === 13) { // 13 is the keycode for Enter
+                e.preventDefault(); // Prevent form submission
+                applyCoupon();
+            }
+        });
+    </script>
 @endsection

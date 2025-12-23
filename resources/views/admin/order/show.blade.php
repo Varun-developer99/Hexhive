@@ -286,9 +286,9 @@
                                                 </div>
                                             </td>
                                             
-                                            <td>{{ price_format($order_details->price ?? 0) }}</td>
+                                            <td>{{ price($order_details->price ?? 0) }}</td>
                                             <td>{{ $order_details->qty ?? '-' }}</td>
-                                            <td>{{ price_format($order_details->total_amount ?? 0) }}</td>
+                                            <td>{{ price($order_details->total_amount ?? 0) }}</td>
                                         </tr>
                                         @empty
                                         <tr>
@@ -323,7 +323,7 @@
                         <div class="card-body pt-0">
                             <ul class="tracking-total">
                                 <li>
-                                    <h6>Subtotal </h6><span> {{ price_format($order->sub_total ?? 0) }}</span>
+                                    <h6>Subtotal </h6><span> {{ price($order->sub_total ?? 0) }}</span>
                                 </li>
                                 {{-- @if (($order->discount_price ?? 0) != 0)
                                     <li>
@@ -332,10 +332,10 @@
                                     </li>
                                 @endif --}}
                                 <li>
-                                    <h6>Shipping </h6>{{ ($order->shipping_cost ?? 0) == 0 ? 'Free' : price_format($order->shipping_cost) }}</span>
+                                    <h6>Shipping </h6>{{ ($order->shipping_cost ?? 0) == 0 ? 'Free' : price($order->shipping_cost) }}</span>
                                 </li>
                                 <li>
-                                    <h6>Total</h6><span>{{ price_format($order->grand_total ?? 0) }}</span>
+                                    <h6>Total</h6><span>{{ price($order->grand_total ?? 0) }}</span>
                                 </li>
                             </ul>
                         </div>

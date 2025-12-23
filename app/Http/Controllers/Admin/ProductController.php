@@ -64,13 +64,11 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        // Step 1: Validate inputs
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|'. Rule::unique('products', 'name')->ignore($request->id)->whereNull('deleted_at'),
             'main_img' => 'nullable|image|mimes:png,webp,jpg|max:2048',
         ]);
 
-        // Step 2: If validation fails, return 422 JSON response
         if ($validator->fails()) {
             return response()->json([
                 'message' => 'Validation Error',
@@ -79,8 +77,7 @@ class ProductController extends Controller
         }
 
         try {
-            // Step 3: Save or update your data
-            $input = $request->all();
+            $input = $request->except(['main_img', 'gallery_imgs', 'product_benefits_img', 'product_features']);
             $input['created_by_id'] = Auth::user()->id;
             $input['is_featured'] = $request->is_featured ?? 0;
             $input['is_trending'] = $request->is_trending ?? 0;
@@ -88,6 +85,7 @@ class ProductController extends Controller
             $input['slug'] = Str::slug($request->name, '-');
             $input['enable_product_benefits'] = $request->enable_product_benefits ?? 0;
             $input['enable_product_features'] = $request->enable_product_features ?? 0;
+            $input['sku'] = $request->sku;
 
             $product = Product::updateOrCreate(['id' => $input['id']],$input);
             $product->code = 'P-' . str_pad($product->id, 3, '0', STR_PAD_LEFT);
@@ -99,10 +97,8 @@ class ProductController extends Controller
                     $product->getFirstMedia('main_img')->delete();
                 }
                 $product->addMedia($request->file('main_img'))->toMediaCollection('main_img');
-                // Reload the product to get the latest media
             }
 
-            // Handle multiple gallery images
             if ($request->hasFile('gallery_imgs')) {
                 $galleryImgs = $request->file('gallery_imgs');
                 if (is_array($galleryImgs)) {

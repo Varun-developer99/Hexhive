@@ -3,12 +3,13 @@
         <a href="{{ $item->image_url ?? asset('no_image.jpg') }}" target="_blank"><img src="{{ $item->thumb_url ?? asset('no_image.jpg') }}" alt="" style="width: 60px; height: 60px; object-fit: contain"></a>
     </div>
 </td>
-<td>{{ $item->name ?? '-' }}</td>
 <td>{{ $item->code ?? '-' }}</td>
+<td>{{ $item->name ?? '-' }}</td>
+<td>{{ $item->sku ?? '-' }}</td>
 <td>{{ $item->brand->name ?? '-' }}</td>
 <td>{{ $item->category->name ?? '-' }}</td>
-<td>MRP: <b>{{ price_format($item->mrp_price ?? 0) }}</b> <br>
-    Sale Price: <b>{{ price_format($item->sale_price ?? 0) }}</b>
+<td>MRP: <b>{{ price($item->mrp_price ?? 0) }}</b> <br>
+    Sale Price: <b>{{ price($item->sale_price ?? 0) }}</b>
 </td>
 <td>
     {{ $item->product_weight ?? '0' }} 

@@ -21,6 +21,12 @@
                     @endforeach
                 </select>
             </div>
+
+            <div class="col-md-2 form-group mb-3">
+                <h6>SKU <span>*</span></h6>
+                <input type="text" class="form-control" name="sku" id="" value="{{ $product->sku ?? '' }}" required>
+            </div>
+
             <div class="col-md-2 form-group mb-3">
                 <h6>MRP Price <span>*</span></h6>
                 <input type="number" class="form-control" name="mrp_price" id="" value="{{ $product->mrp_price ?? '' }}" required>

@@ -6,11 +6,11 @@
 <td>{{ $item->pincode ?? '-' }}</td>
 <td>{{ $item->note ?? '-' }}</td>
 <td>{{ $item->payment_method ?? '-' }}</td>
-<td>{{ price_format($item->sub_total ?? 0) }}</td>
-<td>{{ price_format($item->shipping_cost ?? 0) }}</td>
-<td>{{ price_format($item->total_tax_amount ?? 0) }}</td>
-<td>{{ price_format($item->discount ?? 0) }}</td>
-<td>{{ price_format($item->grand_total ?? 0) }}</td>
+<td>{{ price($item->sub_total ?? 0) }}</td>
+<td>{{ price($item->shipping_cost ?? 0) }}</td>
+<td>{{ price($item->total_tax_amount ?? 0) }}</td>
+<td>{{ price($item->discount ?? 0) }}</td>
+<td>{{ price($item->grand_total ?? 0) }}</td>
 
 
 {{-- <td>

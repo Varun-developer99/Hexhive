@@ -3,696 +3,442 @@
 @section('title', 'Shop')
 
 @section('css')
+    <style>
+        .wg-pagination {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px 0;
+        }
 
+        .wg-pagination li {
+            list-style: none;
+        }
+
+        .wg-pagination a,
+        .wg-pagination span {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            transition: 0.3s ease-in-out;
+        }
+
+        /* Default Pagination Button */
+        .wg-pagination a {
+            background: #0a3030;
+            color: white;
+        }
+
+        .wg-pagination a:hover {
+            background: #ff7550;
+        }
+
+        /* Active Page */
+        .wg-pagination .active span {
+            background: #ff7550;
+            color: white;
+        }
+
+        /* Disabled Buttons */
+        .wg-pagination .disabled span {
+            background: #ddd;
+            color: #888;
+            cursor: not-allowed;
+        }
+        .sidebar-filter.canvas-filter {
+            position: sticky;
+            top: 0;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .wg-pagination a,
+            .wg-pagination span {
+                padding: 6px 10px;
+                font-size: 14px;
+            }
+
+            .tf-grid-layout.tf-col-3 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .sidebar-filter.canvas-filter {
+                position: fixed;
+                top: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wg-pagination {
+                gap: 3px;
+            }
+
+            .wg-pagination a,
+            .wg-pagination span {
+                padding: 5px 8px;
+                font-size: 12px;
+            }
+        }
+    </style>
 @endsection
 
 @section('content')
-
-<!-- page-title -->
-        <div class="page-title" style="background-image: url('{{ asset('front_assets/images/section/page-title.jpg') }}');">
-            <div class="container-full">
+    <!-- Section product -->
+    <section class="flat-spacing">
+        <div class="container">
+            <div class="tf-shop-control d-flex justify-content-between align-items-center">
+                <div class="tf-control-filter">
+                    <button id="filterShop" class="filterShop tf-btn-filter"><span class="icon icon-filter"></span><span
+                            class="text">Filters</span></button>
+                    {{-- <div class="d-none d-lg-flex shop-sale-text">
+                        <i class="icon icon-checkCircle"></i>
+                        <p class="text-caption-1">Shop sale items only</p>
+                    </div> --}}
+                </div>
+                <ul class="tf-control-layout">
+                    {{-- <li class="tf-view-layout-switch sw-layout-list list-layout" data-value-layout="list">
+                        <div class="item">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="3" cy="6" r="2.5" stroke="#181818"></circle>
+                                <rect x="7.5" y="3.5" width="12" height="5" rx="2.5" stroke="#181818"></rect>
+                                <circle cx="3" cy="14" r="2.5" stroke="#181818"></circle>
+                                <rect x="7.5" y="11.5" width="12" height="5" rx="2.5" stroke="#181818"></rect>
+                            </svg>
+                        </div>
+                    </li> --}}
+                    <li class="tf-view-layout-switch sw-layout-2" data-value-layout="tf-col-2">
+                        <div class="item">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="6" cy="6" r="2.5" stroke="#181818"></circle>
+                                <circle cx="14" cy="6" r="2.5" stroke="#181818"></circle>
+                                <circle cx="6" cy="14" r="2.5" stroke="#181818"></circle>
+                                <circle cx="14" cy="14" r="2.5" stroke="#181818"></circle>
+                            </svg>
+                        </div>
+                    </li>
+                    <li class="tf-view-layout-switch sw-layout-3" data-value-layout="tf-col-3">
+                        <div class="item">
+                            <svg class="icon" width="22" height="20" viewBox="0 0 22 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="3" cy="6" r="2.5" stroke="#181818"></circle>
+                                <circle cx="11" cy="6" r="2.5" stroke="#181818"></circle>
+                                <circle cx="19" cy="6" r="2.5" stroke="#181818"></circle>
+                                <circle cx="3" cy="14" r="2.5" stroke="#181818"></circle>
+                                <circle cx="11" cy="14" r="2.5" stroke="#181818"></circle>
+                                <circle cx="19" cy="14" r="2.5" stroke="#181818"></circle>
+                            </svg>
+                        </div>
+                    </li>
+                    <li class="tf-view-layout-switch sw-layout-4 active" data-value-layout="tf-col-4">
+                        <div class="item">
+                            <svg class="icon" width="30" height="20" viewBox="0 0 30 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="3" cy="6" r="2.5" stroke="#181818"></circle>
+                                <circle cx="11" cy="6" r="2.5" stroke="#181818"></circle>
+                                <circle cx="19" cy="6" r="2.5" stroke="#181818"></circle>
+                                <circle cx="27" cy="6" r="2.5" stroke="#181818"></circle>
+                                <circle cx="3" cy="14" r="2.5" stroke="#181818"></circle>
+                                <circle cx="11" cy="14" r="2.5" stroke="#181818"></circle>
+                                <circle cx="19" cy="14" r="2.5" stroke="#181818"></circle>
+                                <circle cx="27" cy="14" r="2.5" stroke="#181818"></circle>
+                            </svg>
+                        </div>
+                    </li>
+                </ul>
+                <div class="tf-control-sorting">
+                    <p class="d-none d-lg-block text-caption-1" style="width: 80px">Sort by:</p>
+                    <select class="form-select" name="" id="short_by" onchange="product_filter()">
+                        <option value="Best selling">Best selling</option>
+                        <option value="Alphabetically, A-Z">Alphabetically, A-Z</option>
+                        <option value="Alphabetically, Z-A">Alphabetically, Z-A</option>
+                        <option value="Price, low to high">Price, low to high</option>
+                        <option value="Price, high to low">Price, high to low</option>
+                    </select>
+                    {{-- <div class="tf-dropdown-sort" data-bs-toggle="dropdown">
+                        <div class="btn-select">
+                            <span class="text-sort-value">Best selling</span>
+                            <span class="icon icon-arrow-down"></span>
+                        </div>
+                        <div class="dropdown-menu">
+                            <div class="select-item" data-sort-value="best-selling">
+                                <span class="text-value-item">Best selling</span>
+                            </div>
+                            <div class="select-item" data-sort-value="a-z">
+                                <span class="text-value-item">Alphabetically, A-Z</span>
+                            </div>
+                            <div class="select-item" data-sort-value="z-a">
+                                <span class="text-value-item">Alphabetically, Z-A</span>
+                            </div>
+                            <div class="select-item" data-sort-value="price-low-high">
+                                <span class="text-value-item">Price, low to high</span>
+                            </div>
+                            <div class="select-item" data-sort-value="price-high-low">
+                                <span class="text-value-item">Price, high to low</span>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+            <div class="wrapper-control-shop gridLayout-wrapper">
+                <div class="meta-filter-shop d-flex">
+                    <div id="total-product-count" class="count-text"><span class="count">0</span> Products Found</div>
+                    {{-- <div id="product-count-list" class="count-text"><span class="count">8</span> Products Found</div> --}}
+                    @if (request()->category ?? 0)
+                    <span class="filter-tag bg-dark text-white">{{ category_data(request()->category)->name ?? 'N/A' }} <a href="{{ route('front.shop') }}" class="remove-tag icon-close text-white"></a></span>
+                    @endif
+                    @if (request()->search ?? 0)
+                    <span class="filter-tag bg-dark text-white">{{ request()->search }} <a href="{{ route('front.shop') }}" class="remove-tag icon-close text-white"></a></span>
+                    @endif
+                    <div id="applied-filters"></div>
+                    <button id="remove-all" class="remove-all-filters text-btn-uppercase" style="display: none;">REMOVE ALL <i class="icon icon-close"></i></button>
+                </div>
                 <div class="row">
-                    <div class="col-12">
-                        <h3 class="heading text-center">Women</h3>
-                        <ul class="breadcrumbs d-flex align-items-center justify-content-center">
-                            <li>
-                                <a class="link" href="{{ url('/') }}">Homepage</a>
-                            </li>
-                            <li>
-                                <i class="icon-arrRight"></i>
-                            </li>
-                            <li>
-                                Women
-                            </li>
-                        </ul>
+                    <div class="col-xl-3">
+                        <div class="sidebar-filter canvas-filter left" onchange="product_filter()">
+                            <div class="canvas-wrapper">
+                                <div class="canvas-header d-flex d-xl-none">
+                                    <h5>Filters</h5>
+                                    <span class="icon-close close-filter"></span>
+                                </div>
+                                <div class="canvas-body">
+                                    <div class="widget-facet facet-fieldset">
+                                        <h6 class="facet-title">Shop by Category</h6>
+                                        <div class="box-fieldset-item" style="max-height: 300px; overflow-y: scroll">
+                                            @foreach ($categories as $key => $item)
+                                            <fieldset class="fieldset-item">
+                                                <input type="checkbox" name="category" class="tf-check shop_by_category_ids" id="shop_by_category_ids-{{ $item->id }}" value="{{ $item->id }}" {{ (request()->category ?? '') == $item->id ? 'checked' : '' }}>
+                                                <label for="shop_by_category_ids-{{ $item->id }}">{{ $item->name }} </label>
+                                            </fieldset>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    {{-- <div class="widget-facet facet-price">
+                                        <h6 class="facet-title">Price</h6>
+                                        <div class="price-val-range noUi-target noUi-ltr noUi-horizontal" id="price-value-range" data-min="0" data-max="500">
+                                        </div>
+                                        <div class="box-price-product">
+                                            <div class="box-price-item">
+                                                <span class="title-price">Min price</span>
+                                                <div class="price-val" id="price-min-value" data-currency="$">0</div>
+                                            </div>
+                                            <div class="box-price-item">
+                                                <span class="title-price">Max price</span>
+                                                <div class="price-val" id="price-max-value" data-currency="$">500</div>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                    {{-- <div class="widget-facet facet-size">
+                                        <h6 class="facet-title">Size</h6>
+                                        <div class="facet-size-box size-box" style="max-height: 300px; overflow-y: scroll;">
+                                            @foreach ($sizes as $size)
+                                            <span class="size-item size-check free-size" data-size_id="{{ $size->id }}">{{ $size->name }}</span>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="widget-facet facet-color">
+                                        <h6 class="facet-title">Colors</h6>
+                                        <div class="facet-color-box">
+                                            @foreach ($colors as $color)
+                                            <div class="color-item color-check"><span class="color {{ $color->color_code == '#ffffff' ? 'line-black' : '' }}" style="background-color: {{ $color->color_code }}"></span>{{ $color->name }}</div>
+                                            @endforeach
+                                        </div>
+                                    </div> --}}
+                                    {{-- <div class="widget-facet facet-fieldset">
+                                        <h6 class="facet-title">Availability</h6>
+                                        <div class="box-fieldset-item">
+                                            <fieldset class="fieldset-item">
+                                                <input type="radio" name="availability" class="tf-check" id="inStock">
+                                                <label for="inStock">In stock <span class="count-stock">(32)</span></label>
+                                            </fieldset>
+                                            <fieldset class="fieldset-item">
+                                                <input type="radio" name="availability" class="tf-check" id="outStock">
+                                                <label for="outStock">Out of stock <span class="count-stock">(2)</span></label>
+                                            </fieldset>
+                                        </div>
+                                    </div> --}}
+                                    {{-- <div class="widget-facet facet-fieldset">
+                                        <h6 class="facet-title">Brands</h6>
+                                        <div class="box-fieldset-item">
+                                            <fieldset class="fieldset-item">
+                                                <input type="checkbox" name="brand" class="tf-check" id="nike">
+                                                <label for="nike">Nike <span class="count-brand">(112)</span></label>
+                                            </fieldset>
+                                            <fieldset class="fieldset-item">
+                                                <input type="checkbox" name="brand" class="tf-check" id="LV">
+                                                <label for="LV">Louis Vuitton <span class="count-brand">(2)</span></label>
+                                            </fieldset>
+                                            <fieldset class="fieldset-item">
+                                                <input type="checkbox" name="brand" class="tf-check" id="hermes">
+                                                <label for="hermes">Hermes <span class="count-brand">(42)</span></label>
+                                            </fieldset>
+                                            <fieldset class="fieldset-item">
+                                                <input type="checkbox" name="brand" class="tf-check" id="gucci">
+                                                <label for="gucci">Gucci <span class="count-brand">(13)</span></label>
+                                            </fieldset>
+                                            <fieldset class="fieldset-item">
+                                                <input type="checkbox" name="brand" class="tf-check" id="zalando">
+                                                <label for="zalando">Zalando <span class="count-brand">(54)</span></label>
+                                            </fieldset>
+                                            <fieldset class="fieldset-item">
+                                                <input type="checkbox" name="brand" class="tf-check" id="adidas">
+                                                <label for="adidas">Adidas <span class="count-brand">(93)</span></label>
+                                            </fieldset>
+                                        </div>
+                                    </div> --}}
+                                    {{-- <div class="widget-facet facet-fieldset">
+                                        <h6 class="facet-title">Shop By Body Part</h6>
+                                        <div class="box-fieldset-item" style="max-height: 300px; overflow-y: scroll">
+                                            @foreach ($shop_by_body_part as $key => $item)
+                                            <fieldset class="fieldset-item">
+                                                <input type="checkbox" name="body_part" class="tf-check shop_by_body_part_ids" id="shop_by_body_part_ids-{{ $item->id }}" value="{{ $item->id }}" {{ (request()->body_part ?? '') == $item->id ? 'checked' : '' }}>
+                                                <label for="shop_by_body_part_ids-{{ $item->id }}">{{ $item->name }} <span class="count-brand">({{ shop_by_body_part_products($item->id)->count() }})</span></label>
+                                            </fieldset>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="widget-facet facet-fieldset">
+                                        <h6 class="facet-title">Shop By Activity</h6>
+                                        <div class="box-fieldset-item" style="max-height: 300px; overflow-y: scroll">
+                                            @foreach ($shop_by_activity as $key => $item)
+                                            <fieldset class="fieldset-item">
+                                                <input type="checkbox" name="activity" class="tf-check shop_by_activity_ids" id="shop_by_activity_ids-{{ $item->id }}" value="{{ $item->id }}" {{ (request()->activity ?? '') == $item->id ? 'checked' : '' }}>
+                                                <label for="shop_by_activity_ids-{{ $item->id }}">{{ $item->name }} <span class="count-brand">({{ shop_by_activity_products($item->id)->count() }})</span></label>
+                                            </fieldset>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="widget-facet facet-fieldset">
+                                        <h6 class="facet-title">Shop By Daily Support</h6>
+                                        <div class="box-fieldset-item" style="max-height: 300px; overflow-y: scroll">
+                                            @foreach ($shop_by_daily_support as $key => $item)
+                                            <fieldset class="fieldset-item">
+                                                <input type="checkbox" name="activity" class="tf-check shop_by_daily_support_ids" id="shop_by_daily_support_ids-{{ $item->id }}" value="{{ $item->id }}" {{ (request()->daily_support ?? '') == $item->id ? 'checked' : '' }}>
+                                                <label for="shop_by_daily_support_ids-{{ $item->id }}">{{ $item->name }} <span class="count-brand">({{ shop_by_daily_support_products($item->id)->count() }})</span></label>
+                                            </fieldset>
+                                            @endforeach
+                                        </div>
+                                    </div> --}}
+                                </div>
+                                <div class="canvas-bottom d-block d-xl-none">
+                                    <button id="reset-filter" class="tf-btn btn-reset">Reset Filters</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9">
+                        <div class="wrapper-shop tf-grid-layout tf-col-4" id="gridLayout">
+
+                        </div>
+
+                        <div class="text-center pt-5" id="load_more_btn">
+                            <a href="javascript:void(0)" class="tf-btn btn-fill" onclick="get_product_filter(2)">
+                                <span class="text text-button">Load More</span>
+                            </a>
+                        </div>
+
+                        <div class="text-center p-5" id="shop_loader" style="display: none;"><div class="spinner-border"></div></div>
+
+                        <!-- Responsive Pagination -->
+                        {{-- @if ($products->hasPages())
+                            <ul class="wg-pagination flex flex-wrap justify-center items-center gap-2 mt-6 px-4">
+                                <!-- Previous Button -->
+                                @if ($products->onFirstPage())
+                                    <li class="pagination-item disabled">
+                                        <span
+                                            class="px-3 py-2 bg-gray-300 text-gray-500 rounded cursor-not-allowed">&laquo;</span>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href="{{ $products->previousPageUrl() }}"
+                                            class="px-3 py-2 bg-[#0a3030] text-white rounded hover:bg-[#ff7550] transition">&laquo;</a>
+                                    </li>
+                                @endif
+
+                                <!-- Page Numbers -->
+                                @foreach ($products->links()->elements[0] as $page => $url)
+                                    @if ($page == $products->currentPage())
+                                        <li class="pagination-item active">
+                                            <span
+                                                class="px-4 py-2 bg-[#ff7550] text-white font-semibold rounded">{{ $page }}</span>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a href="{{ $url }}"
+                                                class="px-4 py-2 bg-[#0a3030] text-white rounded hover:bg-[#ff7550] transition">{{ $page }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+
+                                <!-- Next Button -->
+                                @if ($products->hasMorePages())
+                                    <li>
+                                        <a href="{{ $products->nextPageUrl() }}"
+                                            class="px-3 py-2 bg-[#0a3030] text-white rounded hover:bg-[#ff7550] transition">&raquo;</a>
+                                    </li>
+                                @else
+                                    <li class="pagination-item disabled">
+                                        <span
+                                            class="px-3 py-2 bg-gray-300 text-gray-500 rounded cursor-not-allowed">&raquo;</span>
+                                    </li>
+                                @endif
+                            </ul>
+                        @endif --}}
+
                     </div>
                 </div>
+
             </div>
         </div>
-        <!-- /page-title -->
-        <!-- Section product -->
-        <section class="flat-spacing">
-            <div class="container">
-                <div class="tf-shop-control">
-                    <div class="tf-control-filter">
-                        <button id="filterShop" class="filterShop tf-btn-filter"><span class="icon icon-filter"></span><span class="text">Filters</span></button>
-                        <div class="d-none d-lg-flex shop-sale-text">
-                            <i class="icon icon-checkCircle"></i>
-                            <p class="text-caption-1">Shop sale items only</p>
-                        </div>
-                    </div>
-                    <ul class="tf-control-layout">
-                        {{-- <li class="tf-view-layout-switch sw-layout-list list-layout" data-value-layout="list">
-                            <div class="item">
-                                <svg class="icon" width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="3" cy="6" r="2.5" stroke="#181818"></circle>
-                                    <rect x="7.5" y="3.5" width="12" height="5" rx="2.5" stroke="#181818"></rect>
-                                    <circle cx="3" cy="14" r="2.5" stroke="#181818"></circle>
-                                    <rect x="7.5" y="11.5" width="12" height="5" rx="2.5" stroke="#181818"></rect>
-                                </svg>     
-                            </div>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-2" data-value-layout="tf-col-2">
-                            <div class="item">
-                                <svg class="icon" width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="6" cy="6" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="14" cy="6" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="6" cy="14" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="14" cy="14" r="2.5" stroke="#181818"></circle>
-                                </svg>   
-                            </div>
-                        </li> --}}
-                        <li class="tf-view-layout-switch sw-layout-3 active" data-value-layout="tf-col-3">
-                            <div class="item">
-                                <svg class="icon" width="22" height="20" viewbox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="3" cy="6" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="11" cy="6" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="19" cy="6" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="3" cy="14" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="11" cy="14" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="19" cy="14" r="2.5" stroke="#181818"></circle>
-                                </svg>                                    
-                            </div>
-                        </li>
-                        {{-- <li class="tf-view-layout-switch sw-layout-4" data-value-layout="tf-col-4">
-                            <div class="item">
-                                <svg class="icon" width="30" height="20" viewbox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="3" cy="6" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="11" cy="6" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="19" cy="6" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="27" cy="6" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="3" cy="14" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="11" cy="14" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="19" cy="14" r="2.5" stroke="#181818"></circle>
-                                    <circle cx="27" cy="14" r="2.5" stroke="#181818"></circle>
-                                </svg>
-                            </div> --}}
-                        </li>
-                    </ul>
-                    <div class="tf-control-sorting">
-                        <p class="d-none d-lg-block text-caption-1">Sort by:</p>
-                        <div class="tf-dropdown-sort" data-bs-toggle="dropdown">
-                            <div class="btn-select">
-                                <span class="text-sort-value">Best selling</span>
-                                <span class="icon icon-arrow-down"></span>
-                            </div>
-                            <div class="dropdown-menu">
-                                <div class="select-item" data-sort-value="best-selling">
-                                    <span class="text-value-item">Best selling</span>
-                                </div>
-                                <div class="select-item" data-sort-value="a-z">
-                                    <span class="text-value-item">Alphabetically, A-Z</span>
-                                </div>
-                                <div class="select-item" data-sort-value="z-a">
-                                    <span class="text-value-item">Alphabetically, Z-A</span>
-                                </div>
-                                <div class="select-item" data-sort-value="price-low-high">
-                                    <span class="text-value-item">Price, low to high</span>
-                                </div>
-                                <div class="select-item" data-sort-value="price-high-low">
-                                    <span class="text-value-item">Price, high to low</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wrapper-control-shop">
-                    <div class="meta-filter-shop">
-                        <div id="product-count-grid" class="count-text"></div>
-                        <div id="product-count-list" class="count-text"></div>
-                        <div id="applied-filters"></div>
-                        <button id="remove-all" class="remove-all-filters text-btn-uppercase" style="display: none;">REMOVE ALL <i class="icon icon-close"></i></button>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-3">
-                            <div class="sidebar-filter canvas-filter left">
-                                <div class="canvas-wrapper">
-                                    <div class="canvas-header d-flex d-xl-none">
-                                        <h5>Filters</h5>
-                                        <span class="icon-close close-filter"></span>
-                                    </div>
-                                    <div class="canvas-body">
-                                        <div class="widget-facet facet-categories">
-                                            <h6 class="facet-title">Product Categories</h6>
-                                            <ul class="facet-content">
-                                                @foreach($category as $cat)
-                                                <li><a href="#" class="categories-item">{{ $cat->name }} <span class="count-cate">({{ $cat->products->count() }})</span></a></li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="canvas-bottom d-block d-xl-none">
-                                        <button id="reset-filter" class="tf-btn btn-reset">Reset Filters</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-9">
-                            {{-- <div class="tf-list-layout wrapper-shop" id="listLayout">
-                                <!-- card product list 1 -->
-                                <div class="card-product style-list" data-availability="Out of stock" data-brand="adidas">
-                                    <div class="card-product-wrapper">
-                                        <a href="product-detail.html" class="product-img">
-                                            <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="image-product">
-                                            <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" alt="image-product">
-                                        </a>
-                                    </div>
-                                    <div class="card-product-info">
-                                        <a href="product-detail.html" class="title link">Double-button trench coat</a>
-                                        <div class="price"><span class="old-price">$98.00</span> <span class="current-price">$219.99</span></div>
-                                        <p class="description text-secondary text-line-clamp-2">The garments labelled as Committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
-                                        <div class="variant-wrap-list">
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active line">
-                                                    <span class="d-none text-capitalize color-filter">Green</span>
-                                                    <span class="swatch-value bg-light-green"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="d-none text-capitalize color-filter">Grey</span>
-                                                    <span class="swatch-value bg-grey-2"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch line">
-                                                    <span class="d-none text-capitalize color-filter">White</span>
-                                                    <span class="swatch-value bg-white"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-8.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-8.jpg') }}" alt="image-product">
-                                                </li>
-                                            </ul>
-                                            <div class="size-box list-product-btn">
-                                                <span class="size-item box-icon">S</span>
-                                                <span class="size-item box-icon">M</span>
-                                                <span class="size-item box-icon active">L</span>
-                                                <span class="size-item box-icon">XL</span>
-                                                <span class="size-item box-icon disable">XXL</span>
-                                            </div>
-                                            <div class="list-product-btn">
-                                                <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                
-                                        
-                                    </div>
-                                </div>
-                                <!-- card product list 2 -->
-                                <div class="card-product style-list" data-availability="Out of stock" data-brand="LV">
-                                    <div class="card-product-wrapper">
-                                        <a href="product-detail.html" class="product-img">
-                                            <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" alt="image-product">
-                                            <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-31.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-31.jpg') }}" alt="image-product">
-                                        </a>
-                                        <div class="on-sale-wrap"><span class="on-sale-item">-25%</span></div>
-                                    </div>
-                                    <div class="card-product-info">
-                                        <a href="product-detail.html" class="title link">Polarized sunglasses</a>
-                                        <span class="price current-price">$59.99</span>
-                                        <p class="description text-secondary text-line-clamp-2">The garments labelled as Committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
-                                        <div class="variant-wrap-list">
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active">
-                                                    <span class="d-none text-capitalize color-filter">Orange</span>
-                                                    <span class="swatch-value bg-light-orange"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="d-none text-capitalize color-filter">Orange</span>
-                                                    <span class="swatch-value bg-orange"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-43.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-43.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="d-none text-capitalize color-filter">Pink</span>
-                                                    <span class="swatch-value bg-dark-pink"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-47.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-47.jpg') }}" alt="image-product">
-                                                </li>
-                                            </ul>
-                                            <div class="size-box list-product-btn">
-                                                <span class="size-item box-icon">S</span>
-                                                <span class="size-item box-icon">M</span>
-                                                <span class="size-item box-icon">L</span>
-                                                <span class="size-item box-icon">XL</span>
-                                                <span class="size-item box-icon disable">XXL</span>
-                                            </div>
-                                            <div class="list-product-btn">
-                                                <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                
-                                        
-                                    </div>
-                                </div>
-                                <!-- card product list 3 -->
-                                <div class="card-product style-list" data-availability="In stock" data-brand="nike">
-                                    <div class="card-product-wrapper">
-                                        <a href="product-detail.html" class="product-img">
-                                            <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-63.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-63.jpg') }}" alt="image-product">
-                                            <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-64.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-64.jpg') }}" alt="image-product">
-                                        </a>
-                                    </div>
-                                    <div class="card-product-info">
-                                        <a href="product-detail.html" class="title link">Ribbed cotton-blend top</a>
-                                        <div class="price"><span class="old-price">$98.00</span><span class="current-price">$219.95</span></div>
-                                        <p class="description text-secondary text-line-clamp-2">The garments labelled as Committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
-                                        <div class="variant-wrap-list">
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active line">
-                                                    <span class="d-none text-capitalize color-filter">White</span>
-                                                    <span class="swatch-value bg-white"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-63.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-63.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="d-none text-capitalize color-filter">Grey</span>
-                                                    <span class="swatch-value bg-grey-2"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-69.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-69.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="d-none text-capitalize color-filter">Black</span>
-                                                    <span class="swatch-value bg-main"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-70.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-70.jpg') }}" alt="image-product">
-                                                </li>
-                                            </ul>
-                                            <div class="size-box list-product-btn">
-                                                <span class="size-item box-icon">S</span>
-                                                <span class="size-item box-icon">M</span>
-                                                <span class="size-item box-icon">L</span>
-                                                <span class="size-item box-icon">XL</span>
-                                                <span class="size-item box-icon disable">XXL</span>
-                                            </div>
-                                            <div class="list-product-btn">
-                                                <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                
-                                        
-                                    </div>
-                                </div>
-                                <!-- card product list 4 -->
-                                <div class="card-product style-list" data-availability="In stock" data-brand="gucci">   
-                                    <div class="card-product-wrapper">
-                                        <a href="product-detail.html" class="product-img">
-                                            <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}" alt="image-product">
-                                            <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-38.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-38.jpg') }}" alt="image-product">
-                                        </a>
-                                        <div class="on-sale-wrap"><span class="on-sale-item">-25%</span></div>
-                                    </div>
-                                    <div class="card-product-info">
-                                        <a href="product-detail.html" class="title link">V-neck cotton T-shirt</a>
-                                        <span class="price current-price">$59.99</span>
-                                        <p class="description text-secondary text-line-clamp-2">The garments labelled as Committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
-                                        <div class="variant-wrap-list">
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active">
-                                                    <span class="d-none text-capitalize color-filter">Light Blue</span>
-                                                    <span class="swatch-value bg-light-blue"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-37.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch line">
-                                                    <span class="d-none text-capitalize color-filter">White</span>
-                                                    <span class="swatch-value bg-white"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-41.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-41.jpg') }}" alt="image-product">
-                                                </li>
-                                                
-                                            </ul>
-                                            <div class="size-box list-product-btn">
-                                                <span class="size-item box-icon">S</span>
-                                                <span class="size-item box-icon">M</span>
-                                                <span class="size-item box-icon">L</span>
-                                                <span class="size-item box-icon">XL</span>
-                                                <span class="size-item box-icon disable">XXL</span>
-                                            </div>
-                                            <div class="list-product-btn">
-                                                <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                
-                                        
-                                    </div>
-                                </div>
-                                <!-- card product list 5 -->
-                                <div class="card-product style-list" data-availability="In stock" data-brand="hermes">
-                                    <div class="card-product-wrapper">
-                                        <a href="product-detail.html" class="product-img">
-                                            <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-133.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-133.jpg') }}" alt="image-product">
-                                            <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-131.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-131.jpg') }}" alt="image-product">
-                                        </a>
-                                    </div>
-                                    <div class="card-product-info">
-                                        <a href="product-detail.html" class="title link">V-neck cotton T-shirt</a>
-                                        <span class="price current-price">$59.99</span>
-                                        <p class="description text-secondary text-line-clamp-2">The garments labelled as Committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
-                                        <div class="variant-wrap-list">
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active">
-                                                    <span class="d-none text-capitalize color-filter">Green</span>
-                                                    <span class="swatch-value bg-light-green"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-133.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-133.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="d-none text-capitalize color-filter">Black</span>
-                                                    <span class="swatch-value bg-main"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-124.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-124.jpg') }}" alt="image-product">
-                                                </li>
-                                                
-                                            </ul>
-                                            <div class="size-box list-product-btn">
-                                                <span class="size-item box-icon">S</span>
-                                                <span class="size-item box-icon">M</span>
-                                                <span class="size-item box-icon">L</span>
-                                                <span class="size-item box-icon">XL</span>
-                                                <span class="size-item box-icon disable">XXL</span>
-                                            </div>
-                                            <div class="list-product-btn">
-                                                <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- card product list 6 -->
-                                <div class="card-product style-list" data-availability="In stock" data-brand="nike">
-                                    <div class="card-product-wrapper">
-                                        <a href="product-detail.html" class="product-img">
-                                            <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}" alt="image-product">
-                                            <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-168.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-168.jpg') }}" alt="image-product">
-                                        </a>
-                                        <div class="on-sale-wrap"><span class="on-sale-item">-25%</span></div>
-                                    </div>
-                                    <div class="card-product-info">
-                                        <a href="product-detail.html" class="title link">Cotton shopper bag</a>
-                                        <span class="price current-price">$199.25</span>
-                                        <p class="description text-secondary text-line-clamp-2">The garments labelled as Committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
-                                        <div class="variant-wrap-list">
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active line">
-                                                    <span class="d-none text-capitalize color-filter">White</span>
-                                                    <span class="swatch-value bg-white"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-167.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="d-none text-capitalize color-filter">Beige</span>
-                                                    <span class="swatch-value bg-beige"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-162.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-162.jpg') }}" alt="image-product">
-                                                </li>
-                                                
-                                            </ul>
-                                    
-                                            <div class="list-product-btn">
-                                                <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- card product list 7 -->
-                                <div class="card-product style-list" data-availability="In stock" data-brand="LV">
-                                    <div class="card-product-wrapper">
-                                        <a href="product-detail.html" class="product-img">
-                                            <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}" alt="image-product">
-                                            <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-84.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-84.jpg') }}" alt="image-product">
-                                        </a>
-                                    </div>
-                                    <div class="card-product-info">
-                                        <a href="product-detail.html" class="title link">Belt wrap dress</a>
-                                        <span class="price current-price">$129.99</span>
-                                        <p class="description text-secondary text-line-clamp-2">The garments labelled as Committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
-                                        <div class="variant-wrap-list">
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active">
-                                                    <span class="d-none text-capitalize color-filter">Green</span>
-                                                    <span class="swatch-value bg-light-green"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-83.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="d-none text-capitalize color-filter">Grey</span>
-                                                    <span class="swatch-value bg-grey"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-94.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-94.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch line">
-                                                    <span class="d-none text-capitalize color-filter">White</span>
-                                                    <span class="swatch-value bg-white"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-87.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-87.jpg') }}" alt="image-product">
-                                                </li>
-                                            </ul>
-                                            <div class="size-box list-product-btn">
-                                                <span class="size-item box-icon">S</span>
-                                                <span class="size-item box-icon">M</span>
-                                                <span class="size-item box-icon">L</span>
-                                                <span class="size-item box-icon">XL</span>
-                                                <span class="size-item box-icon disable">2XL</span>
-                                            </div>
-                                            <div class="list-product-btn">
-                                                <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- card product list 8 -->
-                                <div class="card-product style-list" data-availability="In stock" data-brand="adidas">
-                                    <div class="card-product-wrapper">
-                                        <a href="product-detail.html" class="product-img">
-                                            <img class="lazyload img-product" data-src="{{ asset('front_assets/images/products/womens/women-12.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-12.jpg') }}" alt="image-product">
-                                            <img class="lazyload img-hover" data-src="{{ asset('front_assets/images/products/womens/women-13.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-13.jpg') }}" alt="image-product">
-                                        </a>
-                                    </div>
-                                    <div class="card-product-info">
-                                        <a href="product-detail.html" class="title link">Ribbed cotton-blend top</a>
-                                        <span class="price current-price">$69.99</span>
-                                        <p class="description text-secondary text-line-clamp-2">The garments labelled as Committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
-                                        <div class="variant-wrap-list">
-                                            <ul class="list-color-product">
-                                                <li class="list-color-item color-swatch active">
-                                                    <span class="d-none text-capitalize color-filter">Red</span>
-                                                    <span class="swatch-value bg-red"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-12.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-12.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="d-none text-capitalize color-filter">Black</span>
-                                                    <span class="swatch-value bg-main"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-13.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-13.jpg') }}" alt="image-product">
-                                                </li>
-                                                <li class="list-color-item color-swatch">
-                                                    <span class="d-none text-capitalize color-filter">Light Blue</span>
-                                                    <span class="swatch-value bg-light-blue"></span>
-                                                    <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-14.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-14.jpg') }}" alt="image-product">
-                                                </li>
-                                            </ul>
-                                            <div class="size-box list-product-btn">
-                                                <span class="size-item box-icon">S</span>
-                                                <span class="size-item box-icon">M</span>
-                                                <span class="size-item box-icon">L</span>
-                                                <span class="size-item box-icon">XL</span>
-                                                <span class="size-item box-icon disable">2XL</span>
-                                            </div>
-                                            <div class="list-product-btn">
-                                                <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-                                                <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                    <span class="icon icon-heart"></span>
-                                                    <span class="tooltip">Wishlist</span>
-                                                </a>
-                                                <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                    <span class="icon icon-gitDiff"></span>
-                                                    <span class="tooltip">Compare</span>
-                                                </a>
-                                                <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                    <span class="icon icon-eye"></span>
-                                                    <span class="tooltip">Quick View</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- pagination -->
-                                <ul class="wg-pagination">
-                                    <li><a href="#" class="pagination-item text-button">1</a></li>
-                                    <li class="active"><div class="pagination-item text-button">2</div></li>
-                                    <li><a href="#" class="pagination-item text-button">3</a></li>
-                                    <li><a href="#" class="pagination-item text-button"><i class="icon-arrRight"></i></a></li>
-                                </ul>
-                            </div> --}}
-                            <div class="tf-grid-layout wrapper-shop tf-col-3" id="gridLayout">
-                                <!-- card product 1 -->
-                                @foreach ($products as $product)
-                                <div class="card-product grid card-product-size" data-availability="In stock" data-brand="LV">
-                                    <div class="card-product-wrapper">
-                                        <a href="#" class="product-img">
-                                            <img class="lazyload img-product" data-src="{{ asset($product->image_url) }}" src="{{ asset($product->image_url) }}" alt="image-product">{{-- Changed from asset('front_assets/images/products/womens/women-29.jpg') to asset($product->image) --}}
-                                            <img class="lazyload img-hover" data-src="{{ asset($product->image_url) }}" src="{{ asset($product->image_url) }}" alt="image-product">{{-- Changed from asset('front_assets/images/products/womens/women-30.jpg') to asset($product->image) --}}
-                                        </a>
-                                        {{-- <div class="variant-wrap size-list">
-                                            <ul class="variant-box">
-                                                <li class="size-item">S</li>
-                                                <li class="size-item">M</li>
-                                                <li class="size-item">L</li>
-                                                <li class="size-item">XL</li>
-                                            </ul>
-                                        </div> --}}
-                                        {{-- <div class="variant-wrap countdown-wrap">
-                                            <div class="variant-box">
-                                                <div class="js-countdown" data-timer="1007500" data-labels="D :,H :,M :,S"></div>
-                                            </div>
-                                        </div> --}}
-                                        {{-- <div class="list-product-btn">
-                                            <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                                <span class="icon icon-heart"></span>
-                                                <span class="tooltip">Wishlist</span>
-                                            </a>
-                                            <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                                <span class="icon icon-gitDiff"></span>
-                                                <span class="tooltip">Compare</span>
-                                            </a>
-                                            <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                                <span class="icon icon-eye"></span>
-                                                <span class="tooltip">Quick View</span>
-                                            </a>
-                                        </div> --}}
-                                        <div class="list-btn-main">
-                                            <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
-                                        </div> 
-                                    </div>
-                                    <div class="card-product-info">
-                                        <a href="#" class="title link">{{ $product->name }}</a>
-                                        <div class="price"><span class="old-price">{{ $product->sale_price }}</span> <span class="current-price">{{ $product->mrp_price }}</span></div>
-                                        {{-- <ul class="list-color-product">
-                                            <li class="list-color-item color-swatch active line">
-                                                <span class="d-none text-capitalize color-filter">Orange</span>
-                                                <span class="swatch-value bg-light-orange"></span>
-                                                <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-29.jpg') }}" alt="image-product">
-                                            </li>
-                                            <li class="list-color-item color-swatch">
-                                                <span class="d-none text-capitalize color-filter">Grey</span>
-                                                <span class="swatch-value bg-light-grey"></span>
-                                                <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-33.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-33.jpg') }}" alt="image-product">
-                                            </li>
-                                            
-                                        </ul> --}}
-                                    </div>
-                                </div>
-                                @endforeach
-                                <!-- pagination -->
-                                @if ($products->hasPages())
-<ul class="wg-pagination justify-content-center">
-    {{-- Previous --}}
-    @if (!$products->onFirstPage())
-        <li>
-            <a href="{{ $products->previousPageUrl() }}" class="pagination-item text-button">
-                <i class="icon-arrLeft"></i>
-            </a>
-        </li>
-    @endif
+    </section>
+    <!-- /Section product -->
 
-    {{-- Page Numbers --}}
-    @for ($i = 1; $i <= $products->lastPage(); $i++)
-        @if ($i == $products->currentPage())
-            <li class="active">
-                <div class="pagination-item text-button">{{ $i }}</div>
-            </li>
-        @else
-            <li>
-                <a href="{{ $products->url($i) }}" class="pagination-item text-button">{{ $i }}</a>
-            </li>
-        @endif
-    @endfor
+@endsection
+{{-- $productslinks() --}}
 
-    {{-- Next --}}
-    @if ($products->hasMorePages())
-        <li>
-            <a href="{{ $products->nextPageUrl() }}" class="pagination-item text-button">
-                <i class="icon-arrRight"></i>
-            </a>
-        </li>
-    @endif
-</ul>
-@endif
+@section('scripts')
+<script type="text/javascript" src="{{ asset('front_assets/js/nouislider.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('front_assets/js/shop.js') }}"></script>
 
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-        <!-- /Section product -->
-     
+<script>
+    // Declare searchTimeout at the top of your 
+    var searchTimeout;
+    // get_product_filter(1);
 
+    function product_filter() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(function () { $('#gridLayout').html(''); get_product_filter(1); }, 500);
+    }
+    function get_product_filter(page) {
+        $('#shop_loader').show();
+        $('#load_more_btn').hide();
+        var search = "{{ request()->search ?? '0' }}";
+        var short_by = $('#short_by').val();
+        var price_min_value = Number($('#price-min-value').text());
+        var price_max_value = Number($('#price-max-value').text());
+        var shop_by_brand_ids = $('.shop_by_brand_ids:checked').map(function() {
+            return $(this).val();
+        }).get();
+        var shop_by_body_part_ids = $('.shop_by_body_part_ids:checked').map(function() {
+            return $(this).val();
+        }).get();
+        var shop_by_activity_ids = $('.shop_by_activity_ids:checked').map(function() {
+            return $(this).val();
+        }).get();
+        var shop_by_daily_support_ids = $('.shop_by_daily_support_ids:checked').map(function() {
+            return $(this).val();
+        }).get();
+        
+        $.get('{{ route('ajax.get_product_filter') }}', { page:page, short_by:short_by, shop_by_body_part_ids: shop_by_body_part_ids, shop_by_activity_ids: shop_by_activity_ids, shop_by_brand_ids: shop_by_brand_ids, shop_by_daily_support_ids: shop_by_daily_support_ids, price_min_value: price_min_value, price_max_value: price_max_value, search: search }, function(data){
+            $('#shop_loader').hide();
+            $('#gridLayout').append(data.html);
+            $('#total-product-count .count').text(data.total_products);
+        });
+    }
+</script>
 @endsection

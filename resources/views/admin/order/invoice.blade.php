@@ -2713,9 +2713,9 @@ hr {
                                                 {{ $order_details->product->name ?? '-' }}
                                             </td>
                                             
-                                            <td>{{ price_format($order_details->price ?? 0) }}</td>
+                                            <td>{{ price($order_details->price ?? 0) }}</td>
                                             <td>{{ $order_details->qty ?? '-' }}</td>
-                                            <td class="tm_text_right">{{ price_format($order_details->total_amount ?? 0) }}</td>
+                                            <td class="tm_text_right">{{ price($order_details->total_amount ?? 0) }}</td>
                                         </tr>
                                         @empty
                                         <tr>
@@ -2735,20 +2735,20 @@ hr {
                                             <td class="tm_width_3 tm_primary_color tm_border_none tm_bold">Subtotal</td>
                                             <td
                                                 class="tm_width_3 tm_primary_color tm_text_right tm_border_none tm_bold">
-                                                {{ price_format($order->sub_total) }}</td>
+                                                {{ price($order->sub_total) }}</td>
                                         </tr>
                                         <tr>
                                             <td class="tm_width_3 tm_primary_color tm_border_none tm_pt0">Tax <span
                                                     class="tm_ternary_color">(included)</span></td>
                                             <td class="tm_width_3 tm_primary_color tm_text_right tm_border_none tm_pt0">
-                                                {{ price_format($order->total_tax_amount) }}</td>
+                                                {{ price($order->total_tax_amount) }}</td>
                                         </tr>
                                         <tr class="tm_border_top tm_border_bottom">
                                             <td class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_primary_color">Grand
                                                 Total </td>
                                             <td
                                                 class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_primary_color tm_text_right">
-                                                {{ price_format($order->grand_total) }}</td>
+                                                {{ price($order->grand_total) }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -4,8 +4,9 @@
             <tr>
                 <th>#</th>
                 <th>Image</th>
-                <th>Name</th>
                 <th>Product Code</th>
+                <th>Product Name</th>
+                <th>SKU</th>
                 <th>Brand</th>
                 <th>Category</th>
                 <th>Price</th>

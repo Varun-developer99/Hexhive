@@ -8,8 +8,8 @@
 </td>
 <td>{{ $item->brand->name ?? '-' }}</td>
 <td>{{ $item->category->name ?? '-' }}</td>
-<td>MRP: <b>{{ price_format($item->mrp_price ?? 0) }}</b> <br>
-    Sale Price: <b>{{ price_format($item->sale_price ?? 0) }}</b>
+<td>MRP: <b>{{ price($item->mrp_price ?? 0) }}</b> <br>
+    Sale Price: <b>{{ price($item->sale_price ?? 0) }}</b>
 </td>
 <td>
     <span class="badge badge-light-{{ $item->prescription_required == 'Yes' ? 'success':'danger' }}">{{ $item->prescription_required }}</span>

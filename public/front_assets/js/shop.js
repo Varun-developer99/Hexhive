@@ -49,6 +49,8 @@
       color: null,
       availability: null,
       brands: [],
+      activities: [],
+      body_parts: [],
       sale: false,
     };
 
@@ -61,6 +63,7 @@
 
       applyFilters();
       updateMetaFilter();
+      product_filter();
     });
 
     $(".size-check").click(function () {
@@ -98,6 +101,33 @@
       updateMetaFilter();
     });
 
+    $('input[name="body_part"]').change(function () {
+      const body_partId = $(this).attr("id");
+      let body_partLabel = $(this).next("label").text().trim();
+      body_partLabel = body_partLabel.replace(/\s*\(\d+\)$/, "");
+
+      if ($(this).is(":checked")) {
+        filters.body_parts.push({ id: body_partId, label: body_partLabel });
+      } else {
+        filters.body_parts = filters.body_parts.filter((body_part) => body_part.id !== body_partId);
+      }
+      applyFilters();
+      updateMetaFilter();
+    });
+    $('input[name="activity"]').change(function () {
+      const activityId = $(this).attr("id");
+      let activityLabel = $(this).next("label").text().trim();
+      activityLabel = activityLabel.replace(/\s*\(\d+\)$/, "");
+
+      if ($(this).is(":checked")) {
+        filters.activities.push({ id: activityId, label: activityLabel });
+      } else {
+        filters.activities = filters.activities.filter((activity) => activity.id !== activityId);
+      }
+      applyFilters();
+      updateMetaFilter();
+    });
+
     $(".shop-sale-text").click(function () {
       filters.sale = !filters.sale;
       $(this).toggleClass("active", filters.sale);
@@ -129,13 +159,11 @@
         const colorElement = $(`.color-check:contains('${filters.color}')`);
         const backgroundClass = colorElement
           .find(".color")
-          .attr("class")
-          .split(" ")
-          .find((cls) => cls.startsWith("bg-"));
-        const line = backgroundClass === "bg-white" ? "line-black" : "";
+          .attr("style");
+        const line = backgroundClass === "background-color: #ffffff" ? "line-black" : "";
         appliedFilters.append(
           `<span class="filter-tag color-tag">
-                  <span class="color ${backgroundClass} ${line}"></span>
+                  <span class="color  ${line}" style="${backgroundClass}"></span>
                   ${filters.color}
                   <span class="remove-tag icon-close" data-filter="color"></span>
               </span>`
@@ -146,6 +174,22 @@
         filters.brands.forEach((brand) => {
           appliedFilters.append(
             `<span class="filter-tag">${brand.label} <span class="remove-tag icon-close" data-filter="brand" data-value="${brand.id}"></span></span>`
+          );
+        });
+      }
+
+      if (filters.activities.length > 0) {
+        filters.activities.forEach((activity) => {
+          appliedFilters.append(
+            `<span class="filter-tag">${activity.label} <span class="remove-tag icon-close" data-filter="activity" data-value="${activity.id}"></span></span>`
+          );
+        });
+      }
+
+      if (filters.body_parts.length > 0) {
+        filters.body_parts.forEach((body_part) => {
+          appliedFilters.append(
+            `<span class="filter-tag">${body_part.label} <span class="remove-tag icon-close" data-filter="body_part" data-value="${body_part.id}"></span></span>`
           );
         });
       }
@@ -184,6 +228,18 @@
         );
         $(`input[name="brand"][id="${filterValue}"]`).prop("checked", false);
       }
+      if (filterType === "body_part") {
+        filters.body_parts = filters.body_parts.filter(
+          (body_part) => body_part.id !== filterValue
+        );
+        $(`input[name="body_part"][id="${filterValue}"]`).prop("checked", false);
+      }
+      if (filterType === "activity") {
+        filters.activities = filters.activities.filter(
+          (activity) => activity.id !== filterValue
+        );
+        $(`input[name="activity"][id="${filterValue}"]`).prop("checked", false);
+      }
       if (filterType === "price") {
         filters.minPrice = minPrice;
         filters.maxPrice = maxPrice;
@@ -197,6 +253,7 @@
 
       applyFilters();
       updateMetaFilter();
+      product_filter();
     });
 
     $("#remove-all,#reset-filter").click(function () {
@@ -204,18 +261,23 @@
       filters.color = null;
       filters.availability = null;
       filters.brands = [];
+      filters.activities = [];
+      filters.body_parts = [];
       filters.minPrice = minPrice;
       filters.maxPrice = maxPrice;
       filters.sale = false;
 
       $(".shop-sale-text").removeClass("active");
       $('input[name="brand"]').prop("checked", false);
+      $('input[name="activity"]').prop("checked", false);
+      $('input[name="body_part"]').prop("checked", false);
       $('input[name="availability"]').prop("checked", false);
       $(".size-check, .color-check").removeClass("active");
       priceSlider.noUiSlider.set([minPrice, maxPrice]);
 
       applyFilters();
       updateMetaFilter();
+      product_filter();
     });
 
     function applyFilters() {
@@ -414,16 +476,17 @@
             .closest(".card-product")
             .find(".img-product");
           imgProduct.attr("src", swatchColor);
-          $(this)
-            .closest(".card-product")
-            .find(".color-swatch.active")
-            .removeClass("active");
+          $(this).closest(".card-product").find(".color-swatch.active").removeClass("active");
           $(this).addClass("active");
         });
       }
       $(".size-box").on("click", ".size-item", function () {
         $(this).closest(".size-box").find(".size-item").removeClass("active");
-        $(this).addClass("active");
+        if($(this).hasClass("active")){
+          $(this).removeClass("active");
+        }else{
+          $(this).addClass("active");
+        }
       });
     }
     bindProductEvents();
