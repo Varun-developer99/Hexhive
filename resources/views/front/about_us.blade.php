@@ -304,7 +304,7 @@
 
 
         <!-- page-title -->
-        <div class="page-title" style="background-image: url({{ asset('front_assets/images/section/page-title.jpg') }})">
+        <div class="page-title" style="background-image: url({{ asset('front_assets/images/section/6215.jpg') }})">
             <div class="container-full">
                 <div class="row">
                     <div class="col-12">
@@ -326,7 +326,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="about-us-features wow fadeInLeft">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/banner/about-us.jpg') }}" src="{{ asset('front_assets/images/banner/about-us.jpg') }}" alt="image-team">
+                            <img class="lazyload" data-src="{{ asset('front_assets/images/banner/about_us.webp') }}" src="{{ asset('front_assets/images/banner/about-us.jpg') }}" alt="image-team">
                             {{-- <div style="padding:56.25% 0 0 0;position:relative;"><iframe
                                     src="https://player.vimeo.com/video/904084725?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                                     frameborder="0" allow="autoplay; fullscreen; picture-in-picture"

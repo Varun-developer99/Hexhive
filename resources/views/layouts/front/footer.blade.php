@@ -19,7 +19,7 @@
                             <ul class="footer-info">
                                 <li>
                                     <i class="icon-mail"></i>
-                                    <p>sales@fidelityhealthcare.co.nz</p>
+                                    <p>sales@hexhive.co.nz</p>
                                 </li>
                                 <li>
                                     <i class="icon-phone"></i>
@@ -197,7 +197,7 @@
                     <div class="col-12">
                         <div class="footer-bottom-wrap">
                             <div class="left">
-                                <p class="text-caption-1">©{{ date("Y") }} Fidelity. All Rights Reserved.Made with ❤️ by <a href="https://digitaldarzee.com/" target="_blank" rel="noopener noreferrer">DigitalDarzee</a></p>
+                                <p class="text-caption-1">©{{ date("Y") }} Hexhive. All Rights Reserved.Made with ❤️ by <a href="https://digitaldarzee.com/" target="_blank" rel="noopener noreferrer">DigitalDarzee</a></p>
                             </div>
                             <div class="tf-payment">
                                 <p class="text-caption-1">Payment:</p>
