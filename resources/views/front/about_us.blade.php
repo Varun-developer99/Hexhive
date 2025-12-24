@@ -308,10 +308,10 @@
             <div class="container-full">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="heading text-center" style="color:#000; font-weight: 600;">About HEXHIVE</h3>
+                        <h3 class="heading text-center" style="color:#000000; font-weight: 600;">About HEXHIVE</h3>
                         <ul class="breadcrumbs d-flex align-items-center justify-content-center">
                             <li>
-                                <a class="link" href="#" style="color:#fff;">At HEXHIVE, we carry forward a legacy of excellence built over four decades in the production. </a>
+                                <a class="link" href="#" style="color:#000000;">At HEXHIVE, we carry forward a legacy of excellence built over four decades in the production. </a>
                             </li>
                         </ul>
                     </div>
@@ -326,7 +326,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="about-us-features wow fadeInLeft">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/banner/about_us.webp') }}" src="{{ asset('front_assets/images/banner/about-us.jpg') }}" alt="image-team">
+                            <img class="lazyload" data-src="{{ asset('front_assets/images/section/6215.jpg') }}" src="{{ asset('front_assets/images/section/6215.jpg') }}" alt="image-team">
                             {{-- <div style="padding:56.25% 0 0 0;position:relative;"><iframe
                                     src="https://player.vimeo.com/video/904084725?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                                     frameborder="0" allow="autoplay; fullscreen; picture-in-picture"

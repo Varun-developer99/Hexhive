@@ -165,37 +165,37 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="collection-position-2 style-5 style-7 hover-img wow fadeInUp" data-wow-delay="0s">
                             <a class="img-style">
-                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/cls-organic-1.jpg') }}" src="{{ asset('front_assets/images/collections/1(1).webp') }}" alt="banner-cls">
+                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/1 (1).webp') }}" src="{{ asset('front_assets/images/collections/1 (1).webp') }}" alt="banner-cls">
                             </a>
-                            <div class="content">
+                            {{-- <div class="content ">
                                 <span class="text-title text-white">Pure Organic-Vegan</span>
                                 <h4 class="title"><a href="#" class="link text-white">Fresh Veggie Combos Start from $22</a></h4>
                                 <div>
                                     <a href="#" class="btn-line style-white">Shop Now</a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="collection-position-2 style-5 style-7 hover-img wow fadeInUp" data-wow-delay="0.1s">
                             <a class="img-style">
-                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/cls-organic-2.jpg') }}" src="{{ asset('front_assets/images/collections/2.webp') }}" alt="banner-cls">
+                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/2.webp') }}" src="{{ asset('front_assets/images/collections/2.webp') }}" alt="banner-cls">
                             </a>
-                            <div class="content">
+                            {{-- <div class="content">
                                 <span class="text-title text-white">Top-quality nuts and grains.</span>
                                 <h4 class="title"><a href="#" class="link text-white">Nut & Grain Combos Start from $22</a></h4>
                                 <div>
                                     <a href="#" class="btn-line style-white">Shop Now</a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                        <div class="collection-position-2 style-5 style-7 hover-img wow fadeInUp" data-wow-delay="0.2s">
                             <a class="img-style">
-                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/cls-organic-3.jpg') }}" src="{{ asset('front_assets/images/collections/3.webp') }}" alt="banner-cls">
+                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/3.webp') }}" src="{{ asset('front_assets/images/collections/3.webp') }}" alt="banner-cls">
                             </a>
-                            <div class="content">
+                            {{-- <div class="content">
                                 <span class="text-title text-white">Delicious and nutritious blends.</span>
                                 <h4 class="title"><a href="#" class="link text-white">Smoothie Essentials Bundle Start from $22</a></h4>
                                 <div>
@@ -203,7 +203,7 @@
                                 </div>
 
 
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
