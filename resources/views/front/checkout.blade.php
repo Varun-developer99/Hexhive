@@ -11,7 +11,7 @@
 @section('content')
 
         <!-- page-title -->
-        <div class="page-title" style="background-image: url({{ asset('front_assets/images/section/page-title.jpg')}})">
+        <div class="page-title" style="background: linear-gradient( rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset('front_assets/images/section/6215.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div class="container-full">
                 <div class="row">
                     <div class="col-12">
@@ -178,7 +178,7 @@
                         <div class="col-xl-5">
                             <div class="flat-spacing flat-sidebar-checkout">
                                 <div class="sidebar-checkout-content">
-                                    <h5 class="title">You're shopping with a NewZealand company</h5>
+                                    <h5 class="title">Shopping Cart</h5>
                                     {{-- <p class="">You are purchasing from a NewZealand registered company</p> --}}
                                     <div class="list-product">
                                         @foreach (($cart ?? []) as $item)
@@ -288,7 +288,7 @@
                                             </div>
                                             <div class="item d-flex align-items-center justify-content-between text-button">
                                                 <span>Shipping</span>
-                                                <span>${{ $sub_total >= 500 ? ($shipping_cost = 0) : ($shipping_cost = shipping_cost()) }}.00    </small></span>
+                                                <span>₹{{ $sub_total >= 500 ? ($shipping_cost = 0) : ($shipping_cost = shipping_cost()) }}.00    </small></span>
                                             </div>
                                         </div>
                                         <div class="bottom">

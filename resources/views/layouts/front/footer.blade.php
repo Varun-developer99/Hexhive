@@ -9,11 +9,11 @@
                                 <a href="/">
                                     <img style="max-width:60%; width:100%;" src="{{ asset(env('APP_LOGO_DARK')) }}" alt="">
                                 </a>
-                                <p class="mb-0 mt-3">Proudly NewZealand Owned & Operated</p>
-                                <p class="mb-0">All prices are in NewZealand Dollars ( )</p>
+                                <p class="mb-0 mt-3">At HEXHIVE, we carry forward a legacy of excellence built over four decades in the production</p>
+                                {{-- <p class="mb-0">All prices are in Hexhive</p> --}}
                             </div>
                             <div class="footer-address">
-                                <p>70 Tatariki Street, Rosehill, Auckland 2113, NewZealand</p>
+                                <p>70 Tatariki Street, Rosehill, Auckland 2113, Hexhive</p>
                                 <a href="https://maps.app.goo.gl/MyWBbXaCWYF5Yt936" class="tf-btn-default fw-6" target="_blank">GET DIRECTION<i class="icon-arrowUpRight"></i></a>
                             </div>
                             <ul class="footer-info">

@@ -11,7 +11,7 @@
 @section('content')
 
         <!-- page-title -->
-        <div class="page-title" style="background-image: url({{ asset('front_assets/images/section/page-title.jpg')}})">
+        <div class="page-title" style="background: linear-gradient( rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset('front_assets/images/section/6215.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div class="container-full">
                 <div class="row">
                     <div class="col-12">
@@ -90,19 +90,19 @@
                                             </div>
                                         </td>
                                         <td data-cart-title="Price" class="tf-cart-item_price text-center">
-                                            <div class="cart-price text-button price-on-sale">{{ price($item->sale_price ?? 0) }} <small style="font-size:12px;">  </small></div>
+                                            <div class="cart-price text-button price-on-sale">{{ price($item->sale_price ?? 0) }}</div>
                                         </td>
                                         <td data-cart-title="Quantity" class="tf-cart-item_quantity">
                                             <input type="hidden" name="cart[{{ $key }}][id]" value="{{ $item->id }}">
                                             <div class="wg-quantity mx-md-auto" onclick="update_cart_amount()">
                                                 <span class="btn-quantity btn-decrease">-</span>
-                                                <input type="number" class="quantity-product" name="cart[{{ $key }}][qty]" value="{{ $item->qty ?? 0 }}" max="{{ $current_stock = $item->product->current_stock) }}" min="1" data-product_id="{{ $item->product_id }}">
+                                                <input type="number" class="quantity-product" name="cart[{{ $key }}][qty]" value="{{ $item->qty ?? 0 }}" max="{{ $current_stock = $item->product->current_stock ?? 0 }}" min="1" data-product_id="{{ $item->product_id }}">
                                                 <span class="btn-quantity btn-increase">+</span>
                                             </div>
                                             <p class="text-danger text-center" id="stock_alert_msg_{{ $item->product_id }}" style="display: none;">Available Stock: <b>{{ $current_stock }}</b></p>
                                         </td>
                                         <td data-cart-title="Total" class="tf-cart-item_total text-center">
-                                            <div class="cart-total text-button total-price">{{ price($item->total_amount ?? 0) }} <small style="font-size:12px;">  </small></div>
+                                            <div class="cart-total text-button total-price">{{ price($item->total_amount ?? 0) }}</div>
                                         </td>
                                         <td data-cart-title="Remove" class="remove-cart" onclick="remove_from_cart({{ $item->id }}); update_cart_amount();"><span class="remove icon icon-close"></span></td>
                                     </tr>
@@ -145,7 +145,7 @@
                                 </div>
                                 <div class="discount text-button d-flex justify-content-between align-items-center">
                                     <span>Shipping Charges</span>
-                                    <span class="total" id="shipping_cost">${{ $sub_total >= 500 ? ($shipping_cost = 0) : ($shipping_cost = shipping_cost()) }}.00 </span>
+                                    <span class="total" id="shipping_cost">₹{{ $sub_total >= 500 ? ($shipping_cost = 0) : ($shipping_cost = shipping_cost()) }}.00 </span>
                                 </div>
                                 {{-- <div class="ship">
                                     <span class="text-button">Shipping</span>

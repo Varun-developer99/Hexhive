@@ -31,7 +31,7 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="wrap-slider">
-                                <img src="{{ asset('front_assets/images/slider/slider-organic2.jpg') }}" alt="fashion-slideshow">
+                                <img src="{{ asset('front_assets/images/slider/slider-organic2.webp') }}" alt="fashion-slideshow">
                                 {{-- <div class="box-content">
                                     <div class="content-slider">
                                         <div class="box-title-slider">
@@ -45,7 +45,7 @@
                                 </div> --}}
                             </div>
                         </div>
-                        <div class="swiper-slide">
+                        {{-- <div class="swiper-slide">
                             <div class="wrap-slider">
                                 <img src="{{ asset('front_assets/images/slider/slider-organic3.jpg') }}" alt="fashion-slideshow">
                                 {{-- <div class="box-content">
@@ -58,9 +58,9 @@
                                             <a href="shop-default-grid.html" class="tf-btn btn-fill btn-white"><span class="text">Shop Now</span><i class="icon icon-arrowUpRight"></i></a>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div> 
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="wrap-pagination">

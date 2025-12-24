@@ -794,7 +794,7 @@
             <div class="modal-content">
                 <div class="d-flex flex-column flex-grow-1 h-100">
                     <div class="header">
-                        <h5 class="title">You're shopping with a NewZealand company</h5>
+                        <h5 class="title">Shopping Cart</h5>
                         
                         <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
                     </div>

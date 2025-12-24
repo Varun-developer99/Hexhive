@@ -308,7 +308,7 @@
             <div class="container-full">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="heading text-center" style="color:#fff; font-weight: 600;">About HEXHIVE</h3>
+                        <h3 class="heading text-center" style="color:#fff; font-weight: 600;">About Hexhive</h3>
                         <ul class="breadcrumbs d-flex align-items-center justify-content-center">
                             <li>
                                 <a class="link" href="#" style="color:#fff;">At HEXHIVE, we carry forward a legacy of excellence built over four decades in the production. </a>
