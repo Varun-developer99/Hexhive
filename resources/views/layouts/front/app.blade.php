@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="{{ asset('front_assets/css/sib-styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front_assets/css/styles.css') }}">
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="{{ asset('front_assets/images/logo/fidelity-icon.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('front_assets/images/logo/fidelity-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('front_assets/images/logo/favicon.ico') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('front_assets/images/logo/favicon.ico') }}">
     @yield('css')
     <style>
         .tf-btn:hover {

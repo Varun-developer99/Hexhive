@@ -53,9 +53,9 @@
                                 </div>
                                 <div class="mb_20">
                                     <div class="text-title mb_8">Email:</div>
-                                    <p class="text-secondary">Sales: sales@fidelityhealthcare.co.nz</p>
-                                    <p class="text-secondary">Accounts: accounts@fidelityhealthcare.co.nz</p>
-                                    <p class="text-secondary">Personal: anuj.gupta@fidelityheathcare.co.nz</p>
+                                    <p class="text-secondary">Sales: sales@hexhive.co.nz</p>
+                                    <p class="text-secondary">Accounts: accounts@hexhive.co.nz</p>
+                                    <p class="text-secondary">Personal: anuj.gupta@hexhive.co.nz</p>
                                 </div>
                                 <div class="mb_20">
                                     <div class="text-title mb_8">Address:</div>

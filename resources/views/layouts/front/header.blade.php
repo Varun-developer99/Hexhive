@@ -456,7 +456,7 @@
                                     </div>
                                 </li> --}}
                                 <li class="menu-item">
-                                    <a href="{{ route('front.shop') }}" class="item-link">Products</a>
+                                    <a href="{{ route('front.shop') }}" class="item-link">Shop</a>
                                     {{-- <div class="sub-menu mega-menu">
                                         <div class="container">
                                             <div class="row">
@@ -536,9 +536,9 @@
                                         </div>
                                     </div> --}}
                                 </li>
-                                <li class="menu-item position-relative">
+                                {{-- <li class="menu-item position-relative">
                                     <a href="{{ route('front.blog') }}" class="item-link">Blog</a>
-                                    {{-- <div class="sub-menu submenu-default">
+                                    <div class="sub-menu submenu-default">
                                         <ul class="menu-list">
                                             <li><a href="blog-default.html" class="menu-link-text">Blog Default</a></li>
                                             <li><a href="blog-list.html" class="menu-link-text">Blog List</a></li>
@@ -546,8 +546,8 @@
                                             <li><a href="blog-detail.html" class="menu-link-text">Blog Detail 1</a></li>
                                             <li><a href="blog-detail-02.html" class="menu-link-text">Blog Detail 2</a></li>
                                         </ul>
-                                    </div> --}}
-                                </li>
+                                    </div>
+                                </li> --}}
                                 <li class="menu-item position-relative">
                                     <a href="{{ route('front.contact_us') }}" class="item-link">Contact Us</a>
                                     {{-- <div class="sub-menu submenu-default">
