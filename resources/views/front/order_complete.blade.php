@@ -11,7 +11,7 @@
 @section('content')
 
         <!-- page-title -->
-        <div class="page-title" style="background-image: url({{ asset('front_assets/images/section/page-title.jpg')}})">
+        <div class="page-title" style="background: linear-gradient( rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset('front_assets/images/section/6215.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div class="container-full">
                 <div class="row">
                     <div class="col-12">

@@ -13,7 +13,7 @@ use App\Models\PolicyPage;
 use App\Models\ShopByBrand;
 use App\Models\OrderDetails;
 use App\Models\OrderHistory;
-use App\Models\StockHistory;
+use App\Models\StockDetails;
 use Illuminate\Http\Request;
 use App\Models\ProductReview;
 use App\Models\AttributeValue;
@@ -154,22 +154,22 @@ class FrontController extends Controller
                 $order_details = OrderDetails::create($input);
                 $sub_total += $order_details->total_amount;
 
-                if($order_details->order_type == 'Subscribe') {
-                    $stock_history = new RentalStockHistory();
-                    $order_details->rental_status = 'Pending';
-                    $order_details->save();
-                }else{
-                    $stock_history = new StockHistory();
-                }
+                // if($order_details->order_type == 'Subscribe') {
+                //     $stock_history = new RentalStockHistory();
+                //     $order_details->rental_status = 'Pending';
+                //     $order_details->save();
+                // }else{
+                // }
+                $stock_history = new StockDetails();
                 $stock_history->created_by_id = Auth::user()->id;
                 $stock_history->created_by_role = Auth::user()->role_as;
                 $stock_history->product_id = $order_details->product_id;
-                $stock_history->product_variant_id = $order_details->product_variant_id;
+                // $stock_history->product_variant_id = $order_details->product_variant_id;
                 $stock_history->from = 'Place Order';
                 $stock_history->from_id = $order_details->id;
                 $stock_history->in_out = 'Out';
                 $stock_history->qty = $order_details->qty;
-                $stock_history->variant_name = ($order_details->product_variant->variant_name ?? 'N/A');
+                // $stock_history->variant_name = ($order_details->product_variant->variant_name ?? 'N/A');
                 $stock_history->save();
             }
             
@@ -180,7 +180,7 @@ class FrontController extends Controller
                 $order->shipping_cost = shipping_cost();
             }
 
-            if($coupon = Coupon::find($item['coupon_id'])) {
+            if($coupon = Coupon::find($item['coupon_id'] ?? 0)) {
                 $order->discount = number_format(($sub_total * $coupon->discount) / 100, 2);
                 $sub_total -= $order->discount;
                 $order->coupon_id = $coupon->id ?? null;
@@ -191,7 +191,7 @@ class FrontController extends Controller
             
             $order->tax_amount = calculate_tax($sub_total);
             $order->grand_total = $sub_total + $order->shipping_cost;
-            $order->order_no = 'F/ORD-000'.$order->id;
+            $order->order_no = 'H/ORD-000'.$order->id;
             $order->payment_status = 'Pending';
             $order->order_status = 'Order Placed';
             $order->save();
@@ -208,7 +208,7 @@ class FrontController extends Controller
             Cart::where('user_id', Auth::user()->id)->delete();
 
             // Send Order Confirmation Email
-            Mail::to($user->email)->send(new OrderConfirmationMail($order));
+            // Mail::to($user->email)->send(new OrderConfirmationMail($order));
 
             return redirect()->route('front.order_complete', $encoded_order_id)->with('success','Order Placed Successfully');
         }

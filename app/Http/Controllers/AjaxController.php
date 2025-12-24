@@ -70,11 +70,9 @@ class AjaxController extends Controller
         return $response;
     }
 
-    public function get_product_variant_data(Request $request)
+    public function quick_view_product(Request $request)
     {
-        $attribute_value_ids = ($request->attribute_value_ids ?? []); 
-
-        $product_variant = ProductVariant::where('product_id', $request->product_id)->where('attribute_value_ids', json_encode($attribute_value_ids))->first();
+        $product = Product::where('id', $request->product_id)->first();
 
         // if(!empty($product_variant)) {
         //     $response['html'] = '';
@@ -82,9 +80,9 @@ class AjaxController extends Controller
         //     $response['html'] = '';
         //     $response['message'] = 'Oops! Something went wrong.';
         // }
-        $response['html'] = '';
+        $response['html'] = view('front.ajax.quick_view_product', compact('product'))->render();
         $response['message'] = 'Success';
-        $response['product_variant'] = ($product_variant ?? []);
+        $response['product'] = ($product ?? []);
 
         return $response;
     }

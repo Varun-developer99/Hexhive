@@ -1,0 +1,28 @@
+@extends('layouts.front.app')
+
+@section('title', '404 Not Found')
+
+@section('css')
+
+@endsection
+
+@section('content')
+
+<section class="flat-spacing page-404">
+    <div class="container">
+        <div class="page-404-inner">
+            <div class="image">
+                <img class=" ls-is-cached lazyloaded" data-src="{{ asset('front_assets/images/section/404.png') }}" src="{{ asset('front_assets/images/section/404.png') }}" alt="image">
+            </div>
+            <div class="content">
+                <div class="heading">Oops!</div>
+                <div>
+                    <h2 class="title mb_4">Something is Missing.</h2>
+                    <div class="text body-text-1 text-secondary">The page you are looking for cannot be found. Take a break before trying again.</div>
+                </div>
+                <a href="{{ url('/') }}" class="tf-btn btn-fill"><span class="text text-button">Back To Homepage</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+@endsection

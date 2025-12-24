@@ -417,8 +417,7 @@
                                             <div class="compare-at-price font-2">{{ price(($product->mrp_price ?? 0)) }}
                                             </div>
                                             <div class="badges-on-sale text-btn-uppercase">
-                                                <p>{{ round(((($product->mrp_price ?? 0) - ($product->sale_price ?? 0)) / ($product->mrp_price ?? 0)) * 100) }}%
-                                                </p>
+                                                <p>{{ round(((($product->mrp_price ?? 0) - ($product->sale_price ?? 0)) / ($product->mrp_price ?? 0)) * 100) }}%</p>
                                             </div>
                                         </div>
                                         <p>{!! $product->short_description !!}</p>
@@ -435,14 +434,14 @@
                                                 Quantity:
                                                 <div class="wg-quantity">
                                                     <span class="btn-quantity btn-decrease">-</span>
-                                                    <input class="quantity-product" type="number" id="order_qty" name="qty"
+                                                    <input class="quantity-product" type="number" id="order_qty_{{ $product->id }}" name="qty"
                                                         value="1" min="1" max="{{ $product->current_stock ?? 0 }}" data-product_id="{{ $product->id }}">
                                                     <span class="btn-quantity btn-increase">+</span>
                                                 </div>
                                             </div>
                                             @auth
                                                 <div class="w-100">
-                                                    <p class="text-danger" id="stock_alert_msg_{{ $product->id }}" style="display: none;">Available Stock: <b>0</b></p>
+                                                    <p class="text-danger stock_alert_msg" style="display: none;">Available Stock: <b>0</b></p>
                                                     <a href="#shoppingCart" data-bs-toggle="modal" class="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 btn-add-to-cart w-100" onclick="add_to_cart({{ $product->id }}, 'Single', 'Add to cart')">
                                                         <span>Add to cart -&nbsp;</span>
                                                         <span class="tf-qty-price total-price">₹{{ $product->sale_price }}</span>
@@ -531,7 +530,7 @@
                                             </div>
                                         </div> --}}
                                     </div>
-                                    <ul class="tf-product-info-sku">
+                                    {{-- <ul class="tf-product-info-sku">
                                         @if (count(json_decode($product->shop_by_body_part_ids ?? '[]')) > 0)
                                             <li>
                                                 <p class="text-caption-1">Body Part:</p>
@@ -572,7 +571,7 @@
                                                 </p>
                                             </li>
                                         @endif
-                                    </ul>
+                                    </ul> --}}
                                     <div class="tf-product-info-guranteed">
                                         <div class="text-title">
                                             Guaranteed safe checkout:
@@ -1116,8 +1115,7 @@
                                             @endforelse
                                         </div>
                                     </div>
-                                    <form action="{{ route('front.add_review') }}" method="POST"
-                                        class="form-write-review write-review-wrap">
+                                    <form action="{{ route('front.add_review') }}" method="POST" class="form-write-review write-review-wrap">
                                         @csrf
                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                                         <div class="heading">

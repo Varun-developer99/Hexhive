@@ -114,10 +114,19 @@ trait AuthenticatesUsers
         if ($response = $this->authenticated($request, $this->guard()->user())) {
             return $response;
         }
+        if(($request->form_type ?? '') == 'Modal'){
+            return redirect()->back()->with('success','Login Successfully');
+        }else{
+            return $request->wantsJson() ? new JsonResponse([], 204) : redirect()->intended($this->redirectPath());
+        }
 
-        return $request->wantsJson()
-                    ? new JsonResponse([], 204)
-                    : redirect()->intended($this->redirectPath());
+        // if ($response = $this->authenticated($request, $this->guard()->user())) {
+        //     return $response;
+        // }
+
+        // return $request->wantsJson()
+        //             ? new JsonResponse([], 204)
+        //             : redirect()->intended($this->redirectPath());
     }
 
     /**

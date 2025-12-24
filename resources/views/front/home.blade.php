@@ -119,10 +119,18 @@
                 <div dir="ltr" class="swiper tf-sw-recent" data-preview="5" data-tablet="3" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
                     <div class="swiper-wrapper">
                         <!-- 1 -->
-                        @foreach($fresh_arrivals as $prod)
+                        {{-- @foreach($fresh_arrivals as $prod)
                         <div class="swiper-slide">
                             <div class="card-product card-product-size wow fadeInUp" data-wow-delay="0s">
                                 <div class="card-product-wrapper">
+                                    <!-- Discount Badge -->
+                                    @if($prod->sale_price < $prod->mrp_price)
+                                        @php
+                                            $discount = round((($prod->mrp_price - $prod->sale_price) / $prod->mrp_price) * 100);
+                                        @endphp
+                                        <div class="discount-badge">{{ $discount }}% OFF</div>
+                                    @endif
+                                    
                                     <a href="{{ route('front.product', $prod->slug) }}" class="product-img">
                                         <img class="lazyload img-product" data-src="{{ $prod->thumb_url }}" src="{{ $prod->thumb_url }}" alt="image-product">
                                         <img class="lazyload img-hover" data-src="{{ $prod->thumb_url }}" src="{{ $prod->thumb_url }}" alt="image-product">
@@ -132,12 +140,17 @@
                                     </div> 
                                 </div>
                                 <div class="card-product-info">
-
                                     <a href="{{ route('front.shop') }}" class="title link">{{ $prod->name }}</a>
-                                    <span class="price">₹{{ $prod->mrp_price }} <del class="text-secondary ms-2">₹{{ $prod->sale_price }}</del></span>
+                                    <span class="price">₹{{ $prod->sale_price }} <del class="text-secondary ms-2">₹{{ $prod->mrp_price }}</del></span>
+                                    <p class="save-text">You save ₹{{ $prod->mrp_price - $prod->sale_price }}</p>
                                 </div>
                             </div>
                         </div>
+                        @endforeach --}}
+                        @foreach($fresh_arrivals as $product)
+                            <div class="swiper-slide">
+                                @include('front/product_card')
+                            </div>
                         @endforeach
                     </div>
                     <div class="sw-pagination-recent sw-dots type-circle justify-content-center"></div>
@@ -180,7 +193,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                        <div class="collection-position-2 style-5 style-7 hover-img wow fadeInUp" data-wow-delay="0.2s">
                             <a class="img-style">
-                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/3.webp') }}" src="{{ asset('front_assets/images/collections/3.webp') }}" alt="banner-cls">
+                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/2.png') }}" src="{{ asset('front_assets/images/collections/3.webp') }}" alt="banner-cls">
                             </a>
                             {{-- <div class="content">
                                 <span class="text-title text-white">Delicious and nutritious blends.</span>

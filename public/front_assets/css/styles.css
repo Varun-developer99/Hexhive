@@ -6175,7 +6175,7 @@ form .cols>* {
 }
 
 .modal-shopping-cart .modal-content {
-  max-width: 708px !important;
+  max-width: 500px !important;
   cursor: default !important;
   display: flex;
   flex-direction: row;
@@ -8622,7 +8622,7 @@ form .cols>* {
   display: block;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   transition-duration: 700ms;
 }
@@ -8679,7 +8679,7 @@ form .cols>* {
 
 .card-product .card-product-info {
   padding-top: 10px;
-  padding-left: 10px;
+  padding: 10px;
   gap: 4px;
   display: grid;
 }

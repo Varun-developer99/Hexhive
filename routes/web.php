@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
-use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Warehouse\OrderController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Admin\BannersController;
@@ -27,7 +27,6 @@ use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PolicyPageController;
 use App\Http\Controllers\Admin\TopBarTextController;
 use App\Http\Controllers\Admin\ContactFormController;
-use App\Http\Controllers\Admin\RentalOrderController;
 use App\Http\Controllers\Admin\ShopByBrandController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ComboProductController;
@@ -271,7 +270,7 @@ Route::group(['middleware' => ['auth','is_Admin'], 'prefix' => 'admin'], functio
 });
 
 
-Route::group(['middleware' => ['auth','is_Customer'], 'prefix' => 'customer'], function () {
+Route::group(['middleware' => ['auth'], 'prefix' => 'customer'], function () {
 
     Route::get('dashboard', [CustomerDashboardController::class, 'dashboard'])->name('customer.dashboard');
     Route::get('profile_edit', [CustomerDashboardController::class, 'profile_edit'])->name('customer.profile_edit');
@@ -313,7 +312,7 @@ Route::get('ajax/login_modal', [AjaxController::class, 'login_modal'])->name('aj
 Route::get('ajax/register_modal', [AjaxController::class, 'register_modal'])->name('ajax.register_modal');
 Route::get('ajax/get_attribute_values', [AjaxController::class, 'get_attribute_values'])->name('ajax.get_attribute_values');
 Route::get('ajax/get_product_filter', [AjaxController::class, 'get_product_filter'])->name('ajax.get_product_filter');
-Route::get('ajax/get_product_variant_data', [AjaxController::class, 'get_product_variant_data'])->name('ajax.get_product_variant_data');
+Route::get('ajax/quick_view_product', [AjaxController::class, 'quick_view_product'])->name('ajax.quick_view_product');
 Route::get('ajax/get_combo_product_variant_data', [AjaxController::class, 'get_combo_product_variant_data'])->name('ajax.get_combo_product_variant_data');
 Route::get('ajax/add_to_cart', [AjaxController::class, 'add_to_cart'])->name('ajax.add_to_cart');
 Route::get('ajax/remove_from_cart', [AjaxController::class, 'remove_from_cart'])->name('ajax.remove_from_cart');

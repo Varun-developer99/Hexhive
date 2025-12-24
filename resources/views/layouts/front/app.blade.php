@@ -39,6 +39,148 @@
             cursor: not-allowed !important;   /* Shows a disabled cursor */
         }
     </style>
+    <style>
+    .card-product-wrapper {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .discount-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: linear-gradient(135deg, #ff3366 0%, #ff1744 100%);
+        color: #ffffff;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        z-index: 10;
+        box-shadow: 0 4px 12px rgba(255, 23, 68, 0.3);
+        letter-spacing: 0.5px;
+    }
+
+    /* Brand and Category Meta */
+    .product-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .brand-name {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #666666;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .category-name {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #999999;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .product-meta .separator {
+        color: #cccccc;
+        font-size: 10px;
+    }
+
+
+    /* Price and Button Same Line */
+    .price-action-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* margin-top: 12px; */
+        gap: 10px;
+    }
+
+    .price-1{
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 600;
+        /* display: flex; */
+
+    }
+    .price-wrapper {
+        /* display: flex; */
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .price-wrapper .price {
+        font-size: 20px;
+        font-weight: 700;
+        color: #000000;
+    }
+
+    .price-wrapper .original-price {
+        font-size: 13px;
+        color: #999999;
+        text-decoration: line-through;
+    }
+
+    /* Add Button */
+    .btn-add-cart {
+        background: #000;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        padding: 4px 10px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        white-space: nowrap;
+        /* box-shadow: 0 4px 12px rgba(0, 191, 165, 0.2); */
+    }
+
+    .btn-add-cart:hover {
+        transform: scale(1.15);
+        
+    }
+
+    .btn-add-cart .plus-icon {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .save-text {
+        color: #00bfa5;
+        font-size: 13px;
+        font-weight: 600;
+        /* margin-top: 8px; */
+        margin-bottom: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+        .price-action-row {
+            gap: 8px;
+        }
+        
+        .btn-add-cart {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+        
+        .price-wrapper .price {
+            font-size: 18px;
+        }
+    }
+
+</style>
 </head>
 
 <body class="preload-wrapper">
@@ -827,7 +969,6 @@
     </div>
     <!-- /shoppingCart -->
 
-    <!-- quickAdd -->
     <div class="modal fade modal-quick-add" id="global_modal">
         <div id="global_modal_size" class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -840,7 +981,14 @@
             </div>
         </div>
     </div>
-    <!-- /quickAdd -->
+
+    <!-- quickView -->
+    <div class="modal fullRight fade modal-quick-view" id="quickView">
+        <div class="modal-dialog" id="quick_view_product_ajax_html">
+            
+        </div>
+    </div>
+    <!-- /quickView -->
 
     <!-- Javascript -->
     <script type="text/javascript" src="{{ asset('front_assets/js/bootstrap.min.js') }}"></script>
@@ -874,8 +1022,15 @@
                 $('#gloab_modal_ajax_html').html(data);
             });
         }
+        function quick_view_product(product_id) {
+            $('#quick_view_product_ajax_html').html('<div class="modal-content justify-content-center"><div class="d-flex align-items-center justify-content-center p-5"><div class="spinner-border text-dark"></div></div></div>');
+            $.get('{{ route('ajax.quick_view_product') }}',{ product_id:product_id }, function(data){
+                $('#quick_view_product_ajax_html').html(data.html);
+            });
+        }
          function add_to_cart(product_id, order_type, btn_type) {
-            var qty = $('#order_qty').val() ?? 1 ;
+            $('#shoppingCart_html').html('<div class="modal-content justify-content-center"><div class="d-flex align-items-center justify-content-center p-5"><div class="spinner-border text-dark"></div></div></div>');
+            var qty = $('#order_qty_' + product_id).val() ?? 1 ;
             $.get('{{ route('ajax.add_to_cart') }}', {
                 product_id: product_id,
                 qty: qty,
@@ -898,6 +1053,7 @@
             });
         }
         function remove_from_cart(cart_id) {
+            $('#shoppingCart_html').html('<div class="modal-content justify-content-center"><div class="d-flex align-items-center justify-content-center p-5"><div class="spinner-border text-dark"></div></div></div>');
             $.get('{{ route('ajax.remove_from_cart') }}',{ cart_id:cart_id }, function(data){
                 if(data.status == 200){
                     $('#shoppingCart_html').html(data.html);

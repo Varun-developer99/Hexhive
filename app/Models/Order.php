@@ -10,6 +10,7 @@ class Order extends Model
     protected $fillable = [
         'created_by_id',
         'created_by_role',
+        'user_id',
         'customer_id',
         'address_id',
         'order_no',
@@ -28,14 +29,24 @@ class Order extends Model
         'payment_status',
         'sub_total',
         'shipping_cost',
-        'total_tax_amount',
+        'tax_amount',
         'discount',
         'grand_total',
+        'coupon_id',
+        'coupon_code',
         'deleted_at',
     ];
 
+     public function user()
+    {
+    	return $this->belongsTo('App\Models\User','user_id','id');
+    }
     public function order_details()
     {
-        return $this->hasMany('App\Models\OrderDetails', 'order_id', 'id');
+        return $this->hasMany(OrderDetails::class, 'order_id', 'id');
+    }
+    public function order_history()
+    {
+        return $this->hasMany(OrderHistory::class, 'order_id', 'id')->latest();
     }
 }

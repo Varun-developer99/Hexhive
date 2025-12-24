@@ -1,59 +1,45 @@
-<!-- card product 1 -->
-
-{{-- @dd($item); --}}
-<div class="card-product grid" data-availability="Out of stock" data-brand="adidas">
+<div class="card-product card-product-size wow fadeInUp" data-wow-delay="0s">
     <div class="card-product-wrapper">
+        <!-- Discount Badge -->
+        @if($product->sale_price < $product->mrp_price)
+            @php
+                $discount = round((($product->mrp_price - $product->sale_price) / $product->mrp_price) * 100);
+            @endphp
+            <div class="discount-badge">{{ $discount }}% OFF</div>
+        @endif
+        
         <a href="{{ route('front.product', $product->slug) }}" class="product-img">
-            {{-- <img class="img-product ls-is-cached lazyloaded"
-                    data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
-                    src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="image-product">
-                <img class="img-hover ls-is-cached lazyloaded"
-                    data-src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}"
-                    src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" alt="image-product"> --}}
-
-            @if (($product ?? '') != '')
-                @if ($product->image_url ?? 0)
-                    <img class="img-product ls-is-cached lazyloaded" data-src="{{ $product->image_url ?? '#' }}" src="{{ $product->image_url ?? '#' }}" alt="image-product">
-                @endif
-                @if (count($product->gallery_urls ?? []) > 0)
-                    <img class="img-hover ls-is-cached lazyloaded" data-src="{{ ($product->gallery_urls[0] ?? []) ?? '#' }}" src="{{ ($product->gallery_urls[0] ?? []) ?? '#' }}" alt="image-product">
-                @else
-                    @if ($product->image_url ?? 0)
-                    <img class="img-hover ls-is-cached lazyloaded" data-src="{{ $product->image_url ?? '#' }}" src="{{ $product->image_url ?? '#' }}" alt="image-product">
-                    @endif
-                @endif
-            @endif
+            <img class="lazyload img-product" data-src="{{ $product->thumb_url }}" src="{{ $product->thumb_url }}" alt="image-product">
+            <img class="lazyload img-hover" data-src="{{ $product->thumb_url }}" src="{{ $product->thumb_url }}" alt="image-product">
         </a>
-        {{-- <div class="list-product-btn">
-            <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                <span class="icon icon-heart"></span>
-                <span class="tooltip">Wishlist</span>
-            </a>
-            <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare"
-                class="box-icon compare btn-icon-action">
-                <span class="icon icon-gitDiff"></span>
-                <span class="tooltip">Compare</span>
-            </a>
-            <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                <span class="icon icon-eye"></span>
-                <span class="tooltip">Quick View</span>
-            </a>
-        </div> --}}
-        {{-- <div class="list-btn-main">
-            <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product">Add To cart</a>
-        </div> --}}
+        <div class="list-btn-main">
+            <a href="#quickView" data-bs-toggle="modal" class="btn-main-product" onclick="quick_view_product({{ $product->id }}, 'Single', 'Add to cart')">Quick View</a>
+        </div> 
     </div>
     <div class="card-product-info">
-        <a href="{{ route('front.product', $product->slug) }}" class="title link">{{ $product->name }}</a>
-        <div class="price">
-            {{-- @if($product->mrp_price ?? 0)
-            <span class="old-price">{{ price($product->mrp_price ?? 0) }}</span> 
-            @endif --}}
-            <span class="current-price">{{ price($product->mrp_price ?? 0) }}</span>
+        <div class="product-meta">
+            @if(isset($product->brand) && $product->brand)
+                <span class="brand-name">{{ $product->brand->name ?? $product->brand }}</span>
+            @endif
+            @if(isset($product->category) && $product->category)
+                @if(isset($product->brand) && $product->brand)
+                    <span class="separator">•</span>
+                @endif
+                <span class="category-name">{{ $product->category->name ?? $product->category }}</span>
+            @endif
+        </div>
+        <a href="{{ route('front.product', ($product->slug ?? '#')) }}" class="title link">{{ $product->name }}</a>
+        
+        <!-- Price and Add Button in Same Line -->
+        <div class="price-action-row">
+            <div class="price-wrapper">
+                <span class="price-1">₹{{ $product->sale_price }}</span>
+                <del class="original-price">₹{{ $product->mrp_price }}</del>
+                <p class="save-text">You save ₹{{ $product->mrp_price - $product->sale_price }}</p>
+            </div>
+            <a href="#shoppingCart" class="btn-add-cart" data-bs-toggle="modal" onclick="add_to_cart({{ $product->id }}, 'Single', 'Add to cart')">
+                <span class="plus-icon">+</span> Add
+            </a>
         </div>
     </div>
 </div>
-
-
-
-<!-- card product 1 -->

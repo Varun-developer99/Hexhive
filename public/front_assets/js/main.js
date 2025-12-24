@@ -609,14 +609,14 @@
   var totalPriceVariant = function () {
     $(".tf-product-info-list,.tf-cart-item").each(function () {
       var productItem = $(this);
-      var basePrice = parseFloat(productItem.find(".price-on-sale").data("base-price")) || parseFloat(productItem.find(".price-on-sale").text().replace("$", ""));
+      var basePrice = parseFloat(productItem.find(".price-on-sale").data("base-price")) || parseFloat(productItem.find(".price-on-sale").text().replace("₹", ""));
       var quantityInput = productItem.find(".quantity-product");
-
+      
       productItem.find(".color-btn, .size-btn").on("click", function () {
         var newPrice = parseFloat($(this).data("price")) || basePrice;
         quantityInput.val(1);
         productItem.find(".price-on-sale").html(
-          "$" + newPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' <small style="font-size:16px;"> NZD</small>'
+          "₹" + newPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         );
         updateTotalPrice(newPrice, productItem);
       });
@@ -627,10 +627,13 @@
         if((currentQuantity + 1) <= max_quantity){
           quantityInput.val(currentQuantity + 1);
           updateTotalPrice(null, productItem);
+          console.log('vdxv');
+          
         }
         else{
-          var product_id = quantityInput.data('product_id');
-          document.getElementById("stock_alert_msg_"+product_id).style.display = "block";
+           console.log('dxgvdxf');
+           console.log(productItem.find(".stock_alert_msg"));
+          productItem.find(".stock_alert_msg").show();
         }      
       });
 
@@ -643,7 +646,7 @@
       });
 
       function updateTotalPrice(price, scope) {
-        var currentPrice = price || parseFloat($(".price-on-sale").text().replace("₹", ""));
+        var currentPrice = price || parseFloat(productItem.find(".price-on-sale").text().replace("₹", ""));
         var quantity = parseInt(scope.find(".quantity-product").val());
         var totalPrice = currentPrice * quantity;
         scope.find(".total-price").text(

@@ -1,6 +1,6 @@
 @extends('layouts.front.app')
 
-@section('title', $order->order_no.' - Orders')
+@section('title', ($order->order_no ?? 0 ).' - Orders')
 
 @section('css')
     <style>
@@ -82,7 +82,7 @@
                                 <div class="widget-content-inner active">
                                     <div class="widget-timeline">
                                         <ul class="timeline">
-                                            @foreach ($order->order_history as $key => $order_history)
+                                            @foreach (($order->order_history ?? []) as $key => $order_history)
                                             <li>
                                                 <div class="timeline-badge {{ $loop->first ? 'success' : '' }}"></div>
                                                 <div class="timeline-box">

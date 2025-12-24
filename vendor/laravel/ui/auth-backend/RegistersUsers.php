@@ -35,13 +35,22 @@ trait RegistersUsers
 
         $this->guard()->login($user);
 
-        if ($response = $this->registered($request, $user)) {
+         if ($response = $this->registered($request, $user)) {
             return $response;
         }
+        if(($request->form_type ?? '') == 'Modal'){
+            return redirect()->back()->with('success','Register Successfully');
+        }else{
+            return $request->wantsJson() ? new JsonResponse([], 201) : redirect($this->redirectPath());
+        }
 
-        return $request->wantsJson()
-                    ? new JsonResponse([], 201)
-                    : redirect($this->redirectPath());
+        // if ($response = $this->registered($request, $user)) {
+        //     return $response;
+        // }
+
+        // return $request->wantsJson()
+        //             ? new JsonResponse([], 201)
+        //             : redirect($this->redirectPath());
     }
 
     /**

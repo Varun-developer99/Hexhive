@@ -16,6 +16,10 @@ class DashboardController extends Controller
         {
             return redirect()->route('admin.dashboard')->with('error', session('error'))->with('status', session('status'));
         }
+        else
+        {
+            return redirect()->route('customer.dashboard')->with('error', session('error'))->with('status', session('status'));
+        }
         
     }
 
