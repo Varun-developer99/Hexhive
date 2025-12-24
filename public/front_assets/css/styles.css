@@ -8599,6 +8599,8 @@ form .cols>* {
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  border: 1px solid #00000024;
+  border-radius: 10px;
 }
 
 .card-product .product-img {
@@ -8677,6 +8679,7 @@ form .cols>* {
 
 .card-product .card-product-info {
   padding-top: 10px;
+  padding-left: 10px;
   gap: 4px;
   display: grid;
 }
