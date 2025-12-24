@@ -8414,9 +8414,9 @@ form .cols>* {
 
 .collection-circle .img-style {
   display: block;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 20%;
   overflow: hidden;
 }
 
@@ -8483,7 +8483,7 @@ form .cols>* {
 .flat-collection-circle .nav-sw {
   position: absolute;
   z-index: 20;
-  top: 20%;
+  top: 25%;
 }
 
 .flat-collection-circle .nav-sw-left {
