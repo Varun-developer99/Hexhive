@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2025 at 08:28 AM
+-- Generation Time: Dec 24, 2025 at 09:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -297,6 +297,30 @@ CREATE TABLE `contact_forms` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `coupons`
+--
+
+CREATE TABLE `coupons` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by_id` varchar(255) DEFAULT NULL,
+  `code` varchar(255) DEFAULT NULL,
+  `discount` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `deleted_at` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `coupons`
+--
+
+INSERT INTO `coupons` (`id`, `created_by_id`, `code`, `discount`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, '1', 'deeemo', '101', '1', NULL, '2025-12-24 02:32:04', '2025-12-24 02:32:10');
 
 -- --------------------------------------------------------
 
@@ -646,7 +670,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (26, '2025_09_09_061303_create_manufacturers_table', 2),
 (27, '2025_01_30_080056_create_home_sliders_table', 3),
 (28, '2025_03_28_111659_create_policy_pages_table', 4),
-(29, '2025_03_31_081059_create_product_reviews_table', 5);
+(29, '2025_03_31_081059_create_product_reviews_table', 5),
+(30, '2025_04_24_094534_create_coupons_table', 6);
 
 -- --------------------------------------------------------
 
@@ -953,9 +978,9 @@ CREATE TABLE `sessions` (
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
 ('6GfppYMsfXRbXJHN6sWVEMNZpnj27PmPQCed751s', NULL, '192.168.1.5', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTnczRTNaVDk2YXdJYkNWVUNPNkdjWlZvQXp3cUV3WnlkQkNKYWNxbSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzc6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwL2Zyb250X2Fzc2V0cy9pbWFnZXMvbG9nby9sb2dvX2RhcmsxNzU3MzI3MDYyNDAyMTcucG5nIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1766554420),
-('PCu3YH2gebRwpPjaGCEHqR8juhZETKTmsEJwl6Az', NULL, '192.168.1.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiM1pNR21YckpBdVlEQjUzMnRlYXRkWExpaDA4c1RXUXdkWGY3c216MSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1766561031),
-('Sf9lUVoeONDgagdJh8MOHpzU9WBuiDwA3uCiHyCm', 1, '192.168.1.10', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiSVRsaVlBZFF5MG5yOWY5NzNwNDFqbEJEUFVWbG5UOE1HZWpkSjg0UyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo0OiJhdXRoIjthOjE6e3M6MjE6InBhc3N3b3JkX2NvbmZpcm1lZF9hdCI7aToxNzY2NTUyOTk3O319', 1766561292),
-('Ygw5Uo9U1yTgHU7VHyg6VkdRB9lkyRhkGZpmmxYn', 1, '192.168.1.4', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoicGhyS2FMRW5lUlRaczRYMm5xQXcxMUNpZURZaFZ3UWdVd3RBaW9QQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwL2FkbWluL3Byb2R1Y3QiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6NDoiYXV0aCI7YToxOntzOjIxOiJwYXNzd29yZF9jb25maXJtZWRfYXQiO2k6MTc2NjU1MjAxODt9fQ==', 1766561278);
+('PCu3YH2gebRwpPjaGCEHqR8juhZETKTmsEJwl6Az', NULL, '192.168.1.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiM1pNR21YckpBdVlEQjUzMnRlYXRkWExpaDA4c1RXUXdkWGY3c216MSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1766561559),
+('Sf9lUVoeONDgagdJh8MOHpzU9WBuiDwA3uCiHyCm', 1, '192.168.1.10', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiSVRsaVlBZFF5MG5yOWY5NzNwNDFqbEJEUFVWbG5UOE1HZWpkSjg0UyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo0OiJhdXRoIjthOjE6e3M6MjE6InBhc3N3b3JkX2NvbmZpcm1lZF9hdCI7aToxNzY2NTUyOTk3O319', 1766563135),
+('Ygw5Uo9U1yTgHU7VHyg6VkdRB9lkyRhkGZpmmxYn', 1, '192.168.1.4', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoicGhyS2FMRW5lUlRaczRYMm5xQXcxMUNpZURZaFZ3UWdVd3RBaW9QQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzE6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwL2Fzc2V0cy9qcy9ib290c3RyYXAvYm9vdHN0cmFwLmJ1bmRsZS5taW4uanMubWFwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjQ6ImF1dGgiO2E6MTp7czoyMToicGFzc3dvcmRfY29uZmlybWVkX2F0IjtpOjE3NjY1NTIwMTg7fX0=', 1766563341);
 
 -- --------------------------------------------------------
 
@@ -1134,6 +1159,12 @@ ALTER TABLE `combo_products`
 -- Indexes for table `contact_forms`
 --
 ALTER TABLE `contact_forms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `coupons`
+--
+ALTER TABLE `coupons`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1356,6 +1387,12 @@ ALTER TABLE `contact_forms`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `coupons`
+--
+ALTER TABLE `coupons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
@@ -1401,7 +1438,7 @@ ALTER TABLE `media`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `orders`
