@@ -76,7 +76,7 @@
             <div class="container">
                 <div class="heading-section-2 wow fadeInUp">
                     <h3>Categories you might like</h3>
-                    {{-- <a href="shop-collection.html" class="btn-line">View All Collection</a> --}}
+                    {{-- <a href="#" class="btn-line">View All Collection</a> --}}
                 </div>
                 <div class="flat-collection-circle wow fadeInUp" data-wow-delay="0.1s">
                     <div dir="ltr" class="swiper tf-sw-collection" data-preview="5" data-tablet="3" data-mobile="2" data-space-lg="20" data-space-md="20" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
@@ -85,12 +85,12 @@
                              @foreach($category as $cat)
                                 <div class="swiper-slide">
                                     <div class="collection-circle hover-img">
-                                        <a href="shop-collection.html" class="img-style">
+                                        <a href="#" class="img-style">
                                             <img class="lazyload" data-src="{{ $cat->thumb_url ?? asset('front_assets/images/collections/collection-circle/cls-circle1.jpg') }}" src="{{ $cat->thumb_url ?? asset('front_assets/images/collections/collection-circle/cls-circle1.jpg') }}" alt="collection-img">
                                         </a>
                                         <div class="collection-content text-center">
                                             <div>
-                                                <a href="shop-collection.html" class="cls-title">
+                                                <a href="#" class="cls-title">
                                                     <h6 class="text">{{ $cat->name }}</h6>
                                                     <i class="icon icon-arrowUpRight"></i>    
                                                 </a>
@@ -113,7 +113,7 @@
         <section class="flat-spacing">
             <div class="container">
                 <div class="heading-section text-center wow fadeInUp">
-                    <h3 class="heading">Deal of the day</h3>
+                    <h3 class="heading">Deals of the day</h3>
                     <p class="subheading text-secondary">Fresh styles just in! Elevate your look.</p>
                 </div>
                 <div dir="ltr" class="swiper tf-sw-recent" data-preview="4" data-tablet="3" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
@@ -165,13 +165,13 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="collection-position-2 style-5 style-7 hover-img wow fadeInUp" data-wow-delay="0s">
                             <a class="img-style">
-                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/cls-organic-1.jpg') }}" src="{{ asset('front_assets/images/collections/cls-organic-1.jpg') }}" alt="banner-cls">
+                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/cls-organic-1.jpg') }}" src="{{ asset('front_assets/images/collections/1(1).webp') }}" alt="banner-cls">
                             </a>
                             <div class="content">
                                 <span class="text-title text-white">Pure Organic-Vegan</span>
-                                <h4 class="title"><a href="shop-collection.html" class="link text-white">Fresh Veggie Combos Start from $22</a></h4>
+                                <h4 class="title"><a href="#" class="link text-white">Fresh Veggie Combos Start from $22</a></h4>
                                 <div>
-                                    <a href="shop-collection.html" class="btn-line style-white">Shop Now</a>
+                                    <a href="#" class="btn-line style-white">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -179,13 +179,13 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="collection-position-2 style-5 style-7 hover-img wow fadeInUp" data-wow-delay="0.1s">
                             <a class="img-style">
-                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/cls-organic-2.jpg') }}" src="{{ asset('front_assets/images/collections/cls-organic-2.jpg') }}" alt="banner-cls">
+                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/cls-organic-2.jpg') }}" src="{{ asset('front_assets/images/collections/2.webp') }}" alt="banner-cls">
                             </a>
                             <div class="content">
                                 <span class="text-title text-white">Top-quality nuts and grains.</span>
-                                <h4 class="title"><a href="shop-collection.html" class="link text-white">Nut & Grain Combos Start from $22</a></h4>
+                                <h4 class="title"><a href="#" class="link text-white">Nut & Grain Combos Start from $22</a></h4>
                                 <div>
-                                    <a href="shop-collection.html" class="btn-line style-white">Shop Now</a>
+                                    <a href="#" class="btn-line style-white">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -193,13 +193,13 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                        <div class="collection-position-2 style-5 style-7 hover-img wow fadeInUp" data-wow-delay="0.2s">
                             <a class="img-style">
-                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/cls-organic-3.jpg') }}" src="{{ asset('front_assets/images/collections/cls-organic-3.jpg') }}" alt="banner-cls">
+                                <img class="lazyload" data-src="{{ asset('front_assets/images/collections/cls-organic-3.jpg') }}" src="{{ asset('front_assets/images/collections/3.webp') }}" alt="banner-cls">
                             </a>
                             <div class="content">
                                 <span class="text-title text-white">Delicious and nutritious blends.</span>
-                                <h4 class="title"><a href="shop-collection.html" class="link text-white">Smoothie Essentials Bundle Start from $22</a></h4>
+                                <h4 class="title"><a href="#" class="link text-white">Smoothie Essentials Bundle Start from $22</a></h4>
                                 <div>
-                                    <a href="shop-collection.html" class="btn-line style-white">Shop Now</a>
+                                    <a href="#" class="btn-line style-white">Shop Now</a>
                                 </div>
 
 
