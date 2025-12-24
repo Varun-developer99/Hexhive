@@ -233,6 +233,7 @@ Route::group(['middleware' => ['auth','is_Admin'], 'prefix' => 'admin'], functio
     Route::get('customer/delete/{id}', [CustomerController::class, 'delete'])->name('admin.customer.delete');
     Route::get('customer/status/{id}', [CustomerController::class, 'status'])->name('admin.customer.status');
 
+  
     //Banners
     Route::get('banners', [BannersController::class, 'index'])->name('admin.banners.index');
     Route::get('banners/datatable', [BannersController::class, 'datatable'])->name('admin.banners.datatable');

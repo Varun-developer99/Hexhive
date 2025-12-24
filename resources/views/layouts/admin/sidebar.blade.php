@@ -56,6 +56,13 @@
               </a>
             </li>
           @endif
+
+          <li class="sidebar-list">
+            <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.coupon') }}">
+              <i data-feather="percent"></i><span>All Coupons</span>
+            </a>
+          </li>
+          
           <li class="sidebar-main-title">
             <div>
               <h6>Customer List</h6>

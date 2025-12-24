@@ -127,26 +127,13 @@
                                         <img class="lazyload img-product" data-src="{{ $prod->thumb_url }}" src="{{ $prod->thumb_url }}" alt="image-product">
                                         <img class="lazyload img-hover" data-src="{{ $prod->thumb_url }}" src="{{ $prod->thumb_url }}" alt="image-product">
                                     </a>
-                                    {{-- <div class="list-product-btn">
-                                        <a href="javascript:void(0);" class="box-icon wishlist btn-icon-action">
-                                            <span class="icon icon-heart"></span>
-                                            <span class="tooltip">Wishlist</span>
-                                        </a>
-                                        <a href="#compare" data-bs-toggle="offcanvas" aria-controls="compare" class="box-icon compare btn-icon-action">
-                                            <span class="icon icon-gitDiff"></span>
-                                            <span class="tooltip">Compare</span>
-                                        </a>
-                                        <a href="#quickView" data-bs-toggle="modal" class="box-icon quickview tf-btn-loading">
-                                            <span class="icon icon-eye"></span>
-                                            <span class="tooltip">Quick View</span>
-                                        </a>
-                                    </div> --}}
                                     <div class="list-btn-main">
-                                        <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product" onclick="add_to_cart({{ $prod->id }}, 'Single', 'Add to cart')">Add To Cart</a>
+                                        <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product" onclick="add_to_cart({{ $prod->id }}, 'Single', 'Add to cart')">Quick Add</a>
                                     </div> 
                                 </div>
                                 <div class="card-product-info">
-                                    <a href="product-detail.html" class="title link">{{ $prod->name }}</a>
+
+                                    <a href="{{ route('front.shop') }}" class="title link">{{ $prod->name }}</a>
                                     <span class="price">₹{{ $prod->mrp_price }} <del class="text-secondary ms-2">₹{{ $prod->sale_price }}</del></span>
                                 </div>
                             </div>
