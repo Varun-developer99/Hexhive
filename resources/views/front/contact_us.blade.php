@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="mb_20">
                                     <div class="text-title mb_8">Address:</div>
-                                    <p class="text-secondary">70 Tatariki Street, Rosehill, Auckland 2113, NewZealand</p>
+                                    <p class="text-secondary">70 Tatariki Street, Rosehill, Auckland 2113, Hexhive</p>
                                 </div>
                                 <div>
                                     <div class="text-title mb_8">Open Time:</div>

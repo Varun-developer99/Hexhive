@@ -79,7 +79,7 @@
                     {{-- <a href="#" class="btn-line">View All Collection</a> --}}
                 </div>
                 <div class="flat-collection-circle wow fadeInUp" data-wow-delay="0.1s">
-                    <div dir="ltr" class="swiper tf-sw-collection" data-preview="5" data-tablet="3" data-mobile="2" data-space-lg="20" data-space-md="20" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
+                    <div dir="ltr" class="swiper tf-sw-collection" data-preview="6" data-tablet="3" data-mobile="2" data-space-lg="20" data-space-md="20" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
                         <div class="swiper-wrapper">
                             <!-- item 1 -->
                              @foreach($category as $cat)
@@ -116,7 +116,7 @@
                     <h3 class="heading">Deals of the day</h3>
                     <p class="subheading text-secondary">Fresh styles just in! Elevate your look.</p>
                 </div>
-                <div dir="ltr" class="swiper tf-sw-recent" data-preview="4" data-tablet="3" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
+                <div dir="ltr" class="swiper tf-sw-recent" data-preview="5" data-tablet="3" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
                     <div class="swiper-wrapper">
                         <!-- 1 -->
                         @foreach($fresh_arrivals as $prod)
