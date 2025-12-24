@@ -587,12 +587,12 @@
                                 </a>
                                <div class="dropdown-account dropdown-login">
                                 <div class="sub-top">
-                                    <button type="button" class="tf-btn btn-reset"onclick="login_modal()"  data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    <button type="button" class="tf-btn btn-reset" onclick="login_modal()"  data-bs-toggle="modal" data-bs-target="#global_modal">
                                         Login
                                     </button>
                                     <p class="text-center text-secondary-2">
                                         Don't have an account? 
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#global_modal" onclick="register_modal()">Register</a>
                                     </p>
                                 </div>
                             </div>

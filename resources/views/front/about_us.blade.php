@@ -304,14 +304,14 @@
 
 
         <!-- page-title -->
-        <div class="page-title" style="background-image: url({{ asset('front_assets/images/section/6215.jpg') }})">
+        <div class="page-title" style="background: linear-gradient( rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset('front_assets/images/section/6215.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div class="container-full">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="heading text-center" style="color:#000000; font-weight: 600;">About HEXHIVE</h3>
+                        <h3 class="heading text-center" style="color:#fff; font-weight: 600;">About HEXHIVE</h3>
                         <ul class="breadcrumbs d-flex align-items-center justify-content-center">
                             <li>
-                                <a class="link" href="#" style="color:#000000;">At HEXHIVE, we carry forward a legacy of excellence built over four decades in the production. </a>
+                                <a class="link" href="#" style="color:#fff;">At HEXHIVE, we carry forward a legacy of excellence built over four decades in the production. </a>
                             </li>
                         </ul>
                     </div>
