@@ -142,7 +142,7 @@
                                         </a>
                                     </div> --}}
                                     <div class="list-btn-main">
-                                        <a href="#quickAdd" data-bs-toggle="modal" class="btn-main-product">Quick Add</a>
+                                        <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product" onclick="add_to_cart({{ $prod->id }}, 'Single', 'Add to cart')">Quick Add</a>
                                     </div> 
                                 </div>
                                 <div class="card-product-info">

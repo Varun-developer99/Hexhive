@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2025 at 07:30 AM
+-- Generation Time: Dec 24, 2025 at 08:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -216,7 +216,7 @@ CREATE TABLE `carts` (
 
 INSERT INTO `carts` (`id`, `created_by_id`, `user_id`, `customer_id`, `product_id`, `category_id`, `sub_category_id`, `brand_id`, `pincode`, `qty`, `sale_price`, `total_amount`, `order_type`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, NULL, '1', NULL, '7', NULL, NULL, NULL, NULL, '1', '599', '599', 'Single', '2025-12-24 05:54:41', '2025-12-24 00:24:04', '2025-12-24 00:24:41'),
-(2, NULL, '1', NULL, '7', NULL, NULL, NULL, NULL, '11', '599', '6589', 'Single', NULL, '2025-12-24 00:24:47', '2025-12-24 00:32:19');
+(2, NULL, '1', NULL, '7', NULL, NULL, NULL, NULL, '1', '599', '599', 'Single', NULL, '2025-12-24 00:24:47', '2025-12-24 01:52:55');
 
 -- --------------------------------------------------------
 
@@ -473,12 +473,6 @@ INSERT INTO `media` (`id`, `model_type`, `model_id`, `uuid`, `collection_name`, 
 (18, 'App\\Models\\Product', 6, '0f5959e8-0730-4e5d-8f93-54190ac254c1', 'gallery_imgs', '8', '8.png', 'image/png', 'media', 'media', 455511, '[]', '[]', '{\"thumb\":true}', '[]', 2, '2025-09-09 05:01:33', '2025-09-09 05:01:33'),
 (19, 'App\\Models\\Product', 6, 'f38e7238-669b-40b2-ae08-e8bb880aeed1', 'gallery_imgs', '23', '23.png', 'image/png', 'media', 'media', 314786, '[]', '[]', '{\"thumb\":true}', '[]', 3, '2025-09-09 05:01:33', '2025-09-09 05:01:34'),
 (20, 'App\\Models\\Product', 6, '16cb6358-800e-42fd-9673-194ecbb0be88', 'gallery_imgs', '26', '26.png', 'image/png', 'media', 'media', 277742, '[]', '[]', '{\"thumb\":true}', '[]', 4, '2025-09-09 05:01:34', '2025-09-09 05:01:34'),
-(26, 'App\\Models\\Product', 8, 'e9fe5fe3-b423-4521-a9ff-9e759f5ff79f', 'gallery_imgs', '2', '2.png', 'image/png', 'media', 'media', 275817, '[]', '[]', '{\"thumb\":true}', '[]', 2, '2025-09-09 05:09:22', '2025-09-09 05:09:23'),
-(27, 'App\\Models\\Product', 8, '4368ea64-afba-41a8-b7c6-52014f2fa384', 'gallery_imgs', '12', '12.png', 'image/png', 'media', 'media', 435478, '[]', '[]', '{\"thumb\":true}', '[]', 3, '2025-09-09 05:09:24', '2025-09-09 05:09:24'),
-(28, 'App\\Models\\Product', 8, '5e27beab-8dfc-4e65-a558-3968d156fb73', 'gallery_imgs', '19', '19.png', 'image/png', 'media', 'media', 274419, '[]', '[]', '{\"thumb\":true}', '[]', 4, '2025-09-09 05:09:25', '2025-09-09 05:09:26'),
-(30, 'App\\Models\\Product', 9, '383129e1-15d1-48b7-8ed3-b98bb6a4d9d1', 'gallery_imgs', '9', '9.png', 'image/png', 'media', 'media', 344931, '[]', '[]', '{\"thumb\":true}', '[]', 2, '2025-09-09 05:12:31', '2025-09-09 05:12:31'),
-(31, 'App\\Models\\Product', 9, '28116dfb-949d-4ff4-914b-8aa95b468502', 'gallery_imgs', '14', '14.png', 'image/png', 'media', 'media', 337992, '[]', '[]', '{\"thumb\":true}', '[]', 3, '2025-09-09 05:12:32', '2025-09-09 05:12:32'),
-(32, 'App\\Models\\Product', 9, 'a2bd5ef9-b75d-4839-b1cd-17b3fda98b21', 'gallery_imgs', '16', '16.png', 'image/png', 'media', 'media', 444062, '[]', '[]', '{\"thumb\":true}', '[]', 4, '2025-09-09 05:12:32', '2025-09-09 05:12:34'),
 (45, 'App\\Models\\Banners', 1, '6c9b1dfc-15a2-4699-84c1-8d804721fead', 'main_img', 'Daco_4763966 (1)', 'Daco_4763966-(1).png', 'image/png', 'media', 'media', 38983, '[]', '[]', '{\"thumb\":true}', '[]', 1, '2025-09-16 04:44:17', '2025-09-16 04:44:19'),
 (46, 'App\\Models\\Banners', 1, 'f8b0cc6d-67a4-45ad-990a-4ac2a15c1229', 'mobile_img', 'Daco_4763966 (1)', 'Daco_4763966-(1).png', 'image/png', 'media', 'media', 38983, '[]', '[]', '{\"thumb\":true}', '[]', 2, '2025-09-16 04:44:19', '2025-09-16 04:44:20'),
 (47, 'App\\Models\\Blog', 1, '6b134aea-9c0f-4855-9fde-facfadfcee3f', 'main_img', '14305', '14305.jpg', 'image/jpeg', 'media', 'media', 1210129, '[]', '[]', '{\"thumb\":true}', '[]', 1, '2025-09-17 04:41:00', '2025-09-17 04:41:04'),
@@ -959,8 +953,9 @@ CREATE TABLE `sessions` (
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
 ('6GfppYMsfXRbXJHN6sWVEMNZpnj27PmPQCed751s', NULL, '192.168.1.5', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTnczRTNaVDk2YXdJYkNWVUNPNkdjWlZvQXp3cUV3WnlkQkNKYWNxbSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzc6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwL2Zyb250X2Fzc2V0cy9pbWFnZXMvbG9nby9sb2dvX2RhcmsxNzU3MzI3MDYyNDAyMTcucG5nIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1766554420),
-('Sf9lUVoeONDgagdJh8MOHpzU9WBuiDwA3uCiHyCm', 1, '192.168.1.10', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiSVRsaVlBZFF5MG5yOWY5NzNwNDFqbEJEUFVWbG5UOE1HZWpkSjg0UyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwL2ltYWdlcy90ZWFtL3RlYW0tNC5qcGciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjQ6ImF1dGgiO2E6MTp7czoyMToicGFzc3dvcmRfY29uZmlybWVkX2F0IjtpOjE3NjY1NTI5OTc7fX0=', 1766557780),
-('Ygw5Uo9U1yTgHU7VHyg6VkdRB9lkyRhkGZpmmxYn', 1, '192.168.1.4', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoicGhyS2FMRW5lUlRaczRYMm5xQXcxMUNpZURZaFZ3UWdVd3RBaW9QQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjQ6ImF1dGgiO2E6MTp7czoyMToicGFzc3dvcmRfY29uZmlybWVkX2F0IjtpOjE3NjY1NTIwMTg7fX0=', 1766557703);
+('PCu3YH2gebRwpPjaGCEHqR8juhZETKTmsEJwl6Az', NULL, '192.168.1.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiM1pNR21YckpBdVlEQjUzMnRlYXRkWExpaDA4c1RXUXdkWGY3c216MSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1766561031),
+('Sf9lUVoeONDgagdJh8MOHpzU9WBuiDwA3uCiHyCm', 1, '192.168.1.10', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiSVRsaVlBZFF5MG5yOWY5NzNwNDFqbEJEUFVWbG5UOE1HZWpkSjg0UyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo0OiJhdXRoIjthOjE6e3M6MjE6InBhc3N3b3JkX2NvbmZpcm1lZF9hdCI7aToxNzY2NTUyOTk3O319', 1766561292),
+('Ygw5Uo9U1yTgHU7VHyg6VkdRB9lkyRhkGZpmmxYn', 1, '192.168.1.4', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoicGhyS2FMRW5lUlRaczRYMm5xQXcxMUNpZURZaFZ3UWdVd3RBaW9QQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwL2FkbWluL3Byb2R1Y3QiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6NDoiYXV0aCI7YToxOntzOjIxOiJwYXNzd29yZF9jb25maXJtZWRfYXQiO2k6MTc2NjU1MjAxODt9fQ==', 1766561278);
 
 -- --------------------------------------------------------
 
@@ -990,7 +985,22 @@ CREATE TABLE `stock_details` (
 INSERT INTO `stock_details` (`id`, `created_by_id`, `warehouse_id`, `brand_id`, `category_id`, `sub_category_id`, `product_id`, `qty`, `in_out`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, '1', NULL, '1', '3', NULL, '6', '10', 'In', '2025-12-24 05:27:51', '2025-09-16 05:58:00', '2025-12-23 23:57:51'),
 (2, '1', NULL, '1', '3', NULL, '7', '12', 'In', NULL, '2025-12-23 23:57:42', '2025-12-23 23:57:42'),
-(3, '1', NULL, '1', '3', NULL, '8', '10', 'Out', NULL, '2025-12-23 23:58:01', '2025-12-24 00:03:55');
+(3, '1', NULL, '1', '3', NULL, '8', '10', 'Out', NULL, '2025-12-23 23:58:01', '2025-12-24 00:03:55'),
+(4, '1', NULL, '1', '3', NULL, '8', '10', 'In', NULL, '2025-12-24 01:54:10', '2025-12-24 01:54:10'),
+(5, '1', NULL, '1', '3', NULL, '9', '10', 'In', NULL, '2025-12-24 01:54:18', '2025-12-24 01:54:18'),
+(6, '1', NULL, '2', '4', NULL, '10', '10', 'In', NULL, '2025-12-24 01:54:23', '2025-12-24 01:54:23'),
+(7, '1', NULL, '2', '4', NULL, '11', '10', 'In', NULL, '2025-12-24 01:54:31', '2025-12-24 01:54:31'),
+(8, '1', NULL, '1', '5', NULL, '12', '10', 'In', NULL, '2025-12-24 01:54:37', '2025-12-24 01:54:37'),
+(9, '1', NULL, '2', '3', NULL, '13', '10', 'In', NULL, '2025-12-24 01:54:42', '2025-12-24 01:54:42'),
+(10, '1', NULL, '2', '3', NULL, '14', '10', 'In', NULL, '2025-12-24 01:54:47', '2025-12-24 01:54:47'),
+(11, '1', NULL, '1', '4', NULL, '15', '10', 'In', NULL, '2025-12-24 01:54:53', '2025-12-24 01:54:53'),
+(12, '1', NULL, '1', '5', NULL, '16', '10', 'In', NULL, '2025-12-24 01:54:58', '2025-12-24 01:54:58'),
+(13, '1', NULL, '1', '5', NULL, '17', '10', 'In', NULL, '2025-12-24 01:55:03', '2025-12-24 01:55:03'),
+(14, '1', NULL, '1', '5', NULL, '18', '10', 'In', NULL, '2025-12-24 01:55:07', '2025-12-24 01:55:07'),
+(15, '1', NULL, '1', '5', NULL, '19', '10', 'In', NULL, '2025-12-24 01:55:13', '2025-12-24 01:55:13'),
+(16, '1', NULL, '1', '7', NULL, '20', '10', 'In', NULL, '2025-12-24 01:55:20', '2025-12-24 01:55:20'),
+(17, '1', NULL, '2', '8', NULL, '21', '10', 'In', NULL, '2025-12-24 01:55:26', '2025-12-24 01:55:26'),
+(18, '1', NULL, '2', '8', NULL, '22', '10', 'In', NULL, '2025-12-24 01:55:31', '2025-12-24 01:55:31');
 
 -- --------------------------------------------------------
 
@@ -1457,7 +1467,7 @@ ALTER TABLE `product_reviews`
 -- AUTO_INCREMENT for table `stock_details`
 --
 ALTER TABLE `stock_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `subscribe_forms`

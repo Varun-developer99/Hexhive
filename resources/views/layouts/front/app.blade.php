@@ -874,6 +874,29 @@
                 $('#gloab_modal_ajax_html').html(data);
             });
         }
+         function add_to_cart(product_id, order_type, btn_type) {
+            var qty = $('#order_qty').val() ?? 1 ;
+            $.get('{{ route('ajax.add_to_cart') }}', {
+                product_id: product_id,
+                qty: qty,
+                order_type: order_type
+            }, function(data) {
+                if (data.status == 200) {
+                    $('#shoppingCart_html').html(data.html);
+                    $('.nav-icon-item .count-box').text(data.cart_count);
+                    if (btn_type == 'Buy now') {
+                        window.location.href = "{{ route('front.checkout') }}";
+                    }
+                    // $.notify({ title:'Success', message:data.message }, { type:'success', });
+                } else {
+                    $.notify({
+                        message: data.message
+                    }, {
+                        type: 'danger',
+                    });
+                }
+            });
+        }
         function remove_from_cart(cart_id) {
             $.get('{{ route('ajax.remove_from_cart') }}',{ cart_id:cart_id }, function(data){
                 if(data.status == 200){
