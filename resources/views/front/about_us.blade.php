@@ -448,7 +448,7 @@
                         <div class="swiper-slide">
                             <div class="team-item hover-image wow fadeInUp" data-wow-delay="0s">
                                 <div class="image">
-                                    <img class="lazyload" data-src="images/team/team-1.jpg" src="images/team/team-1.jpg" alt="image-team">
+                                    <img class="lazyload" data-src="{{ asset('front_assets/images/team/team-1.jpg') }}" src="{{ asset('front_assets/images/team/team-1.jpg') }}" alt="image-team">
                                 </div>
                                 <div class="content">
                                     <div>
@@ -464,7 +464,7 @@
                         <div class="swiper-slide">
                             <div class="team-item hover-image wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="image">
-                                    <img class="lazyload" data-src="images/team/team-2.jpg" src="images/team/team-2.jpg" alt="image-team">
+                                    <img class="lazyload" data-src="{{ asset('front_assets/images/team/team-2.jpg') }}" src="{{ asset('front_assets/images/team/team-2.jpg') }}" alt="image-team">
                                 </div>
                                 <div class="content">
                                     <div>
@@ -480,7 +480,7 @@
                         <div class="swiper-slide">
                             <div class="team-item hover-image wow fadeInUp" data-wow-delay="0.2s">
                                 <div class="image">
-                                    <img class="lazyload" data-src="images/team/team-3.jpg" src="images/team/team-3.jpg" alt="image-team">
+                                    <img class="lazyload" data-src="{{ asset('front_assets/images/team/team-3.jpg') }}" src="{{ asset('front_assets/images/team/team-3.jpg') }}" alt="image-team">
                                 </div>
                                 <div class="content">
                                     <div>
@@ -496,7 +496,7 @@
                         <div class="swiper-slide">
                             <div class="team-item hover-image wow fadeInUp" data-wow-delay="0.3s">
                                 <div class="image">
-                                    <img class="lazyload" data-src="images/team/team-4.jpg" src="images/team/team-4.jpg" alt="image-team">
+                                    <img class="lazyload" data-src="{{ asset('front_assets/images/team/team-4.jpg') }}  " src="{{ asset('front_assets/images/team/team-4.jpg') }}" alt="image-team">
                                 </div>
                                 <div class="content">
                                     <div>

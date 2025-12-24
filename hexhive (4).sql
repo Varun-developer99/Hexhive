@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2025 at 01:28 PM
+-- Generation Time: Dec 24, 2025 at 07:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -71,8 +71,10 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `created_by_id`, `name`, `slug`, `main_img`, `mobile_img`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'demo', 'demo', NULL, NULL, '1', NULL, '2025-09-16 04:44:16', '2025-09-16 04:46:10'),
-(2, 1, 'Honey', 'honey', NULL, NULL, '1', NULL, '2025-09-17 06:02:19', '2025-09-17 06:02:19');
+(1, 1, 'demo', 'demo', NULL, NULL, '1', '2025-12-24 00:44:31', '2025-09-16 04:44:16', '2025-12-24 00:44:31'),
+(2, 1, 'Honey', 'honey', NULL, NULL, '1', '2025-12-24 00:44:28', '2025-09-17 06:02:19', '2025-12-24 00:44:28'),
+(3, 1, 'Anil sidhu', 'anil-sidhu', NULL, NULL, '1', '2025-12-24 00:44:26', '2025-12-24 00:06:38', '2025-12-24 00:44:26'),
+(4, 1, 'First banner', 'first-banner', NULL, NULL, '1', NULL, '2025-12-24 00:43:38', '2025-12-24 00:43:38');
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,8 @@ INSERT INTO `brands` (`id`, `created_by_id`, `name`, `slug`, `img`, `status`, `d
 (1, '1', 'Beehive Farms', 'beehive-farms', NULL, '1', NULL, '2025-09-09 01:25:30', '2025-09-09 01:25:30'),
 (2, '1', 'Hexhive Foods', 'hexhive-foods', NULL, '1', NULL, '2025-09-09 01:25:51', '2025-09-09 01:25:51'),
 (3, '1', 'TBD', 'tbd', NULL, '1', NULL, '2025-09-09 01:26:01', '2025-09-09 01:26:01'),
-(4, '1', 'Outsource', 'outsource', NULL, '1', NULL, '2025-09-09 01:26:06', '2025-09-09 01:26:06');
+(4, '1', 'Outsource', 'outsource', NULL, '1', NULL, '2025-09-09 01:26:06', '2025-09-09 01:26:06'),
+(5, '1', 'Anil sidhu', 'anil-sidhu', NULL, '1', '2025-12-24 05:24:16', '2025-12-23 23:54:11', '2025-12-23 23:54:16');
 
 -- --------------------------------------------------------
 
@@ -199,12 +202,21 @@ CREATE TABLE `carts` (
   `brand_id` varchar(255) DEFAULT NULL,
   `pincode` varchar(255) DEFAULT NULL,
   `qty` varchar(255) DEFAULT '1',
-  `price` varchar(255) DEFAULT '1',
+  `sale_price` varchar(255) DEFAULT '1',
   `total_amount` varchar(255) DEFAULT '1',
+  `order_type` varchar(255) DEFAULT NULL,
   `deleted_at` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `created_by_id`, `user_id`, `customer_id`, `product_id`, `category_id`, `sub_category_id`, `brand_id`, `pincode`, `qty`, `sale_price`, `total_amount`, `order_type`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, NULL, '1', NULL, '7', NULL, NULL, NULL, NULL, '1', '599', '599', 'Single', '2025-12-24 05:54:41', '2025-12-24 00:24:04', '2025-12-24 00:24:41'),
+(2, NULL, '1', NULL, '7', NULL, NULL, NULL, NULL, '11', '599', '6589', 'Single', NULL, '2025-12-24 00:24:47', '2025-12-24 00:32:19');
 
 -- --------------------------------------------------------
 
@@ -238,7 +250,8 @@ INSERT INTO `categories` (`id`, `created_by_id`, `name`, `slug`, `img`, `status`
 (7, '1', 'Nuts Honey', 'nuts-honey', NULL, '1', NULL, '2025-09-08 04:39:25', '2025-09-08 04:39:25'),
 (8, '1', 'Honey Sauce', 'honey-sauce', NULL, '1', NULL, '2025-09-08 04:39:43', '2025-09-08 04:39:43'),
 (9, '1', 'Syrup/Honey', 'syruphoney', NULL, '1', NULL, '2025-09-08 04:40:13', '2025-09-08 04:40:13'),
-(10, '1', 'Butter', 'butter', NULL, '1', NULL, '2025-09-08 04:40:29', '2025-09-08 04:40:29');
+(10, '1', 'Butter', 'butter', NULL, '1', NULL, '2025-09-08 04:40:29', '2025-09-08 04:40:29'),
+(11, '1', 'demo', 'demo', NULL, '1', '2025-12-24 05:23:49', '2025-12-23 23:53:45', '2025-12-23 23:53:49');
 
 -- --------------------------------------------------------
 
@@ -264,7 +277,8 @@ CREATE TABLE `combo_products` (
 
 INSERT INTO `combo_products` (`id`, `created_by_id`, `name`, `products`, `status`, `video_url`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'demo', '[\"1\"]', '1', NULL, '2025-09-04 11:44:39', '2025-09-04 06:12:25', '2025-09-04 06:14:39'),
-(2, NULL, 'demo', '[\"1\"]', '1', NULL, NULL, '2025-09-04 06:14:53', '2025-09-04 06:14:53');
+(2, NULL, 'demo', '[\"1\"]', '1', NULL, NULL, '2025-09-04 06:14:53', '2025-09-04 06:14:53'),
+(3, NULL, 'demo', '[\"7\"]', '1', NULL, NULL, '2025-12-24 00:07:23', '2025-12-24 00:07:23');
 
 -- --------------------------------------------------------
 
@@ -569,7 +583,29 @@ INSERT INTO `media` (`id`, `model_type`, `model_id`, `uuid`, `collection_name`, 
 (146, 'App\\Models\\Product', 19, '9da70a03-30cb-4968-aaa0-05e271658d32', 'gallery_imgs', 'Shilajit-Honey-box', 'Shilajit-Honey-box.jpg', 'image/jpeg', 'media', 'media', 427351, '[]', '[]', '{\"thumb\":true}', '[]', 4, '2025-12-23 04:38:46', '2025-12-23 04:38:47'),
 (147, 'App\\Models\\Product', 19, '27c910d6-3060-4162-8a48-8f3c6eb507c9', 'gallery_imgs', 'Shilajit-Honey-front', 'Shilajit-Honey-front.jpg', 'image/jpeg', 'media', 'media', 565606, '[]', '[]', '{\"thumb\":true}', '[]', 5, '2025-12-23 04:38:47', '2025-12-23 04:38:47'),
 (148, 'App\\Models\\Product', 19, '20dfe838-7548-446b-a828-63e669f32259', 'gallery_imgs', 'Shilajit-Honey-front-1', 'Shilajit-Honey-front-1.jpg', 'image/jpeg', 'media', 'media', 531338, '[]', '[]', '{\"thumb\":true}', '[]', 6, '2025-12-23 04:38:47', '2025-12-23 04:38:48'),
-(149, 'App\\Models\\Product', 19, '8dc81bd1-3c4e-4197-8f51-158c5d000b42', 'gallery_imgs', 'Shilajit-Honey-top', 'Shilajit-Honey-top.jpg', 'image/jpeg', 'media', 'media', 595981, '[]', '[]', '{\"thumb\":true}', '[]', 7, '2025-12-23 04:38:48', '2025-12-23 04:38:48');
+(149, 'App\\Models\\Product', 19, '8dc81bd1-3c4e-4197-8f51-158c5d000b42', 'gallery_imgs', 'Shilajit-Honey-top', 'Shilajit-Honey-top.jpg', 'image/jpeg', 'media', 'media', 595981, '[]', '[]', '{\"thumb\":true}', '[]', 7, '2025-12-23 04:38:48', '2025-12-23 04:38:48'),
+(150, 'App\\Models\\Product', 20, '669325c6-ade4-4ec2-8001-07c4e9540ad1', 'main_img', 'Honey-with-Nuts-Saffron front', 'Honey-with-Nuts-Saffron-front.jpg', 'image/jpeg', 'media', 'media', 726502, '[]', '[]', '{\"thumb\":true}', '[]', 1, '2025-12-23 23:32:13', '2025-12-23 23:32:14'),
+(151, 'App\\Models\\Product', 20, 'baba6f16-e754-4e14-ba17-666fab187a8d', 'gallery_imgs', 'Honey-with-Nuts-Saffron front', 'Honey-with-Nuts-Saffron-front.jpg', 'image/jpeg', 'media', 'media', 726502, '[]', '[]', '{\"thumb\":true}', '[]', 2, '2025-12-23 23:32:15', '2025-12-23 23:32:15'),
+(152, 'App\\Models\\Product', 20, '2bf76f67-79a3-45bf-9e6b-cabc5b4f0de5', 'gallery_imgs', 'Honey-with-Nuts-Saffron', 'Honey-with-Nuts-Saffron.jpg', 'image/jpeg', 'media', 'media', 801630, '[]', '[]', '{\"thumb\":true}', '[]', 3, '2025-12-23 23:32:15', '2025-12-23 23:32:16'),
+(153, 'App\\Models\\Product', 20, 'd2c4f91d-2527-493c-a19e-936fdef9530f', 'gallery_imgs', 'Honey-with-Nuts-Saffron-back', 'Honey-with-Nuts-Saffron-back.jpg', 'image/jpeg', 'media', 'media', 918912, '[]', '[]', '{\"thumb\":true}', '[]', 4, '2025-12-23 23:32:16', '2025-12-23 23:32:16'),
+(154, 'App\\Models\\Product', 20, 'cfbefc6b-68d9-4bfc-9e1a-9cc9214ca558', 'gallery_imgs', 'Honey-with-Nuts-Saffron-Top', 'Honey-with-Nuts-Saffron-Top.jpg', 'image/jpeg', 'media', 'media', 776240, '[]', '[]', '{\"thumb\":true}', '[]', 5, '2025-12-23 23:32:16', '2025-12-23 23:32:17'),
+(155, 'App\\Models\\Banners', 3, '024c6c93-4f77-4529-b4a0-ec4a81e8d9b6', 'main_img', 'Honey-with-Nuts-Saffron-Top', 'Honey-with-Nuts-Saffron-Top.jpg', 'image/jpeg', 'media', 'media', 776240, '[]', '[]', '{\"thumb\":true}', '[]', 1, '2025-12-24 00:06:39', '2025-12-24 00:06:42'),
+(156, 'App\\Models\\Banners', 3, '30d727fd-e625-453c-8d70-6eee4915f5e0', 'mobile_img', 'Honey-with-Nuts-Saffron-back', 'Honey-with-Nuts-Saffron-back.jpg', 'image/jpeg', 'media', 'media', 918912, '[]', '[]', '{\"thumb\":true}', '[]', 2, '2025-12-24 00:06:42', '2025-12-24 00:06:44'),
+(157, 'App\\Models\\ComboProduct', 3, 'c2f17cba-f57c-4651-86cf-9478e24a07b4', 'main_img', 'Honey-with-Nuts-Saffron', 'Honey-with-Nuts-Saffron.jpg', 'image/jpeg', 'media', 'media', 801630, '[]', '[]', '{\"thumb\":true}', '[]', 1, '2025-12-24 00:07:23', '2025-12-24 00:07:24'),
+(158, 'App\\Models\\Product', 21, '39f84927-18b9-4b26-8559-821334f49d8b', 'main_img', 'Honey-Chilli-Sauce-front', 'Honey-Chilli-Sauce-front.jpg', 'image/jpeg', 'media', 'media', 435417, '[]', '[]', '{\"thumb\":true}', '[]', 1, '2025-12-24 00:21:47', '2025-12-24 00:21:48'),
+(159, 'App\\Models\\Product', 21, 'cbb8edc9-b87f-4d72-8c65-1c58d9fa9c48', 'gallery_imgs', 'Honey-Chilli-Sauce-back', 'Honey-Chilli-Sauce-back.jpg', 'image/jpeg', 'media', 'media', 445757, '[]', '[]', '{\"thumb\":true}', '[]', 2, '2025-12-24 00:21:49', '2025-12-24 00:21:50'),
+(160, 'App\\Models\\Product', 21, '659a0025-2a6d-4b10-b552-159c0cb0f7a5', 'gallery_imgs', 'Honey-Chilli-Sauce-front', 'Honey-Chilli-Sauce-front.jpg', 'image/jpeg', 'media', 'media', 435417, '[]', '[]', '{\"thumb\":true}', '[]', 3, '2025-12-24 00:21:50', '2025-12-24 00:21:51'),
+(161, 'App\\Models\\Product', 21, 'ea07a600-c99a-4b4c-aa99-28462111db06', 'gallery_imgs', 'Honey-Chilli-Sauce-side', 'Honey-Chilli-Sauce-side.jpg', 'image/jpeg', 'media', 'media', 457091, '[]', '[]', '{\"thumb\":true}', '[]', 4, '2025-12-24 00:21:51', '2025-12-24 00:21:52'),
+(162, 'App\\Models\\Product', 21, 'f2fd01d7-1524-41d5-ae8e-4bae7ea1c622', 'gallery_imgs', 'Honey-Chilli-Sauce-side-1', 'Honey-Chilli-Sauce-side-1.jpg', 'image/jpeg', 'media', 'media', 389121, '[]', '[]', '{\"thumb\":true}', '[]', 5, '2025-12-24 00:21:52', '2025-12-24 00:21:53'),
+(163, 'App\\Models\\Product', 21, 'd2df7d25-4bb5-4dc1-a321-88bafa00d273', 'gallery_imgs', 'Honey-Chilli-Sauce-side-2', 'Honey-Chilli-Sauce-side-2.jpg', 'image/jpeg', 'media', 'media', 398353, '[]', '[]', '{\"thumb\":true}', '[]', 6, '2025-12-24 00:21:54', '2025-12-24 00:21:55'),
+(164, 'App\\Models\\Product', 21, '40c21b31-6b78-4f40-ae3f-e250a85d19d1', 'gallery_imgs', 'Honey-Chilli-Sauce-top', 'Honey-Chilli-Sauce-top.jpg', 'image/jpeg', 'media', 'media', 412260, '[]', '[]', '{\"thumb\":true}', '[]', 7, '2025-12-24 00:21:55', '2025-12-24 00:21:55'),
+(165, 'App\\Models\\Product', 22, 'a4dba373-65b1-41b1-851d-4d24e1224586', 'main_img', 'Tomato-Honey-Kalonji-Sauce', 'Tomato-Honey-Kalonji-Sauce.jpg', 'image/jpeg', 'media', 'media', 457828, '[]', '[]', '{\"thumb\":true}', '[]', 1, '2025-12-24 00:27:22', '2025-12-24 00:27:23'),
+(166, 'App\\Models\\Product', 22, '0d29ee79-ed98-4285-a872-a7946fd13d73', 'gallery_imgs', 'Tomato-Honey-Kalonji-Sauce', 'Tomato-Honey-Kalonji-Sauce.jpg', 'image/jpeg', 'media', 'media', 457828, '[]', '[]', '{\"thumb\":true}', '[]', 2, '2025-12-24 00:27:23', '2025-12-24 00:27:25'),
+(167, 'App\\Models\\Product', 22, 'ce8463e7-b67c-4d87-b089-025e22894ecd', 'gallery_imgs', 'Tomato-Honey-Kalonji-Sauce-back', 'Tomato-Honey-Kalonji-Sauce-back.jpg', 'image/jpeg', 'media', 'media', 376132, '[]', '[]', '{\"thumb\":true}', '[]', 3, '2025-12-24 00:27:25', '2025-12-24 00:27:26'),
+(168, 'App\\Models\\Product', 22, '50b80d22-3070-469b-9a31-11d77b67f2ae', 'gallery_imgs', 'Tomato-Honey-Kalonji-Sauce-side', 'Tomato-Honey-Kalonji-Sauce-side.jpg', 'image/jpeg', 'media', 'media', 458529, '[]', '[]', '{\"thumb\":true}', '[]', 4, '2025-12-24 00:27:26', '2025-12-24 00:27:27'),
+(169, 'App\\Models\\Product', 22, '5330d7d3-bd0f-4a62-b16d-bdb46e0c65f5', 'gallery_imgs', 'Tomato-Honey-Kalonji-Sauce-top', 'Tomato-Honey-Kalonji-Sauce-top.jpg', 'image/jpeg', 'media', 'media', 434283, '[]', '[]', '{\"thumb\":true}', '[]', 5, '2025-12-24 00:27:27', '2025-12-24 00:27:28'),
+(170, 'App\\Models\\Banners', 4, '0c25a82f-ac5b-45e3-914b-b70ef16af91e', 'main_img', '1sgt', '1sgt.webp', 'image/webp', 'media', 'media', 127646, '[]', '[]', '{\"thumb\":true}', '[]', 1, '2025-12-24 00:43:39', '2025-12-24 00:43:39'),
+(171, 'App\\Models\\Banners', 4, 'c538f24c-f50c-41be-9c57-44a29613d8e8', 'mobile_img', '1sgt', '1sgt.webp', 'image/webp', 'media', 'media', 127646, '[]', '[]', '{\"thumb\":true}', '[]', 2, '2025-12-24 00:43:40', '2025-12-24 00:43:41');
 
 -- --------------------------------------------------------
 
@@ -816,19 +852,22 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `created_by_id`, `code`, `sku`, `brand_id`, `category_id`, `name`, `slug`, `casepack`, `quantity`, `mrp_price`, `sale_price`, `hsn_code`, `gst_rate`, `product_weight`, `length`, `width`, `height`, `product_shelf_life`, `ingredients`, `allergent_info`, `bottel_type`, `status`, `is_featured`, `is_trending`, `enable_product_benefits`, `enable_product_features`, `product_benefits_img`, `short_description`, `description`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (3, '1', 'P-003', NULL, '1', '3', 'Acacia Lite Colour', 'acacia-lite-colour', '12', '100', '799', '0.00', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '1', '1', '0', '0', NULL, 'Nestled in the serene and pristine Himalayan valleys, where abundant flora thrives, lies the origin of Raw of Acacia honey. Made by bees from the nectar-rich white flowers of the native Acacia (Robinia pseudoacacia) trees, this exquisite honey boasts a pleasant pale yellow hue and unrivaled clarity. Collected in the untouched meadows, it offers a pure, unprocessed, and nutrient-rich treasure that provides immense health benefits and promotes overall well-being. Indulge in the velvety texture, warm aroma, and amber-colored sweetness of this rarity harvested only in small batches every year', '<p>Nestled in the serene and pristine Himalayan valleys, where abundant flora thrives, lies the origin of Raw of Acacia honey. Made by bees from the nectar-rich white flowers of the native Acacia (Robinia pseudoacacia) trees, this exquisite honey boasts a pleasant pale yellow hue and unrivaled clarity. Collected in the untouched meadows, it offers a pure, unprocessed, and nutrient-rich treasure that provides immense health benefits and promotes overall well-being. Indulge in the velvety texture, warm aroma, and amber-colored sweetness of this rarity harvested only in small batches every year.</p>\r\n\r\n<p><strong>Why is Acacia honey rare?:</strong>&nbsp;Raw Acacia honey is a prized rarity, made by bees from the elusive nectars of the beautiful and fragrant white and pale yellow flowers of Robinia pseudoacacia (a special variety of Babool), harvested in small batches for a very limited period each year. Its exquisite taste and limited availability make it a coveted delicacy sought after by connoisseurs.</p>', '2025-12-23 06:25:37', '2025-09-09 04:43:14', '2025-12-23 00:55:37'),
 (6, '1', 'P-006', NULL, '1', '3', 'Organic 3', 'organic-3', '12', '100', '649', '0.00', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '1', '1', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.&quot;</p>', '2025-12-23 06:25:34', '2025-09-09 05:01:27', '2025-12-23 00:55:34'),
-(7, '1', 'P-007', 'Hexhive Honey Black Forest 500gm', '1', '3', 'Honey Black Forest', 'honey-black-forest', '12', '100', '599', '0.00', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy.', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.&quot;</p>', NULL, '2025-09-09 05:05:55', '2025-12-23 00:52:36'),
-(8, '1', 'P-008', 'Hexhive HONEY (Spring Blossom) 500gm', '1', '3', 'HONEY (Spring Blossom)', 'honey-spring-blossom', '12', '100', '549', '0.00', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy.', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.</p>', NULL, '2025-09-09 05:09:22', '2025-12-23 04:05:00'),
-(9, '1', 'P-009', 'Hexhive Van Tulsi Honey 500GM', '1', '3', 'Van Tulsi', 'van-tulsi', '12', '100', '799', '0.00', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.</p>', NULL, '2025-09-09 05:12:30', '2025-12-23 00:50:26'),
-(10, '1', 'P-010', 'Hexhive Ginger cubes 300GM | 5GM/Piece', '2', '4', 'Ginger cubes', 'ginger-cubes', '12|60Cubes/PACK', '100', '699', '0.00', '17049090', '18', '300GM | 5GM/Piece', '10', '13.5', '11', '6 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.</p>', NULL, '2025-09-09 05:23:14', '2025-12-23 00:49:59'),
-(11, '1', 'P-011', 'Hexhive Shilajit Cubes 300gm', '2', '4', 'Shilajit Cubes', 'shilajit-cubes', '12|60Cubes/PACK', '100', '999', '0.00', '17049090', '18', '300GM | 5GM/Piece', '10', '13.5', '11', '6 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy.', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.</p>', NULL, '2025-09-09 05:26:09', '2025-12-23 00:49:45'),
-(12, '1', 'P-012', 'Hexhive Turmeric Honey Varietal Honey 250GM', '1', '5', 'Turmeric Honey', 'turmeric-honey', '12', '100', '799', '0.00', '17029030', '5', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '0', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy.', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.</p>', NULL, '2025-09-09 05:32:00', '2025-12-23 04:05:43'),
-(13, '1', 'P-013', 'Hexhive Organic Honey 500GM', '2', '3', 'Organic Honey', 'organic-honey', '12', '1', '649', '0.00', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '1', '1', NULL, 'Organic Honey', '<p>Organic Honey</p>', NULL, '2025-12-23 03:58:03', '2025-12-23 04:05:36'),
-(14, '1', 'P-014', 'Hexhive Acacia Lite Honey 500gm', '2', '3', 'Acacia Lite', 'acacia-lite', '12', '1', '799', '0.00', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '1', '1', NULL, 'Acacia Lite', '<p>Acacia Lite</p>', NULL, '2025-12-23 04:01:56', '2025-12-23 04:05:27'),
-(15, '1', 'P-015', 'Hexhive Moringa Honey 250gm', '1', '4', 'Moringa Honey', 'moringa-honey', '12', '1', '999', '0.00', '17029030', '5', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '1', '0', '0', '0', '0', NULL, 'Moringa Honey', '<p>Moringa Honey</p>', NULL, '2025-12-23 04:26:59', '2025-12-23 04:27:36'),
-(16, '1', 'P-016', 'Hexhive Ginseng Honey 250gm', '1', '5', 'Ginseng Honey', 'ginseng-honey', '12', '1', '999', '0.00', '17029030', '18', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '1', '0', '0', '0', '1', NULL, 'Ginseng Honey', '<p>Ginseng Honey</p>', NULL, '2025-12-23 04:29:24', '2025-12-23 04:29:24'),
-(17, '1', 'P-017', 'Hexhive Ashwagandha Honey 250gm', '1', '5', 'Ashwagandha Honey', 'ashwagandha-honey', '12', '1', '999', '0.00', '17029030', '5', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '1', '0', '0', '0', '0', NULL, 'Ashwagandha Honey', '<p>Ashwagandha Honey</p>', NULL, '2025-12-23 04:33:29', '2025-12-23 04:34:36'),
-(18, '1', 'P-018', 'Hexhive Royal Jelly Honey 250gm', '1', '5', 'Royal Jelly Honey', 'royal-jelly-honey', '12', '1', '1499', '0.00', '17029030', '18', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '1', '0', '0', '0', '0', NULL, 'Royal Jelly Honey', '<p>Royal Jelly Honey</p>', NULL, '2025-12-23 04:36:33', '2025-12-23 04:36:34'),
-(19, '1', 'P-019', 'Hexhive Shilajit Honey 250gm', '1', '5', 'Shilajit Honey', 'shilajit-honey', '12', '1', '1099', '0.00', '17029030', '18', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '1', '0', '0', '0', '0', NULL, 'Shilajit Honey', '<p>Shilajit Honey</p>', NULL, '2025-12-23 04:38:42', '2025-12-23 04:38:42');
+(7, '1', 'P-007', 'Hexhive Honey Black Forest 500gm', '1', '3', 'Honey Black Forest', 'honey-black-forest', '12', '100', '599', '599', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy.', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.&quot;</p>', NULL, '2025-09-09 05:05:55', '2025-12-23 23:34:10'),
+(8, '1', 'P-008', 'Hexhive HONEY (Spring Blossom) 500gm', '1', '3', 'HONEY (Spring Blossom)', 'honey-spring-blossom', '12', '100', '549', '549', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy.', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.</p>', NULL, '2025-09-09 05:09:22', '2025-12-23 23:34:17'),
+(9, '1', 'P-009', 'Hexhive Van Tulsi Honey 500GM', '1', '3', 'Van Tulsi', 'van-tulsi', '12', '100', '799', '799', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.</p>', NULL, '2025-09-09 05:12:30', '2025-12-23 23:34:01'),
+(10, '1', 'P-010', 'Hexhive Ginger cubes 300GM | 5GM/Piece', '2', '4', 'Ginger cubes', 'ginger-cubes', '12|60Cubes/PACK', '100', '699', '699', '17049090', '18', '300GM | 5GM/Piece', '10', '13.5', '11', '6 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.</p>', NULL, '2025-09-09 05:23:14', '2025-12-23 23:34:24'),
+(11, '1', 'P-011', 'Hexhive Shilajit Cubes 300gm', '2', '4', 'Shilajit Cubes', 'shilajit-cubes', '12|60Cubes/PACK', '100', '999', '999', '17049090', '18', '300GM | 5GM/Piece', '10', '13.5', '11', '6 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy.', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.</p>', NULL, '2025-09-09 05:26:09', '2025-12-23 23:33:54'),
+(12, '1', 'P-012', 'Hexhive Turmeric Honey Varietal Honey 250GM', '1', '5', 'Turmeric Honey', 'turmeric-honey', '12', '100', '799', '799', '17029030', '5', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '0', '0', '0', '0', '0', NULL, '100% Pure & Natural Honey – straight from the beehives, unprocessed, rich in taste, and full of natural energy.', '<p>Our <strong>100% Pure &amp; Natural Honey</strong> is collected directly from beehives and carefully packed without any adulteration. It retains all its natural nutrients, antioxidants, and medicinal properties, making it a perfect health companion.</p>\r\n\r\n<p>✅ Boosts Immunity &amp; Strength<br />\r\n✅ Natural Sweetener for Tea, Milk, Bread, Salads &amp; Desserts<br />\r\n✅ Rich in Energy &ndash; Keeps you active all day<br />\r\n✅ No Added Sugar, No Preservatives, No Chemicals</p>\r\n\r\n<p>Whether you use it as a healthy alternative to sugar or as an ayurvedic remedy, this pure honey makes your lifestyle naturally sweet and wholesome.</p>', NULL, '2025-09-09 05:32:00', '2025-12-23 23:33:47'),
+(13, '1', 'P-013', 'Hexhive Organic Honey 500GM', '2', '3', 'Organic Honey', 'organic-honey', '12', '1', '649', '649', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '1', '1', NULL, 'Organic Honey', '<p>Organic Honey</p>', NULL, '2025-12-23 03:58:03', '2025-12-23 23:33:39'),
+(14, '1', 'P-014', 'Hexhive Acacia Lite Honey 500gm', '2', '3', 'Acacia Lite', 'acacia-lite', '12', '1', '799', '799', '4090000', '5', '500GM', '10', '13.5', '11', '24 Months', NULL, NULL, 'Square Glass', '1', '0', '0', '1', '1', NULL, 'Acacia Lite', '<p>Acacia Lite</p>', NULL, '2025-12-23 04:01:56', '2025-12-23 23:33:12'),
+(15, '1', 'P-015', 'Hexhive Moringa Honey 250gm', '1', '4', 'Moringa Honey', 'moringa-honey', '12', '1', '999', '999', '17029030', '5', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '1', '0', '0', '0', '0', NULL, 'Moringa Honey', '<p>Moringa Honey</p>', NULL, '2025-12-23 04:26:59', '2025-12-23 23:33:02'),
+(16, '1', 'P-016', 'Hexhive Ginseng Honey 250gm', '1', '5', 'Ginseng Honey', 'ginseng-honey', '12', '1', '999', '999', '17029030', '18', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '1', '0', '0', '0', '1', NULL, 'Ginseng Honey', '<p>Ginseng Honey</p>', NULL, '2025-12-23 04:29:24', '2025-12-23 23:32:54'),
+(17, '1', 'P-017', 'Hexhive Ashwagandha Honey 250gm', '1', '5', 'Ashwagandha Honey', 'ashwagandha-honey', '12', '1', '999', '999', '17029030', '5', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '1', '0', '0', '0', '0', NULL, 'Ashwagandha Honey', '<p>Ashwagandha Honey</p>', NULL, '2025-12-23 04:33:29', '2025-12-23 23:32:46'),
+(18, '1', 'P-018', 'Hexhive Royal Jelly Honey 250gm', '1', '5', 'Royal Jelly Honey', 'royal-jelly-honey', '12', '1', '1499', '1499', '17029030', '18', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '1', '0', '0', '0', '0', NULL, 'Royal Jelly Honey', '<p>Royal Jelly Honey</p>', NULL, '2025-12-23 04:36:33', '2025-12-23 23:32:39'),
+(19, '1', 'P-019', 'Hexhive Shilajit Honey 250gm', '1', '5', 'Shilajit Honey', 'shilajit-honey', '12', '1', '1099', '1099', '17029030', '18', '250GM', '8', '8', '8', '18 Months', NULL, NULL, 'Pet Mono carton', '1', '0', '0', '0', '0', NULL, 'Shilajit Honey', '<p>Shilajit Honey</p>', NULL, '2025-12-23 04:38:42', '2025-12-23 23:32:31'),
+(20, '1', 'P-020', 'Hexhive Saffron Nuts Honey 600GM', '1', '7', 'Saffron Nuts Honey', 'saffron-nuts-honey', '6', '1', '1499', '1499', '8904519100089', '18', '600GM', NULL, NULL, NULL, '18 Months', NULL, NULL, 'Apple Glass Jar', '1', '0', '0', '0', '0', NULL, 'Saffron Nuts Honey', '<p>Saffron Nuts Honey</p>', NULL, '2025-12-23 23:32:11', '2025-12-23 23:32:11'),
+(21, '1', 'P-021', 'Hexhive Honey Chilli Sauce 430GM', '2', '8', 'Honey Chilli Sauce', 'honey-chilli-sauce', '12', '1', '499', '499', '21039090', '18', NULL, '6', '6', '19', '12 Months', NULL, NULL, 'Sauce round bottle', '1', '0', '0', '0', '0', NULL, 'Honey Chilli Sauce', '<p>Honey Chilli Sauce&nbsp;</p>', NULL, '2025-12-24 00:21:47', '2025-12-24 00:21:47'),
+(22, '1', 'P-022', 'Hexhive Honey Tomato Kalonji Chutney 430gm', '2', '8', 'Honey Tomato Kalonji Chutney', 'honey-tomato-kalonji-chutney', '12', '1', '499', '499', '21039090', '5', '430GM', '6', '6', '19', '12 Months', NULL, NULL, 'Sauce round bottle', '1', '0', '0', '0', '0', NULL, 'Honey Tomato Kalonji Chutney', '<p>Honey Tomato Kalonji Chutney</p>', NULL, '2025-12-24 00:27:22', '2025-12-24 00:27:22');
 
 -- --------------------------------------------------------
 
@@ -919,9 +958,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('olwU3CcPyyMmelS1xFj1riUCFroq8Md2M6CSQ4io', NULL, '192.168.1.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOVhnY3dkUkdlOFA1VjVrTzBGMTNEeGE3czVGUElYSTZDcThqMUcwNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzc6Imh0dHA6Ly8xOTIuMTY4LjEuNzo4MDAwL2Zyb250X2Fzc2V0cy9pbWFnZXMvbG9nby9sb2dvX2RhcmsxNzU3MzI3MDYyNDAyMTcucG5nIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1766491141),
-('osSZpbmwcBYMBWL1msKndyN3QM8EPu1xUpXo5ZW1', 1, '192.168.1.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiUkVoM1Vwc2VoVTJvUEhITkdHUE5ERXMwTEZJWVppT0Q3bjlhcXg3eiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjc3OiJodHRwOi8vMTkyLjE2OC4xLjc6ODAwMC9mcm9udF9hc3NldHMvaW1hZ2VzL2xvZ28vbG9nb19kYXJrMTc1NzMyNzA2MjQwMjE3LnBuZyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo0OiJhdXRoIjthOjE6e3M6MjE6InBhc3N3b3JkX2NvbmZpcm1lZF9hdCI7aToxNzY2NDgxNjUwO319', 1766492880),
-('zCzqHG2yre6lnyfOAzsI8ELtyS99ivwr1Q80gAi1', 1, '192.168.1.5', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoia2NpbzEwR05Gb2ViSTFZN3B6bkxnVHUyOWFybzhrMWF2QUZUcXdXYiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzc6Imh0dHA6Ly8xOTIuMTY4LjEuNzo4MDAwL2Zyb250X2Fzc2V0cy9pbWFnZXMvbG9nby9sb2dvX2RhcmsxNzU3MzI3MDYyNDAyMTcucG5nIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjQ6ImF1dGgiO2E6MTp7czoyMToicGFzc3dvcmRfY29uZmlybWVkX2F0IjtpOjE3NjY0NzUzMTU7fX0=', 1766492578);
+('6GfppYMsfXRbXJHN6sWVEMNZpnj27PmPQCed751s', NULL, '192.168.1.5', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTnczRTNaVDk2YXdJYkNWVUNPNkdjWlZvQXp3cUV3WnlkQkNKYWNxbSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzc6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwL2Zyb250X2Fzc2V0cy9pbWFnZXMvbG9nby9sb2dvX2RhcmsxNzU3MzI3MDYyNDAyMTcucG5nIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1766554420),
+('Sf9lUVoeONDgagdJh8MOHpzU9WBuiDwA3uCiHyCm', 1, '192.168.1.10', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiSVRsaVlBZFF5MG5yOWY5NzNwNDFqbEJEUFVWbG5UOE1HZWpkSjg0UyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwL2ltYWdlcy90ZWFtL3RlYW0tNC5qcGciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjQ6ImF1dGgiO2E6MTp7czoyMToicGFzc3dvcmRfY29uZmlybWVkX2F0IjtpOjE3NjY1NTI5OTc7fX0=', 1766557780),
+('Ygw5Uo9U1yTgHU7VHyg6VkdRB9lkyRhkGZpmmxYn', 1, '192.168.1.4', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoicGhyS2FMRW5lUlRaczRYMm5xQXcxMUNpZURZaFZ3UWdVd3RBaW9QQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuNDo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjQ6ImF1dGgiO2E6MTp7czoyMToicGFzc3dvcmRfY29uZmlybWVkX2F0IjtpOjE3NjY1NTIwMTg7fX0=', 1766557703);
 
 -- --------------------------------------------------------
 
@@ -949,7 +988,9 @@ CREATE TABLE `stock_details` (
 --
 
 INSERT INTO `stock_details` (`id`, `created_by_id`, `warehouse_id`, `brand_id`, `category_id`, `sub_category_id`, `product_id`, `qty`, `in_out`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, '1', NULL, '1', '3', NULL, '6', '10', 'In', NULL, '2025-09-16 05:58:00', '2025-09-16 05:58:00');
+(1, '1', NULL, '1', '3', NULL, '6', '10', 'In', '2025-12-24 05:27:51', '2025-09-16 05:58:00', '2025-12-23 23:57:51'),
+(2, '1', NULL, '1', '3', NULL, '7', '12', 'In', NULL, '2025-12-23 23:57:42', '2025-12-23 23:57:42'),
+(3, '1', NULL, '1', '3', NULL, '8', '10', 'Out', NULL, '2025-12-23 23:58:01', '2025-12-24 00:03:55');
 
 -- --------------------------------------------------------
 
@@ -1260,7 +1301,7 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -1272,31 +1313,31 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `botteltypes`
 --
 ALTER TABLE `botteltypes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `combo_products`
 --
 ALTER TABLE `combo_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `contact_forms`
@@ -1344,7 +1385,7 @@ ALTER TABLE `manufacturers`
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1392,7 +1433,7 @@ ALTER TABLE `policy_pages`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `product_features`
@@ -1416,7 +1457,7 @@ ALTER TABLE `product_reviews`
 -- AUTO_INCREMENT for table `stock_details`
 --
 ALTER TABLE `stock_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `subscribe_forms`
