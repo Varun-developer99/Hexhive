@@ -358,29 +358,15 @@
                                 </ul>
                                 <div class="widget-content-tab wow fadeInUp">
                                     <div class="widget-content-inner active">
-                                        <p>Tynor Orthotics was founded in 1993 when orthopedic appliances were expensive and 
-                                            challenging to obtain, and we are now proudly operating in NewZealand as your trusted 
-                                            local partner for orthopedic solutions. As a NewZealand registered distributor, we believe 
-                                            healthcare should be proactive, not just curative, and have evolved as a leader in the orthopedic 
-                                            industry serving NewZealand customers. Based in NewZealand, Tynor has established itself as the 
-                                            premier provider of best-in-class orthotic solutions, serving the unique needs of NewZealand 
-                                            healthcare market.
+                                        <p>Building on a legacy of delivering premium-quality produce for over four decades, HEXHIVE has emerged as one of the most trusted and credible names in the industrial sector for the production, trade, and supply of organic honey and a diverse range of honey-based products.
                                         </p>
                                     </div>
                                     <div class="widget-content-inner">
-                                        <p>Our goal is to transform Tynor into a trusted NewZealand healthcare brand that offers both curative 
-                                            solutions and proactive preventive well-being choices for NewZealand customers. This strategic expansion 
-                                            aligns with our vision of serving NewZealand customers with world-class products while leading the charge 
-                                            in promoting limitless living. We are committed to engaging with NewZealand healthcare methodologies and 
-                                            web-enabled technology to better serve our local community.
+                                        <p>To deliver pure, natural, and ethically sourced honey products by combining decades of expertise with modern technology, while maintaining the highest standards of quality, hygiene, and sustainability—creating value for customers, beekeepers, and communities alike.
                                         </p>
                                     </div>
                                     <div class="widget-content-inner">
-                                        <p>We provide world-class and innovative orthopedic solutions in NewZealand through focused research & development, 
-                                            collaborating with NewZealand's academic and medical fraternity to improve healthcare standards. Our emphasis 
-                                            on ethical working and state-of-the-art technology helps us meet the dynamic demands of NewZealand's healthcare 
-                                            market. We maintain the highest quality standards while delivering exceptional orthopedic solutions nationwide to 
-                                            our customers.
+                                        <p>To become a globally trusted honey brand that sets benchmarks in purity, innovation, and sustainable practices, while promoting healthy living and supporting the growth of responsible beekeeping across India and beyond.
 
                                         </p>
                                     </div>
@@ -450,381 +436,90 @@
                 </div>
             </div>
         </section>
-        <!-- /Iconbox -->
-        <section class="flat-spacing" id="accordion">
+         <!-- Our Teams -->
+        <section class="flat-spacing">
             <div class="container">
                 <div class="heading-section text-center wow fadeInUp">
-                    <h3 class="heading">Our Brands</h3>
-                    <p class="subheading text-secondary">Orthotic innovation for a healthier , happier you. </p>
+                    <h3 class="heading">Meet Our Teams</h3>
+                    <p class="subheading text-secondary-2">Discover exceptional experiences through testimonials from our satisfied customers.</p>
                 </div>
-                <div class="container">
-                    <div dir="ltr" class="swiper tf-sw-collection sw-lookbook-wrap" data-preview="3"
-                        data-tablet="2" data-mobile="1" data-space-lg="30" data-space-md="30" data-space="15"
-                        data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="collection-position-3 hover-img wow fadeInUp" data-wow-delay="0s">
-                                    <a class="img-style" data-bs-toggle="collapse" href="#demo">
-                                        <img class="lazyload"
-                                            data-src="{{ asset('front_assets/images/collections/banner-collection/banner-cls3.jpg') }}"
-                                            src="{{ asset('front_assets/images/collections/banner-collection/banner-cls3.jpg') }}"
-                                            alt="banner-cls">
-                                    </a>
-
-
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="collection-position-3 hover-img cls-lookbook wow fadeInUp"
-                                    data-wow-delay="0.1s">
-                                    <a class="img-style" data-bs-toggle="collapse" href="#demo2">
-                                        <img class="lazyload"
-                                            data-src="{{ asset('front_assets/images/collections/banner-collection/banner-cls4.jpg') }}"
-                                            src="{{ asset('front_assets/images/collections/banner-collection/banner-cls4.jpg') }}"
-                                            alt="banner-cls">
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="collection-position-3 hover-img wow fadeInUp" data-wow-delay="0.2s">
-                                    <a class="img-style" data-bs-toggle="collapse" href="#demo3">
-                                        <img class="lazyload"
-                                            data-src="{{ asset('front_assets/images/collections/banner-collection/banner-cls5.jpg') }}"
-                                            src="{{ asset('front_assets/images/collections/banner-collection/banner-cls5.jpg') }}"
-                                            alt="banner-cls">
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sw-pagination-collection sw-dots type-circle justify-content-center"></div>
-                    </div>
-                </div>
-                <div class=" pt-5 collapse" id="demo" data-bs-parent="#accordion">
-                    <div class="px-1">
-                        <div class="banner-cls-discover hover-img back-button">
-                            <a href="#" class="img-style back-button" data-bs-toggle="collapse"
-                                data-bs-target="#demo">
-                                <img class="lazyload" data-src="{{ asset('front_assets/images/banner/care.png') }}"
-                                    src="{{ asset('front_assets/images/banner/care.png') }}" alt="cls-tiktok">
-                            </a>
-                            <div class="cls-content">
-                                <div class="box-title-top">
-                                    <h3 class="title"><a href="#" class="link text-white">Tynor Cure </a></h3>
-                                    <p class="desc text-white px-md-5">Tynor Cure embodies the spirit of conquering life's
-                                        challenges. Centered on the essence of healing with confidence, Tynor CURE, promotes
-                                        faster recovery. Through rigorous R&D, our products are crafted by harmonizing the
-                                        principles of biology and anatomy thus redefining the standards of body care
-                                        solutions. This holistic journey harmonizes both cure & support, reshaping the way
-                                        of approaching overall well-being.
-
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class=" pt-5 collapse" id="demo2" data-bs-parent="#accordion">
-                    <div class="px-1">
-                        <div class="banner-cls-discover hover-img ">
-                            <a href="#" class="img-style back-button2">
-                                <img class="lazyload" data-src="{{ asset('front_assets/images/banner/sport.png') }}"
-                                    src="{{ asset('front_assets/images/banner/sport.png') }}" alt="cls-tiktok">
-                            </a>
-                            <div class="cls-content">
-                                <div class="box-title-top">
-                                    <h3 class="title"><a href="#" class="link text-white">Tynor Sport
-                                        </a></h3>
-                                    <p class="desc text-white px-md-5">Tynor Sport revolutionizes orthopedic solutions to
-                                        ignite personal transformation. Going beyond traditional athletic gear , it embodies
-                                        a philosophy of progress and growth. Through rigorous R&D, our products are
-                                        scientifically crafted with a deep understanding of human anatomy while prioritizing
-                                        personalized comfort, support, and aesthetics. Rooted in the essence of unwavering
-                                        support and protection, our scientifically designed and durable products propel your
-                                        journey from "Good to Great". With Tynor Sport, we empower you on and off the field,
-                                        let you redefine boundaries and enhance performance.
-
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class=" pt-5 collapse" id="demo3" data-bs-parent="#accordion">
-                    <div class="px-1">
-                        <div class="banner-cls-discover hover-img ">
-                            <a href="#" class="img-style back-button3">
-                                <img class="lazyload" data-src="{{ asset('front_assets/images/banner/life.png') }}"
-                                    src="{{ asset('front_assets/images/banner/life.png') }}" alt="cls-tiktok">
-                            </a>
-                            <div class="cls-content">
-                                <div class="box-title-top">
-                                    <h3 class="title"><a href="#" class="link text-white">Tynor Life
-                                        </a></h3>
-                                    <p class="desc text-white px-md-5">Recognizing the significance of self-care in
-                                        overcoming everyday challenges, Tynor Life is dedicated to providing your body with
-                                        the care it deserves. Our mission is to develop innovative products that prioritize
-                                        your well-being and enhance your daily life. Through rigorous R&D, our products are
-                                        scientifically crafted with a deep understanding of human anatomy, emphasizing
-                                        personalized comfort, support, and aesthetics. With Tynor Life, we envision a future
-                                        where everyone enjoys unparalleled comfort, embracing life where comfort and
-                                        well-being empower you to live smart.
-
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {{-- our milestone --}}
-        <section class="milestone-section">
-            <h2>Our Milestones</h2>
-
-            <ul class="year-tabs">
-                <li class="active" data-index="0">1993-1997</li>
-                <li data-index="1">1997</li>
-                <li data-index="2">2001</li>
-                <li data-index="3">2004</li>
-                <li data-index="4">2005</li>
-                <li data-index="5">2010</li>
-                <li data-index="6">2011</li>
-                <li data-index="7">2016</li>
-                <li data-index="8">2018</li>
-                <li data-index="9">2022</li>
-                <li data-index="10">2022-2023</li>
-                <li data-index="11">2024</li>
-            </ul>
-
-            <div class="swiper milestone-slider">
-                <div class="swiper-wrapper">
-
-                    <!-- Slide 1 -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/Image_1_1.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">1993-1997</h4>
-                            <h3 style="color: #fff;">Tynor's Foundation</h3>
-                            <p style="color: #fff;">Dr. P.J. Singh's Entrepreneurial Vision - Study of imported products,
-                                Market Research, and Product Planning</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/1997_15_1.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">1997
-
-                            </h4>
-                            <h3 style="color: #fff;">Inaugural Production</h3>
-                            <p style="color: #fff;">Established the First orthopedic goods Production Unit on Independence
-                                day</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/Image1.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">2001
-
-                            </h4>
-                            <h3 style="color: #fff;"> Quality Excellence</h3>
-                            <p style="color: #fff;">Attains ISO 9001 Certificate</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/2004.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">2004
-
-
-                            </h4>
-                            <h3 style="color: #fff;"> Improvement of Production Efficiency</h3>
-                            <p style="color: #fff;">Adoption of learn manufacturing system</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/2005.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">2005
-
-                            </h4>
-                            <h3 style="color: #fff;"> Innovative Leap</h3>
-                            <p style="color: #fff;"> Univeils TORNADO (TORNADO- Tynor Ortho Reasearch N Appliances
-                                Development org. )</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/2010.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">2010
-
-                            </h4>
-                            <h3 style="color: #fff;">Strategic Partnerships</h3>
-                            <p style="color: #fff;">Collaboration with French-based Company Thuasne</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/2011.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">2011
-
-                            </h4>
-                            <h3 style="color: #fff;">National Award</h3>
-                            <p style="color: #fff;">Honored for being Countrys best Entrepreneur by the Former President
-                                Smt. Pratibha Patil</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/2016.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">2016
-
-                            </h4>
-                            <h3 style="color: #fff;"> Scaling Success</h3>
-                            <p style="color: #fff;"> Hitting the Century Mark with Rs 100 Cr. turnover and Established of a
-                                New Production Unit</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/2018_1.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">2018
-
-                            </h4>
-                            <h3 style="color: #fff;">Private Equity Funding</h3>
-                            <p style="color: #fff;">Funding from lighthouse an American PE fund</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/2022_1.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">2022
-
-                            </h4>
-                            <h3 style="color: #fff;"> Global Market Domination</h3>
-                            <p style="color: #fff;">Tynor become the Number 1 brand in six countries</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/2021-2023_2.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">2022-2023
-
-                            </h4>
-                            <h3 style="color: #fff;">Brand Evolution</h3>
-                            <p style="color: #fff;">Tynor shifts its approch & works on becoming a Consumer Healthcare
-                                Brand</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="{{ asset('front_assets/images/banner/Image_1_1_3.png') }}" alt="">
-                        <div class="slide-caption">
-                            <h4 style="color: #fff;">2024
-
-                            </h4>
-                            <h3 style="color: #fff;"> Establishment of new
-                                manufacturing facility - T MED</h3>
-                            <p style="color: #fff;">To redefine the future of Orthopedic manufacturing on a global scale
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- ARROWS -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </section>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var swiper = new Swiper('.milestone-slider', {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    autoplay: {
-                        delay: 4000,
-                        disableOnInteraction: false,
-                    },
-                });
-
-                // TAB click -> go to that slide
-                $('.year-tabs li').click(function() {
-                    var index = $(this).data('index');
-                    swiper.slideTo(index);
-                    $('.year-tabs li').removeClass('active');
-                    $(this).addClass('active');
-                });
-
-                // On Slide Change -> update active tab
-                swiper.on('slideChange', function() {
-                    $('.year-tabs li').removeClass('active');
-                    $('.year-tabs li[data-index="' + swiper.activeIndex + '"]').addClass('active');
-                });
-            });
-        </script>
-
-
-        <section class="pt-5" id="accordion">
-            <div class="container">
-                <div class="heading-section text-center wow fadeInUp">
-                    <h3 class="heading">Certificates</h3>
-                    <p class="subheading text-secondary">Tynor is distinguished by a range of certificates, showcasing its
-                        unwavering commitment to quality, safety, compliance with standards.
-
-                    </p>
-                </div>
-            </div>
-        </section>
-        <section class="">
-            <div class="container">
-                <div dir="ltr" class="swiper tf-sw-iconbox" data-preview="6" data-tablet="3" data-mobile-sm="2"
-                    data-mobile="1" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1"
-                    data-pagination-sm="2" data-pagination-md="3" data-pagination-lg="4">
+                <div dir="ltr" class="swiper tf-sw-latest" data-preview="4" data-tablet="3" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="tf-icon-box style-2">
-                                <img src="{{ asset('front_assets/images/banner/11.png') }}" alt="">
+                            <div class="team-item hover-image wow fadeInUp" data-wow-delay="0s">
+                                <div class="image">
+                                    <img class="lazyload" data-src="images/team/team-1.jpg" src="images/team/team-1.jpg" alt="image-team">
+                                </div>
+                                <div class="content">
+                                    <div>
+                                        <h6 class="name"><a class="link text-line-clamp-1" href="#">Annette Black</a></h6>
+                                        <div class="infor text-caption-1 text-secondary-2">Founder/CEO</div>
+                                    </div>
+                                    <ul class="tf-social-icon">
+                                        <li><a href="#" class="social-facebook"><i class="icon icon-fb"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="tf-icon-box style-2">
-                                <img src="{{ asset('front_assets/images/banner/2.png') }}" alt="">
+                            <div class="team-item hover-image wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="image">
+                                    <img class="lazyload" data-src="images/team/team-2.jpg" src="images/team/team-2.jpg" alt="image-team">
+                                </div>
+                                <div class="content">
+                                    <div>
+                                        <h6 class="name"><a class="link text-line-clamp-1" href="#">Jane Cooper</a></h6>
+                                        <div class="infor text-caption-1 text-secondary-2">Sales Director</div>
+                                    </div>
+                                    <ul class="tf-social-icon">
+                                        <li><a href="#" class="social-facebook"><i class="icon icon-fb"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="tf-icon-box style-2">
-                                <img src="{{ asset('front_assets/images/banner/12.png') }}" alt="">
+                            <div class="team-item hover-image wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="image">
+                                    <img class="lazyload" data-src="images/team/team-3.jpg" src="images/team/team-3.jpg" alt="image-team">
+                                </div>
+                                <div class="content">
+                                    <div>
+                                        <h6 class="name"><a class="link text-line-clamp-1" href="#">Brooklyn Simmons</a></h6>
+                                        <div class="infor text-caption-1 text-secondary-2">Manager</div>
+                                    </div>
+                                    <ul class="tf-social-icon">
+                                        <li><a href="#" class="social-facebook"><i class="icon icon-fb"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="tf-icon-box style-2">
-                                <img src="{{ asset('front_assets/images/banner/4.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-icon-box style-2">
-                                <img src="{{ asset('front_assets/images/banner/5.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-icon-box style-2">
-                                <img src="{{ asset('front_assets/images/banner/6.png') }}" alt="">
+                            <div class="team-item hover-image wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="image">
+                                    <img class="lazyload" data-src="images/team/team-4.jpg" src="images/team/team-4.jpg" alt="image-team">
+                                </div>
+                                <div class="content">
+                                    <div>
+                                        <h6 class="name"><a class="link text-line-clamp-1" href="#">Theresa Webb</a></h6>
+                                        <div class="infor text-caption-1 text-secondary-2">Product Manager</div>
+                                    </div>
+                                    <ul class="tf-social-icon">
+                                        <li><a href="#" class="social-facebook"><i class="icon icon-fb"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="sw-pagination-iconbox sw-dots type-circle justify-content-center"></div>
+                    <div class="sw-pagination-latest sw-dots type-circle justify-content-center"></div>
                 </div>
             </div>
         </section>
+        <!-- /Our Teams -->
+
+     
+
+
+       
 
     </div>
 

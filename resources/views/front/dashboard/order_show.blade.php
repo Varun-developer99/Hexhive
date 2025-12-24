@@ -149,7 +149,7 @@
                                         </li>
                                         <li class="d-flex justify-content-between text-2 mt_8">
                                             <span>Order Total</span>
-                                            <span class="fw-6">{{ price($order->grand_total ?? 0) }} NZD</span>
+                                            <span class="fw-6">{{ price($order->grand_total ?? 0) }}  </span>
                                         </li>
                                     </ul>
                                 </div>

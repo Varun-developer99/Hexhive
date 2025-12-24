@@ -413,8 +413,8 @@
                                     </div>
                                     <div class="tf-product-info-desc">
                                         <div class="tf-product-info-price">
-                                            <h5 class="price-on-sale font-2"> {{ price($product->mrp_price ?? 0) }} </h5>
-                                            <div class="compare-at-price font-2">{{ price(($product->mrp_price ?? 0) + 100) }}
+                                            <h5 class="price-on-sale font-2"> {{ price($product->sale_price ?? 0) }} </h5>
+                                            <div class="compare-at-price font-2">{{ price(($product->mrp_price ?? 0)) }}
                                             </div>
                                             <div class="badges-on-sale text-btn-uppercase">
                                                 <p>{{ round(((($product->mrp_price ?? 0) - ($product->sale_price ?? 0)) / ($product->mrp_price ?? 0)) * 100) }}%
@@ -436,26 +436,22 @@
                                                 <div class="wg-quantity">
                                                     <span class="btn-quantity btn-decrease">-</span>
                                                     <input class="quantity-product" type="number" id="order_qty" name="qty"
-                                                        value="1" min="1" data-product_id="{{ $product->id }}">
+                                                        value="1" min="1" max="{{ $product->current_stock ?? 0 }}" data-product_id="{{ $product->id }}">
                                                     <span class="btn-quantity btn-increase">+</span>
                                                 </div>
                                             </div>
                                             @auth
                                                 <div class="w-100">
-                                                    <p class="text-danger" id="stock_alert_msg_{{ $product->id }}"
-                                                        style="display: none;">Available Stock: <b>0</b></p>
+                                                    <p class="text-danger" id="stock_alert_msg_{{ $product->id }}" style="display: none;">Available Stock: <b>0</b></p>
                                                     <a href="#shoppingCart" data-bs-toggle="modal" class="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 btn-add-to-cart w-100" onclick="add_to_cart({{ $product->id }}, 'Single', 'Add to cart')">
                                                         <span>Add to cart -&nbsp;</span>
-                                                        <span class="tf-qty-price total-price">${{ $product->sale_price }} <small style="font-size:12px;">NZD </small></span>
+                                                        <span class="tf-qty-price total-price">₹{{ $product->sale_price }}</span>
                                                     </a>
                                                 </div>
                                             @else
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#global_modal"
-                                                    onclick="login_modal()"
-                                                    class="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 w-100">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#global_modal" onclick="login_modal()" class="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 w-100">
                                                     <span>Add to cart -&nbsp;</span>
-                                                    <span class="tf-qty-price total-price">${{ $product->sale_price }} <small
-                                                            style="font-size:12px;">NZD </small></span>
+                                                    <span class="tf-qty-price total-price">₹{{ $product->sale_price }}</span>
                                                 </a>
                                             @endauth
                                         </div>
@@ -497,14 +493,14 @@
                                                 <i class="icon-timer"></i>
                                             </div>
                                             <p class="text-caption-1">Estimated Delivery:&nbsp;&nbsp;<span>3-6 days</span>
-                                                (Shipped from NewZealand)</p>
+                                                </p>
                                         </div>
                                         <div class="tf-product-info-return">
                                             <div class="icon">
                                                 <i class="icon-arrowClockwise"></i>
                                             </div>
                                             <p class="text-caption-1">Easy Return within <span>14 days</span> of purchase
-                                                from our NewZealand store. Duties & taxes are non-refundable.</p>
+                                                from our store. Duties & taxes are non-refundable.</p>
                                         </div>
                                         {{-- <div class="dropdown dropdown-store-location">
                                             <div class="dropdown-title dropdown-backdrop" data-bs-toggle="dropdown"
@@ -1224,157 +1220,87 @@
     <script type="module" src="{{ asset('front_assets/js/zoom.js') }}"></script>
 
     <script>
-        function change_rent_qty(value){
-            var rent_qty = parseInt($('#rent_qty').val() || 0);
-            var max_rent_qty = parseInt($('#rent_qty').attr('max') || 0);
-            rent_qty += value;
-            if(rent_qty < 1){ rent_qty = 1; }
-            if(rent_qty > max_rent_qty){ rent_qty = max_rent_qty;
-                $.notify({ message: 'Sorry we have only ' + max_rent_qty + ' items for subscription.' }, { type: 'danger', });
-            }
-            $('#rent_qty').val(rent_qty);
-            var per_day_rent = parseFloat($('#rent-btn').data('per_day_rent') || 0);
-            var rent_days = parseInt($('#rent_days').val() || 0);
-            var total_rent = per_day_rent * rent_qty * rent_days;
-            $('#total_rent_price').html('$' + total_rent + ' <small style="font-size:12px;">NZD</small>');
-        }
-        function change_rent_days(value){
-            var rent_days = parseInt($('#rent_days').val() || 0);
-            rent_days += value;
-            if(rent_days < 7){
-                rent_days = 7;
-                $.notify({ message: 'Minimum subscription period is 7 days.' }, { type: 'danger', });
-            }
-            $('#rent_days').val(rent_days);
-            var per_day_rent = parseFloat($('#rent-btn').data('per_day_rent') || 0);
-            var rent_qty = parseInt($('#rent_qty').val() || 0);
-            var total_rent = per_day_rent * rent_qty * rent_days;
-            $('#total_rent_price').html('$' + total_rent + ' <small style="font-size:12px;">NZD</small>');
-        }
-        function toggle_order_one_time_box() {
-            if ($('#one-time').is(':checked')) {
-                $('#order_one_time_box').show(300);
-                $('#order_subscribe_box').hide(300);
-            } else {
-                $('#order_one_time_box').hide(300);
-                $('#order_subscribe_box').show(300);
-            }
-        }
-        function calculate_combo_product_price() {
-            var sale_price = 0;
-            var mrp_price = 0;
+        // function change_rent_qty(value){
+        //     var rent_qty = parseInt($('#rent_qty').val() || 0);
+        //     var max_rent_qty = parseInt($('#rent_qty').attr('max') || 0);
+        //     rent_qty += value;
+        //     if(rent_qty < 1){ rent_qty = 1; }
+        //     if(rent_qty > max_rent_qty){ rent_qty = max_rent_qty;
+        //         $.notify({ message: 'Sorry we have only ' + max_rent_qty + ' items for subscription.' }, { type: 'danger', });
+        //     }
+        //     $('#rent_qty').val(rent_qty);
+        //     var per_day_rent = parseFloat($('#rent-btn').data('per_day_rent') || 0);
+        //     var rent_days = parseInt($('#rent_days').val() || 0);
+        //     var total_rent = per_day_rent * rent_qty * rent_days;
+        //     $('#total_rent_price').html('$' + total_rent + ' <small style="font-size:12px;"> </small>');
+        // }
+        // function change_rent_days(value){
+        //     var rent_days = parseInt($('#rent_days').val() || 0);
+        //     rent_days += value;
+        //     if(rent_days < 7){
+        //         rent_days = 7;
+        //         $.notify({ message: 'Minimum subscription period is 7 days.' }, { type: 'danger', });
+        //     }
+        //     $('#rent_days').val(rent_days);
+        //     var per_day_rent = parseFloat($('#rent-btn').data('per_day_rent') || 0);
+        //     var rent_qty = parseInt($('#rent_qty').val() || 0);
+        //     var total_rent = per_day_rent * rent_qty * rent_days;
+        //     $('#total_rent_price').html('$' + total_rent + ' <small style="font-size:12px;"> </small>');
+        // }
+        // function toggle_order_one_time_box() {
+        //     if ($('#one-time').is(':checked')) {
+        //         $('#order_one_time_box').show(300);
+        //         $('#order_subscribe_box').hide(300);
+        //     } else {
+        //         $('#order_one_time_box').hide(300);
+        //         $('#order_subscribe_box').show(300);
+        //     }
+        // }
+        // function calculate_combo_product_price() {
+        //     var sale_price = 0;
+        //     var mrp_price = 0;
 
-            $('.combo_product_sale_price').each(function() {
-                sale_price += parseFloat($(this).text().replace(/\$/g, ''));
-            });
-            $('.combo_product_mrp_price').each(function() {
-                mrp_price += parseFloat($(this).text().replace(/\$/g, ''));
-            });
-            sale_price = Math.round(sale_price);
-            mrp_price = Math.round(mrp_price);
-            $('#combo_product_total_sale_price').html('$' + sale_price + ' <small style="font-size:12px;">NZD</small>');
-            $('#combo_product_total_mrp_price').text('$' + mrp_price);
-            $('#combo_product_total_discount').text(Math.round((((mrp_price - sale_price) / mrp_price) * 100)) + '%');
-        }
+        //     $('.combo_product_sale_price').each(function() {
+        //         sale_price += parseFloat($(this).text().replace(/\$/g, ''));
+        //     });
+        //     $('.combo_product_mrp_price').each(function() {
+        //         mrp_price += parseFloat($(this).text().replace(/\$/g, ''));
+        //     });
+        //     sale_price = Math.round(sale_price);
+        //     mrp_price = Math.round(mrp_price);
+        //     $('#combo_product_total_sale_price').html('$' + sale_price + ' <small style="font-size:12px;"> </small>');
+        //     $('#combo_product_total_mrp_price').text('$' + mrp_price);
+        //     $('#combo_product_total_discount').text(Math.round((((mrp_price - sale_price) / mrp_price) * 100)) + '%');
+        // }
 
-        function update_combo_product_price(product_id) {
-            var sale_price = ($('#combo_product_box_' + product_id + ' select option:selected').data('sale_price') || 0);
-            var mrp_price = ($('#combo_product_box_' + product_id + ' select option:selected').data('mrp_price') || 0);
+        // function update_combo_product_price(product_id) {
+        //     var sale_price = ($('#combo_product_box_' + product_id + ' select option:selected').data('sale_price') || 0);
+        //     var mrp_price = ($('#combo_product_box_' + product_id + ' select option:selected').data('mrp_price') || 0);
 
-            $('#combo_product_box_' + product_id + ' .combo_product_sale_price').html('$' + sale_price +
-                ' <small style="font-size:12px;">NZD</small>');
-            $('#combo_product_box_' + product_id + ' .combo_product_mrp_price').text('$' + mrp_price);
-            $('#combo_product_box_' + product_id + ' .badges-on-sale').text(Math.round((((mrp_price - sale_price) /
-                mrp_price) * 100)) + '%');
-            if ($('#combo_product_box_' + product_id + ' select:selected').data('current_stock') == 0) {
-                $('#combo_product_box_' + product_id + ' .btn-add-to-cart').addClass('disabled');
-            } else {
-                $('#combo_product_box_' + product_id + ' .btn-add-to-cart').removeClass('disabled');
-            }
-            calculate_combo_product_price();
-        }
+        //     $('#combo_product_box_' + product_id + ' .combo_product_sale_price').html('$' + sale_price +
+        //         ' <small style="font-size:12px;"> </small>');
+        //     $('#combo_product_box_' + product_id + ' .combo_product_mrp_price').text('$' + mrp_price);
+        //     $('#combo_product_box_' + product_id + ' .badges-on-sale').text(Math.round((((mrp_price - sale_price) /
+        //         mrp_price) * 100)) + '%');
+        //     if ($('#combo_product_box_' + product_id + ' select:selected').data('current_stock') == 0) {
+        //         $('#combo_product_box_' + product_id + ' .btn-add-to-cart').addClass('disabled');
+        //     } else {
+        //         $('#combo_product_box_' + product_id + ' .btn-add-to-cart').removeClass('disabled');
+        //     }
+        //     calculate_combo_product_price();
+        // }
 
-        @foreach (json_decode($combo_product->product_ids ?? '[]') ?? [] as $product_id)
-            update_combo_product_price({{ $product_id }});
-        @endforeach
+        // @foreach (json_decode($combo_product->product_ids ?? '[]') ?? [] as $product_id)
+        //     update_combo_product_price({{ $product_id }});
+        // @endforeach
 
-        calculate_combo_product_price();
-
-        $(document).ready(function() {
-            setTimeout(function() {
-                get_product_variant_data({{ $product->id }});
-            }, 100);
-        });
-
-        function get_product_variant_data(product_id) {
-            var attribute_value_ids = [];
-            var attribute_value_ids = $('.attribute_value_id:checked').map(function() {
-                return $(this).val();
-            }).get();
-
-            $.get('{{ route('ajax.get_product_variant_data') }}', {
-                product_id: product_id,
-                attribute_value_ids: attribute_value_ids
-            }, function(data) {
-                if (data.message == 'Success') {
-                    let sale_price = data.product_variant.sale_price;
-                    let mrp_price = data.product_variant.mrp_price;
-                    $('.price-on-sale').html('$' + sale_price + ' <small style="font-size:16px;">NZD</small>');
-                    $('.tf-qty-price').html('$' + sale_price + ' <small style="font-size:12px;">NZD</small>');
-                    $('.compare-at-price').text('$' + mrp_price);
-                    $('.badges-on-sale p').text(Math.round((((mrp_price - sale_price) / mrp_price) * 100)) + '%');
-                    $('.quantity-product').attr('max', (data?.product_variant?.current_stock || 0));
-                    $('#stock_alert_msg_' + product_id + ' b').text((data?.product_variant?.current_stock || 0));
-                    $('#rent_qty').attr('max', (data?.product_variant?.rental_current_stock || 0));
-                    $('#rental_stock_alert_msg_' + product_id + ' b').text((data?.product_variant?.rental_current_stock || 0));
-                    if ((data?.product_variant?.current_stock || 0) == 0) {
-                        $('.btn-add-to-cart').addClass('disabled');
-                        $('.btn-add-to-cart span:first').html('Out of stock - &nbsp;');
-                        $('.btn-buy-now').addClass('disabled');
-                        $('.btn-buy-now').text('Out of stock');
-                        $('#stock_alert_msg_' + product_id).show(300);
-                    } else {
-                        $('.btn-add-to-cart').removeClass('disabled');
-                        $('.btn-add-to-cart span:first').html('Add to cart - &nbsp;');
-                        $('.btn-buy-now').removeClass('disabled');
-                        $('.btn-buy-now').text('Buy it now');
-                        $('#stock_alert_msg_' + product_id).hide(300);
-                    }
-                    if ((data?.product_variant?.rental_current_stock || 0) == 0) {
-                        $('#rent-btn').addClass('disabled');
-                        $('#rent-btn span:first').html('Out of stock - &nbsp;');
-                        $('#rental_stock_alert_msg_' + product_id).show(300);
-                    } else {
-                        $('#rent-btn').removeClass('disabled');
-                        $('#rent-btn span:first').html('Subscribe Now - &nbsp;');
-                        $('#rental_stock_alert_msg_' + product_id).hide(300);
-                    }
-                } else {
-                    $.notify({
-                        message: data.message
-                    }, {
-                        type: 'danger',
-                    });
-                }
-            });
-        }
+        // calculate_combo_product_price();
 
         function add_to_cart(product_id, order_type, btn_type) {
-            var attribute_value_ids = $('.attribute_value_id:checked').map(function() {
-                return $(this).val();
-            }).get();
-            if(order_type == 'Subscribe'){
-                var qty = $('#rent_qty').val();
-                var rent_days = $('#rent_days').val();
-            }else{
-                var qty = $('#order_qty').val();
-                var rent_days = 0;
-            }
+            var qty = $('#order_qty').val();
             $.get('{{ route('ajax.add_to_cart') }}', {
                 product_id: product_id,
-                attribute_value_ids: attribute_value_ids,
                 qty: qty,
-                rent_days: rent_days,
                 order_type: order_type
             }, function(data) {
                 if (data.status == 200) {

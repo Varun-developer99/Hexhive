@@ -17,7 +17,7 @@ class Cart extends Model
         'brand_id',
         'pincode',
         'qty',
-        'price',
+        'sale_price',
         'total_amount',
         'tax_rate',
         'tax_amount',

@@ -4,10 +4,11 @@
             <tr>
                 <th>#</th>
                 <th>Product</th>
-                <th>Date</th>
+                <th>Brand</th>
                 <th>Category</th>
                 <th>QTY</th>
                 <th>In/Out</th>
+                <th>Date</th>
                 <th>Options</th>
             </tr>
         </thead>

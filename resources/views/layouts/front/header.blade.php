@@ -8,7 +8,7 @@
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
                         <a href="{{ url('/') }}" class="logo-header">
-                            <img src="{{ asset('front_assets/images/logo/logo_dark175732706240217.png') }}" alt="logo" class="logo">
+                            <img src="{{ asset('front_assets/images/logo/logo_dark.png') }}" alt="logo" class="logo">
                         </a>
                     </div>
                     <div class="col-xl-6 d-none d-xl-block">
@@ -253,9 +253,9 @@
                                   <li class="menu-item position-relative">
                                     <a href="{{ route('front.about_us') }}" class="item-link">About Us</a>
                                 </li>
-                                <li class="menu-item">
+                                {{-- <li class="menu-item">
                                     <a href="{{ route('front.shop') }}" class="item-link">Shop</a>
-                                    {{-- <div class="sub-menu mega-menu">
+                                    <div class="sub-menu mega-menu">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-lg-2">
@@ -453,8 +453,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> --}}
-                                </li>
+                                    </div>
+                                </li> --}}
                                 <li class="menu-item">
                                     <a href="{{ route('front.shop') }}" class="item-link">Products</a>
                                     {{-- <div class="sub-menu mega-menu">
@@ -586,16 +586,16 @@
                                     </svg>
                                 </a>
                                <div class="dropdown-account dropdown-login">
-    <div class="sub-top">
-        <button type="button" class="tf-btn btn-reset" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Login
-        </button>
-        <p class="text-center text-secondary-2">
-            Don't have an account? 
-            <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
-        </p>
-    </div>
-</div>
+                                <div class="sub-top">
+                                    <button type="button" class="tf-btn btn-reset"onclick="login_modal()"  data-bs-toggle="modal" data-bs-target="#loginModal">
+                                        Login
+                                    </button>
+                                    <p class="text-center text-secondary-2">
+                                        Don't have an account? 
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                                    </p>
+                                </div>
+                            </div>
 
                             </li>
                             <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item">

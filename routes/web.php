@@ -9,13 +9,19 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\PolicyController;
+use App\Http\Controllers\Admin\BannersController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\WebsiteController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\HomeVideoController;
+use App\Http\Controllers\Admin\BotteltypeController;
 use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PolicyPageController;
@@ -23,12 +29,16 @@ use App\Http\Controllers\Admin\TopBarTextController;
 use App\Http\Controllers\Admin\ContactFormController;
 use App\Http\Controllers\Admin\RentalOrderController;
 use App\Http\Controllers\Admin\ShopByBrandController;
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ComboProductController;
 use App\Http\Controllers\Admin\StockHistoryController;
+use App\Http\Controllers\Admin\ComboProductsController;
 use App\Http\Controllers\Admin\ProductReviewController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\ShopByActivityController;
 use App\Http\Controllers\Admin\ShopByBodyPartController;
+use App\Http\Controllers\Warehouse\CurrentStockController;
+use App\Http\Controllers\Warehouse\StockDetailsController;
 use App\Http\Controllers\Admin\RentalStockHistoryController;
 use App\Http\Controllers\Admin\ShopByDailySupportController;
 use App\Http\Controllers\Customer\CustomerDashboardController;
@@ -87,15 +97,7 @@ Route::group(['middleware' => ['auth','is_Admin'], 'prefix' => 'admin'], functio
     Route::get('brand/edit', [BrandController::class, 'edit'])->name('admin.brand.edit');
     Route::get('brand/delete/{id}', [BrandController::class, 'delete'])->name('admin.brand.delete');
     Route::get('brand/status/{id}', [BrandController::class, 'status'])->name('admin.brand.status');
-
-    // // Product
-    // Route::get('product', [ProductController::class, 'index'])->name('admin.product.index');
-    // Route::get('product/datatable', [ProductController::class, 'datatable'])->name('admin.product.datatable');
-    // Route::post('product/store', [ProductController::class, 'store'])->name('admin.product.store');
-    // Route::get('product/edit', [ProductController::class, 'edit'])->name('admin.product.edit');
-    // Route::get('product/delete/{id}', [ProductController::class, 'delete'])->name('admin.product.delete');
-    // Route::get('product/status/{id}', [ProductController::class, 'status'])->name('admin.product.status');
-
+    
     // home_slider
     Route::get('home_slider', [HomeSliderController::class, 'index'])->name('admin.home_slider');
     Route::get('home_slider/datatable', [HomeSliderController::class, 'datatable'])->name('admin.home_slider.datatable');

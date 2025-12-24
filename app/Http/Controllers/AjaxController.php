@@ -49,13 +49,13 @@ class AjaxController extends Controller
         if($request->short_by == 'Price, high to low'){
             $products = $products->orderBy('sale_price', 'desc');
         }
-        if(($request->price_min_value ?? '') != '' && ($request->price_max_value ?? '') != ''){
-            $products = $products->whereBetween('sale_price', [$request->price_min_value, $request->price_max_value]);
-        }
-        if(!empty($request->category_id)) {
+        // if(($request->price_min_value ?? '') != '' && ($request->price_max_value ?? '') != ''){
+        //     $products = $products->whereBetween('sale_price', [$request->price_min_value, $request->price_max_value]);
+        // }
+        if(!empty($request->categories_ids)) {
             $products = $products->where(function($query) use ($request) {
-                foreach($request->category_id as $id) {
-                    $query->orWhereJsonContains('category_id', $id);
+                foreach($request->categories_ids as $id) {
+                    $query->orWhereJsonContains('categories_ids', $id);
                 }
             });
         }
@@ -90,44 +90,29 @@ class AjaxController extends Controller
     }
     public function add_to_cart(Request $request)
     {
-        $attribute_value_ids = ($request->attribute_value_ids ?? []);
 
-        $product_variant = ProductVariant::where('product_id', $request->product_id)->where('attribute_value_ids', json_encode($attribute_value_ids))->first();
+        $product = Product::where('id', $request->product_id)->first();
 
-        if(!empty($product_variant)) {
-            if(!($cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->where('attribute_value_ids', $product_variant->attribute_value_ids)->first())) {
+        if(!empty($product)) {
+            if(!($cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->first())) {
                 $cart = new Cart();
             }
             // $cart->qty = ($cart->qty ?? 0) + $request->qty;
             $cart->qty = $request->qty;
             $cart->user_id = Auth::user()->id;
             $cart->product_id = $request->product_id;
-            $cart->product_variant_id = $product_variant->id;
-            $cart->attribute_value_ids = $product_variant->attribute_value_ids;
-            if($request->order_type == 'Subscribe') {
-                if(($product_variant->rental_current_stock ?? 0) < $cart->qty) {
-                    $response['html'] = '';
-                    $response['message'] = 'Oops! Product stock is not enough.';
-                    return $response;
-                }
-                
-                $cart->per_day_rent = $product_variant->per_day_rent;
-                $cart->rent_days = $request->rent_days;
-                $cart->total_amount = $product_variant->per_day_rent * $cart->rent_days * $cart->qty;
-            } else {
-                if(($product_variant->current_stock ?? 0) < $cart->qty) {
-                    $response['html'] = '';
-                    $response['message'] = 'Oops! Product stock is not enough.';
-                    return $response;
-                }
-                $cart->sale_price = $product_variant->sale_price;
-                $cart->total_amount = $product_variant->sale_price * $cart->qty;
+            if(($product->current_stock ?? 0) < $cart->qty) {
+                $response['html'] = '';
+                $response['message'] = 'Oops! Product stock is not enough.';
+                return $response;
             }
+            $cart->sale_price = $product->sale_price;
+            $cart->total_amount = $product->sale_price * $cart->qty;
             $cart->order_type = $request->order_type ?? 'Single';
             $cart->save();
         }
 
-        if(!empty($product_variant) && !empty($cart)) {
+        if(!empty($product) && !empty($cart)) {
             $response['html'] = cart_items_html(Auth::user()->id);
             $response['status'] = 200;
             $response['message'] = 'Cart Item Added Successfully';
@@ -135,7 +120,7 @@ class AjaxController extends Controller
             $response['html'] = '';
             $response['message'] = 'Oops! Something went wrong.';
         }
-        $response['product_variant'] = ($product_variant ?? []);
+        $response['product'] = ($product ?? []);
         $response['cart'] = ($cart ?? []);
         $response['cart_count'] = count(cart_items_data(Auth::user()->id));
        

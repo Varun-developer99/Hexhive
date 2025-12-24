@@ -10,7 +10,7 @@
                                     <img style="max-width:60%; width:100%;" src="{{ asset(env('APP_LOGO_DARK')) }}" alt="">
                                 </a>
                                 <p class="mb-0 mt-3">Proudly NewZealand Owned & Operated</p>
-                                <p class="mb-0">All prices are in NewZealand Dollars (NZD)</p>
+                                <p class="mb-0">All prices are in NewZealand Dollars ( )</p>
                             </div>
                             <div class="footer-address">
                                 <p>70 Tatariki Street, Rosehill, Auckland 2113, NewZealand</p>

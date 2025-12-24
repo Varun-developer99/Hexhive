@@ -116,7 +116,7 @@
                 </tr>
                 <tr class="total-row">
                     <td class="total">Total</td>
-                    <td>{{ price($order->grand_total ?? 0) }} NZD</td>
+                    <td>{{ price($order->grand_total ?? 0) }}  </td>
                 </tr>
             </table>
         </div>

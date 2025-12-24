@@ -83,41 +83,26 @@
                                     <tr class="tf-cart-item file-delete">
                                         <td class="tf-cart-item_product">
                                             <a href="{{ route('front.product', $item->product->slug ?? '#') }}" class="img-box">
-                                                @foreach (($item->product->getMedia('main_img') ?? []) as $file)
-                                                    <img src="{{ $file->getURL() ?? '#' }}" alt="product">
-                                                @endforeach
+                                                <img src="{{ $item->product->image_url ?? '#' }}" alt="product">
                                             </a>
                                             <div class="cart-info">
                                                 <a href="{{ route('front.product', $item->product->slug ?? '#') }}" class="cart-title link">{{ $item->product->name ?? 'N/A' }}</a>
-                                                <div class="variant-box text-muted">
-                                                    @foreach (json_decode($item->attribute_value_ids ?? '[]') as $attribute_value_id){{ attribute_value_data($attribute_value_id)->name ?? 'N/A' }}{{ $loop->last ? '' : '/' }}@endforeach
-                                                </div>
                                             </div>
                                         </td>
                                         <td data-cart-title="Price" class="tf-cart-item_price text-center">
-                                            @if($item->order_type == 'Subscribe')
-                                                <div class="text-muted text-start">Per Day Cost: <b>{{ price($item->per_day_rent ?? 0) }} <small style="font-size:12px;">NZD </small></b></div>
-                                                <div class="text-muted text-start">Subscribe For: <b>{{ $item->rent_days ?? 0 }} Days</b></div>
-                                                <div class="cart-price text-button price-on-sale">{{ price(($item->per_day_rent ?? 0) * ($item->rent_days ?? 0)) }} <small style="font-size:12px;">NZD </small></div>
-                                            @else
-                                                <div class="cart-price text-button price-on-sale">{{ price($item->sale_price ?? 0) }} <small style="font-size:12px;">NZD </small></div>
-                                            @endif
+                                            <div class="cart-price text-button price-on-sale">{{ price($item->sale_price ?? 0) }} <small style="font-size:12px;">  </small></div>
                                         </td>
                                         <td data-cart-title="Quantity" class="tf-cart-item_quantity">
                                             <input type="hidden" name="cart[{{ $key }}][id]" value="{{ $item->id }}">
                                             <div class="wg-quantity mx-md-auto" onclick="update_cart_amount()">
                                                 <span class="btn-quantity btn-decrease">-</span>
-                                                @if ($item->order_type == 'Subscribe')
-                                                <input type="number" class="quantity-product" name="cart[{{ $key }}][qty]" value="{{ $item->qty ?? 0 }}" max="{{ $current_stock = product_variant_rental_current_stock($item->product_variant_id) }}" min="1" data-product_id="{{ $item->product_id }}">
-                                                @else
-                                                <input type="number" class="quantity-product" name="cart[{{ $key }}][qty]" value="{{ $item->qty ?? 0 }}" max="{{ $current_stock = product_variant_current_stock($item->product_variant_id) }}" min="1" data-product_id="{{ $item->product_id }}">
-                                                @endif
+                                                <input type="number" class="quantity-product" name="cart[{{ $key }}][qty]" value="{{ $item->qty ?? 0 }}" max="{{ $current_stock = $item->product->current_stock) }}" min="1" data-product_id="{{ $item->product_id }}">
                                                 <span class="btn-quantity btn-increase">+</span>
                                             </div>
                                             <p class="text-danger text-center" id="stock_alert_msg_{{ $item->product_id }}" style="display: none;">Available Stock: <b>{{ $current_stock }}</b></p>
                                         </td>
                                         <td data-cart-title="Total" class="tf-cart-item_total text-center">
-                                            <div class="cart-total text-button total-price">{{ price($item->total_amount ?? 0) }} <small style="font-size:12px;">NZD </small></div>
+                                            <div class="cart-total text-button total-price">{{ price($item->total_amount ?? 0) }} <small style="font-size:12px;">  </small></div>
                                         </td>
                                         <td data-cart-title="Remove" class="remove-cart" onclick="remove_from_cart({{ $item->id }}); update_cart_amount();"><span class="remove icon icon-close"></span></td>
                                     </tr>
@@ -148,19 +133,19 @@
                                 <h5 class="title">Order Summary</h5>
                                 <div class="subtotal text-button d-flex justify-content-between align-items-center">
                                     <span>Subtotal </span>
-                                    <span class="total" id="sub_total">{{ price($sub_total = ($cart->sum('total_amount'))) }}<small style="font-size: 12px"> NZD</small></span>
+                                    <span class="total" id="sub_total">{{ price($sub_total = ($cart->sum('total_amount'))) }}</span>
                                 </div>
                                 <div class="discount text-button d-flex justify-content-between align-items-center">
                                     <span>Discounts</span>
-                                    <span class="discount_amount">-{{ price($discount_amount = ($sub_total * ($item->coupon->discount ?? 0)) / 100) }} <small style="font-size: 12px"> NZD</small></span>
+                                    <span class="discount_amount">-{{ price($discount_amount = ($sub_total * ($item->coupon->discount ?? 0)) / 100) }} </span>
                                 </div>
                                 <div class="discount text-button d-flex justify-content-between align-items-center">
-                                    <span>Tax <small style="color: rgba(33, 37, 41, 0.75)">(15% Included)</small></span>
-                                    <span class="tax">{{ price(calculate_tax($sub_total -= ($discount_amount ?? 0))) }} <small style="font-size: 12px"> NZD</small></span>
+                                    <span>Tax <small style="color: rgba(33, 37, 41, 0.75)">(18% Included)</small></span>
+                                    <span class="tax">{{ price(calculate_tax($sub_total -= ($discount_amount ?? 0))) }} </span>
                                 </div>
                                 <div class="discount text-button d-flex justify-content-between align-items-center">
-                                    <span>Shipped from NewZealand</span>
-                                    <span class="total" id="shipping_cost">${{ $sub_total >= 500 ? ($shipping_cost = 0) : ($shipping_cost = shipping_cost()) }}.00 <small style="font-size: 12px"> NZD</small></span>
+                                    <span>Shipping Charges</span>
+                                    <span class="total" id="shipping_cost">${{ $sub_total >= 500 ? ($shipping_cost = 0) : ($shipping_cost = shipping_cost()) }}.00 </span>
                                 </div>
                                 {{-- <div class="ship">
                                     <span class="text-button">Shipping</span>
@@ -189,7 +174,7 @@
                                     </div>
                                 </div> --}}
                                 <h5 class="total-order d-flex justify-content-between align-items-center">
-                                    <span>Total <small style="font-size: 12px">(NZD - NewZealand)</small></span>
+                                    <span>Total </span>
                                     <span class="total" id="grand_total">{{ price($sub_total + $shipping_cost) }}</span>
                                 </h5>
                                 <div class="box-progress-checkout">
@@ -247,7 +232,7 @@
         function update_cart_amount() {
             var sub_total = 0;
             $('.total-price').each(function() {
-                sub_total += parseFloat(($(this).text()).replace('$', ''));
+                sub_total += parseFloat(($(this).text()).replace('₹', ''));
             })
             if(sub_total >= 500){
                 shipping_cost = 0;
@@ -255,7 +240,7 @@
                 shipping_cost = {{ shipping_cost() }};
             }
 
-            $('#sub_total').html('$' + sub_total.toFixed(2) + '<small style="font-size: 12px"> NZD</small>');
+            $('#sub_total').html('₹' + sub_total.toFixed(2));
 
             var coupon_discount = parseFloat($('#coupon_discount').val()) || 0;
             if (coupon_discount) {
@@ -265,14 +250,14 @@
                 discount_amount = 0;
             }
 
-            $('.discount_amount').html('-$' + discount_amount.toFixed(2) + '<small style="font-size: 12px"> NZD</small>');
+            $('.discount_amount').html('-₹' + discount_amount.toFixed(2));
             
             // Update tax amount display
             tax = sub_total - (sub_total / 1.15);
-            $('.tax').html('$' + tax.toFixed(2) + '<small style="font-size: 12px"> NZD</small>');
-            $('#shipping_cost').html('$' + shipping_cost.toFixed(2) + '<small style="font-size: 12px"> NZD</small>');
+            $('.tax').html('₹' + tax.toFixed(2));
+            $('#shipping_cost').html('₹' + shipping_cost.toFixed(2));
             var grand_total = sub_total + shipping_cost;
-            $('#grand_total').html('$' + grand_total.toFixed(2));
+            $('#grand_total').html('₹' + grand_total.toFixed(2));
         }
 
         // Trigger applyCoupon() on Enter key press

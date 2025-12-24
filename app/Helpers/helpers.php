@@ -25,7 +25,7 @@ if (! function_exists('price')) {
 }
 if (! function_exists('calculate_tax')) {
     function calculate_tax($price) {
-        $tax = $price - ($price / 1.15);
+        $tax = $price - ($price / 1.18);
         return number_format((float)$tax, 2, '.', '');
     }
 }

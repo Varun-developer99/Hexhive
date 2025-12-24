@@ -198,7 +198,7 @@
                                                 </div>
                                                 @if ($item->order_type == 'Subscribe')
                                                     <div class="subscribe-info">
-                                                        <p>Per Day Cost: {{ price($item->per_day_rent) }} <small style="font-size:12px;">NZD</small></p>
+                                                        <p>Per Day Cost: {{ price($item->per_day_rent) }} <small style="font-size:12px;"> </small></p>
                                                         <p>Subscribe For: {{ $item->rent_days }} days</p>
                                                         <div class="total-price text-button"><span class="count">{{ $item->qty ?? 0 }}</span>X<span class="price">{{ price(($item->per_day_rent ?? 0) * ($item->rent_days ?? 0)) }} = {{ price(($item->total_amount ?? 0)) }}</span> </div>
                                                     </div>
@@ -276,25 +276,25 @@
                                         <div class="top">
                                             <div class="item d-flex align-items-center justify-content-between text-button">
                                                 <span>Sub Total</span>
-                                                <span>{{ price($sub_total = $cart->sum('total_amount')) }} <small style="font-size: 12px">NZD </small></span>
+                                                <span>{{ price($sub_total = $cart->sum('total_amount')) }}    </small></span>
                                             </div>
                                             <div class="item d-flex align-items-center justify-content-between text-button">
                                                 <span>Discounts</span>
-                                                <span>-{{ price($discount_amount = ($sub_total * ($item->coupon->discount ?? 0)) / 100) }} <small style="font-size: 12px">NZD </small></span>
+                                                <span>-{{ price($discount_amount = ($sub_total * ($item->coupon->discount ?? 0)) / 100) }}    </small></span>
                                             </div>
                                             <div class="item d-flex align-items-center justify-content-between text-button">
                                                 <span>Tax <small style="color: rgba(33, 37, 41, 0.75)">(15% Included)</small></span>
-                                                <span>{{ price(calculate_tax($sub_total -= ($discount_amount ?? 0))) }} <small style="font-size: 12px">NZD </small></span>
+                                                <span>{{ price(calculate_tax($sub_total -= ($discount_amount ?? 0))) }}    </small></span>
                                             </div>
                                             <div class="item d-flex align-items-center justify-content-between text-button">
                                                 <span>Shipping</span>
-                                                <span>${{ $sub_total >= 500 ? ($shipping_cost = 0) : ($shipping_cost = shipping_cost()) }}.00 <small style="font-size: 12px">NZD </small></span>
+                                                <span>${{ $sub_total >= 500 ? ($shipping_cost = 0) : ($shipping_cost = shipping_cost()) }}.00    </small></span>
                                             </div>
                                         </div>
                                         <div class="bottom">
                                             <h5 class="d-flex justify-content-between">
                                                 <span>Total</span>
-                                                <span class="total-price-checkout">{{ price($sub_total + $shipping_cost) }} <small style="font-size: 12px">NZD </small></span>
+                                                <span class="total-price-checkout">{{ price($sub_total + $shipping_cost) }}    </small></span>
                                             </h5>
                                         </div>
                                     </div>

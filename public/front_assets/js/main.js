@@ -643,11 +643,11 @@
       });
 
       function updateTotalPrice(price, scope) {
-        var currentPrice = price || parseFloat(scope.find(".price-on-sale").text().replace("$", ""));
+        var currentPrice = price || parseFloat($(".price-on-sale").text().replace("₹", ""));
         var quantity = parseInt(scope.find(".quantity-product").val());
         var totalPrice = currentPrice * quantity;
         scope.find(".total-price").text(
-          "$" + totalPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " NZD"
+          "₹" + totalPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         );
       }
     });

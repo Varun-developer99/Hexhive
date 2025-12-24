@@ -408,7 +408,7 @@
 <script>
     // Declare searchTimeout at the top of your 
     var searchTimeout;
-    // get_product_filter(1);
+    get_product_filter(1);
 
     function product_filter() {
         clearTimeout(searchTimeout);
@@ -419,22 +419,13 @@
         $('#load_more_btn').hide();
         var search = "{{ request()->search ?? '0' }}";
         var short_by = $('#short_by').val();
-        var price_min_value = Number($('#price-min-value').text());
-        var price_max_value = Number($('#price-max-value').text());
-        var shop_by_brand_ids = $('.shop_by_brand_ids:checked').map(function() {
-            return $(this).val();
-        }).get();
-        var shop_by_body_part_ids = $('.shop_by_body_part_ids:checked').map(function() {
-            return $(this).val();
-        }).get();
-        var shop_by_activity_ids = $('.shop_by_activity_ids:checked').map(function() {
-            return $(this).val();
-        }).get();
-        var shop_by_daily_support_ids = $('.shop_by_daily_support_ids:checked').map(function() {
+        // var price_min_value = Number($('#price-min-value').text());
+        // var price_max_value = Number($('#price-max-value').text());
+        var categories_ids = $('.categories_ids:checked').map(function() {
             return $(this).val();
         }).get();
         
-        $.get('{{ route('ajax.get_product_filter') }}', { page:page, short_by:short_by, shop_by_body_part_ids: shop_by_body_part_ids, shop_by_activity_ids: shop_by_activity_ids, shop_by_brand_ids: shop_by_brand_ids, shop_by_daily_support_ids: shop_by_daily_support_ids, price_min_value: price_min_value, price_max_value: price_max_value, search: search }, function(data){
+        $.get('{{ route('ajax.get_product_filter') }}', { page:page, short_by:short_by, categories_ids: categories_ids, search: search }, function(data){
             $('#shop_loader').hide();
             $('#gridLayout').append(data.html);
             $('#total-product-count .count').text(data.total_products);

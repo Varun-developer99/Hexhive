@@ -15,13 +15,11 @@
                 @forelse ($cart_items as $item)
                 <div class="tf-mini-cart-item file-delete" id="cart_item_{{ $item->id }}">
                     <div class="tf-mini-cart-image">
-                        @foreach (($item->product->getMedia('main_img') ?? []) as $file)
-                            <div class="swiper-slide stagger-item" data-color="{{ $color ?? 'N/A' }}">
-                                <div class="item">
-                                    <img class="lazyload" data-src="{{ $file->getURL() ?? '#' }}" src="{{ $file->getURL() ?? '#' }}" alt="">
-                                </div>
+                        <div class="swiper-slide stagger-item">
+                            <div class="item">
+                                <img class="lazyload" data-src="{{ $item->product->image_url ?? '#' }}" src="{{ $item->product->image_url ?? '#' }}" alt="">
                             </div>
-                        @endforeach
+                        </div>
                     </div>
                     <div class="tf-mini-cart-info flex-grow-1">
                         <div
@@ -31,17 +29,8 @@
                             </div>
                             <div class="text-button tf-btn-remove remove" onclick="remove_from_cart({{ $item->id }})">Remove</div>
                         </div>
-                        <div
-                            class="d-flex align-items-center justify-content-between flex-wrap gap-12">
-                            <div class="text-secondary-2">
-                                @foreach (json_decode($item->attribute_value_ids ?? '[]') as $attribute_value_id){{ attribute_value_data($attribute_value_id)->name ?? 'N/A' }}{{ $loop->last ? '' : '/' }}@endforeach
-                            </div>
-                            @if ($item->order_type == 'Subscribe')
-                                <div class="text-secondary-2">Rent Days: {{ $item->rent_days }}</div>
-                                <div class="text-button">{{ $item->qty }} X {{ price($item->per_day_rent ?? 0) }}</div>
-                            @else
-                                <div class="text-button">{{ $item->qty }} X {{ price($item->sale_price ?? 0) }}</div>
-                            @endif
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-12">
+                            <div class="text-button">{{ $item->qty }} X {{ price($item->sale_price ?? 0) }}</div>
                         </div>
                     </div>
                 </div>
@@ -138,7 +127,7 @@
         <div class="tf-mini-cart-bottom-wrap">
             <div class="tf-cart-totals-discounts">
                 <h5>Subtotal </h5>
-                <h5 class="tf-totals-total-value">{{ price(($cart_items->sum('total_amount') ?? 0)) }} <small style="font-size: 12px">NZD </small></h5>
+                <h5 class="tf-totals-total-value">{{ price(($cart_items->sum('total_amount') ?? 0)) }}    </small></h5>
             </div>
             {{-- <div class="tf-cart-checkbox">
                 <div class="tf-checkbox-wrapp">

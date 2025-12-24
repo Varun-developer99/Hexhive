@@ -15,8 +15,8 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="wrap-slider">
-                                <img src="{{ asset('front_assets/images/slider/slider-organic.jpg') }}" alt="fashion-slideshow">
-                                <div class="box-content">
+                                <img src="{{ asset('front_assets/images/slider/slider-organic.webp') }}" alt="fashion-slideshow">
+                                {{-- <div class="box-content">
                                     <div class="content-slider">
                                         <div class="box-title-slider">
                                             <div class="fade-item fade-item-1 heading title-display text-white">Organic Fresh <br> Produce</div>
@@ -26,13 +26,13 @@
                                             <a href="shop-default-grid.html" class="tf-btn btn-fill btn-white"><span class="text">Shop Now</span><i class="icon icon-arrowUpRight"></i></a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="wrap-slider">
                                 <img src="{{ asset('front_assets/images/slider/slider-organic2.jpg') }}" alt="fashion-slideshow">
-                                <div class="box-content">
+                                {{-- <div class="box-content">
                                     <div class="content-slider">
                                         <div class="box-title-slider">
                                             <div class="fade-item fade-item-1 heading title-display text-white">100% Organic <br> Vegetables</div>
@@ -42,13 +42,13 @@
                                             <a href="shop-default-grid.html" class="tf-btn btn-fill btn-white"><span class="text">Shop Now</span><i class="icon icon-arrowUpRight"></i></a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="wrap-slider">
                                 <img src="{{ asset('front_assets/images/slider/slider-organic3.jpg') }}" alt="fashion-slideshow">
-                                <div class="box-content">
+                                {{-- <div class="box-content">
                                     <div class="content-slider">
                                         <div class="box-title-slider">
                                             <div class="fade-item fade-item-1 heading title-display text-white">Fresh-Squeezed <br> Orange Juice</div>
@@ -58,7 +58,7 @@
                                             <a href="shop-default-grid.html" class="tf-btn btn-fill btn-white"><span class="text">Shop Now</span><i class="icon icon-arrowUpRight"></i></a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="card-product-info">
                                     <a href="product-detail.html" class="title link">{{ $prod->name }}</a>
-                                    <span class="price">${{ $prod->mrp_price }} <del class="text-secondary ms-2">${{ $prod->sale_price }}</del></span>
+                                    <span class="price">₹{{ $prod->mrp_price }} <del class="text-secondary ms-2">₹{{ $prod->sale_price }}</del></span>
                                 </div>
                             </div>
                         </div>

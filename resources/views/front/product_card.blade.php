@@ -12,14 +12,14 @@
                     src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" alt="image-product"> --}}
 
             @if (($product ?? '') != '')
-                @if (count($product->getMedia('main_img')) > 0)
-                    <img class="img-product ls-is-cached lazyloaded" data-src="{{ $product->getMedia('main_img')->first()->getURL() ?? '#' }}" src="{{ $product->getMedia('main_img')->first()->getURL() ?? '#' }}" alt="image-product">
+                @if ($product->image_url ?? 0)
+                    <img class="img-product ls-is-cached lazyloaded" data-src="{{ $product->image_url ?? '#' }}" src="{{ $product->image_url ?? '#' }}" alt="image-product">
                 @endif
-                @if (count($product->getMedia('gallery_img')) > 0)
-                    <img class="img-hover ls-is-cached lazyloaded" data-src="{{ $product->getMedia('gallery_img')->first()->getURL() ?? '#' }}" src="{{ $product->getMedia('gallery_img')->first()->getURL() ?? '#' }}" alt="image-product">
+                @if (count($product->gallery_urls ?? []) > 0)
+                    <img class="img-hover ls-is-cached lazyloaded" data-src="{{ ($product->gallery_urls[0] ?? []) ?? '#' }}" src="{{ ($product->gallery_urls[0] ?? []) ?? '#' }}" alt="image-product">
                 @else
-                    @if (count($product->getMedia('main_img')) > 0)
-                    <img class="img-hover ls-is-cached lazyloaded" data-src="{{ $product->getMedia('main_img')->first()->getURL() ?? '#' }}" src="{{ $product->getMedia('main_img')->first()->getURL() ?? '#' }}" alt="image-product">
+                    @if ($product->image_url ?? 0)
+                    <img class="img-hover ls-is-cached lazyloaded" data-src="{{ $product->image_url ?? '#' }}" src="{{ $product->image_url ?? '#' }}" alt="image-product">
                     @endif
                 @endif
             @endif
