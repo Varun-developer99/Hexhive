@@ -327,18 +327,18 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="about-us-features wow fadeInLeft">
-                            {{-- <img class="lazyload" data-src="{{ asset('front_assets/images/banner/about-us.jpg') }}" src="{{ asset('front_assets/images/banner/about-us.jpg') }}" alt="image-team"> --}}
-                            <div style="padding:56.25% 0 0 0;position:relative;"><iframe
+                            <img class="lazyload" data-src="{{ asset('front_assets/images/banner/about-us.jpg') }}" src="{{ asset('front_assets/images/banner/about-us.jpg') }}" alt="image-team">
+                            {{-- <div style="padding:56.25% 0 0 0;position:relative;"><iframe
                                     src="https://player.vimeo.com/video/904084725?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                                     frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
                                     style="position:absolute;top:0;left:0;width:100%;height:100%;"
                                     title="Tynor Corporate Video 2022(1)">
-                                </iframe></div>
+                                </iframe></div> --}}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="about-us-content">
-                            <h3 class="title wow fadeInUp">About Fidelity</h3>
+                            <h3 class="title wow fadeInUp">About HEXHIVE</h3>
                             <div class="widget-tabs style-3">
                                 <ul class="widget-menu-tab wow fadeInUp">
                                     <li class="item-title active">
@@ -515,7 +515,166 @@
             </div>
         </section>
         <!-- /Our Teams -->
+   <!-- Partner -->
+        <section class="flat-spacing-5 bg-surface">
+            <div dir="ltr" class="swiper tf-sw-partner sw-auto" data-preview="auto" data-tablet="auto" data-mobile-sm="auto" data-mobile="auto" data-space-lg="74" data-space-md="50" data-space="50" data-loop="true" data-auto-play="true" data-delay="0">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#" class="brand-item">
+                            <img src="{{ asset('front_assets/images/brand/vanfaba.png') }}" alt="brand">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="brand-item">
+                            <img src="{{ asset('front_assets/images/brand/anvouge.png') }}" alt="brand">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="brand-item">
+                            <img src="{{ asset('front_assets/images/brand/carolin.png') }}" alt="brand">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="brand-item">
+                            <img src="{{ asset('front_assets/images/brand/shangxi.png') }}" alt="brand">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="brand-item">
+                            <img src="{{ asset('front_assets/images/brand/ecomife.png') }}" alt="brand">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="brand-item">
+                            <img src="{{ asset('front_assets/images/brand/cheryl.png') }}" alt="brand">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="brand-item">
+                            <img src="{{ asset('front_assets/images/brand/sopify.png') }}" alt="brand">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="brand-item">
+                            <img src="{{ asset('front_assets/images/brand/pennyw.png') }}" alt="brand">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="brand-item">
+                            <img src="{{ asset('front_assets/images/brand/panadoxn.png') }}" alt="brand">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Partner -->
 
+        <!-- Testimonial -->
+        <section class="flat-spacing">
+            <div class="container">
+                <div class="heading-section text-center wow fadeInUp">
+                    <h3 class="heading">Customer Review</h3>
+                </div>
+                <div dir="ltr" class="swiper tf-sw-testimonial wow fadeInUp" data-wow-delay="0.1s" data-preview="3" data-tablet="2" data-mobile="1" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testimonial-item style-4">
+                                <div class="content-top">
+                                    <div class="box-icon">
+                                        <i class="icon icon-quote"></i>
+                                    </div>
+                                    <div class="text-title">Variety of Styles!</div>
+                                    <p class="text-secondary">"Fantastic shop! Great selection, fair prices, and friendly staff. Highly recommended. The quality of the products is exceptional, and the prices are very reasonable!"</p>
+                                    <div class="box-rate-author">
+                                        <div class="box-author">
+                                            <div class="text-title author">Sybil Sharp</div>
+                                        </div>
+                                        <div class="list-star-default color-primary">
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-item style-4">
+                                <div class="content-top">
+                                    <div class="box-icon">
+                                        <i class="icon icon-quote"></i>
+                                    </div>
+                                    <div class="text-title">Quality of Clothing!</div>
+                                    <p class="text-secondary">"I absolutely love this shop! The products are high-quality and the customer service is excellent. I always leave with exactly what I need and a smile on my face."</p>
+                                    <div class="box-rate-author">
+                                        <div class="box-author">
+                                            <div class="text-title author">Mark G.</div>
+                                        </div>
+                                        <div class="list-star-default color-primary">
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-item style-4">
+                                <div class="content-top">
+                                    <div class="box-icon">
+                                        <i class="icon icon-quote"></i>
+                                    </div>
+                                    <div class="text-title">Customer Service!</div>
+                                    <p class="text-secondary">"I love this shop! The products are always top-quality, and the staff is incredibly friendly and helpful. They go out of their way to make sure that I'm satisfied with my purchase.”</p>
+                                    <div class="box-rate-author">
+                                        <div class="box-author">
+                                            <div class="text-title author">Emily S.</div>
+                                        </div>
+                                        <div class="list-star-default color-primary">
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-item style-4">
+                                <div class="content-top">
+                                    <div class="box-icon">
+                                        <i class="icon icon-quote"></i>
+                                    </div>
+                                    <div class="text-title">Variety of Styles!</div>
+                                    <p class="text-secondary">"Fantastic shop! Great selection, fair prices, and friendly staff. Highly recommended. The quality of the products is exceptional, and the prices are very reasonable!"</p>
+                                    <div class="box-rate-author">
+                                        <div class="box-author">
+                                            <div class="text-title author">Sybil Sharp</div>
+                                        </div>
+                                        <div class="list-star-default color-primary">
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                            <i class="icon icon-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sw-pagination-testimonial sw-dots type-circle d-flex justify-content-center"></div>
+                </div>
+            </div>
+        </section>
+        <!-- /Testimonial -->
      
 
 
