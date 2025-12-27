@@ -14,16 +14,16 @@
                     <div class="col-xl-6 d-none d-xl-block">
                         <nav class="box-navigation text-center">
                             <ul class="box-nav-ul d-flex align-items-center justify-content-center">
-                                <li class="menu-item active">
+                                <li class="menu-item {{ url()->current() == url('/') ? 'active' : '' }}"> 
                                     <a href="{{ url('/') }}" class="item-link">Home</a>
                                 </li>
-                                  <li class="menu-item position-relative">
+                                <li class="menu-item position-relative {{ Route::is('front.about_us') ? 'active' : '' }}">
                                     <a href="{{ route('front.about_us') }}" class="item-link">About Us</a>
                                 </li>
-                                <li class="menu-item">
+                                <li class="menu-item {{ Route::is('front.shop') ? 'active' : '' }}">
                                     <a href="{{ route('front.shop') }}" class="item-link">Shop</a>
                                 </li>
-                                <li class="menu-item position-relative">
+                                <li class="menu-item position-relative {{ Route::is('front.contact_us') ? 'active' : '' }}">
                                     <a href="{{ route('front.contact_us') }}" class="item-link">Contact Us</a>
                                 </li>
                             </ul>

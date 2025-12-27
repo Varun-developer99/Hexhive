@@ -1364,6 +1364,7 @@ a:hover {
 .line-top-container {
   position: relative;
 }
+
 /* 
 .line-top-container::before {
   position: absolute;
@@ -8294,7 +8295,7 @@ form .cols>* {
 }
 
 @media only screen and (max-width: 600px) {
-  .tf-sw-collection-video .collection-social{
+  .tf-sw-collection-video .collection-social {
     height: 550px !important;
   }
 }
@@ -8693,8 +8694,8 @@ form .cols>* {
   overflow: hidden;
   font-weight: 500;
   text-align: start;
-  white-space: nowrap; 
-   text-overflow: ellipsis;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .card-product .card-product-info .price {
@@ -13573,7 +13574,7 @@ ul.breadcrumbs i {
   padding: 80px 0;
 }
 
-.main-content{
+.main-content {
   padding-top: 60px;
 }
 
@@ -17887,7 +17888,7 @@ ul.list-text.type-number {
 
   .wg-blog.style-row .image {
     text-align: center;
-}
+  }
 
   .login-wrap {
     flex-direction: column;
@@ -19322,146 +19323,154 @@ ul.list-text.type-number {
 /* iOS only target (WebKit) */
 @supports (-webkit-touch-callout: none) {
 
-/* 1) Viewport height fixes for Safari dynamic toolbar /
+  /* 1) Viewport height fixes for Safari dynamic toolbar /
 :root {
 --vh: 1vh;
 }
 / JS से चाहें तो --vh को अपडेट करें; pure CSS fallback: */
-.tf-slideshow .wrap-slider,
-.slider-parallax .wrap-slider {
-min-height: calc(var(--vh, 1vh) * 100);
-}
+  .tf-slideshow .wrap-slider,
+  .slider-parallax .wrap-slider {
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
 
-/* 2) Sticky/Jitter fix for sticky headers and fixed bars */
-header,
-.tf-sticky-btn-atc,
-.tf-toolbar-bottom {
--webkit-transform: translateZ(0);
-transform: translateZ(0);
--webkit-backface-visibility: hidden;
-backface-visibility: hidden;
-will-change: transform;
-}
+  /* 2) Sticky/Jitter fix for sticky headers and fixed bars */
+  header,
+  .tf-sticky-btn-atc,
+  .tf-toolbar-bottom {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+  }
 
-/* 3) Momentum scrolling onlyजहां content scroll है */
-.canvas-body,
-.modal .modal-body,
-.modal-shopping-cart .tf-mini-cart-sroll,
-.canvas-mb .mb-body,
-.tf-grid-layout,
-.tf-compare-table,
-.offcanvas .offcanvas-body,
-.canvas-search .mb-body {
--webkit-overflow-scrolling: touch;
-}
+  /* 3) Momentum scrolling onlyजहां content scroll है */
+  .canvas-body,
+  .modal .modal-body,
+  .modal-shopping-cart .tf-mini-cart-sroll,
+  .canvas-mb .mb-body,
+  .tf-grid-layout,
+  .tf-compare-table,
+  .offcanvas .offcanvas-body,
+  .canvas-search .mb-body {
+    -webkit-overflow-scrolling: touch;
+  }
 
-/* 4) Image and media rendering stability */
-img, video, canvas {
-image-rendering: -webkit-optimize-contrast;
--webkit-transform: translateZ(0);
-transform: translateZ(0);
--webkit-backface-visibility: hidden;
-backface-visibility: hidden;
-}
+  /* 4) Image and media rendering stability */
+  img,
+  video,
+  canvas {
+    image-rendering: -webkit-optimize-contrast;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
 
-/* 5) Font bounce / subpixel jiggle कम करने के लिए */
-body, html, * {
--webkit-text-size-adjust: 100%;
-text-rendering: optimizeLegibility;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
+  /* 5) Font bounce / subpixel jiggle कम करने के लिए */
+  body,
+  html,
+  * {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-/* 6) Smooth scroll conflicts कम करना (iOS पर jump लग सकता है) */
-html {
-scroll-behavior: auto;
-}
+  /* 6) Smooth scroll conflicts कम करना (iOS पर jump लग सकता है) */
+  html {
+    scroll-behavior: auto;
+  }
 
-/* 7) 100vw scrollbar overlap fix (iOS पर कभी-कभी लेआउट शिफ्ट) */
-.slider-layout-right,
-.container-full,
-.container-full2,
-.container-full3 {
-max-width: 100%;
-width: 100%;
-overflow-x: hidden;
-}
+  /* 7) 100vw scrollbar overlap fix (iOS पर कभी-कभी लेआउट शिफ्ट) */
+  .slider-layout-right,
+  .container-full,
+  .container-full2,
+  .container-full3 {
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
 
-/* 8) position: sticky + transform contexts */
-.sticky-top {
-position: -webkit-sticky;
-position: sticky;
-will-change: top, transform;
-}
+  /* 8) position: sticky + transform contexts */
+  .sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    will-change: top, transform;
+  }
 
-/* 9) Safe-area (notch) respect for fixed elements */
-.tf-toolbar-bottom,
-#scroll-top,
-.btn-fixed-cart {
-padding-bottom: max(env(safe-area-inset-bottom), 0px);
-}
+  /* 9) Safe-area (notch) respect for fixed elements */
+  .tf-toolbar-bottom,
+  #scroll-top,
+  .btn-fixed-cart {
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+  }
 
-/* 10) Swiper/Snap jitter fix */
-.swiper,
-.swiper-wrapper,
-.swiper-slide {
--webkit-transform: translateZ(0);
-transform: translateZ(0);
-will-change: transform;
-}
+  /* 10) Swiper/Snap jitter fix */
+  .swiper,
+  .swiper-wrapper,
+  .swiper-slide {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
 
-/* 11) iOS input zoom prevention (font-size>=16px होना चाहिए) */
-input, select, textarea {
-font-size: 16px;
-}
+  /* 11) iOS input zoom prevention (font-size>=16px होना चाहिए) */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
 
-/* 12) Transition heavy elements की jank कम करने के लिए */
-.card-product .card-product-wrapper img,
-.hover-img .img-style>img,
-.hover-img2 .img-style2 .img2,
-.hover-img3 .img-style3 img {
-will-change: transform, opacity;
-}
+  /* 12) Transition heavy elements की jank कम करने के लिए */
+  .card-product .card-product-wrapper img,
+  .hover-img .img-style>img,
+  .hover-img2 .img-style2 .img2,
+  .hover-img3 .img-style3 img {
+    will-change: transform, opacity;
+  }
 
-/* 13) 3D context leakage रोकना (कभी-कभी children shake) */
-.tf-slideshow,
-.wrap-slider,
-.card-product,
-.collection-position-2,
-.banner-cls,
-.modal,
-.offcanvas,
-.canvas-sidebar {
--webkit-transform: translateZ(0);
-transform: translateZ(0);
-}
+  /* 13) 3D context leakage रोकना (कभी-कभी children shake) */
+  .tf-slideshow,
+  .wrap-slider,
+  .card-product,
+  .collection-position-2,
+  .banner-cls,
+  .modal,
+  .offcanvas,
+  .canvas-sidebar {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 
-/* 14) iOS Safari में list/grid snapping से layout shift कम */
-.tf-grid-layout, .tf-grid-layout > * {
-scroll-margin: 0;
-scroll-snap-type: none;
-}
+  /* 14) iOS Safari में list/grid snapping से layout shift कम */
+  .tf-grid-layout,
+  .tf-grid-layout>* {
+    scroll-margin: 0;
+    scroll-snap-type: none;
+  }
 
-/* 15) iOS पर fixed backgrounds (parallax) jitters */
-.slider-parallax .wrap-slider,
-.flat-banner-parallax,
-.flat-banner-parallax-v2,
-.flat-banner-parallax-v3 {
-background-attachment: scroll !important;
-}
+  /* 15) iOS पर fixed backgrounds (parallax) jitters */
+  .slider-parallax .wrap-slider,
+  .flat-banner-parallax,
+  .flat-banner-parallax-v2,
+  .flat-banner-parallax-v3 {
+    background-attachment: scroll !important;
+  }
 }
 
 /* Extra robust 100vh fix (optional JS-less tweak) */
 @media screen and (max-width: 812px) and (orientation: portrait) {
-.tf-slideshow .wrap-slider,
-.slider-parallax .wrap-slider {
-min-height: 100vh;
-}
+
+  .tf-slideshow .wrap-slider,
+  .slider-parallax .wrap-slider {
+    min-height: 100vh;
+  }
 }
 
 /* iOS Safari specific safe-area fallback */
 @supports (padding: max(0px)) {
-.tf-toolbar-bottom {
-padding-bottom: max(15px, env(safe-area-inset-bottom));
-}
+  .tf-toolbar-bottom {
+    padding-bottom: max(15px, env(safe-area-inset-bottom));
+  }
 }
