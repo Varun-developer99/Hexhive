@@ -37,9 +37,15 @@
                 <del class="original-price">₹{{ $product->mrp_price }}</del>
                 <p class="save-text">You save ₹{{ $product->mrp_price - $product->sale_price }}</p>
             </div>
+            @auth
             <a href="#shoppingCart" class="btn-add-cart" data-bs-toggle="modal" onclick="add_to_cart({{ $product->id }}, 'Single', 'Add to cart')">
                 <span class="plus-icon">+</span> Add
             </a>
+            @else
+                <a href="#" data-bs-toggle="modal" data-bs-target="#global_modal" onclick="login_modal()" class="btn-add-cart">
+                    <span class="plus-icon">+</span> Add
+                </a>
+            @endauth
         </div>
     </div>
 </div>

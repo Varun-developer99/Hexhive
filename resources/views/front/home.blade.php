@@ -14,89 +14,16 @@
             <div dir="ltr" class="swiper tf-sw-slideshow" data-preview="1" data-tablet="1" data-mobile="1"
                 data-centered="false" data-space="0" data-space-mb="0" data-loop="true" data-auto-play="false">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="wrap-slider">
-                            <img src="{{ asset('front_assets/images/slider/slider-organic.webp') }}"
-                                alt="fashion-slideshow">
-                            {{-- <div class="box-content">
-                                <div class="content-slider">
-                                    <div class="box-title-slider">
-                                        <div class="fade-item fade-item-1 heading title-display text-white">Organic Fresh
-                                            <br> Produce
-                                        </div>
-                                        <p class="fade-item fade-item-2 body-text-1 text-white">Enjoy the best of nature
-                                            with our selection of fresh.</p>
-                                    </div>
-                                    <div class="fade-item fade-item-3 box-btn-slider">
-                                        <a href="shop-default-grid.html" class="tf-btn btn-fill btn-white"><span
-                                                class="text">Shop Now</span><i class="icon icon-arrowUpRight"></i></a>
-                                    </div>
+                    @if(isset($banners) && count($banners) > 0)
+                        @foreach($banners as $banner)
+                            <div class="swiper-slide">
+                                <div class="wrap-slider">
+                                    <img src="{{ $banner->image_url ?? asset('front_assets/images/slider/slider-organic.webp') }}"
+                                        alt="{{ $banner->name ?? 'fashion-slideshow' }}">
                                 </div>
-                            </div> --}}
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="wrap-slider">
-                            <img src="{{ asset('front_assets/images/slider/sauce.webp') }}" alt="fashion-slideshow">
-                            {{-- <div class="box-content">
-                                <div class="content-slider">
-                                    <div class="box-title-slider">
-                                        <div class="fade-item fade-item-1 heading title-display text-white">Fresh-Squeezed
-                                            <br> Orange Juice
-                                        </div>
-                                        <p class="fade-item fade-item-2 body-text-1 text-white">Enjoy the bright, tangy
-                                            flavor of freshly pressed oranges with every sip.</p>
-                                    </div>
-                                    <div class="fade-item fade-item-3 box-btn-slider">
-                                        <a href="shop-default-grid.html" class="tf-btn btn-fill btn-white"><span
-                                                class="text">Shop Now</span><i class="icon icon-arrowUpRight"></i></a>
-                                    </div>
-                                </div>
-                            </div> --}}
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="wrap-slider">
-                            <img src="{{ asset('front_assets/images/slider/slider-organic3.webp') }}"
-                                alt="fashion-slideshow">
-                            {{-- <div class="box-content">
-                                <div class="content-slider">
-                                    <div class="box-title-slider">
-                                        <div class="fade-item fade-item-1 heading title-display text-white">100% Organic
-                                            <br> Vegetables
-                                        </div>
-                                        <p class="fade-item fade-item-2 body-text-1 text-white">Savor the purest flavors
-                                            with our pesticide-free, farm-fresh produce.</p>
-                                    </div>
-                                    <div class="fade-item fade-item-3 box-btn-slider">
-                                        <a href="shop-default-grid.html" class="tf-btn btn-fill btn-white"><span
-                                                class="text">Shop Now</span><i class="icon icon-arrowUpRight"></i></a>
-                                    </div>
-                                </div>
-                            </div> --}}
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="wrap-slider">
-                            <img src="{{ asset('front_assets/images/slider/slider-organic2.webp') }}"
-                                alt="fashion-slideshow">
-                            {{-- <div class="box-content">
-                                <div class="content-slider">
-                                    <div class="box-title-slider">
-                                        <div class="fade-item fade-item-1 heading title-display text-white">100% Organic
-                                            <br> Vegetables
-                                        </div>
-                                        <p class="fade-item fade-item-2 body-text-1 text-white">Savor the purest flavors
-                                            with our pesticide-free, farm-fresh produce.</p>
-                                    </div>
-                                    <div class="fade-item fade-item-3 box-btn-slider">
-                                        <a href="shop-default-grid.html" class="tf-btn btn-fill btn-white"><span
-                                                class="text">Shop Now</span><i class="icon icon-arrowUpRight"></i></a>
-                                    </div>
-                                </div>
-                            </div> --}}
-                        </div>
-                    </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
             <div class="wrap-pagination">
@@ -205,7 +132,7 @@
             </div>
         </div>
     </section>
-    <!-- /Deal of the day -->
+    <!-- Deal of the day -->
     <!-- Collection -->
     <section class="flat-spacing pt-0">
         <div class="container">
@@ -213,50 +140,25 @@
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="collection-position-2 style-5 style-7 hover-img wow fadeInUp" data-wow-delay="0s">
                         <a class="img-style">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/collections/1 (1).webp') }}"
-                                src="{{ asset('front_assets/images/collections/1 (1).webp') }}" alt="banner-cls">
+                            <img class="lazyload" data-src="{{ asset('front_assets/images/collections/Black Forest Honey.webp') }}"
+                                src="{{ asset('front_assets/images/collections/Black Forest Honey.webp') }}" alt="banner-cls">
                         </a>
-                        {{-- <div class="content ">
-                            <span class="text-title text-white">Pure Organic-Vegan</span>
-                            <h4 class="title"><a href="#" class="link text-white">Fresh Veggie Combos Start from $22</a>
-                            </h4>
-                            <div>
-                                <a href="#" class="btn-line style-white">Shop Now</a>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="collection-position-2 style-5 style-7 hover-img wow fadeInUp" data-wow-delay="0.1s">
                         <a class="img-style">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/collections/2.webp') }}"
-                                src="{{ asset('front_assets/images/collections/2.webp') }}" alt="banner-cls">
+                            <img class="lazyload" data-src="{{ asset('front_assets/images/collections/Ginger Cube Honey.webp') }}"
+                                src="{{ asset('front_assets/images/collections/Ginger Cube Honey.webp') }}" alt="banner-cls">
                         </a>
-                        {{-- <div class="content">
-                            <span class="text-title text-white">Top-quality nuts and grains.</span>
-                            <h4 class="title"><a href="#" class="link text-white">Nut & Grain Combos Start from $22</a></h4>
-                            <div>
-                                <a href="#" class="btn-line style-white">Shop Now</a>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="collection-position-2 style-5 style-7 hover-img wow fadeInUp" data-wow-delay="0.2s">
                         <a class="img-style">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/collections/2.png') }}"
-                                src="{{ asset('front_assets/images/collections/3.webp') }}" alt="banner-cls">
+                            <img class="lazyload" data-src="{{ asset('front_assets/images/collections/Turmeric Honey.webp') }}"
+                                src="{{ asset('front_assets/images/collections/Turmeric Honey.webp') }}" alt="banner-cls">
                         </a>
-                        {{-- <div class="content">
-                            <span class="text-title text-white">Delicious and nutritious blends.</span>
-                            <h4 class="title"><a href="#" class="link text-white">Smoothie Essentials Bundle Start from
-                                    $22</a></h4>
-                            <div>
-                                <a href="#" class="btn-line style-white">Shop Now</a>
-                            </div>
-
-
-                        </div> --}}
                     </div>
                 </div>
             </div>

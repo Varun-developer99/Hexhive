@@ -49,13 +49,6 @@
             </a>
           </li>
           @endif
-          @if (Auth::user()->role_as == 'Admin')
-            <li class="sidebar-list">
-              <a class="sidebar-link sidebar-title link-nav" href="#">
-                <i data-feather="star"></i><span>All Reviews</span>
-              </a>
-            </li>
-          @endif
 
           <li class="sidebar-list">
             <a class="sidebar-link sidebar-title link-nav" href="{{ route('admin.coupon') }}">

@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Banners;
 use App\Models\Attribute;
 use App\Models\PolicyPage;
 use App\Models\ShopByBrand;
@@ -36,7 +37,9 @@ class FrontController extends Controller
     {
         $category = Category::where('status', 1)->get();
         $fresh_arrivals = Product::where('status', 1)->where('is_featured', 0)->inRandomOrder()->limit(8)->get();
-        return view('front.home', compact('fresh_arrivals','category'));
+        $banners = Banners::where('status', 1)->orderBy('id','asc')->get();
+
+        return view('front.home', compact('fresh_arrivals','category','banners'));
     }
 
     public function shop()
@@ -137,7 +140,6 @@ class FrontController extends Controller
     {
         $cart = Cart::where('user_id', Auth::user()->id)->get()->toArray();
         $user = Auth::user();
-        // dd($request->all());
         if(count($cart ?? []) > 0) {
             $input = $request->all();
             $input['created_by_id'] = $user->id;
@@ -154,22 +156,14 @@ class FrontController extends Controller
                 $order_details = OrderDetails::create($input);
                 $sub_total += $order_details->total_amount;
 
-                // if($order_details->order_type == 'Subscribe') {
-                //     $stock_history = new RentalStockHistory();
-                //     $order_details->rental_status = 'Pending';
-                //     $order_details->save();
-                // }else{
-                // }
                 $stock_history = new StockDetails();
                 $stock_history->created_by_id = Auth::user()->id;
                 $stock_history->created_by_role = Auth::user()->role_as;
                 $stock_history->product_id = $order_details->product_id;
-                // $stock_history->product_variant_id = $order_details->product_variant_id;
                 $stock_history->from = 'Place Order';
                 $stock_history->from_id = $order_details->id;
                 $stock_history->in_out = 'Out';
                 $stock_history->qty = $order_details->qty;
-                // $stock_history->variant_name = ($order_details->product_variant->variant_name ?? 'N/A');
                 $stock_history->save();
             }
             
@@ -243,8 +237,10 @@ class FrontController extends Controller
 
         return view('errors.404');
     }
+    
     public function policy_page_show($slug)
     {
+        dd(PolicyPage::where('slug', $slug)->first());
         if($policy_page = PolicyPage::where('slug', $slug)->first())
         {
             return view('front.policy_page_show', compact('policy_page'));

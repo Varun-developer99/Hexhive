@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\Models\Customer;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class CustomerController extends Controller
         if($request->value){
             $numbers = $request->value;
         }
-        $customers = Customer::where('deleted_at', null);
+        $customers = User::where('role_as', 'Customer')->where('deleted_at', null);
         if($request->search){
             $allColumnNames = Schema::getColumnListing((new Customer)->getTable());
             $columnNames = array_filter($allColumnNames, fn($columnName) => !in_array($columnName, ['created_at', 'updated_at', 'id']));

@@ -331,6 +331,3 @@ Route::get('create_opening_stock_history', [HomeController::class, 'create_openi
 Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
-
-
-

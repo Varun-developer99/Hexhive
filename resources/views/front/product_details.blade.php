@@ -1218,84 +1218,10 @@
     <script type="module" src="{{ asset('front_assets/js/zoom.js') }}"></script>
 
     <script>
-        // function change_rent_qty(value){
-        //     var rent_qty = parseInt($('#rent_qty').val() || 0);
-        //     var max_rent_qty = parseInt($('#rent_qty').attr('max') || 0);
-        //     rent_qty += value;
-        //     if(rent_qty < 1){ rent_qty = 1; }
-        //     if(rent_qty > max_rent_qty){ rent_qty = max_rent_qty;
-        //         $.notify({ message: 'Sorry we have only ' + max_rent_qty + ' items for subscription.' }, { type: 'danger', });
-        //     }
-        //     $('#rent_qty').val(rent_qty);
-        //     var per_day_rent = parseFloat($('#rent-btn').data('per_day_rent') || 0);
-        //     var rent_days = parseInt($('#rent_days').val() || 0);
-        //     var total_rent = per_day_rent * rent_qty * rent_days;
-        //     $('#total_rent_price').html('$' + total_rent + ' <small style="font-size:12px;"> </small>');
-        // }
-        // function change_rent_days(value){
-        //     var rent_days = parseInt($('#rent_days').val() || 0);
-        //     rent_days += value;
-        //     if(rent_days < 7){
-        //         rent_days = 7;
-        //         $.notify({ message: 'Minimum subscription period is 7 days.' }, { type: 'danger', });
-        //     }
-        //     $('#rent_days').val(rent_days);
-        //     var per_day_rent = parseFloat($('#rent-btn').data('per_day_rent') || 0);
-        //     var rent_qty = parseInt($('#rent_qty').val() || 0);
-        //     var total_rent = per_day_rent * rent_qty * rent_days;
-        //     $('#total_rent_price').html('$' + total_rent + ' <small style="font-size:12px;"> </small>');
-        // }
-        // function toggle_order_one_time_box() {
-        //     if ($('#one-time').is(':checked')) {
-        //         $('#order_one_time_box').show(300);
-        //         $('#order_subscribe_box').hide(300);
-        //     } else {
-        //         $('#order_one_time_box').hide(300);
-        //         $('#order_subscribe_box').show(300);
-        //     }
-        // }
-        // function calculate_combo_product_price() {
-        //     var sale_price = 0;
-        //     var mrp_price = 0;
-
-        //     $('.combo_product_sale_price').each(function() {
-        //         sale_price += parseFloat($(this).text().replace(/\$/g, ''));
-        //     });
-        //     $('.combo_product_mrp_price').each(function() {
-        //         mrp_price += parseFloat($(this).text().replace(/\$/g, ''));
-        //     });
-        //     sale_price = Math.round(sale_price);
-        //     mrp_price = Math.round(mrp_price);
-        //     $('#combo_product_total_sale_price').html('$' + sale_price + ' <small style="font-size:12px;"> </small>');
-        //     $('#combo_product_total_mrp_price').text('$' + mrp_price);
-        //     $('#combo_product_total_discount').text(Math.round((((mrp_price - sale_price) / mrp_price) * 100)) + '%');
-        // }
-
-        // function update_combo_product_price(product_id) {
-        //     var sale_price = ($('#combo_product_box_' + product_id + ' select option:selected').data('sale_price') || 0);
-        //     var mrp_price = ($('#combo_product_box_' + product_id + ' select option:selected').data('mrp_price') || 0);
-
-        //     $('#combo_product_box_' + product_id + ' .combo_product_sale_price').html('$' + sale_price +
-        //         ' <small style="font-size:12px;"> </small>');
-        //     $('#combo_product_box_' + product_id + ' .combo_product_mrp_price').text('$' + mrp_price);
-        //     $('#combo_product_box_' + product_id + ' .badges-on-sale').text(Math.round((((mrp_price - sale_price) /
-        //         mrp_price) * 100)) + '%');
-        //     if ($('#combo_product_box_' + product_id + ' select:selected').data('current_stock') == 0) {
-        //         $('#combo_product_box_' + product_id + ' .btn-add-to-cart').addClass('disabled');
-        //     } else {
-        //         $('#combo_product_box_' + product_id + ' .btn-add-to-cart').removeClass('disabled');
-        //     }
-        //     calculate_combo_product_price();
-        // }
-
-        // @foreach (json_decode($combo_product->product_ids ?? '[]') ?? [] as $product_id)
-        //     update_combo_product_price({{ $product_id }});
-        // @endforeach
-
-        // calculate_combo_product_price();
 
         function add_to_cart(product_id, order_type, btn_type) {
-            var qty = $('#order_qty').val();
+            var qty = $('#order_qty_' + product_id).val() || 1;
+            
             $.get('{{ route('ajax.add_to_cart') }}', {
                 product_id: product_id,
                 qty: qty,
@@ -1307,7 +1233,6 @@
                     if (btn_type == 'Buy now') {
                         window.location.href = "{{ route('front.checkout') }}";
                     }
-                    // $.notify({ title:'Success', message:data.message }, { type:'success', });
                 } else {
                     $.notify({
                         message: data.message

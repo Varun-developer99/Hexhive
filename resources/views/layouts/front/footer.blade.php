@@ -181,7 +181,7 @@
                                             </div>
                                         </div>
                                         <label class="text-caption-1" for="footer-Form_agree">
-                                            By clicking subcribe, you agree to the <a class="fw-6 link" href="{{ url('') }}/p/terms-and-conditions">Terms of Service</a> and <a class="fw-6 link" href="{{ url('') }}/p/privacy-policy">Privacy Policy</a>.
+                                            By clicking subcribe, you agree to the <a class="fw-6 link" href="#">Terms of Service</a> and <a class="fw-6 link" href="{{ route('front.policy_page.show', 'privacy-policy') }}">Privacy Policy</a>.
                                         </label>
                                     </div>
                                 </div>
