@@ -43,6 +43,37 @@ class ContactController extends Controller
         return view('admin.contact.datatable', compact('contacts'));
     }
 
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            if ($request->wantsJson() || $request->ajax()) {
+                return response()->json(['errors' => $validator->errors()], 422);
+            }
+
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $contact = new ContactForm();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
+        $contact->status = 'Pending';
+        $contact->save();
+
+        if ($request->wantsJson() || $request->ajax()) {
+            return response()->json(['message' => 'Contact Form Submitted Successfully'], 200);
+        }
+
+        return redirect()->back()->with('success', 'Contact Form Submitted Successfully');
+    }
 
     public function delete($id)
     {

@@ -748,7 +748,7 @@
         </div> --}}
     </section>
     <!-- /Product_Main -->
-    <div class="movalble_buttons">
+    <div class="movalble_buttons d-none">
         <!-- <a href="#overview" class="btn1">Overview</a> -->
         @if (($product->enable_product_benefits ?? 0) == 1)
             <a href="#product_benefits" class="btn2 me-1">Product Benefits</a>
@@ -765,85 +765,7 @@
         <a href="#reviews" class="btn7 me-1">Reviews</a>
     </div>
 
-    {{-- @if (($combo_product = combo_product_data($product->id) ?? '') != '')
-        <section class="pb-4">
-            <div class="container">
-                <div class="frequently-bought-together-2">
-                    <form action="{{ route('front.combo_product_add_to_cart') }}" method="POST"
-                        class="form-bundle-product type-cols">
-                        @csrf
-                        <h5 class="mb_16">Frequently Bought Together</h5>
-                        <div class="tf-bundle-products-wrap">
-                            @foreach (json_decode($combo_product->product_ids ?? '[]') ?? [] as $key => $product_id)
-                                @php
-                                    $product_variant = product_variants_data_with_product_id($product_id);
-                                @endphp
-                                <div
-                                    class="tf-bundle-product-item mb-3"id="combo_product_box_{{ $product_variant[0]->product_id }}">
-                                    <div class="tf-product-bundle-image">
-                                        <a href="{{ route('front.product', $product_variant[0]->product->slug ?? '') }}">
-                                            @foreach ($product_variant[0]->product->getMedia('main_img') ?? [] as $file)
-                                                <img src="{{ $file->getURL() ?? '#' }}" alt="product">
-                                            @endforeach
-                                        </a>
-                                    </div>
-                                    <div class="tf-product-bundle-infos">
-                                        <div class="text-title">{{ $product_variant[0]->product->name }}</div>
-                                        <div class="tf-product-bundle-variant tf-select">
-                                            <select class=""
-                                                name="combo_product[{{ $key }}][product_variant_id]"
-                                                onchange="update_combo_product_price({{ $product_variant[0]->product_id }})">
-                                                <option value="" disabled selected
-                                                    data-sale_price="{{ $product->sale_price }}"
-                                                    data-mrp_price="{{ $product->mrp_price }}">Select an option...
-                                                </option>
-                                                @foreach ($product_variant as $variant)
-                                                    <option value="{{ $variant->id }}"
-                                                        {{ product_variant_current_stock($variant->id) > 0 ? '' : 'disabled' }}
-                                                        data-sale_price="{{ $variant->sale_price }}"
-                                                        data-mrp_price="{{ $variant->mrp_price }}">
-                                                        @foreach (json_decode($variant->attribute_value_ids) as $attribute_value_id)
-                                                            {{ attribute_value_data($attribute_value_id)->name }}
-                                                            {{ $loop->last ? '' : '/' }}
-                                                        @endforeach
-                                                        <small>({{ product_variant_current_stock($variant->id) > 0 ? 'In Stock' : 'Out of Stock' }})</small>
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="tf-product-info-price type-small">
-                                            <h5 class="combo_product_sale_price">$00.00</h5>
-                                            <div class="combo_product_mrp_price">$00.00</div>
-                                            <div class="badges-on-sale">0%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                            <div class="tf-bundle-product-total-submit">
-                                <h6>Total price:</h6>
-                                <div class="tf-product-info-price type-1">
-                                    <h4 class="" id="combo_product_total_sale_price">$00.00</h4>
-                                    <div class="" id="combo_product_total_mrp_price">$00.00</div>
-                                    <div class="badges-on-sale" id="combo_product_total_discount">0%</div>
-                                </div>
-                                @auth
-                                    <button type="submit" class="tf-bundle-product-btn btn-style-2 text-btn-uppercase">Add to
-                                        cart</button>
-                                @else
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#global_modal"
-                                        onclick="login_modal()"
-                                        class="tf-bundle-product-btn btn-style-2 text-btn-uppercase">Add to cart</a>
-                                @endauth
-                            </div>
-                        </div>
-
-
-                    </form>
-                </div>
-            </div>
-        </section>
-    @endif --}}
+    
     <!-- Slider -->
     @if (($product->enable_product_benefits ?? 0) == 1)
         <section class="flat-spacing pb-4" id="product_benefits">
@@ -856,17 +778,6 @@
                                 <div class="swiper-slide">
                                     <div class="wrap-slider">
                                         <img src="{{ $file->getURL() ?? '#' }}" alt="fashion-slideshow">
-                                        {{-- <div class="box-content">
-                                    <div class="content-slider">
-                                        <div class="box-title-slider">
-                                            <p class="fade-item fade-item-1 subheading text-btn-uppercase text-white"> collection Summer 2024</p>
-                                            <div class="fade-item fade-item-2 heading text-white title-display">Be The First <br> To Wear</div>
-                                        </div>
-                                        <div class="fade-item fade-item-3 box-btn-slider">
-                                            <a href="shop-default-grid.html" class="tf-btn btn-fill btn-white"><span  class="text">Explore Collection</span><i class="icon icon-arrowUpRight"></i></a>
-                                        </div>
-                                    </div>
-                                </div> --}}
                                     </div>
                                 </div>
                             @endforeach

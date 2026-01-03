@@ -26,7 +26,6 @@ use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PolicyPageController;
 use App\Http\Controllers\Admin\TopBarTextController;
-use App\Http\Controllers\Admin\ContactFormController;
 use App\Http\Controllers\Admin\ShopByBrandController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ComboProductController;
@@ -207,12 +206,7 @@ Route::group(['middleware' => ['auth','is_Admin'], 'prefix' => 'admin'], functio
     Route::get('top_bar_text/edit', [TopBarTextController::class, 'edit'])->name('admin.top_bar_text.edit');
     Route::get('top_bar_text/delete/{id}', [TopBarTextController::class, 'delete'])->name('admin.top_bar_text.delete');
     Route::get('top_bar_text/status/{id}', [TopBarTextController::class, 'status'])->name('admin.top_bar_text.status');
-    // Contact Form
-    Route::get('contact_form', [ContactFormController::class, 'index'])->name('admin.contact_form');
-    Route::get('contact_form/datatable', [ContactFormController::class, 'datatable'])->name('admin.contact_form.datatable');
-    Route::get('contact_form/edit', [ContactFormController::class, 'edit'])->name('admin.contact_form.edit');
-    Route::get('contact_form/delete/{id}', [ContactFormController::class, 'delete'])->name('admin.contact_form.delete');
-    Route::get('contact_form/status/{id}', [ContactFormController::class, 'status'])->name('admin.contact_form.status');
+    
     // Newsletter Controller
     Route::get('newsletter', [NewsletterController::class, 'index'])->name('admin.newsletter');
     Route::get('newsletter/datatable', [NewsletterController::class, 'datatable'])->name('admin.newsletter.datatable');
@@ -304,8 +298,7 @@ Route::get('blog/{slug}', [FrontController::class, 'blog_show'])->name('front.bl
 Route::get('p/{slug}', [FrontController::class, 'policy_page_show'])->name('front.policy_page.show');
 Route::post('combo_product_add_to_cart', [FrontController::class, 'combo_product_add_to_cart'])->name('front.combo_product_add_to_cart');
 
-Route::post('contact/insert', [ContactFormController::class, 'insert'])->name('front.contact.insert');
-Route::post('newsletter/insert', [NewsletterController::class, 'insert'])->name('front.newsletter.insert');
+Route::post('contact/insert', [ContactController::class, 'store'])->name('front.contact.insert');
 
 // Ajax Route
 Route::get('ajax/login_modal', [AjaxController::class, 'login_modal'])->name('ajax.login_modal');

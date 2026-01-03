@@ -6,9 +6,10 @@ use App\Models\Blog;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Coupon;
+use App\Models\Policy;
+use App\Models\Banners;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Banners;
 use App\Models\Attribute;
 use App\Models\PolicyPage;
 use App\Models\ShopByBrand;
@@ -240,8 +241,7 @@ class FrontController extends Controller
     
     public function policy_page_show($slug)
     {
-        dd(PolicyPage::where('slug', $slug)->first());
-        if($policy_page = PolicyPage::where('slug', $slug)->first())
+        if($policy_page = Policy::where('slug', $slug)->first())
         {
             return view('front.policy_page_show', compact('policy_page'));
         }
