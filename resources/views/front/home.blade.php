@@ -165,126 +165,165 @@
         </div>
     </section>
 
-    <!-- Gallery shop gram -->
-    <section>
+      <!-- Top picks -->
+       <section class="flat-spacing">
         <div class="container">
-            <div class="heading-section text-center">
-                <h3 class="heading wow fadeInUp">Shop Instagram</h3>
-                <p class="subheading text-secondary wow fadeInUp">Elevate your wardrobe with fresh finds today!</p>
+            <div class="heading-section text-center wow fadeInUp">
+                <h3 class="heading">Show Trending Product</h3>
+                <p class="subheading text-secondary">Fresh styles just in! Elevate your look.</p>
             </div>
-            <div dir="ltr" class="swiper tf-sw-shop-gallery" data-preview="5" data-tablet="3" data-mobile="2"
-                data-space-lg="10" data-space-md="10" data-space="8" data-pagination="2" data-pagination-md="3"
-                data-pagination-lg="1">
+            <div dir="ltr" class="swiper tf-sw-recent" data-preview="5" data-tablet="3" data-mobile="2" data-space-lg="30"
+                data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
                 <div class="swiper-wrapper">
+                    <!-- 1 -->
+                    {{-- @foreach($fresh_arrivals as $prod)
                     <div class="swiper-slide">
-                        <div class="gallery-item hover-overlay hover-img wow fadeInUp" data-wow-delay=".1s">
-                            <div class="img-style">
-                                <img class="lazyload img-hover"
-                                    data-src="{{ asset('front_assets/images/gallery/gallery-1.jpg') }}"
-                                    src="{{ asset('front_assets/images/gallery/gallery-1.jpg') }}" alt="image-gallery">
+                        <div class="card-product card-product-size wow fadeInUp" data-wow-delay="0s">
+                            <div class="card-product-wrapper">
+                                <!-- Discount Badge -->
+                                @if($prod->sale_price < $prod->mrp_price)
+                                    @php
+                                    $discount = round((($prod->mrp_price - $prod->sale_price) / $prod->mrp_price) * 100);
+                                    @endphp
+                                    <div class="discount-badge">{{ $discount }}% OFF</div>
+                                    @endif
+
+                                    <a href="{{ route('front.product', $prod->slug) }}" class="product-img">
+                                        <img class="lazyload img-product" data-src="{{ $prod->thumb_url }}"
+                                            src="{{ $prod->thumb_url }}" alt="image-product">
+                                        <img class="lazyload img-hover" data-src="{{ $prod->thumb_url }}"
+                                            src="{{ $prod->thumb_url }}" alt="image-product">
+                                    </a>
+                                    <div class="list-btn-main">
+                                        <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product"
+                                            onclick="add_to_cart({{ $prod->id }}, 'Single', 'Add to cart')">Quick Add</a>
+                                    </div>
                             </div>
-                            <a href="product-detail.html" class="box-icon hover-tooltip"><span class="icon icon-eye"></span>
-                                <span class="tooltip">View Product</span></a>
+                            <div class="card-product-info">
+                                <a href="{{ route('front.shop') }}" class="title link">{{ $prod->name }}</a>
+                                <span class="price">₹{{ $prod->sale_price }} <del class="text-secondary ms-2">₹{{
+                                        $prod->mrp_price }}</del></span>
+                                <p class="save-text">You save ₹{{ $prod->mrp_price - $prod->sale_price }}</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item hover-overlay hover-img wow fadeInUp" data-wow-delay=".2s">
-                            <div class="img-style">
-                                <img class="lazyload img-hover"
-                                    data-src="{{ asset('front_assets/images/gallery/gallery-2.jpg') }}"
-                                    src="{{ asset('front_assets/images/gallery/gallery-2.jpg') }}" alt="image-gallery">
-                            </div>
-                            <a href="product-detail.html" class="box-icon hover-tooltip"><span class="icon icon-eye"></span>
-                                <span class="tooltip">View Product</span></a>
+                    @endforeach --}}
+                    @foreach($fresh_arrivals as $product)
+                        <div class="swiper-slide">
+                            @include('front/product_card')
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item hover-overlay hover-img wow fadeInUp" data-wow-delay=".3s">
-                            <div class="img-style">
-                                <img class="lazyload img-hover"
-                                    data-src="{{ asset('front_assets/images/gallery/gallery-3.jpg') }}"
-                                    src="{{ asset('front_assets/images/gallery/gallery-3.jpg') }}" alt="image-gallery">
-                            </div>
-                            <a href="product-detail.html" class="box-icon hover-tooltip"><span class="icon icon-eye"></span>
-                                <span class="tooltip">View Product</span></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item hover-overlay hover-img wow fadeInUp" data-wow-delay=".4s">
-                            <div class="img-style">
-                                <img class="lazyload img-hover"
-                                    data-src="{{ asset('front_assets/images/gallery/gallery-4.jpg') }}"
-                                    src="{{ asset('front_assets/images/gallery/gallery-4.jpg') }}" alt="image-gallery">
-                            </div>
-                            <a href="product-detail.html" class="box-icon hover-tooltip"><span class="icon icon-eye"></span>
-                                <span class="tooltip">View Product</span></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gallery-item hover-overlay hover-img wow fadeInUp" data-wow-delay=".5s">
-                            <div class="img-style">
-                                <img class="lazyload img-hover"
-                                    data-src="{{ asset('front_assets/images/gallery/gallery-5.jpg') }}"
-                                    src="{{ asset('front_assets/images/gallery/gallery-5.jpg') }}" alt="image-gallery">
-                            </div>
-                            <a href="product-detail.html" class="box-icon hover-tooltip"><span class="icon icon-eye"></span>
-                                <span class="tooltip">View Product</span></a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="sw-pagination-gallery sw-dots type-circle justify-content-center"></div>
+                <div class="sw-pagination-recent sw-dots type-circle justify-content-center"></div>
             </div>
         </div>
     </section>
-    <!-- /Gallery shop gram -->
-    <!-- Iconbox -->
+        <!-- /Top picks -->
+
+        <section class="flat-spacing">
+        <div class="container">
+            <div class="heading-section text-center wow fadeInUp">
+                <h3 class="heading">Top Selling Products</h3>
+                <p class="subheading text-secondary">Fresh styles just in! Elevate your look.</p>
+            </div>
+            <div dir="ltr" class="swiper tf-sw-recent" data-preview="5" data-tablet="3" data-mobile="2" data-space-lg="30"
+                data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
+                <div class="swiper-wrapper">
+                    <!-- 1 -->
+                    {{-- @foreach($fresh_arrivals as $prod)
+                    <div class="swiper-slide">
+                        <div class="card-product card-product-size wow fadeInUp" data-wow-delay="0s">
+                            <div class="card-product-wrapper">
+                                <!-- Discount Badge -->
+                                @if($prod->sale_price < $prod->mrp_price)
+                                    @php
+                                    $discount = round((($prod->mrp_price - $prod->sale_price) / $prod->mrp_price) * 100);
+                                    @endphp
+                                    <div class="discount-badge">{{ $discount }}% OFF</div>
+                                    @endif
+
+                                    <a href="{{ route('front.product', $prod->slug) }}" class="product-img">
+                                        <img class="lazyload img-product" data-src="{{ $prod->thumb_url }}"
+                                            src="{{ $prod->thumb_url }}" alt="image-product">
+                                        <img class="lazyload img-hover" data-src="{{ $prod->thumb_url }}"
+                                            src="{{ $prod->thumb_url }}" alt="image-product">
+                                    </a>
+                                    <div class="list-btn-main">
+                                        <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product"
+                                            onclick="add_to_cart({{ $prod->id }}, 'Single', 'Add to cart')">Quick Add</a>
+                                    </div>
+                            </div>
+                            <div class="card-product-info">
+                                <a href="{{ route('front.shop') }}" class="title link">{{ $prod->name }}</a>
+                                <span class="price">₹{{ $prod->sale_price }} <del class="text-secondary ms-2">₹{{
+                                        $prod->mrp_price }}</del></span>
+                                <p class="save-text">You save ₹{{ $prod->mrp_price - $prod->sale_price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach --}}
+                    @foreach($fresh_arrivals as $product)
+                        <div class="swiper-slide">
+                            @include('front/product_card')
+                        </div>
+                    @endforeach
+                </div>
+                <div class="sw-pagination-recent sw-dots type-circle justify-content-center"></div>
+            </div>
+        </div>
+    </section>
+
     <section class="flat-spacing">
         <div class="container">
-            <div dir="ltr" class="swiper tf-sw-iconbox" data-preview="4" data-tablet="3" data-mobile-sm="2" data-mobile="1"
-                data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-sm="2"
-                data-pagination-md="3" data-pagination-lg="4">
+            <div class="heading-section text-center wow fadeInUp">
+                <h3 class="heading">Combo Products</h3>
+                <p class="subheading text-secondary">Fresh styles just in! Elevate your look.</p>
+            </div>
+            <div dir="ltr" class="swiper tf-sw-recent" data-preview="5" data-tablet="3" data-mobile="2" data-space-lg="30"
+                data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
                 <div class="swiper-wrapper">
+                    <!-- 1 -->
+                    {{-- @foreach($fresh_arrivals as $prod)
                     <div class="swiper-slide">
-                        <div class="tf-icon-box">
-                            <div class="icon-box"><span class="icon icon-return"></span></div>
-                            <div class="content text-center">
-                                <h6>14-Day Returns</h6>
-                                <p class="text-secondary">Risk-free shopping with easy returns.</p>
+                        <div class="card-product card-product-size wow fadeInUp" data-wow-delay="0s">
+                            <div class="card-product-wrapper">
+                                <!-- Discount Badge -->
+                                @if($prod->sale_price < $prod->mrp_price)
+                                    @php
+                                    $discount = round((($prod->mrp_price - $prod->sale_price) / $prod->mrp_price) * 100);
+                                    @endphp
+                                    <div class="discount-badge">{{ $discount }}% OFF</div>
+                                    @endif
+
+                                    <a href="{{ route('front.product', $prod->slug) }}" class="product-img">
+                                        <img class="lazyload img-product" data-src="{{ $prod->thumb_url }}"
+                                            src="{{ $prod->thumb_url }}" alt="image-product">
+                                        <img class="lazyload img-hover" data-src="{{ $prod->thumb_url }}"
+                                            src="{{ $prod->thumb_url }}" alt="image-product">
+                                    </a>
+                                    <div class="list-btn-main">
+                                        <a href="#shoppingCart" data-bs-toggle="modal" class="btn-main-product"
+                                            onclick="add_to_cart({{ $prod->id }}, 'Single', 'Add to cart')">Quick Add</a>
+                                    </div>
+                            </div>
+                            <div class="card-product-info">
+                                <a href="{{ route('front.shop') }}" class="title link">{{ $prod->name }}</a>
+                                <span class="price">₹{{ $prod->sale_price }} <del class="text-secondary ms-2">₹{{
+                                        $prod->mrp_price }}</del></span>
+                                <p class="save-text">You save ₹{{ $prod->mrp_price - $prod->sale_price }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="tf-icon-box">
-                            <div class="icon-box"><span class="icon icon-shipping"></span></div>
-                            <div class="content text-center">
-                                <h6>Free Shipping</h6>
-                                <p class="text-secondary">No extra costs, just the price you see.</p>
-                            </div>
+                    @endforeach --}}
+                    @foreach($fresh_arrivals as $product)
+                        <div class="swiper-slide">
+                            @include('front/product_card')
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tf-icon-box">
-                            <div class="icon-box"><span class="icon icon-headset"></span></div>
-                            <div class="content text-center">
-                                <h6>24/7 Support</h6>
-                                <p class="text-secondary">24/7 support, always here just for you</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tf-icon-box">
-                            <div class="icon-box"><span class="icon icon-sealCheck"></span></div>
-                            <div class="content text-center">
-                                <h6>Member Discounts</h6>
-                                <p class="text-secondary">Special prices for our loyal customers.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="sw-pagination-iconbox sw-dots type-circle justify-content-center"></div>
+                <div class="sw-pagination-recent sw-dots type-circle justify-content-center"></div>
             </div>
         </div>
     </section>
-    <!-- /Iconbox -->
 
 @endsection

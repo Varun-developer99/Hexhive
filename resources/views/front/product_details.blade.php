@@ -1184,7 +1184,7 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active show" id="ralatedProducts" role="tabpanel">
-                    <div dir="ltr" class="swiper tf-sw-latest" data-preview="6" data-tablet="4" data-mobile="2"
+                    <div dir="ltr" class="swiper tf-sw-latest" data-preview="5" data-tablet="4" data-mobile="2"
                         data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1"
                         data-pagination-md="1" data-pagination-lg="1">
                         <div class="swiper-wrapper">
