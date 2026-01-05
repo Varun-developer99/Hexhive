@@ -123,14 +123,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="payment-item">
+                                            <div class="payment-item d-none">
                                                 <label for="delivery-method" class="payment-header collapsed" data-bs-toggle="collapse" data-bs-target="#delivery-payment" aria-controls="delivery-payment">
                                                     <input type="radio" name="payment-method" class="tf-check-rounded" id="delivery-method">
                                                     <span class="text-title">Cash on delivery</span>
                                                 </label>
                                                 <div id="delivery-payment" class="collapse" data-bs-parent="#payment-box"></div>
                                             </div>
-                                            <div class="payment-item">
+                                            <div class="payment-item d-none">
                                                 <label for="apple-method" class="payment-header collapsed" data-bs-toggle="collapse" data-bs-target="#apple-payment" aria-controls="apple-payment">
                                                     <input type="radio" name="payment-method" class="tf-check-rounded" id="apple-method">
                                                     <span class="text-title apple-pay-title"><img src="{{ asset('front_assets/images/payment/applePay.png') }}" alt="apple"> Apple Pay</span>
@@ -145,7 +145,7 @@
                                                 <div id="paypal-method-payment" class="collapse" data-bs-parent="#payment-box"></div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="tf-btn btn-reset w-100 mt-3">Make Payment</button>
+                                        <button type="button" class="tf-btn btn-reset w-100 mt-3" id="payBtn">Make Payment</button>
                                     </form>
                                 </div>
                             </div>
@@ -187,69 +187,7 @@
                                         </div>
                                         @endforeach
                                     </div>
-                                    {{-- <div class="sec-discount">
-                                        <div dir="ltr" class="swiper tf-sw-categories swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden" data-preview="2.25" data-tablet="3" data-mobile-sm="2.5" data-mobile="1.2" data-space-lg="20" data-space-md="20" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
-                                            <div class="swiper-wrapper" id="swiper-wrapper-2f4a22757f9f98810" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
-                                                <div class="swiper-slide swiper-slide-active" style="width: 220px; margin-right: 20px;" role="group" aria-label="1 / 3">
-                                                    <div class="box-discount">
-                                                        <div class="discount-top">
-                                                            <div class="discount-off">
-                                                                <div class="text-caption-1">Discount</div>
-                                                                <span class="sale-off text-btn-uppercase">10% OFF</span>
-                                                            </div>
-                                                            <div class="discount-from">
-                                                                <p class="text-caption-1">For all orders <br> from 200$</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="discount-bot">
-                                                            <span class="text-btn-uppercase">Mo234231</span>
-                                                            <button class="tf-btn"><span class="text">Apply Code</span></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide swiper-slide-next" style="width: 220px; margin-right: 20px;" role="group" aria-label="2 / 3">
-                                                    <div class="box-discount active">
-                                                        <div class="discount-top">
-                                                            <div class="discount-off">
-                                                                <div class="text-caption-1">Discount</div>
-                                                                <span class="sale-off text-btn-uppercase">10% OFF</span>
-                                                            </div>
-                                                            <div class="discount-from">
-                                                                <p class="text-caption-1">For all orders <br> from 200$</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="discount-bot">
-                                                            <span class="text-btn-uppercase">Mo234231</span>
-                                                            <button class="tf-btn"><span class="text">Apply Code</span></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide" role="group" aria-label="3 / 3" style="width: 220px; margin-right: 20px;">
-                                                    <div class="box-discount">
-                                                        <div class="discount-top">
-                                                            <div class="discount-off">
-                                                                <div class="text-caption-1">Discount</div>
-                                                                <span class="sale-off text-btn-uppercase">10% OFF</span>
-                                                            </div>
-                                                            <div class="discount-from">
-                                                                <p class="text-caption-1">For all orders <br> from 200$</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="discount-bot">
-                                                            <span class="text-btn-uppercase">Mo234231</span>
-                                                            <button class="tf-btn"><span class="text">Apply Code</span></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-                                        <div class="ip-discount-code">
-                                            <input type="text" placeholder="Add voucher discount">
-                                            <button class="tf-btn"><span class="text">Apply Code</span></button>
-                                        </div>
-                                        <p>Discount code is only used for orders with a total value of products over $500.00</p>  
-                                    </div> --}}
+                                    
                                     <div class="sec-total-price">
                                         <div class="top">
                                             <div class="item d-flex align-items-center justify-content-between text-button">
@@ -286,5 +224,145 @@
 @endsection
 
 @section('scripts')
-   
+   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+   <script>
+    document.getElementById('payBtn').onclick = function (e) {
+        e.preventDefault();
+
+        // Validate form fields
+        const form = document.querySelector('form');
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        // Calculate total amount
+        const subTotal = {{ $sub_total = $cart->sum('total_amount') }};
+        const discountAmount = {{ $discount_amount = ($sub_total * ($item->coupon->discount ?? 0)) / 100 }};
+        const afterDiscount = subTotal - discountAmount;
+        const taxAmount = {{ calculate_tax($sub_total - ($discount_amount ?? 0)) }};
+        const shippingCost = {{ $sub_total >= 500 ? 0 : shipping_cost() }};
+        const grandTotal = afterDiscount + shippingCost;
+
+        // Create Razorpay order
+        fetch("{{ route('front.razorpay.create_order') }}", {
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ amount: grandTotal })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) {
+                alert('Error creating order: ' + data.error);
+                return;
+            }
+
+            var options = {
+                "key": data.key,
+                "amount": data.amount,
+                "currency": "INR",
+                "name": "HexHive",
+                "description": "Order Payment",
+                "image": "{{ asset('front_assets/images/logo.png') }}",
+                "order_id": data.order_id,
+                "handler": function (response) {
+                    // Payment successful, verify and place order
+                    verifyPaymentAndPlaceOrder(response);
+                },
+                "prefill": {
+                    "name": document.querySelector('input[name="name"]').value,
+                    "email": "{{ auth()->user()->email }}",
+                    "contact": document.querySelector('input[name="phone"]').value
+                },
+                "theme": {
+                    "color": "#3399cc"
+                },
+                "modal": {
+                    "ondismiss": function() {
+                        console.log('Payment cancelled by user');
+                    }
+                }
+            };
+
+            var rzp = new Razorpay(options);
+            rzp.on('payment.failed', function (response){
+                alert('Payment failed: ' + response.error.description);
+            });
+            rzp.open();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Something went wrong. Please try again.');
+        });
+    }
+
+    function verifyPaymentAndPlaceOrder(paymentResponse) {
+        // Show loading state
+        document.getElementById('payBtn').disabled = true;
+        document.getElementById('payBtn').innerText = 'Processing...';
+
+        // Verify payment and place order
+        fetch("{{ route('front.razorpay.verify_payment') }}", {
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                razorpay_order_id: paymentResponse.razorpay_order_id,
+                razorpay_payment_id: paymentResponse.razorpay_payment_id,
+                razorpay_signature: paymentResponse.razorpay_signature
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                // Now submit the form with payment details
+                const form = document.querySelector('form');
+                
+                // Add payment details to form
+                const paymentMethodInput = document.createElement('input');
+                paymentMethodInput.type = 'hidden';
+                paymentMethodInput.name = 'payment_method';
+                paymentMethodInput.value = 'Razorpay';
+                form.appendChild(paymentMethodInput);
+
+                const paymentStatusInput = document.createElement('input');
+                paymentStatusInput.type = 'hidden';
+                paymentStatusInput.name = 'payment_status';
+                paymentStatusInput.value = 'Paid';
+                form.appendChild(paymentStatusInput);
+
+                const paymentIdInput = document.createElement('input');
+                paymentIdInput.type = 'hidden';
+                paymentIdInput.name = 'payment_id';
+                paymentIdInput.value = paymentResponse.razorpay_payment_id;
+                form.appendChild(paymentIdInput);
+
+                const orderIdInput = document.createElement('input');
+                orderIdInput.type = 'hidden';
+                orderIdInput.name = 'razorpay_order_id';
+                orderIdInput.value = paymentResponse.razorpay_order_id;
+                form.appendChild(orderIdInput);
+
+                // Submit the form
+                form.submit();
+            } else {
+                alert('Payment verification failed. Please contact support.');
+                document.getElementById('payBtn').disabled = false;
+                document.getElementById('payBtn').innerText = 'Make Payment';
+            }
+        })
+        .catch(error => {
+            console.error('Verification Error:', error);
+            alert('Payment verification failed. Please contact support.');
+            document.getElementById('payBtn').disabled = false;
+            document.getElementById('payBtn').innerText = 'Make Payment';
+        });
+    }
+    </script>
 @endsection

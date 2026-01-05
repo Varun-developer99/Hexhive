@@ -283,6 +283,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('add_review', [FrontController::class, 'add_review'])->name('front.add_review');
     Route::get('cancel_review/{product_id}', [FrontController::class, 'cancel_review'])->name('front.cancel_review');
     Route::get('order/invoice/{id}', [CustomerDashboardController::class, 'download_invoice'])->name('front.order.invoice');
+    
+    // Razorpay Routes
+    Route::post('razorpay/create-order', [FrontController::class, 'razorpayCreateOrder'])->name('front.razorpay.create_order');
+    Route::post('razorpay/verify-payment', [FrontController::class, 'razorpayVerifyPayment'])->name('front.razorpay.verify_payment');
     Route::get('apply_coupon', [FrontController::class, 'apply_coupon'])->name('front.apply_coupon');
     Route::get('remove_coupon', [FrontController::class, 'remove_coupon'])->name('front.remove_coupon');
 });
@@ -324,3 +328,8 @@ Route::get('create_opening_stock_history', [HomeController::class, 'create_openi
 Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
+
+
+//Razorpay Test
+Route::post('/razorpay/order', [PaymentController::class, 'createOrder'])->name('razorpay.order');
+Route::post('/razorpay/verify', [PaymentController::class, 'verifyPayment']);

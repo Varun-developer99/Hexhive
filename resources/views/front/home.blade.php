@@ -18,7 +18,11 @@
                         @foreach($banners as $banner)
                             <div class="swiper-slide">
                                 <div class="wrap-slider">
-                                    <img src="{{ $banner->image_url ?? asset('front_assets/images/slider/slider-organic.webp') }}"
+                                    <img class="d-none d-md-block" 
+                                        src="{{ $banner->image_url ?? asset('front_assets/images/slider/slider-organic.webp') }}"
+                                        alt="{{ $banner->name ?? 'fashion-slideshow' }}">
+                                    <img class="d-block d-md-none" 
+                                        src="{{ $banner->mobile_image_url ?? $banner->image_url ?? asset('front_assets/images/slider/slider-organic.webp') }}"
                                         alt="{{ $banner->name ?? 'fashion-slideshow' }}">
                                 </div>
                             </div>

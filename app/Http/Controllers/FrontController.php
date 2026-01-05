@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Razorpay\Api\Api;
 use App\Models\Blog;
 use App\Models\Cart;
 use App\Models\Order;
@@ -146,6 +147,17 @@ class FrontController extends Controller
             $input['created_by_id'] = $user->id;
             $input['user_id'] = $user->id;
             $input['email'] = $user->email;
+            
+            // Store payment details if available
+            $input['payment_method'] = $request->payment_method ?? 'COD';
+            $input['payment_status'] = $request->payment_status ?? 'Pending';
+            if ($request->payment_id) {
+                $input['payment_id'] = $request->payment_id;
+            }
+            if ($request->razorpay_order_id) {
+                $input['razorpay_order_id'] = $request->razorpay_order_id;
+            }
+            
             $order = Order::create($input);
 
             $sub_total = 0;
@@ -187,7 +199,6 @@ class FrontController extends Controller
             $order->tax_amount = calculate_tax($sub_total);
             $order->grand_total = $sub_total + $order->shipping_cost;
             $order->order_no = 'H/ORD-000'.$order->id;
-            $order->payment_status = 'Pending';
             $order->order_status = 'Order Placed';
             $order->save();
 
@@ -292,5 +303,45 @@ class FrontController extends Controller
         return redirect()->back()->with('success','Review Deleted Successfully');
     }
     
+    public function razorpayCreateOrder(Request $request)
+    {
+        try {
+            $api = new Api(
+                env('RAZORPAY_KEY'),
+                env('RAZORPAY_SECRET')
+            );
 
+            $order = $api->order->create([
+                'receipt'  => 'order_rcptid_'.time(),
+                'amount'   => $request->amount * 100, // rupees → paise
+                'currency' => 'INR'
+            ]);
+
+            return response()->json([
+                'order_id' => $order['id'],
+                'key' => env('RAZORPAY_KEY'),
+                'amount' => $request->amount * 100
+            ]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
+    public function razorpayVerifyPayment(Request $request)
+    {
+        try {
+            $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+
+            $attributes = [
+                'razorpay_order_id' => $request->razorpay_order_id,
+                'razorpay_payment_id' => $request->razorpay_payment_id,
+                'razorpay_signature' => $request->razorpay_signature
+            ];
+
+            $api->utility->verifyPaymentSignature($attributes);
+            return response()->json(['status' => 'success']);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'failed', 'message' => $e->getMessage()], 400);
+        }
+    }
 }

@@ -27,6 +27,8 @@ class Order extends Model
         'order_status',
         'payment_method',
         'payment_status',
+        'payment_id',
+        'razorpay_order_id',
         'sub_total',
         'shipping_cost',
         'tax_amount',
