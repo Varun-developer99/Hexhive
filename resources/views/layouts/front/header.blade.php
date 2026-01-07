@@ -23,6 +23,9 @@
                                 <li class="menu-item {{ Route::is('front.shop') ? 'active' : '' }}">
                                     <a href="{{ route('front.shop') }}" class="item-link">Shop</a>
                                 </li>
+                                <li class="menu-item {{ Route::is('front.blog') ? 'active' : '' }}">
+                                    <a href="{{ route('front.blog') }}" class="item-link">Blog</a>
+                                </li>
                                 <li class="menu-item position-relative {{ Route::is('front.contact_us') ? 'active' : '' }}">
                                     <a href="{{ route('front.contact_us') }}" class="item-link">Contact Us</a>
                                 </li>

@@ -12,7 +12,7 @@
 
         <!-- blog-detail -->
         <div class="blog-detail-wrap">
-            <div class="image" style="background-image: url({{ asset($blog->img ?? '#') }})"></div>
+            <div class="image" style="background-image: url({{ asset($blog->image_url ?? '#') }})"></div>
             <div class="inner">
                 <div class="heading">
                     <ul class="list-tags has-bg justify-content-center">
@@ -32,7 +32,7 @@
                             <div class="icon">
                                 <i class="icon-user"></i>
                             </div>
-                            <p class="body-text-1">by <a class="link" href="#">{{ $blog->created_by->name }}</a></p>
+                            <p class="body-text-1">by <a class="link" href="#">{{ $blog->created_by->name ?? 'Admin' }}</a></p>
                         </div>
                     </div>
                 </div>

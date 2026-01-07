@@ -13,7 +13,7 @@
 @section('content')
 
         <!-- page-title -->
-        <div class="page-title" style="background-image: url({{ asset('front_assets/images/section/page-title.jpg') }})">
+        <div class="page-title" style="background: linear-gradient( rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset('front_assets/images/section/6215.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
             
             <div class="container-full">
                 <div class="row">
@@ -44,7 +44,7 @@
                         @forelse ( $blogs as $blog)
                         <div class="wg-blog style-row hover-image mb_40">
                             <div class="image">
-                                <img class="lazyload" data-src="{{ asset( $blog->img ?? '#') }}" src="{{ asset( $blog->img ?? '#') }}" alt="">
+                                <img class="lazyload" data-src="{{ asset( $blog->image_url ?? '#') }}" src="{{ asset( $blog->image_url ?? '#') }}" alt="">
                             </div>
                             <div class="content">
                                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-10">
@@ -74,7 +74,7 @@
                             
                         @endforelse
                         
-                        {{$blogs->links('vendor.pagination.modav-theme')}}
+                        {{ $blogs->links() }}
                         {{-- <div class="pages">
                             <ul class="wg-pagination">
                                 <li>
@@ -117,7 +117,7 @@
                                 <div>
                                     <div class="relatest-post-item hover-image">
                                         <div class="image">
-                                            <img class="lazyload" data-src="{{ asset($latest_blog->img ?? '#') }}" src="{{ asset($latest_blog->img ?? '#') }}" alt="">
+                                            <img class="lazyload" data-src="{{ asset($latest_blog->image_url ?? '#') }}" src="{{ asset($latest_blog->image_url ?? '#') }}" alt="">
                                         </div>
                                         <div class="content">
                                             <div class="meta">
@@ -142,7 +142,7 @@
                                     @forelse ( $old_blogs as $old_blog)
                                     <div class="relatest-post-item style-row hover-image">
                                         <div class="image">
-                                            <img class="lazyload" data-src="{{ asset($old_blog->img ?? '#') }}" src="{{ asset($old_blog->img ?? '#') }}" alt="">
+                                            <img class="lazyload" data-src="{{ asset($old_blog->image_url ?? '#') }}" src="{{ asset($old_blog->image_url ?? '#') }}" alt="">
                                         </div>
                                         <div class="content">
                                             <div class="meta">

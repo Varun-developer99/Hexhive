@@ -35,7 +35,8 @@ if (!function_exists('cart_items_html')) {
     function cart_items_html($user_id)
     {
         $cart_items = Cart::where('user_id', $user_id)->get();
-        return view('front.ajax.add_to_cart_modal', compact('cart_items'))->render();
+        $related_products = Product::where('status', 1)->inRandomOrder()->take(10)->get();
+        return view('front.ajax.add_to_cart_modal', compact('cart_items', 'related_products'))->render();
     }
 }
 if (!function_exists('cart_items_data')) {

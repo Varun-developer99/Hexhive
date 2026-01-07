@@ -5,9 +5,11 @@
     <meta charset="utf-8">
     <title>@yield('title') - {{ env('APP_NAME') }}</title>
 
-    {{-- <meta name="author" content="themesflat.com"> --}}
+    {{--
+    <meta name="author" content="themesflat.com"> --}}
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    {{-- <meta name="description" content="Themesflat Modave, Multipurpose eCommerce Template"> --}}
+    {{--
+    <meta name="description" content="Themesflat Modave, Multipurpose eCommerce Template"> --}}
 
     <!-- font -->
     <link rel="stylesheet" href="{{ asset('front_assets/fonts/fonts.css') }}">
@@ -25,162 +27,512 @@
         .tf-btn:hover {
             color: #000000 !important;
         }
-        .text-clear *{
+
+        .text-clear * {
             list-style: revert;
         }
-        .notify-alert button{
+
+        .notify-alert button {
             padding: 0px 10px !important;
         }
-        .notify-alert{
+
+        .notify-alert {
             z-index: 9999999999 !important;
         }
-        .disabled { 
-            background-color: #e9ecef !important; /* Bootstrap's default disabled background */
-            cursor: not-allowed !important;   /* Shows a disabled cursor */
+
+        .disabled {
+            background-color: #e9ecef !important;
+            /* Bootstrap's default disabled background */
+            cursor: not-allowed !important;
+            /* Shows a disabled cursor */
         }
     </style>
     <style>
-    .card-product-wrapper {
-        position: relative;
-        overflow: hidden;
-    }
+        .card-product-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
 
-    .discount-badge {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        background: linear-gradient(135deg, #ff3366 0%, #ff1744 100%);
-        color: #ffffff;
-        padding: 8px 20px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 700;
-        text-transform: uppercase;
-        z-index: 10;
-        box-shadow: 0 4px 12px rgba(255, 23, 68, 0.3);
-        letter-spacing: 0.5px;
-    }
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #ff3366 0%, #ff1744 100%);
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(255, 23, 68, 0.3);
+            letter-spacing: 0.5px;
+        }
 
-    /* Brand and Category Meta */
-    .product-meta {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+        /* Brand and Category Meta */
+        .product-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    .brand-name {
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: #666666;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
+        .brand-name {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #666666;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
 
-    .category-name {
-        font-size: 11px;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: #999999;
-        letter-spacing: 0.3px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
+        .category-name {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #999999;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
 
-    .product-meta .separator {
-        color: #cccccc;
-        font-size: 10px;
-    }
+        .product-meta .separator {
+            color: #cccccc;
+            font-size: 10px;
+        }
 
 
-    /* Price and Button Same Line */
-    .price-action-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        /* margin-top: 12px; */
-        gap: 10px;
-    }
-
-    .price-1{
-        font-size: 16px;
-        line-height: 26px;
-        font-weight: 600;
-        /* display: flex; */
-
-    }
-    .price-wrapper {
-        /* display: flex; */
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    .price-wrapper .price {
-        font-size: 20px;
-        font-weight: 700;
-        color: #000000;
-    }
-
-    .price-wrapper .original-price {
-        font-size: 13px;
-        color: #999999;
-        text-decoration: line-through;
-    }
-
-    /* Add Button */
-    .btn-add-cart {
-        background: #000;
-        color: #ffffff;
-        border: none;
-        border-radius: 8px;
-        padding: 4px 10px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        white-space: nowrap;
-        /* box-shadow: 0 4px 12px rgba(0, 191, 165, 0.2); */
-    }
-
-    .btn-add-cart:hover {
-        transform: scale(1.15);
-        
-    }
-
-    .btn-add-cart .plus-icon {
-        font-size: 18px;
-        font-weight: 700;
-    }
-
-    .save-text {
-        color: #00bfa5;
-        font-size: 13px;
-        font-weight: 600;
-        /* margin-top: 8px; */
-        margin-bottom: 0;
-    }
-
-    /* Responsive */
-    @media (max-width: 576px) {
+        /* Price and Button Same Line */
         .price-action-row {
-            gap: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* margin-top: 12px; */
+            gap: 10px;
         }
-        
-        .btn-add-cart {
-            padding: 8px 16px;
-            font-size: 13px;
-        }
-        
-        .price-wrapper .price {
-            font-size: 18px;
-        }
-    }
 
-</style>
+        .price-1 {
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 600;
+            /* display: flex; */
+
+        }
+
+        .price-wrapper {
+            /* display: flex; */
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .price-wrapper .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .price-wrapper .original-price {
+            font-size: 13px;
+            color: #999999;
+            text-decoration: line-through;
+        }
+
+        /* Add Button */
+        .btn-add-cart {
+            background: #000;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+            /* box-shadow: 0 4px 12px rgba(0, 191, 165, 0.2); */
+        }
+
+        .btn-add-cart:hover {
+            transform: scale(1.15);
+
+        }
+
+        .btn-add-cart .plus-icon {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .save-text {
+            color: #00bfa5;
+            font-size: 13px;
+            font-weight: 600;
+            /* margin-top: 8px; */
+            margin-bottom: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+
+            /* Product Card Container */
+            .card-product {
+                margin-bottom: 10px;
+            }
+
+            .card-product .card-product-info {
+                padding: 8px;
+                gap: 4px;
+            }
+
+            /* Title */
+            .card-product .card-product-info .title {
+                font-size: 13px;
+                line-height: 18px;
+            }
+
+            /* Discount Badge - smaller on mobile */
+            .discount-badge {
+                top: 8px;
+                left: 8px;
+                padding: 4px 10px;
+                font-size: 10px;
+                border-radius: 5px;
+            }
+
+            /* Product Meta - brand/category - FIXED overflow */
+            .product-meta {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 3px;
+                overflow: hidden;
+                max-width: 100%;
+            }
+
+            .brand-name {
+                font-size: 9px;
+                max-width: 50%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                flex-shrink: 1;
+            }
+
+            .category-name {
+                font-size: 9px;
+                max-width: 45%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                flex-shrink: 1;
+            }
+
+            .product-meta .separator {
+                font-size: 8px;
+                flex-shrink: 0;
+            }
+
+            /* Price Action Row - FIXED layout */
+            .price-action-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 8px;
+                flex-wrap: nowrap;
+                margin-top: 4px;
+            }
+
+            /* Price Wrapper */
+            .price-wrapper {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .price-1 {
+                font-size: 14px;
+                line-height: 18px;
+                display: inline;
+            }
+
+            .price-wrapper .price {
+                font-size: 14px;
+            }
+
+            .price-wrapper .original-price {
+                font-size: 11px;
+                margin-left: 4px;
+            }
+
+            .save-text {
+                font-size: 10px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-top: 2px;
+            }
+
+            /* Add to Cart Button - compact and aligned right */
+            .btn-add-cart {
+                padding: 5px 10px;
+                font-size: 11px;
+                flex-shrink: 0;
+                border-radius: 6px;
+                gap: 3px;
+                margin-top: 0;
+                align-self: center;
+            }
+
+            .btn-add-cart .plus-icon {
+                font-size: 10px;
+            }
+
+            .ellipsis {
+                width: 94px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* Quick View button hide on mobile for cleaner look */
+            .card-product .list-btn-main {
+                opacity: 1;
+                transform: none;
+                position: static;
+                padding: 0;
+                margin-top: 5px;
+            }
+
+            .card-product .btn-main-product {
+                padding: 4px 8px;
+                font-size: 10px;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 400px) {
+            .price-action-row {
+                gap: 4px;
+            }
+
+            .price-1 {
+                font-size: 13px;
+            }
+
+            .price-wrapper .original-price {
+                font-size: 10px;
+            }
+
+            .save-text {
+                font-size: 9px;
+            }
+
+            .btn-add-cart {
+                padding: 5px 5px;
+                font-size: 10px;
+            }
+
+            .discount-badge {
+                padding: 3px 8px;
+                font-size: 9px;
+            }
+        }
+
+        /* Related Products in Cart Modal */
+        .tf-mini-cart-related {
+            padding: 8px 10px;
+            border-top: 1px solid #eee;
+            /* background: #fafafa; */
+        }
+
+        .related-products-header {
+            margin-bottom: 6px;
+        }
+
+        .related-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .tf-sw-related {
+            overflow: hidden;
+        }
+
+        .tf-sw-related .swiper-slide {
+            width: auto !important;
+        }
+
+        .related-product-card {
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            width: 85px;
+        }
+
+        .related-product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        .related-product-img {
+            display: block;
+            width: 100%;
+            height: 65px;
+            overflow: hidden;
+        }
+
+        .related-product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .related-product-card:hover .related-product-img img {
+            transform: scale(1.05);
+        }
+
+        .related-product-info {
+            padding: 5px;
+        }
+
+        .related-product-name {
+            display: block;
+            font-size: 9px;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            line-height: 1.2;
+            margin-bottom: 3px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .related-product-name:hover {
+            color: #000;
+        }
+
+        .related-product-price {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+        }
+
+        .related-product-price .sale-price {
+            font-size: 10px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .related-product-price .mrp-price {
+            font-size: 8px;
+            color: #999;
+        }
+
+        .related-add-btn {
+            width: 100%;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 3px 5px;
+            font-size: 9px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .related-add-btn:hover {
+            background: #333;
+        }
+
+        .related-add-btn .plus-icon {
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .cart-hexive {
+            width: 500px;
+        }
+
+        /* Cart Bottom Spacing */
+        .tf-mini-cart-bottom {
+            padding: 10px 15px !important;
+        }
+
+        .tf-mini-cart-tool {
+            margin-bottom: 8px !important;
+            gap: 15px !important;
+        }
+
+        .tf-mini-cart-bottom-wrap {
+            gap: 8px !important;
+        }
+
+        .tf-cart-totals-discounts {
+            margin-bottom: 8px !important;
+            padding: 0 !important;
+        }
+
+        .tf-mini-cart-view-checkout {
+            gap: 8px !important;
+        }
+
+        .tf-mini-cart-view-checkout .tf-btn {
+            padding: 10px 15px !important;
+        }
+
+        @media (max-width: 576px) {
+            .tf-mini-cart-related {
+                padding: 6px 8px;
+            }
+
+            .related-product-card {
+                width: 75px;
+            }
+
+            .related-product-img {
+                height: 55px;
+            }
+
+            .related-product-info {
+                padding: 4px;
+            }
+
+            .related-product-name {
+                font-size: 8px;
+            }
+
+            .related-product-price .sale-price {
+                font-size: 9px;
+            }
+
+            .related-product-price .mrp-price {
+                font-size: 7px;
+            }
+
+            .related-add-btn {
+                padding: 2px 4px;
+                font-size: 8px;
+            }
+
+            .cart-hexive {
+                width: 320px;
+            }
+        }
+    </style>
 </head>
 
 <body class="preload-wrapper">
@@ -462,8 +814,7 @@
                                 <div class="demo-image">
                                     <img class="lazyload"
                                         data-src="{{ asset('front_assets/images/demo/home-beauty.jpg') }}"
-                                        src="{{ asset('front_assets/images/demo/home-beauty.jpg') }}"
-                                        alt="home-beauty">
+                                        src="{{ asset('front_assets/images/demo/home-beauty.jpg') }}" alt="home-beauty">
                                 </div>
                                 <span class="demo-name">Beauty</span>
                             </a>
@@ -495,8 +846,7 @@
                                 <div class="demo-image">
                                     <img class="lazyload"
                                         data-src="{{ asset('front_assets/images/demo/home-decor.jpg') }}"
-                                        src="{{ asset('front_assets/images/demo/home-decor.jpg') }}"
-                                        alt="home-decor">
+                                        src="{{ asset('front_assets/images/demo/home-decor.jpg') }}" alt="home-decor">
                                 </div>
                                 <span class="demo-name">Decor</span>
                             </a>
@@ -561,8 +911,7 @@
                                 <div class="demo-image">
                                     <img class="lazyload"
                                         data-src="{{ asset('front_assets/images/demo/home-sock.jpg') }}"
-                                        src="{{ asset('front_assets/images/demo/home-sock.jpg') }}"
-                                        alt="home-sock">
+                                        src="{{ asset('front_assets/images/demo/home-sock.jpg') }}" alt="home-sock">
                                 </div>
                                 <span class="demo-name">Socks</span>
                             </a>
@@ -622,8 +971,7 @@
                 <div class="wd-facet-categories">
                     <div role="dialog" class="facet-title collapsed" data-bs-target="#forWomen"
                         data-bs-toggle="collapse" aria-expanded="true" aria-controls="forWomen">
-                        <img class="avt" src="{{ asset('front_assets/images/avatar/women.jpg') }}"
-                            alt="avt">
+                        <img class="avt" src="{{ asset('front_assets/images/avatar/women.jpg') }}" alt="avt">
                         <span class="title">For Women</span>
                         <span class="icon icon-arrow-down"></span>
                     </div>
@@ -631,54 +979,47 @@
                         <ul class="facet-body">
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/new-in.jpg') }}"
-                                        alt="avt"><span class="title-sub text-caption-1 text-secondary">New
+                                        src="{{ asset('front_assets/images/avatar/new-in.jpg') }}" alt="avt"><span
+                                        class="title-sub text-caption-1 text-secondary">New
                                         in</span></a>
                             </li>
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/promotion.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/promotion.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Promotion</span></a>
                             </li>
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/clothing.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/clothing.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Clothing</span></a>
                             </li>
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/shoes.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/shoes.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Shoes</span></a>
                             </li>
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/bags.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/bags.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Bags</span></a>
                             </li>
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/accessories.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/accessories.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Accessories</span></a>
                             </li>
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/jewelry.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/jewelry.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Jewelry</span></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="wd-facet-categories">
-                    <div role="dialog" class="facet-title collapsed" data-bs-target="#forMen"
-                        data-bs-toggle="collapse" aria-expanded="true" aria-controls="forMen">
-                        <img class="avt" src="{{ asset('front_assets/images/avatar/men.jpg') }}"
-                            alt="avt">
+                    <div role="dialog" class="facet-title collapsed" data-bs-target="#forMen" data-bs-toggle="collapse"
+                        aria-expanded="true" aria-controls="forMen">
+                        <img class="avt" src="{{ asset('front_assets/images/avatar/men.jpg') }}" alt="avt">
                         <span class="title">For Men</span>
                         <span class="icon icon-arrow-down"></span>
                     </div>
@@ -686,24 +1027,21 @@
                         <ul class="facet-body">
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/men.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/men.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Men</span></a>
                             </li>
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/men.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/men.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Men</span></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="wd-facet-categories">
-                    <div role="dialog" class="facet-title collapsed" data-bs-target="#forKid"
-                        data-bs-toggle="collapse" aria-expanded="true" aria-controls="forKid">
-                        <img class="avt" src="{{ asset('front_assets/images/avatar/kid.jpg') }}"
-                            alt="avt">
+                    <div role="dialog" class="facet-title collapsed" data-bs-target="#forKid" data-bs-toggle="collapse"
+                        aria-expanded="true" aria-controls="forKid">
+                        <img class="avt" src="{{ asset('front_assets/images/avatar/kid.jpg') }}" alt="avt">
                         <span class="title">For Kid</span>
                         <span class="icon icon-arrow-down"></span>
                     </div>
@@ -711,14 +1049,12 @@
                         <ul class="facet-body">
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/kid.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/kid.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Kid</span></a>
                             </li>
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/kid.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/kid.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Kid</span></a>
                             </li>
                         </ul>
@@ -727,8 +1063,7 @@
                 <div class="wd-facet-categories">
                     <div role="dialog" class="facet-title collapsed" data-bs-target="#accessories"
                         data-bs-toggle="collapse" aria-expanded="true" aria-controls="accessories">
-                        <img class="avt" src="{{ asset('front_assets/images/avatar/accessories.jpg') }}"
-                            alt="avt">
+                        <img class="avt" src="{{ asset('front_assets/images/avatar/accessories.jpg') }}" alt="avt">
                         <span class="title">Accessories</span>
                         <span class="icon icon-arrow-down"></span>
                     </div>
@@ -736,14 +1071,12 @@
                         <ul class="facet-body">
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/accessories.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/accessories.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Accessories</span></a>
                             </li>
                             <li>
                                 <a href="#" class="item link"><img class="avt"
-                                        src="{{ asset('front_assets/images/avatar/accessories.jpg') }}"
-                                        alt="avt"><span
+                                        src="{{ asset('front_assets/images/avatar/accessories.jpg') }}" alt="avt"><span
                                         class="title-sub text-caption-1 text-secondary">Accessories</span></a>
                             </li>
                         </ul>
@@ -761,34 +1094,34 @@
                 <div class="tf-quick-view-image">
                     <div class="wrap-quick-view wrapper-scroll-quickview">
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="beige">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="">
+                            <img class="lazyload"
+                                data-src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}"
+                                src="{{ asset('front_assets/images/products/womens/women-1.jpg') }}" alt="">
                         </div>
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="beige">
-                            <img class="lazyload" data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="">
+                            <img class="lazyload"
+                                data-src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}"
+                                src="{{ asset('front_assets/images/products/womens/women-2.jpg') }}" alt="">
                         </div>
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="gray">
                             <img class="lazyload"
                                 data-src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}"
-                                src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}"
-                                alt="">
+                                src="{{ asset('front_assets/images/products/womens/women-3.jpg') }}" alt="">
                         </div>
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="gray">
                             <img class="lazyload"
                                 data-src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}"
-                                src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}"
-                                alt="">
+                                src="{{ asset('front_assets/images/products/womens/women-4.jpg') }}" alt="">
                         </div>
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="grey">
                             <img class="lazyload"
                                 data-src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
-                                src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}"
-                                alt="">
+                                src="{{ asset('front_assets/images/products/womens/women-19.jpg') }}" alt="">
                         </div>
                         <div class="quickView-item item-scroll-quickview" data-scroll-quickview="grey">
                             <img class="lazyload"
                                 data-src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}"
-                                src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}"
-                                alt="">
+                                src="{{ asset('front_assets/images/products/womens/women-20.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -898,8 +1231,7 @@
                                 <div class="title mb_12">Quantity:</div>
                                 <div class="wg-quantity">
                                     <span class="btn-quantity btn-decrease">-</span>
-                                    <input class="quantity-product" type="text" name="number"
-                                        value="1">
+                                    <input class="quantity-product" type="text" name="number" value="1">
                                     <span class="btn-quantity btn-increase">+</span>
                                 </div>
                             </div>
@@ -934,10 +1266,10 @@
     <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="d-flex flex-column flex-grow-1 h-100">
+                <div class="d-flex flex-column flex-grow-1 h-100 cart-hexive">
                     <div class="header">
                         <h5 class="title">Shopping Cart</h5>
-                        
+
                         <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
                     </div>
                     <div class="wrap" id="shoppingCart_html">
@@ -949,14 +1281,22 @@
                                     <div class="col-8">
                                         <div class="tf-page-cart-checkout">
                                             <div class="d-flex gap-10 align-items-center mb_20">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M15.32 3H8.68c-.26 0-.52.11-.7.29L3.29 7.98c-.18.18-.29.44-.29.7v6.63c0 .27.11.52.29.71l4.68 4.68c.19.19.45.3.71.3h6.63c.27 0 .52-.11.71-.29l4.68-4.68c.19-.19.29-.44.29-.71V8.68c0-.27-.11-.52-.29-.71l-4.68-4.68c-.18-.18-.44-.29-.7-.29zM12 17.3c-.72 0-1.3-.58-1.3-1.3s.58-1.3 1.3-1.3 1.3.58 1.3 1.3-.58 1.3-1.3 1.3zm0-4.3c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1z"></path></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px"
+                                                    viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                                    <path
+                                                        d="M15.32 3H8.68c-.26 0-.52.11-.7.29L3.29 7.98c-.18.18-.29.44-.29.7v6.63c0 .27.11.52.29.71l4.68 4.68c.19.19.45.3.71.3h6.63c.27 0 .52-.11.71-.29l4.68-4.68c.19-.19.29-.44.29-.71V8.68c0-.27-.11-.52-.29-.71l-4.68-4.68c-.18-.18-.44-.29-.7-.29zM12 17.3c-.72 0-1.3-.58-1.3-1.3s.58-1.3 1.3-1.3 1.3.58 1.3 1.3-.58 1.3-1.3 1.3zm0-4.3c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1z">
+                                                    </path>
+                                                </svg>
                                                 <h5 class="fw-5">Cart is empty</h5>
                                             </div>
                                             <p class="mb_20">You have no items in your cart.</p>
-                                            <a href="{{ route('front.shop') }}" class="btn-style-2 mb_20 w-100 radius-3 justify-content-center">
+                                            <a href="{{ route('front.shop') }}"
+                                                class="btn-style-2 mb_20 w-100 radius-3 justify-content-center">
                                                 <span class="text text-btn-uppercase">Continue Shopping</span>
                                             </a>
-                                            {{-- <p>Have a question? <a href="contact.html" class="text-primary">Contact Support</a></p> --}}
+                                            {{-- <p>Have a question? <a href="contact.html" class="text-primary">Contact
+                                                    Support</a></p> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -972,11 +1312,11 @@
     <div class="modal fade modal-quick-add" id="global_modal">
         <div id="global_modal_size" class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="header" >
+                <div class="header">
                     <span class="icon-close icon-close-popup" style="z-index: 999999" data-bs-dismiss="modal"></span>
                 </div>
                 <div id="gloab_modal_ajax_html">
-                   
+
                 </div>
             </div>
         </div>
@@ -985,7 +1325,7 @@
     <!-- quickView -->
     <div class="modal fullRight fade modal-quick-view" id="quickView">
         <div class="modal-dialog" id="quick_view_product_ajax_html">
-            
+
         </div>
     </div>
     <!-- /quickView -->
@@ -1003,14 +1343,14 @@
     <script type="text/javascript" src="{{ asset('front_assets/js/multiple-modal.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front_assets/js/main.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front_assets/js/maintwo.js') }}"></script>
-    
+
 
     <script>
         function login_modal() {
             $('#global_modal_size').removeClass();
             $('#global_modal_size').addClass('modal-dialog modal-dialog-centered modal-xl');
             $('#gloab_modal_ajax_html').html('<div class="d-flex align-items-center justify-content-center p-5"><div class="spinner-border text-dark"></div></div>');
-            $.get('{{ route('ajax.login_modal') }}', function(data){
+            $.get('{{ route('ajax.login_modal') }}', function (data) {
                 $('#gloab_modal_ajax_html').html(data);
             });
         }
@@ -1018,27 +1358,44 @@
             $('#global_modal_size').removeClass();
             $('#global_modal_size').addClass('modal-dialog modal-dialog-centered modal-xl');
             $('#gloab_modal_ajax_html').html('<div class="d-flex align-items-center justify-content-center p-5"><div class="spinner-border text-dark"></div></div>');
-            $.get('{{ route('ajax.register_modal') }}', function(data){
+            $.get('{{ route('ajax.register_modal') }}', function (data) {
                 $('#gloab_modal_ajax_html').html(data);
             });
         }
         function quick_view_product(product_id) {
             $('#quick_view_product_ajax_html').html('<div class="modal-content justify-content-center"><div class="d-flex align-items-center justify-content-center p-5"><div class="spinner-border text-dark"></div></div></div>');
-            $.get('{{ route('ajax.quick_view_product') }}',{ product_id:product_id }, function(data){
+            $.get('{{ route('ajax.quick_view_product') }}', { product_id: product_id }, function (data) {
                 $('#quick_view_product_ajax_html').html(data.html);
             });
         }
-         function add_to_cart(product_id, order_type, btn_type) {
+        function add_to_cart(product_id, order_type, btn_type) {
             $('#shoppingCart_html').html('<div class="modal-content justify-content-center"><div class="d-flex align-items-center justify-content-center p-5"><div class="spinner-border text-dark"></div></div></div>');
-            var qty = $('#order_qty_' + product_id).val() ?? 1 ;
+            var qty = $('#order_qty_' + product_id).val() ?? 1;
             $.get('{{ route('ajax.add_to_cart') }}', {
                 product_id: product_id,
                 qty: qty,
                 order_type: order_type
-            }, function(data) {
+            }, function (data) {
                 if (data.status == 200) {
                     $('#shoppingCart_html').html(data.html);
                     $('.nav-icon-item .count-box').text(data.cart_count);
+
+                    // Initialize Related Products Swiper
+                    if ($('.tf-sw-related').length) {
+                        new Swiper('.tf-sw-related', {
+                            slidesPerView: 4,
+                            slidesPerGroup: 1,
+                            spaceBetween: 10,
+                            loop: true,
+                            speed: 500,
+                            autoplay: {
+                                delay: 1500,
+                                disableOnInteraction: false,
+                            },
+                            grabCursor: true,
+                        });
+                    }
+
                     if (btn_type == 'Buy now') {
                         window.location.href = "{{ route('front.checkout') }}";
                     }
@@ -1054,33 +1411,50 @@
         }
         function remove_from_cart(cart_id) {
             $('#shoppingCart_html').html('<div class="modal-content justify-content-center"><div class="d-flex align-items-center justify-content-center p-5"><div class="spinner-border text-dark"></div></div></div>');
-            $.get('{{ route('ajax.remove_from_cart') }}',{ cart_id:cart_id }, function(data){
-                if(data.status == 200){
+            $.get('{{ route('ajax.remove_from_cart') }}', { cart_id: cart_id }, function (data) {
+                if (data.status == 200) {
                     $('#shoppingCart_html').html(data.html);
                     $('.nav-icon-item .count-box').text(data.cart_count);
-                    $.notify({ title:'Success', message:data.message }, { type:'success', });
-                }else{
-                    $.notify({ title:'Error', message:data.message }, { type:'danger', });
+
+                    // Initialize Related Products Swiper
+                    if ($('.tf-sw-related').length) {
+                        new Swiper('.tf-sw-related', {
+                            slidesPerView: 4,
+                            slidesPerGroup: 1,
+                            spaceBetween: 10,
+                            loop: true,
+                            speed: 500,
+                            autoplay: {
+                                delay: 1500,
+                                disableOnInteraction: false,
+                            },
+                            grabCursor: true,
+                        });
+                    }
+
+                    $.notify({ title: 'Success', message: data.message }, { type: 'success', });
+                } else {
+                    $.notify({ title: 'Error', message: data.message }, { type: 'danger', });
                 }
             });
         }
     </script>
 
     @if ($errors->any())
-      @foreach ($errors->all() as $error)
-        <script>
-            $.notify({ title:'Error', message:'{{ $error }}' }, { type:'danger', });
-        </script>
+        @foreach ($errors->all() as $error)
+            <script>
+                $.notify({ title: 'Error', message: '{{ $error }}' }, { type: 'danger', });
+            </script>
         @endforeach
     @endif
     @if (session('error'))
         <script>
-            $.notify({ title:'<b>Message: </b>', message:'{{ session('error') }}' }, { type:'danger', });
+            $.notify({ title: '<b>Message: </b>', message: '{{ session('error') }}' }, { type: 'danger', });
         </script>
     @endif
     @if (session('success'))
         <script>
-            $.notify({ title:'<b>Message: </b>', message:'{{ session('success') }}' }, { type:'success', });
+            $.notify({ title: '<b>Message: </b>', message: '{{ session('success') }}' }, { type: 'success', });
         </script>
     @endif
 

@@ -19,13 +19,13 @@
     <div class="card-product-info">
         <div class="product-meta">
             @if(isset($product->brand) && $product->brand)
-                <span class="brand-name">{{ $product->brand->name ?? $product->brand }}</span>
+                <span class="brand-name " title="{{ $product->brand->name ?? $product->brand }}">{{ Str::limit(ucwords(strtolower($product->brand->name ?? $product->brand)), 10, '...') }}</span>
             @endif
             @if(isset($product->category) && $product->category)
                 @if(isset($product->brand) && $product->brand)
                     <span class="separator">•</span>
                 @endif
-                <span class="category-name">{{ $product->category->name ?? $product->category }}</span>
+                <span class="category-name" title="{{ $product->category->name ?? $product->category }}">{{ Str::limit(ucwords(strtolower($product->category->name ?? $product->category)), 10, '...') }}</span>
             @endif
         </div>
         <a href="{{ route('front.product', ($product->slug ?? '#')) }}" class="title link">{{ $product->name }}</a>

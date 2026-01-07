@@ -66,6 +66,39 @@
             </div>
         </div>
     </div>
+    <!-- Related Products Slider -->
+        @if(isset($related_products) && count($related_products) > 0)
+        <div class="tf-mini-cart-related">
+            <div class="related-products-header">
+                <h6 class="related-title">You May Also Like</h6>
+            </div>
+            <div class="swiper tf-sw-related" data-preview="2.5" data-space="10">
+                <div class="swiper-wrapper">
+                    @foreach($related_products as $product)
+                    <div class="swiper-slide">
+                        <div class="related-product-card">
+                            <a href="{{ route('front.product', $product->slug) }}" class="related-product-img">
+                                <img src="{{ $product->thumb_url }}" alt="{{ $product->name }}" loading="lazy">
+                            </a>
+                            <div class="related-product-info">
+                                <a href="{{ route('front.product', $product->slug) }}" class="related-product-name">{{ Str::limit($product->name, 25, '...') }}</a>
+                                <div class="related-product-price">
+                                    <span class="sale-price">₹{{ $product->sale_price }}</span>
+                                    @if($product->mrp_price > $product->sale_price)
+                                    <del class="mrp-price">₹{{ $product->mrp_price }}</del>
+                                    @endif
+                                </div>
+                                <button type="button" class="related-add-btn" onclick="add_to_cart({{ $product->id }}, 'Single', 'Add to cart')">
+                                    <span class="plus-icon">+</span> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        @endif
     <div class="tf-mini-cart-bottom">   
         <div class="tf-mini-cart-tool">
             <div class="tf-mini-cart-tool-btn btn-add-note">
@@ -168,7 +201,7 @@
                             </defs>
                         </svg>
                     </span>
-                    <span class="text-title">Add A Coupon Code</span>
+                    <span class="text-title">Add Coupon Code</span>
                 </label>
                 <form class="form-add-coupon tf-mini-cart-tool-wrap">
                     <fieldset class="">
