@@ -99,6 +99,66 @@
             </div>
         </div>
         @endif
+        
+    <!-- Discount Coupons Section
+    <div class="sec-discount" style="padding: 8px 10px; border-top: 1px solid #eee;">
+        <div dir="ltr" class="swiper tf-sw-discount" data-preview="2" data-space="10">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="box-discount" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; padding: 10px; color: #fff;">
+                        <div class="discount-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <div class="discount-off">
+                                <div style="font-size: 10px; opacity: 0.8;">Discount</div>
+                                <span style="font-size: 16px; font-weight: 700;">10% OFF</span>
+                            </div>
+                            <div class="discount-from" style="text-align: right;">
+                                <p style="font-size: 9px; opacity: 0.9; margin: 0;">For orders<br>above ₹500</p>
+                            </div>
+                        </div>
+                        <div class="discount-bot" style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.2); border-radius: 5px; padding: 5px 8px;">
+                            <span style="font-size: 11px; font-weight: 600;">SAVE10</span>
+                            <button type="button" class="btn-copy-code" style="background: #fff; color: #667eea; border: none; border-radius: 4px; padding: 3px 8px; font-size: 9px; font-weight: 600; cursor: pointer;">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box-discount" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 8px; padding: 10px; color: #fff;">
+                        <div class="discount-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <div class="discount-off">
+                                <div style="font-size: 10px; opacity: 0.8;">Discount</div>
+                                <span style="font-size: 16px; font-weight: 700;">15% OFF</span>
+                            </div>
+                            <div class="discount-from" style="text-align: right;">
+                                <p style="font-size: 9px; opacity: 0.9; margin: 0;">For orders<br>above ₹1000</p>
+                            </div>
+                        </div>
+                        <div class="discount-bot" style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.2); border-radius: 5px; padding: 5px 8px;">
+                            <span style="font-size: 11px; font-weight: 600;">SAVE15</span>
+                            <button type="button" class="btn-copy-code" style="background: #fff; color: #f5576c; border: none; border-radius: 4px; padding: 3px 8px; font-size: 9px; font-weight: 600; cursor: pointer;">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box-discount" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 8px; padding: 10px; color: #fff;">
+                        <div class="discount-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <div class="discount-off">
+                                <div style="font-size: 10px; opacity: 0.8;">Discount</div>
+                                <span style="font-size: 16px; font-weight: 700;">20% OFF</span>
+                            </div>
+                            <div class="discount-from" style="text-align: right;">
+                                <p style="font-size: 9px; opacity: 0.9; margin: 0;">For orders<br>above ₹2000</p>
+                            </div>
+                        </div>
+                        <div class="discount-bot" style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.2); border-radius: 5px; padding: 5px 8px;">
+                            <span style="font-size: 11px; font-weight: 600;">SAVE20</span>
+                            <button type="button" class="btn-copy-code" style="background: #fff; color: #4facfe; border: none; border-radius: 4px; padding: 3px 8px; font-size: 9px; font-weight: 600; cursor: pointer;">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
     <div class="tf-mini-cart-bottom">   
         <div class="tf-mini-cart-tool">
             <div class="tf-mini-cart-tool-btn btn-add-note">

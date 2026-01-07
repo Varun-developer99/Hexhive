@@ -1396,6 +1396,15 @@
                         });
                     }
 
+                    // Initialize Discount Coupons Swiper
+                    if ($('.tf-sw-discount').length) {
+                        new Swiper('.tf-sw-discount', {
+                            slidesPerView: 2,
+                            spaceBetween: 10,
+                            grabCursor: true,
+                        });
+                    }
+
                     if (btn_type == 'Buy now') {
                         window.location.href = "{{ route('front.checkout') }}";
                     }
@@ -1428,6 +1437,15 @@
                                 delay: 1500,
                                 disableOnInteraction: false,
                             },
+                            grabCursor: true,
+                        });
+                    }
+
+                    // Initialize Discount Coupons Swiper
+                    if ($('.tf-sw-discount').length) {
+                        new Swiper('.tf-sw-discount', {
+                            slidesPerView: 2,
+                            spaceBetween: 10,
                             grabCursor: true,
                         });
                     }
