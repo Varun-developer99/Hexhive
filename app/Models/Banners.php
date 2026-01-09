@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -47,9 +48,15 @@ class Banners extends Model implements HasMedia
         return $media ? $media->getUrl('thumb') : null;
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
     use SoftDeletes;
     protected $fillable = [
         'created_by_id',
+        'category_id',
         'name',
         'slug',
         'img',

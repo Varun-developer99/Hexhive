@@ -313,7 +313,7 @@ class FrontController extends Controller
 
             $order = $api->order->create([
                 'receipt'  => 'order_rcptid_'.time(),
-                'amount'   => $request->amount * 100, // rupees → paise
+                'amount'   => $request->amount * 100,
                 'currency' => 'INR'
             ]);
 

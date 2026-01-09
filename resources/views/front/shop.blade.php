@@ -160,35 +160,11 @@
                         <option value="Price, low to high">Price, low to high</option>
                         <option value="Price, high to low">Price, high to low</option>
                     </select>
-                    {{-- <div class="tf-dropdown-sort" data-bs-toggle="dropdown">
-                        <div class="btn-select">
-                            <span class="text-sort-value">Best selling</span>
-                            <span class="icon icon-arrow-down"></span>
-                        </div>
-                        <div class="dropdown-menu">
-                            <div class="select-item" data-sort-value="best-selling">
-                                <span class="text-value-item">Best selling</span>
-                            </div>
-                            <div class="select-item" data-sort-value="a-z">
-                                <span class="text-value-item">Alphabetically, A-Z</span>
-                            </div>
-                            <div class="select-item" data-sort-value="z-a">
-                                <span class="text-value-item">Alphabetically, Z-A</span>
-                            </div>
-                            <div class="select-item" data-sort-value="price-low-high">
-                                <span class="text-value-item">Price, low to high</span>
-                            </div>
-                            <div class="select-item" data-sort-value="price-high-low">
-                                <span class="text-value-item">Price, high to low</span>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
             <div class="wrapper-control-shop gridLayout-wrapper">
-                <div class="meta-filter-shop d-flex">
+                <div class="meta-filter-shop d-flex d-none">
                     <div id="total-product-count" class="count-text"><span class="count">0</span> Products Found</div>
-                    {{-- <div id="product-count-list" class="count-text"><span class="count">8</span> Products Found</div> --}}
                     @if (request()->category ?? 0)
                     <span class="filter-tag bg-dark text-white">{{ category_data(request()->category)->name ?? 'N/A' }} <a href="{{ route('front.shop') }}" class="remove-tag icon-close text-white"></a></span>
                     @endif
@@ -212,118 +188,27 @@
                                         <div class="box-fieldset-item" style="max-height: 300px; overflow-y: scroll">
                                             @foreach ($categories as $key => $item)
                                             <fieldset class="fieldset-item">
-                                                <input type="checkbox" name="category" class="tf-check shop_by_category_ids" id="shop_by_category_ids-{{ $item->id }}" value="{{ $item->id }}" {{ (request()->category ?? '') == $item->id ? 'checked' : '' }}>
+                                                <input type="checkbox" name="category" class="tf-check categories_ids" id="shop_by_category_ids-{{ $item->id }}" value="{{ $item->id }}" {{ (request()->category ?? '') == $item->slug ? 'checked' : '' }}>
                                                 <label for="shop_by_category_ids-{{ $item->id }}">{{ $item->name }} </label>
                                             </fieldset>
                                             @endforeach
                                         </div>
                                     </div>
-                                    {{-- <div class="widget-facet facet-price">
+                                    <div class="widget-facet facet-price">
                                         <h6 class="facet-title">Price</h6>
-                                        <div class="price-val-range noUi-target noUi-ltr noUi-horizontal" id="price-value-range" data-min="0" data-max="500">
+                                        <div class="price-val-range noUi-target noUi-ltr noUi-horizontal" id="price-value-range" data-min="0" data-max="5000">
                                         </div>
                                         <div class="box-price-product">
                                             <div class="box-price-item">
                                                 <span class="title-price">Min price</span>
-                                                <div class="price-val" id="price-min-value" data-currency="$">0</div>
+                                                <div class="price-val" id="price-min-value" data-currency="₹">0</div>
                                             </div>
                                             <div class="box-price-item">
                                                 <span class="title-price">Max price</span>
-                                                <div class="price-val" id="price-max-value" data-currency="$">500</div>
+                                                <div class="price-val" id="price-max-value" data-currency="₹">5000</div>
                                             </div>
                                         </div>
-                                    </div> --}}
-                                    {{-- <div class="widget-facet facet-size">
-                                        <h6 class="facet-title">Size</h6>
-                                        <div class="facet-size-box size-box" style="max-height: 300px; overflow-y: scroll;">
-                                            @foreach ($sizes as $size)
-                                            <span class="size-item size-check free-size" data-size_id="{{ $size->id }}">{{ $size->name }}</span>
-                                            @endforeach
-                                        </div>
                                     </div>
-                                    <div class="widget-facet facet-color">
-                                        <h6 class="facet-title">Colors</h6>
-                                        <div class="facet-color-box">
-                                            @foreach ($colors as $color)
-                                            <div class="color-item color-check"><span class="color {{ $color->color_code == '#ffffff' ? 'line-black' : '' }}" style="background-color: {{ $color->color_code }}"></span>{{ $color->name }}</div>
-                                            @endforeach
-                                        </div>
-                                    </div> --}}
-                                    {{-- <div class="widget-facet facet-fieldset">
-                                        <h6 class="facet-title">Availability</h6>
-                                        <div class="box-fieldset-item">
-                                            <fieldset class="fieldset-item">
-                                                <input type="radio" name="availability" class="tf-check" id="inStock">
-                                                <label for="inStock">In stock <span class="count-stock">(32)</span></label>
-                                            </fieldset>
-                                            <fieldset class="fieldset-item">
-                                                <input type="radio" name="availability" class="tf-check" id="outStock">
-                                                <label for="outStock">Out of stock <span class="count-stock">(2)</span></label>
-                                            </fieldset>
-                                        </div>
-                                    </div> --}}
-                                    {{-- <div class="widget-facet facet-fieldset">
-                                        <h6 class="facet-title">Brands</h6>
-                                        <div class="box-fieldset-item">
-                                            <fieldset class="fieldset-item">
-                                                <input type="checkbox" name="brand" class="tf-check" id="nike">
-                                                <label for="nike">Nike <span class="count-brand">(112)</span></label>
-                                            </fieldset>
-                                            <fieldset class="fieldset-item">
-                                                <input type="checkbox" name="brand" class="tf-check" id="LV">
-                                                <label for="LV">Louis Vuitton <span class="count-brand">(2)</span></label>
-                                            </fieldset>
-                                            <fieldset class="fieldset-item">
-                                                <input type="checkbox" name="brand" class="tf-check" id="hermes">
-                                                <label for="hermes">Hermes <span class="count-brand">(42)</span></label>
-                                            </fieldset>
-                                            <fieldset class="fieldset-item">
-                                                <input type="checkbox" name="brand" class="tf-check" id="gucci">
-                                                <label for="gucci">Gucci <span class="count-brand">(13)</span></label>
-                                            </fieldset>
-                                            <fieldset class="fieldset-item">
-                                                <input type="checkbox" name="brand" class="tf-check" id="zalando">
-                                                <label for="zalando">Zalando <span class="count-brand">(54)</span></label>
-                                            </fieldset>
-                                            <fieldset class="fieldset-item">
-                                                <input type="checkbox" name="brand" class="tf-check" id="adidas">
-                                                <label for="adidas">Adidas <span class="count-brand">(93)</span></label>
-                                            </fieldset>
-                                        </div>
-                                    </div> --}}
-                                    {{-- <div class="widget-facet facet-fieldset">
-                                        <h6 class="facet-title">Shop By Body Part</h6>
-                                        <div class="box-fieldset-item" style="max-height: 300px; overflow-y: scroll">
-                                            @foreach ($shop_by_body_part as $key => $item)
-                                            <fieldset class="fieldset-item">
-                                                <input type="checkbox" name="body_part" class="tf-check shop_by_body_part_ids" id="shop_by_body_part_ids-{{ $item->id }}" value="{{ $item->id }}" {{ (request()->body_part ?? '') == $item->id ? 'checked' : '' }}>
-                                                <label for="shop_by_body_part_ids-{{ $item->id }}">{{ $item->name }} <span class="count-brand">({{ shop_by_body_part_products($item->id)->count() }})</span></label>
-                                            </fieldset>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="widget-facet facet-fieldset">
-                                        <h6 class="facet-title">Shop By Activity</h6>
-                                        <div class="box-fieldset-item" style="max-height: 300px; overflow-y: scroll">
-                                            @foreach ($shop_by_activity as $key => $item)
-                                            <fieldset class="fieldset-item">
-                                                <input type="checkbox" name="activity" class="tf-check shop_by_activity_ids" id="shop_by_activity_ids-{{ $item->id }}" value="{{ $item->id }}" {{ (request()->activity ?? '') == $item->id ? 'checked' : '' }}>
-                                                <label for="shop_by_activity_ids-{{ $item->id }}">{{ $item->name }} <span class="count-brand">({{ shop_by_activity_products($item->id)->count() }})</span></label>
-                                            </fieldset>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="widget-facet facet-fieldset">
-                                        <h6 class="facet-title">Shop By Daily Support</h6>
-                                        <div class="box-fieldset-item" style="max-height: 300px; overflow-y: scroll">
-                                            @foreach ($shop_by_daily_support as $key => $item)
-                                            <fieldset class="fieldset-item">
-                                                <input type="checkbox" name="activity" class="tf-check shop_by_daily_support_ids" id="shop_by_daily_support_ids-{{ $item->id }}" value="{{ $item->id }}" {{ (request()->daily_support ?? '') == $item->id ? 'checked' : '' }}>
-                                                <label for="shop_by_daily_support_ids-{{ $item->id }}">{{ $item->name }} <span class="count-brand">({{ shop_by_daily_support_products($item->id)->count() }})</span></label>
-                                            </fieldset>
-                                            @endforeach
-                                        </div>
-                                    </div> --}}
                                 </div>
                                 <div class="canvas-bottom d-block d-xl-none">
                                     <button id="reset-filter" class="tf-btn btn-reset">Reset Filters</button>
@@ -343,53 +228,6 @@
                         </div>
 
                         <div class="text-center p-5" id="shop_loader" style="display: none;"><div class="spinner-border"></div></div>
-
-                        <!-- Responsive Pagination -->
-                        {{-- @if ($products->hasPages())
-                            <ul class="wg-pagination flex flex-wrap justify-center items-center gap-2 mt-6 px-4">
-                                <!-- Previous Button -->
-                                @if ($products->onFirstPage())
-                                    <li class="pagination-item disabled">
-                                        <span
-                                            class="px-3 py-2 bg-gray-300 text-gray-500 rounded cursor-not-allowed">&laquo;</span>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a href="{{ $products->previousPageUrl() }}"
-                                            class="px-3 py-2 bg-[#0a3030] text-white rounded hover:bg-[#ff7550] transition">&laquo;</a>
-                                    </li>
-                                @endif
-
-                                <!-- Page Numbers -->
-                                @foreach ($products->links()->elements[0] as $page => $url)
-                                    @if ($page == $products->currentPage())
-                                        <li class="pagination-item active">
-                                            <span
-                                                class="px-4 py-2 bg-[#ff7550] text-white font-semibold rounded">{{ $page }}</span>
-                                        </li>
-                                    @else
-                                        <li>
-                                            <a href="{{ $url }}"
-                                                class="px-4 py-2 bg-[#0a3030] text-white rounded hover:bg-[#ff7550] transition">{{ $page }}</a>
-                                        </li>
-                                    @endif
-                                @endforeach
-
-                                <!-- Next Button -->
-                                @if ($products->hasMorePages())
-                                    <li>
-                                        <a href="{{ $products->nextPageUrl() }}"
-                                            class="px-3 py-2 bg-[#0a3030] text-white rounded hover:bg-[#ff7550] transition">&raquo;</a>
-                                    </li>
-                                @else
-                                    <li class="pagination-item disabled">
-                                        <span
-                                            class="px-3 py-2 bg-gray-300 text-gray-500 rounded cursor-not-allowed">&raquo;</span>
-                                    </li>
-                                @endif
-                            </ul>
-                        @endif --}}
-
                     </div>
                 </div>
 
@@ -408,27 +246,46 @@
 <script>
     // Declare searchTimeout at the top of your 
     var searchTimeout;
-    get_product_filter(1);
+    
+    // Check if category parameter exists in URL and auto-check the checkbox
+    // $(document).ready(function() {
+    //     var urlCategory = "{{ request()->category ?? '' }}";
+    //     if(urlCategory) {
+    //         $('#shop_by_category_ids-' + urlCategory).prop('checked', true);
+    //     }
+        
+    //     // Delay to ensure price slider and all elements are initialized
+    //     setTimeout(function() {
+    //         get_product_filter(1);
+    //     }, 300);
+    // });
 
     function product_filter() {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(function () { $('#gridLayout').html(''); get_product_filter(1); }, 500);
     }
+
     function get_product_filter(page) {
         $('#shop_loader').show();
         $('#load_more_btn').hide();
         var search = "{{ request()->search ?? '0' }}";
         var short_by = $('#short_by').val();
-        // var price_min_value = Number($('#price-min-value').text());
-        // var price_max_value = Number($('#price-max-value').text());
+        var price_min_value = Number($('#price-min-value').text()) || 0;
+        var price_max_value = Number($('#price-max-value').text()) || 5000;
         var categories_ids = $('.categories_ids:checked').map(function() {
             return $(this).val();
         }).get();
-        
-        $.get('{{ route('ajax.get_product_filter') }}', { page:page, short_by:short_by, categories_ids: categories_ids, search: search }, function(data){
+
+        console.log('Filters:', { categories_ids, price_min_value, price_max_value, search });
+
+        $.get('{{ route('ajax.get_product_filter') }}', { page:page, short_by:short_by, categories_ids: categories_ids, search: search, price_min_value: price_min_value, price_max_value: price_max_value }, function(data){
             $('#shop_loader').hide();
             $('#gridLayout').append(data.html);
             $('#total-product-count .count').text(data.total_products);
+            
+            if(data.total_products > 0) {
+                $('#load_more_btn').show();
+            }
         });
     }
 </script>

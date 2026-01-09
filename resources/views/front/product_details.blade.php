@@ -572,37 +572,6 @@
                                             </li>
                                         @endif
                                     </ul> --}}
-                                    <div class="tf-product-info-guranteed">
-                                        <div class="text-title">
-                                            Guaranteed safe checkout:
-                                        </div>
-                                        <div class="tf-payment">
-                                            <a href="#">
-                                                <img src="{{ asset('front_assets/images/payment/img-1.png') }}"
-                                                    alt="">
-                                            </a>
-                                            <a href="#">
-                                                <img src="{{ asset('front_assets/images/payment/img-2.png') }}"
-                                                    alt="">
-                                            </a>
-                                            <a href="#">
-                                                <img src="{{ asset('front_assets/images/payment/img-3.png') }}"
-                                                    alt="">
-                                            </a>
-                                            <a href="#">
-                                                <img src="{{ asset('front_assets/images/payment/img-4.png') }}"
-                                                    alt="">
-                                            </a>
-                                            <a href="#">
-                                                <img src="{{ asset('front_assets/images/payment/img-5.png') }}"
-                                                    alt="">
-                                            </a>
-                                            <a href="#">
-                                                <img src="{{ asset('front_assets/images/payment/img-6.png') }}"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
 
                             </div>
@@ -665,10 +634,6 @@
                                                                         {{ $product_info->value ?? '' }}</li>
                                                                 @endforeach
                                                             </ul>
-                                                            {{-- <div class="w-100">
-                                            <div class="text-btn-uppercase mb_12">Import duties information</div>
-                                            <p>Let us handle the legwork. Delivery duties are included in the item price when shipping to all EU countries (excluding the Canary Islands), plus The United Kingdom, USA, Canada, China Mainland, Australia, NewZealand, Puerto Rico, Switzerland, Singapore, Republic Of Korea, Kuwait, Mexico, Qatar, India, Norway, Saudi Arabia, Taiwan Region, Thailand, U.A.E., Japan, Brazil, Isle of Man, San Marino, Colombia, Chile, Argentina, Egypt, Lebanon, Hong Kong SAR, Bahrain and Turkey. All import duties are included in your order – the price you see is the price you pay.</p>
-                                        </div> --}}
                                                         </div>
                                                     </div>
                                                 </li>

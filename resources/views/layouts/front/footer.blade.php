@@ -10,20 +10,19 @@
                                     <img style="max-width:60%; width:100%;" src="{{ asset(env('APP_LOGO_DARK')) }}" alt="">
                                 </a>
                                 <p class="mb-0 mt-3">At HEXHIVE, we carry forward a legacy of excellence built over four decades in the production</p>
-                                {{-- <p class="mb-0">All prices are in Hexhive</p> --}}
+                                
                             </div>
                             <div class="footer-address">
-                                <p>183 A Rajguru Nagar , Ludhiana</p>
-                                <a href="https://maps.app.goo.gl/MyWBbXaCWYF5Yt936" class="tf-btn-default fw-6" target="_blank">GET DIRECTION<i class="icon-arrowUpRight"></i></a>
+                                <p>Admin Block, Mega Food Park.</p>
                             </div>
                             <ul class="footer-info">
                                 <li>
                                     <i class="icon-mail"></i>
-                                    <p>ksk@hexhive.in</p>
+                                    <p>ecom@hexhive.in </p>
                                 </li>
                                 <li>
                                     <i class="icon-phone"></i>
-                                    <p>+91 9058800025</p>
+                                    <p>+91 95016 26125</p>
                                 </li>
                             </ul>
                         </div>

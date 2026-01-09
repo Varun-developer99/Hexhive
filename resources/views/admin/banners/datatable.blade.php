@@ -6,6 +6,7 @@
                 <th>Name</th>
                 <th>Image Desktop</th>
                 <th>Image Mobile</th>
+                <th>Category</th>
                 <th>Status</th>
                 <th>Options</th>
             </tr>

@@ -13382,7 +13382,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 }
 
 .payment-box .payment-item .paypal-title img {
-  width: 60px;
+  width: 82px;
   height: 16px;
 }
 
@@ -15833,6 +15833,7 @@ ul.list-text.type-number {
   .tf-compare-col {
     min-width: 300px;
   }
+
 }
 
 @media (min-width: 992px) {
@@ -19464,7 +19465,7 @@ ul.list-text.type-number {
 
   .tf-slideshow .wrap-slider,
   .slider-parallax .wrap-slider {
-    min-height: 100vh;
+    min-height: 70vh;
   }
 }
 

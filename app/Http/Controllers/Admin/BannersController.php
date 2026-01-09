@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Banners;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -15,7 +16,8 @@ class BannersController extends Controller
 {
     public function index()
     {
-        return view('admin.banners.index');
+        $categories = Category::all();
+        return view('admin.banners.index', compact('categories'));
     }
 
     public function datatable(Request $request)
@@ -107,7 +109,8 @@ class BannersController extends Controller
     public function edit(Request $request)
     {
         $banner = Banners::find($request->id);
-        return view('admin.banners.ajax_edit', compact('banner'));
+        $categories = Category::all();
+        return view('admin.banners.ajax_edit', compact('banner' ,'categories'));
     }
 
     public function delete($id)

@@ -29,10 +29,10 @@
 
         <section>
             <div class="container" >
-                <form action="{{ route('front.place_order') }}" method="POST">
+                <form action="{{ route('front.place_order') }}" method="POST" id="checkoutForm">
+                    @csrf
                     <div class="row">
                         <div class="col-xl-6">
-                            @csrf
                             <div class="flat-spacing tf-page-checkout">
                                 <div class="wrap">
                                     <h5 class="title">Information</h5>
@@ -42,7 +42,7 @@
                                             <input type="text" name="phone" placeholder="Phone Number*" required>
                                         </div>
                                         <div class="grid-2">
-                                            <input type="text" class="disabled" placeholder="Email Address*" value="{{ auth()->user()->email }}" readonly required>
+                                            <input type="text" class="disabled" name="email" placeholder="Email Address*" value="{{ auth()->user()->email }}" readonly required>
                                             <input type="text" class="disabled" name="country" value="India" readonly required>
                                         </div>
                                         <div class="grid-2">
@@ -89,64 +89,22 @@
                                     </div>
                                 </div>
                                 <div class="wrap">
-                                    <h5 class="title">Choose payment Option:</h5>
-                                    <form class="form-payment">
-                                        <div class="payment-box" id="payment-box">
-                                            <div class="payment-item payment-choose-card active">
-                                                <label for="credit-card-method" class="payment-header" data-bs-toggle="collapse" data-bs-target="#credit-card-payment" aria-controls="credit-card-payment">
-                                                    <input type="radio" name="payment-method" class="tf-check-rounded" id="credit-card-method" checked="">
-                                                    <span class="text-title">Credit Card</span>
-                                                </label>
-                                                <div id="credit-card-payment" class="collapse show" data-bs-parent="#payment-box">
-                                                    <div class="payment-body">
-                                                        <p class="text-secondary">Make your payment directly into our bank account. Your order will not be shipped until the funds have cleared in our account.</p>
-                                                        <div class="input-payment-box">
-                                                            <input type="text" placeholder="Name On Card*">
-                                                            <div class="ip-card">
-                                                                <input type="text" placeholder="Card Numbers*">
-                                                                <div class="list-card">
-                                                                    <img src="{{ asset('front_assets/images/payment/img-7.png') }}" width="48" height="16" alt="card">
-                                                                    <img src="{{ asset('front_assets/images/payment/img-8.png') }}" width="21" height="16" alt="card">
-                                                                    <img src="{{ asset('front_assets/images/payment/img-9.png') }}" width="22" height="16" alt="card">
-                                                                    <img src="{{ asset('front_assets/images/payment/img-10.png') }}" width="24" height="16" alt="card">
-                                                                </div>
-                                                            </div>
-                                                            <div class="grid-2">
-                                                                <input type="date">
-                                                                <input type="text" placeholder="CVV*">
-                                                            </div>
-                                                        </div>
-                                                        <div class="check-save">
-                                                            <input type="checkbox" class="tf-check" id="check-card" checked="">
-                                                            <label for="check-card">Save Card Details</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="payment-item d-none">
-                                                <label for="delivery-method" class="payment-header collapsed" data-bs-toggle="collapse" data-bs-target="#delivery-payment" aria-controls="delivery-payment">
-                                                    <input type="radio" name="payment-method" class="tf-check-rounded" id="delivery-method">
-                                                    <span class="text-title">Cash on delivery</span>
-                                                </label>
-                                                <div id="delivery-payment" class="collapse" data-bs-parent="#payment-box"></div>
-                                            </div>
-                                            <div class="payment-item d-none">
-                                                <label for="apple-method" class="payment-header collapsed" data-bs-toggle="collapse" data-bs-target="#apple-payment" aria-controls="apple-payment">
-                                                    <input type="radio" name="payment-method" class="tf-check-rounded" id="apple-method">
-                                                    <span class="text-title apple-pay-title"><img src="{{ asset('front_assets/images/payment/applePay.png') }}" alt="apple"> Apple Pay</span>
-                                                </label>
-                                                <div id="apple-payment" class="collapse" data-bs-parent="#payment-box"></div>
-                                            </div>
-                                            <div class="payment-item paypal-item">
-                                                <label for="paypal-method" class="payment-header collapsed" data-bs-toggle="collapse" data-bs-target="#paypal-method-payment" aria-controls="paypal-method-payment">
-                                                    <input type="radio" name="payment-method" class="tf-check-rounded" id="paypal-method">
-                                                    <span class="paypal-title"><img src="{{ asset('front_assets/images/payment/paypal.png') }}" alt="apple"></span>
-                                                </label>
-                                                <div id="paypal-method-payment" class="collapse" data-bs-parent="#payment-box"></div>
-                                            </div>
+                                    <h5 class="title">Payment Method</h5>
+                                    <div class="payment-methods mb-3">
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="payment_type" id="razorpay" value="razorpay" checked>
+                                            <label class="form-check-label" for="razorpay">
+                                                <img src="{{ asset('front_assets/images/payment/Razorpay_logo.png') }}" alt="Razorpay" style="height:20px; margin-left:10px;">
+                                            </label>
                                         </div>
-                                        <button type="button" class="tf-btn btn-reset w-100 mt-3" id="payBtn">Make Payment</button>
-                                    </form>
+                                        <div class="form-check d-none">
+                                            <input class="form-check-input" type="radio" name="payment_type" id="cod" value="cod">
+                                            <label class="form-check-label" for="cod">
+                                                Cash on Delivery (COD)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="tf-btn btn-fill w-100" id="payBtn">Place Order</button>
                                 </div>
                             </div>
                         </div>
@@ -231,13 +189,33 @@
         e.preventDefault();
 
         // Validate form fields
-        const form = document.querySelector('form');
+        const form = document.getElementById('checkoutForm');
         if (!form.checkValidity()) {
             form.reportValidity();
             return;
         }
 
-        // Calculate total amount
+        const paymentType = document.querySelector('input[name="payment_type"]:checked').value;
+
+        if (paymentType === 'cod') {
+            // For COD, directly submit the form
+            const paymentMethodInput = document.createElement('input');
+            paymentMethodInput.type = 'hidden';
+            paymentMethodInput.name = 'payment_method';
+            paymentMethodInput.value = 'COD';
+            form.appendChild(paymentMethodInput);
+
+            const paymentStatusInput = document.createElement('input');
+            paymentStatusInput.type = 'hidden';
+            paymentStatusInput.name = 'payment_status';
+            paymentStatusInput.value = 'Pending';
+            form.appendChild(paymentStatusInput);
+
+            form.submit();
+            return;
+        }
+
+        // Razorpay payment flow
         const subTotal = {{ $sub_total = $cart->sum('total_amount') }};
         const discountAmount = {{ $discount_amount = ($sub_total * ($item->coupon->discount ?? 0)) / 100 }};
         const afterDiscount = subTotal - discountAmount;
@@ -270,7 +248,6 @@
                 "image": "{{ asset('front_assets/images/logo.png') }}",
                 "order_id": data.order_id,
                 "handler": function (response) {
-                    // Payment successful, verify and place order
                     verifyPaymentAndPlaceOrder(response);
                 },
                 "prefill": {
@@ -284,6 +261,7 @@
                 "modal": {
                     "ondismiss": function() {
                         console.log('Payment cancelled by user');
+                        document.getElementById('payBtn').disabled = false;
                     }
                 }
             };
@@ -291,6 +269,7 @@
             var rzp = new Razorpay(options);
             rzp.on('payment.failed', function (response){
                 alert('Payment failed: ' + response.error.description);
+                document.getElementById('payBtn').disabled = false;
             });
             rzp.open();
         })
@@ -301,11 +280,9 @@
     }
 
     function verifyPaymentAndPlaceOrder(paymentResponse) {
-        // Show loading state
         document.getElementById('payBtn').disabled = true;
         document.getElementById('payBtn').innerText = 'Processing...';
 
-        // Verify payment and place order
         fetch("{{ route('front.razorpay.verify_payment') }}", {
             method: "POST",
             headers: {
@@ -321,47 +298,37 @@
         .then(res => res.json())
         .then(data => {
             if (data.status === 'success') {
-                // Now submit the form with payment details
-                const form = document.querySelector('form');
+                const form = document.getElementById('checkoutForm');
                 
                 // Add payment details to form
-                const paymentMethodInput = document.createElement('input');
-                paymentMethodInput.type = 'hidden';
-                paymentMethodInput.name = 'payment_method';
-                paymentMethodInput.value = 'Razorpay';
-                form.appendChild(paymentMethodInput);
+                const inputs = [
+                    { name: 'payment_method', value: 'Razorpay' },
+                    { name: 'payment_status', value: 'Paid' },
+                    { name: 'payment_id', value: paymentResponse.razorpay_payment_id },
+                    { name: 'razorpay_order_id', value: paymentResponse.razorpay_order_id }
+                ];
 
-                const paymentStatusInput = document.createElement('input');
-                paymentStatusInput.type = 'hidden';
-                paymentStatusInput.name = 'payment_status';
-                paymentStatusInput.value = 'Paid';
-                form.appendChild(paymentStatusInput);
-
-                const paymentIdInput = document.createElement('input');
-                paymentIdInput.type = 'hidden';
-                paymentIdInput.name = 'payment_id';
-                paymentIdInput.value = paymentResponse.razorpay_payment_id;
-                form.appendChild(paymentIdInput);
-
-                const orderIdInput = document.createElement('input');
-                orderIdInput.type = 'hidden';
-                orderIdInput.name = 'razorpay_order_id';
-                orderIdInput.value = paymentResponse.razorpay_order_id;
-                form.appendChild(orderIdInput);
+                inputs.forEach(inp => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = inp.name;
+                    input.value = inp.value;
+                    form.appendChild(input);
+                });
 
                 // Submit the form
                 form.submit();
             } else {
                 alert('Payment verification failed. Please contact support.');
                 document.getElementById('payBtn').disabled = false;
-                document.getElementById('payBtn').innerText = 'Make Payment';
+                document.getElementById('payBtn').innerText = 'Place Order';
             }
         })
         .catch(error => {
             console.error('Verification Error:', error);
             alert('Payment verification failed. Please contact support.');
             document.getElementById('payBtn').disabled = false;
-            document.getElementById('payBtn').innerText = 'Make Payment';
+            document.getElementById('payBtn').innerText = 'Place Order';
         });
     }
     </script>

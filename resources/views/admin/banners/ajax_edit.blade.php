@@ -26,6 +26,17 @@
                     <a href="{{ $banner->mobile_image_url ?? asset('no_image.jpg') }}" target="_blank"><img src="{{ $banner->mobile_thumb_url ?? asset('no_image.jpg') }}" alt="" style="width: 60px; height: 60px; object-fit: contain"></a>
                 </div>
             </div>
+
+            <div class="col-md-12 form-group mb-3">
+                <h6>Category</h6>
+                <select class="form-control" name="category_id" id="">
+                    <option value="">Select Category</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            
             <div class="col-md-6 form-group">
                 <h6>Status</h6>
                 <label class="switch">

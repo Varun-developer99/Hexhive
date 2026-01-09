@@ -12,6 +12,7 @@ use App\Models\AttributeValue;
 use App\Models\ProductVariant;
 use function Pest\Laravel\json;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Auth;
 
 class AjaxController extends Controller
@@ -49,15 +50,12 @@ class AjaxController extends Controller
         if($request->short_by == 'Price, high to low'){
             $products = $products->orderBy('sale_price', 'desc');
         }
-        // if(($request->price_min_value ?? '') != '' && ($request->price_max_value ?? '') != ''){
-        //     $products = $products->whereBetween('sale_price', [$request->price_min_value, $request->price_max_value]);
-        // }
+        if(isset($request->price_min_value) && isset($request->price_max_value) && is_numeric($request->price_min_value) && is_numeric($request->price_max_value)){
+            $products = $products->whereBetween('sale_price', [(int)$request->price_min_value, (int)$request->price_max_value]);
+        }
         if(!empty($request->categories_ids)) {
-            $products = $products->where(function($query) use ($request) {
-                foreach($request->categories_ids as $id) {
-                    $query->orWhereJsonContains('categories_ids', $id);
-                }
-            });
+            // products table uses single category_id column
+            $products = $products->whereIn('category_id', $request->categories_ids);
         }
 
         $products = $products->paginate(24);

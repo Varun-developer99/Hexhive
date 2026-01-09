@@ -25,14 +25,24 @@
                                 <input type="text" class="form-control" name="name" id="" value="" required>
                             </div>
                             
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-3 form-group">
                                 <h6>Image Desktop</h6>
                                 <input type="file" class="form-control" name="main_img" id="" accept="image/*">
                             </div>
 
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-3 form-group">
                                 <h6>Image Mobile</h6>
                                 <input type="file" class="form-control" name="mobile_img" id="" accept="image/*">
+                            </div>
+
+                            <div class="col-md-3 form-group">
+                                <h6>Category</h6>
+                                <select class="form-control" name="category_id" id="">
+                                    <option value="">Select Category</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="col-auto form-group">

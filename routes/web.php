@@ -213,12 +213,14 @@ Route::group(['middleware' => ['auth','is_Admin'], 'prefix' => 'admin'], functio
     Route::get('newsletter/edit', [NewsletterController::class, 'edit'])->name('admin.newsletter.edit');
     Route::get('newsletter/delete/{id}', [NewsletterController::class, 'delete'])->name('admin.newsletter.delete');
     Route::get('newsletter/status/{id}', [NewsletterController::class, 'status'])->name('admin.newsletter.status');
-//Contact Us
+    
+    //Contact Us
     Route::get('contact', [ContactController::class, 'index'])->name('admin.contact.index');
     Route::get('contact/datatable', [ContactController::class, 'datatable'])->name('admin.contact.datatable');
     Route::get('contact/delete/{id}', [ContactController::class, 'delete'])->name('admin.contact.delete');
     Route::get('contact/status/{id}', [ContactController::class, 'status'])->name('admin.contact.status');
-      //Customer
+    
+    //Customer
     Route::get('customer', [CustomerController::class, 'index'])->name('admin.customer.index');
     Route::get('customer/datatable', [CustomerController::class, 'datatable'])->name('admin.customer.datatable');
     Route::post('customer/store', [CustomerController::class, 'store'])->name('admin.customer.store');
@@ -274,6 +276,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'customer'], function () {
     Route::post('rental_order/extend', [CustomerDashboardController::class, 'rental_order_extend'])->name('customer.rental_order.extend');
     Route::get('order/show/{id}', [CustomerDashboardController::class, 'order_show'])->name('customer.order.show');
 });
+
 Route::group(['middleware' => ['auth']], function () {
     Route::get('cart', [FrontController::class, 'cart'])->name('front.cart');
     Route::post('update_cart', [FrontController::class, 'update_cart'])->name('front.update_cart');
@@ -320,8 +323,6 @@ Route::get('ajax/extend_rental_modal', [AjaxController::class, 'extend_rental_mo
 // Temp URLs 
 Route::get('update_ids_in_json_format', [HomeController::class, 'update_ids_in_json_format']);
 Route::get('create_opening_stock_history', [HomeController::class, 'create_opening_stock_history']);
-// product Details
-// Route::view('product', 'product')->name('product-details');
 
 // Shop Sidebar
 

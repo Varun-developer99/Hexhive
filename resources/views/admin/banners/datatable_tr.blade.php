@@ -11,6 +11,9 @@
 </td>
 
 <td>
+    {{ $item->category->name ?? '-' }}
+</td>
+<td>
     <span class="badge badge-{{ $item->status == '1' ? 'success':'danger' }} pointer" id="status_{{ $item->id }}" onclick="change_status({{ $item->id }})">{{ $item->status == '1' ? 'Active':'Inactive' }}</span>
 </td>
 <td>

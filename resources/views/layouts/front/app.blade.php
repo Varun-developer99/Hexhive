@@ -69,12 +69,13 @@
             letter-spacing: 0.5px;
         }
 
-        /* Brand and Category Meta */
-        .product-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    /* Brand and Category Meta */
+    .product-meta {
+        display: flex;
+        flex-wrap:wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
 
         .brand-name {
             font-size: 11px;

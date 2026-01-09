@@ -21,7 +21,7 @@
             <i class="fa fa-cube" style="color: #4e73df; font-size:1.3rem;"></i>
           </div>
           <h6 class="card-title mb-1" style="font-weight:400; letter-spacing:0.5px; font-size:0.95rem;">Total Products</h6>
-          <div style="font-size:1.2rem; color:#4e73df; font-weight:400; letter-spacing:0.2px;">1,250</div>
+          <div style="font-size:1.2rem; color:#4e73df; font-weight:400; letter-spacing:0.2px;">{{ number_format($total_products) }}</div>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
             <i class="fa fa-users" style="color: #1cc88a; font-size:1.3rem;"></i>
           </div>
           <h6 class="card-title mb-1" style="font-weight:400; letter-spacing:0.5px; font-size:0.95rem;">Total Customers</h6>
-          <div style="font-size:1.2rem; color:#1cc88a; font-weight:400; letter-spacing:0.2px;">980</div>
+          <div style="font-size:1.2rem; color:#1cc88a; font-weight:400; letter-spacing:0.2px;">{{ number_format($total_customers) }}</div>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
             <i class="fa fa-shopping-cart" style="color: #36b9cc; font-size:1.3rem;"></i>
           </div>
           <h6 class="card-title mb-1" style="font-weight:400; letter-spacing:0.5px; font-size:0.95rem;">Total Orders</h6>
-          <div style="font-size:1.2rem; color:#36b9cc; font-weight:400; letter-spacing:0.2px;">3,200</div>
+          <div style="font-size:1.2rem; color:#36b9cc; font-weight:400; letter-spacing:0.2px;">{{ number_format($total_orders) }}</div>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
             <i class="fa fa-shopping-bag" style="color: #f6c23e; font-size:1.3rem;"></i>
           </div>
           <h6 class="card-title mb-1" style="font-weight:400; letter-spacing:0.5px; font-size:0.95rem;">Total Sales</h6>
-          <div style="font-size:1.2rem; color:#f6c23e; font-weight:400; letter-spacing:0.2px;">₹ 5,40,000</div>
+          <div style="font-size:1.2rem; color:#f6c23e; font-weight:400; letter-spacing:0.2px;">₹ {{ number_format($total_sales, 2) }}</div>
         </div>
       </div>
     </div>
@@ -80,38 +80,36 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><img src="https://randomuser.me/api/portraits/men/1.jpg" class="rounded-circle" width="28" height="28" alt="Rahul Sharma"></td>
-                <td><span class="fw-bold text-primary" style="font-weight:400; font-size:0.98rem;">#1001</span></td>
-                <td style="font-weight:400;">Rahul Sharma</td>
-                <td style="font-weight:400;">08 Sep 2025</td>
-                <td><span class="badge rounded-pill bg-success px-2 py-1" style="font-weight:400; font-size:0.95rem;"><i class="fa fa-check-circle me-1"></i>Completed</span></td>
-                <td><span class="fw-bold" style="font-weight:400;">₹ 2,500</span></td>
-              </tr>
-              <tr>
-                <td><img src="https://randomuser.me/api/portraits/women/2.jpg" class="rounded-circle" width="28" height="28" alt="Priya Singh"></td>
-                <td><span class="fw-bold text-primary" style="font-weight:400; font-size:0.98rem;">#1002</span></td>
-                <td style="font-weight:400;">Priya Singh</td>
-                <td style="font-weight:400;">08 Sep 2025</td>
-                <td><span class="badge rounded-pill bg-warning text-dark px-2 py-1" style="font-weight:400; font-size:0.95rem;"><i class="fa fa-clock me-1"></i>Pending</span></td>
-                <td><span class="fw-bold" style="font-weight:400;">₹ 1,800</span></td>
-              </tr>
-              <tr>
-                <td><img src="https://randomuser.me/api/portraits/men/3.jpg" class="rounded-circle" width="28" height="28" alt="Amit Verma"></td>
-                <td><span class="fw-bold text-primary" style="font-weight:400; font-size:0.98rem;">#1003</span></td>
-                <td style="font-weight:400;">Amit Verma</td>
-                <td style="font-weight:400;">07 Sep 2025</td>
-                <td><span class="badge rounded-pill bg-danger px-2 py-1" style="font-weight:400; font-size:0.95rem;"><i class="fa fa-times-circle me-1"></i>Cancelled</span></td>
-                <td><span class="fw-bold" style="font-weight:400;">₹ 900</span></td>
-              </tr>
-              <tr>
-                <td><img src="https://randomuser.me/api/portraits/women/4.jpg" class="rounded-circle" width="28" height="28" alt="Neha Gupta"></td>
-                <td><span class="fw-bold text-primary" style="font-weight:400; font-size:0.98rem;">#1004</span></td>
-                <td style="font-weight:400;">Neha Gupta</td>
-                <td style="font-weight:400;">07 Sep 2025</td>
-                <td><span class="badge rounded-pill bg-success px-2 py-1" style="font-weight:400; font-size:0.95rem;"><i class="fa fa-check-circle me-1"></i>Completed</span></td>
-                <td><span class="fw-bold" style="font-weight:400;">₹ 3,200</span></td>
-              </tr>
+              @forelse($recent_orders as $order)
+                @php
+                  $customerName = $order->name ?? ($order->user->name ?? 'Guest');
+                  $avatar = 'https://ui-avatars.com/api/?name=' . urlencode($customerName) . '&background=ddd&color=444&size=64';
+                  $orderDate = optional($order->created_at)->format('d M Y');
+                  $status = $order->order_status ?? $order->payment_status ?? 'Pending';
+                @endphp
+                <tr>
+                  <td><img src="{{ $avatar }}" class="rounded-circle" width="28" height="28" alt="{{ $customerName }}"></td>
+                  <td><span class="fw-bold text-primary" style="font-weight:400; font-size:0.98rem;">#{{ $order->order_no ?? $order->id }}</span></td>
+                  <td style="font-weight:400;">{{ $customerName }}</td>
+                  <td style="font-weight:400;">{{ $orderDate }}</td>
+                  <td>
+                    @if(strtolower($status) === 'completed' || strtolower($status) === 'paid')
+                      <span class="badge rounded-pill bg-success px-2 py-1" style="font-weight:400; font-size:0.95rem;"><i class="fa fa-check-circle me-1"></i>{{ ucfirst($status) }}</span>
+                    @elseif(strtolower($status) === 'pending')
+                      <span class="badge rounded-pill bg-warning text-dark px-2 py-1" style="font-weight:400; font-size:0.95rem;"><i class="fa fa-clock me-1"></i>{{ ucfirst($status) }}</span>
+                    @elseif(strtolower($status) === 'cancelled' || strtolower($status) === 'canceled')
+                      <span class="badge rounded-pill bg-danger px-2 py-1" style="font-weight:400; font-size:0.95rem;"><i class="fa fa-times-circle me-1"></i>{{ ucfirst($status) }}</span>
+                    @else
+                      <span class="badge rounded-pill bg-secondary px-2 py-1" style="font-weight:400; font-size:0.95rem;">{{ ucfirst($status) }}</span>
+                    @endif
+                  </td>
+                  <td><span class="fw-bold" style="font-weight:400;">₹ {{ number_format($order->grand_total ?? 0, 2) }}</span></td>
+                </tr>
+              @empty
+                <tr>
+                  <td colspan="6" class="text-center">No recent orders</td>
+                </tr>
+              @endforelse
             </tbody>
           </table>
         </div>
@@ -125,22 +123,14 @@
         </div>
         <div class="card-body py-2 px-2">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="font-size:0.97rem; background: #f8f9fa; border-radius:8px; margin-bottom:8px; padding: 0.5rem 0.7rem;">
-              <span><i class="fa fa-star text-warning me-2"></i>Product A</span>
-              <span class="badge rounded-pill bg-primary px-2 py-1" style="font-weight:400;">520 Sold</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="font-size:0.97rem; background: #f8f9fa; border-radius:8px; margin-bottom:8px; padding: 0.5rem 0.7rem;">
-              <span><i class="fa fa-star text-warning me-2"></i>Product B</span>
-              <span class="badge rounded-pill bg-primary px-2 py-1" style="font-weight:400;">430 Sold</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="font-size:0.97rem; background: #f8f9fa; border-radius:8px; margin-bottom:8px; padding: 0.5rem 0.7rem;">
-              <span><i class="fa fa-star text-warning me-2"></i>Product C</span>
-              <span class="badge rounded-pill bg-primary px-2 py-1" style="font-weight:400;">390 Sold</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="font-size:0.97rem; background: #f8f9fa; border-radius:8px; margin-bottom:8px; padding: 0.5rem 0.7rem;">
-              <span><i class="fa fa-star text-warning me-2"></i>Product D</span>
-              <span class="badge rounded-pill bg-primary px-2 py-1" style="font-weight:400;">350 Sold</span>
-            </li>
+            @forelse($top_products as $tp)
+              <li class="list-group-item d-flex justify-content-between align-items-center" style="font-size:0.97rem; background: #f8f9fa; border-radius:8px; margin-bottom:8px; padding: 0.5rem 0.7rem;">
+                <span><i class="fa fa-star text-warning me-2"></i>{{ $tp->product->name ?? 'Unknown Product' }}</span>
+                <span class="badge rounded-pill bg-primary px-2 py-1" style="font-weight:400;">{{ number_format($tp->total_sold) }} Sold</span>
+              </li>
+            @empty
+              <li class="list-group-item text-center">No top selling products yet</li>
+            @endforelse
           </ul>
         </div>
       </div>
