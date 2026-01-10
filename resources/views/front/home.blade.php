@@ -39,7 +39,6 @@
         <div class="container">
             <div class="heading-section-2 wow fadeInUp">
                 <h3>Categories you might like</h3>
-                {{-- <a href="#" class="btn-line">View All Collection</a> --}}
             </div>
             <div class="flat-collection-circle wow fadeInUp" data-wow-delay="0.1s">
                 <div dir="ltr" class="swiper tf-sw-collection" data-preview="4" data-tablet="3" data-mobile="2"

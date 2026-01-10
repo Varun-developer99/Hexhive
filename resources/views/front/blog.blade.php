@@ -59,7 +59,7 @@
                                             <div class="icon">
                                                 <i class="icon-user"></i>
                                             </div>
-                                            <p class="text-caption-1">by <a class="link" href="javascript:void(0)">{{ $blog->created_by->name ?? 'N/A' }}</a></p>
+                                            <p class="text-caption-1">by <a class="link" href="javascript:void(0)">{{ $blog->created_by->name ?? 'Admin' }}</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -75,43 +75,10 @@
                         @endforelse
                         
                         {{ $blogs->links() }}
-                        {{-- <div class="pages">
-                            <ul class="wg-pagination">
-                                <li>
-                                    <a href="#" class="pagination-item text-button">1</a>
-                                </li>
-                                <li class="active">
-                                    <div class="pagination
-                        {{-- <ul class="wg-pagination">
-                            <li>
-                                <a href="#" class="pagination-item text-button">1</a>
-                            </li>
-                            <li class="active">
-                                <div class="pagination-item text-button">2</div>
-                            </li>
-                            <li>
-                                <a href="#" class="pagination-item text-button">3</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pagination-item text-button"><i class="icon-arrRight"></i></a>
-                            </li>
-                        </ul> --}}
+                        
                     </div>
                     <div class="col-lg-4">
                         <div class="sidebar maxw-360">
-                            {{-- <div class="sidebar-item sidebar-search">
-                                <form class="form-search">
-                                    <fieldset class="text">
-                                        <input type="email" placeholder="Your email address" class="" name="email" tabindex="0" value="" aria-required="true" required="">
-                                    </fieldset>
-                                    <button class="" type="submit">
-                                        <svg class="icon" width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M21.35 21.0004L17 16.6504" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg>
-                                    </button>
-                                </form>
-                            </div> --}}
                             <div class="sidebar-item sidebar-relatest-post">
                                 <h5 class="sidebar-heading">Relatest Post</h5>
                                 <div>
@@ -131,7 +98,7 @@
                                                     <div class="icon">
                                                         <i class="icon-user"></i>
                                                     </div>
-                                                    <p class="text-caption-1">by <a class="link" href="javascript:void(0)">{{ $latest_blog->created_by->name ?? 'N/A' }}</a></p>
+                                                    <p class="text-caption-1">by <a class="link" href="javascript:void(0)">{{ $latest_blog->created_by->name ?? 'Admin' }}</a></p>
                                                 </div>
                                             </div>
                                             <h6 class="title fw-5">
@@ -150,7 +117,7 @@
                                                     <p class="text-caption-1">{{ date('F j, Y', strtotime($old_blog->created_at)) }}</p>
                                                 </div>
                                                 <div class="meta-item gap-8">
-                                                    <p class="text-caption-1">by <a class="link" href="javascript:void(0)">{{ $old_blog->created_by->name ?? 'N/A' }}</a></p>
+                                                    <p class="text-caption-1">by <a class="link" href="javascript:void(0)">{{ $old_blog->created_by->name ?? 'Admin' }}</a></p>
                                                 </div>
                                             </div>
                                             <div class="title text-title">
@@ -163,55 +130,6 @@
                                     @endforelse
                                 </div>
                             </div>
-                            {{-- <div class="sidebar-item sidebar-categories">
-                                <h5 class="sidebar-heading">Categories</h5>
-                                <ul>
-                                    <li>
-                                        <a class="text-button link" href="#">Trending</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-button link" href="#">Fashion</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-button link" href="#">Outfit</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-button link" href="#">Accessories</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-button link" href="#">Beauty</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="sidebar-item sidebar-tag">
-                                <h5 class="sidebar-heading">Popular Tag</h5>
-                                <ul class="list-tags">
-                                    <li>
-                                        <a href="#" class="text-caption-1 link">Fashion Trends</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-caption-1 link">Sustainable Fashion</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-caption-1 link">Street Style</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-caption-1 link">Beauty Tips</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-caption-1 link">Street Style</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-caption-1 link">Vintage Fashion</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-caption-1 link">Eco Friendly</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-caption-1 link">Tips</a>
-                                    </li>
-                                </ul>
-                            </div> --}}
                         </div>
                     </div>
                 </div>

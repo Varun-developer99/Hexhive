@@ -20,6 +20,11 @@
                             </a>
                         </li>
                         <li class="nav-mb-item">
+                            <a href="{{ route('front.blog') }}" class="mb-menu-link" >
+                                <span>Blog</span>
+                            </a>
+                        </li>
+                        <li class="nav-mb-item">
                             <a href="{{ route('front.contact_us') }}" class="mb-menu-link" >
                                 <span>Contact us</span>
                             </a>

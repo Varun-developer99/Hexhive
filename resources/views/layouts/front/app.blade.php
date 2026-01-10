@@ -530,7 +530,7 @@
             }
 
             .cart-hexive {
-                width: 320px;
+                width: 385px;
             }
         }
     </style>
