@@ -22,6 +22,7 @@ class Cart extends Model
         'tax_rate',
         'tax_amount',
         'prescription_required',
+        'coupon_id',
         'deleted_at',
     ];
     
@@ -49,6 +50,10 @@ class Cart extends Model
     public function customer()
     {
         return $this->belongsTo('App\Models\Customer', 'customer_id', 'id');
+    }
+    public function coupon()
+    {
+        return $this->belongsTo('App\Models\Coupon', 'coupon_id', 'id');
     }
     public function getTotalAmountAttribute($value)
     {

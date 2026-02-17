@@ -1400,7 +1400,7 @@
                     // Initialize Discount Coupons Swiper
                     if ($('.tf-sw-discount').length) {
                         new Swiper('.tf-sw-discount', {
-                            slidesPerView: 2,
+                            slidesPerView: 3,
                             spaceBetween: 10,
                             grabCursor: true,
                         });
@@ -1429,9 +1429,9 @@
                     // Initialize Related Products Swiper
                     if ($('.tf-sw-related').length) {
                         new Swiper('.tf-sw-related', {
-                            slidesPerView: 4,
+                            slidesPerView: 3,
                             slidesPerGroup: 1,
-                            spaceBetween: 10,
+                            spaceBetween: 12,
                             loop: true,
                             speed: 500,
                             autoplay: {
@@ -1445,7 +1445,7 @@
                     // Initialize Discount Coupons Swiper
                     if ($('.tf-sw-discount').length) {
                         new Swiper('.tf-sw-discount', {
-                            slidesPerView: 2,
+                            slidesPerView: 3,
                             spaceBetween: 10,
                             grabCursor: true,
                         });
@@ -1457,6 +1457,53 @@
                 }
             });
         }
+        
+        // Apply Coupon Function
+        function apply_coupon(coupon_code) {
+            $.get('{{ route('front.apply_coupon') }}', {
+                coupon_code: coupon_code
+            }, function (data) {
+                if (data.status == 1) {
+                    // Reload cart to show updated discount
+                    $('#shoppingCart_html').html('<div class="modal-content justify-content-center"><div class="d-flex align-items-center justify-content-center p-5"><div class="spinner-border text-dark"></div></div></div>');
+                    
+                    $.get('{{ route('ajax.cart_items_html') }}', function (html) {
+                        $('#shoppingCart_html').html(html);
+                        
+                        // Reinitialize swipers
+                        if ($('.tf-sw-related').length) {
+                            new Swiper('.tf-sw-related', {
+                                slidesPerView: 3,
+                                slidesPerGroup: 1,
+                                spaceBetween: 12,
+                                loop: true,
+                                speed: 500,
+                                autoplay: true,
+                                grabCursor: true,
+                            });
+                        }
+
+                        if ($('.tf-sw-discount').length) {
+                            new Swiper('.tf-sw-discount', {
+                                slidesPerView: 3,
+                                spaceBetween: 10,
+                                grabCursor: true,
+                            });
+                        }
+                        
+                        $.notify({ title: 'Success', message: data.message }, { type: 'success' });
+                    });
+                } else {
+                    $.notify({ title: 'Error', message: data.message }, { type: 'danger' });
+                }
+            });
+        }
+
+        // Event delegation for dynamically loaded coupon buttons
+        $(document).on('click', '.btn-apply-coupon', function() {
+            var coupon_code = $(this).data('coupon-code');
+            apply_coupon(coupon_code);
+        });
     </script>
 
     @if ($errors->any())

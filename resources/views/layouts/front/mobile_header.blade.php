@@ -14,10 +14,46 @@
                                 <span>Shop</span>
                             </a>
                         </li>
+                        @php
+                            $categories = \App\Models\Category::orderBy('name')->get();
+                        @endphp
                         <li class="nav-mb-item">
-                            <a href="{{ route('front.shop') }}" class="mb-menu-link" >
+                            <a href="#dropdown-menu-three" class="mb-menu-link collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="dropdown-menu-three">
                                 <span>Products</span>
+                                <span class="btn-open-sub"></span>
                             </a>
+                            <div id="dropdown-menu-three" class="collapse " style="">
+                                <ul class="sub-nav-menu">
+                                    <li>
+                                        @foreach($categories as $category)
+                                        <a href="#category-{{ $category->id }}" class="sub-nav-link collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false"
+                                            aria-controls="category-{{ $category->id }}">
+                                                <span>{{ $category->name }}</span>
+                                                <span class="btn-open-sub"></span>
+                                            </a>
+                                        
+                                        <div id="category-{{ $category->id }}" class="collapse" >
+                                            <ul class="sub-nav-menu sub-menu-level-2">
+                                                @forelse($category->products as $product)
+                                                    <li>
+                                                        <a href="{{ route('front.product', $product->slug) }}"
+                                                        class="sub-nav-link">
+                                                            {{ $product->name }}
+                                                        </a>
+                                                    </li>
+                                                @empty
+                                                    <li>
+                                                        <span class="text-muted">No products available</span>
+                                                    </li>
+                                                @endforelse
+                                            </ul>
+                                        </div>
+                                        @endforeach
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-mb-item">
                             <a href="{{ route('front.blog') }}" class="mb-menu-link" >
@@ -32,21 +68,20 @@
                     </ul>
                 </div>
                 <div class="mb-other-content">
-                   
                     <div class="mb-notice">
                         <a href="contact.html" class="text-need">Need Help?</a>
                     </div>
                     <div class="mb-contact">
-                        <p class="text-caption-1">183 A Rajguru Nagar , Ludhiana</p>
+                        <p class="text-caption-1">Admin Block, Mega Food Park.</p>
                     </div>
                     <ul class="mb-info">
                         <li>
                             <i class="icon icon-mail"></i>
-                            <p>ksk@hexhive.in</p>
+                            <p>ecom@hexhive.in</p>
                         </li>
                         <li>
                             <i class="icon icon-phone"></i>
-                            <p>+91 9058800025</p>
+                            <p>+91 95016 26125</p>
                         </li>
                     </ul>
                 </div>

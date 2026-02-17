@@ -97,12 +97,6 @@
                                                 <img src="{{ asset('front_assets/images/payment/Razorpay_logo.png') }}" alt="Razorpay" style="height:20px; margin-left:10px;">
                                             </label>
                                         </div>
-                                        <div class="form-check d-none">
-                                            <input class="form-check-input" type="radio" name="payment_type" id="cod" value="cod">
-                                            <label class="form-check-label" for="cod">
-                                                Cash on Delivery (COD)
-                                            </label>
-                                        </div>
                                     </div>
                                     <button type="button" class="tf-btn btn-fill w-100" id="payBtn">Place Order</button>
                                 </div>
@@ -154,7 +148,7 @@
                                             </div>
                                             <div class="item d-flex align-items-center justify-content-between text-button">
                                                 <span>Discounts</span>
-                                                <span>-{{ price($discount_amount = ($sub_total * ($item->coupon->discount ?? 0)) / 100) }}    </small></span>
+                                                <span>-{{ price($discount = ($sub_total * ($item->coupon->discount ?? 0)) / 100) }}    </small></span>
                                             </div>
                                             <div class="item d-flex align-items-center justify-content-between text-button">
                                                 <span>Tax <small style="color: rgba(33, 37, 41, 0.75)">(15% Included)</small></span>

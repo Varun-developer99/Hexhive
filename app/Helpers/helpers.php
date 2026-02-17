@@ -36,7 +36,23 @@ if (!function_exists('cart_items_html')) {
     {
         $cart_items = Cart::where('user_id', $user_id)->get();
         $related_products = Product::where('status', 1)->inRandomOrder()->take(10)->get();
-        return view('front.ajax.add_to_cart_modal', compact('cart_items', 'related_products'))->render();
+        $coupons = \App\Models\Coupon::where('status', 1)->get();
+        
+        // Get applied coupon if any
+        $applied_coupon = null;
+        $first_cart = $cart_items->first();
+        if($first_cart && $first_cart->coupon_id) {
+            $applied_coupon = \App\Models\Coupon::find($first_cart->coupon_id);
+        }
+        
+        // Calculate discount amount
+        $subtotal = $cart_items->sum('total_amount');
+        $discount_amount = 0;
+        if($applied_coupon) {
+            $discount_amount = ($subtotal * $applied_coupon->discount) / 100;
+        }
+        
+        return view('front.ajax.add_to_cart_modal', compact('cart_items', 'related_products', 'coupons', 'applied_coupon', 'discount_amount', 'subtotal'))->render();
     }
 }
 if (!function_exists('cart_items_data')) {

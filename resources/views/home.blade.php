@@ -91,17 +91,7 @@
                         <div class="wrap-slider">
                             <img src="{{ asset('front_assets/images/slider/Mobile-eb4a5412.webp') }}"
                                 alt="fashion-slideshow">
-                            {{-- <div class="box-content">
-                            <div class="content-slider">
-                                <div class="box-title-slider">
-                                    <h1 class="fade-item fade-item-1 heading text-white">Modern Work Desks</h1>
-                                    <p class="fade-item fade-item-2 body-text-1 text-white">Enhance your productivity with intelligently designed work desks.</p>
-                                </div>
-                                <div class="fade-item fade-item-3 box-btn-slider">
-                                    <a href="#" class="tf-btn btn-fill btn-white"><span class="text">Explore Collection</span><i class="icon icon-arrowUpRight"></i></a>
-                                </div>
-                            </div>
-                        </div> --}}
+                            
                         </div>
                     </div>
                     <div class="swiper-slide">

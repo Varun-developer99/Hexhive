@@ -67,118 +67,43 @@
         </div>
     </div>
     <!-- Related Products Slider -->
-        @if(isset($related_products) && count($related_products) > 0)
-        <div class="tf-mini-cart-related">
-            <div class="related-products-header">
-                <h6 class="related-title">You May Also Like</h6>
-            </div>
-            <div class="swiper tf-sw-related" data-preview="2.5" data-space="10">
-                <div class="swiper-wrapper">
-                    @foreach($related_products as $product)
-                    <div class="swiper-slide">
-                        <div class="related-product-card">
-                            <a href="{{ route('front.product', $product->slug) }}" class="related-product-img">
-                                <img src="{{ $product->thumb_url }}" alt="{{ $product->name }}" loading="lazy">
-                            </a>
-                            <div class="related-product-info">
-                                <a href="{{ route('front.product', $product->slug) }}" class="related-product-name">{{ Str::limit($product->name, 25, '...') }}</a>
-                                <div class="related-product-price">
-                                    <span class="sale-price">₹{{ $product->sale_price }}</span>
-                                    @if($product->mrp_price > $product->sale_price)
-                                    <del class="mrp-price">₹{{ $product->mrp_price }}</del>
-                                    @endif
-                                </div>
-                                <button type="button" class="related-add-btn" onclick="add_to_cart({{ $product->id }}, 'Single', 'Add to cart')">
-                                    <span class="plus-icon">+</span> Add
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        @endif
-        
-    <!-- Discount Coupons Section
-    <div class="sec-discount" style="padding: 8px 10px; border-top: 1px solid #eee;">
-        <div dir="ltr" class="swiper tf-sw-discount" data-preview="2" data-space="10">
+    @if(isset($related_products) && count($related_products) > 0)
+    <div class="tf-mini-cart-related">
+        <div class="related-products-header">
+            <h6 class="related-title">You May Also Like</h6>
+        </div> 
+         <div dir="ltr" class="swiper tf-sw-collection" data-preview="4" data-tablet="3" data-mobile="3" data-space-lg="20" data-space-md="20" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
             <div class="swiper-wrapper">
+                @foreach($related_products as $product)
                 <div class="swiper-slide">
-                    <div class="box-discount" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; padding: 10px; color: #fff;">
-                        <div class="discount-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                            <div class="discount-off">
-                                <div style="font-size: 10px; opacity: 0.8;">Discount</div>
-                                <span style="font-size: 16px; font-weight: 700;">10% OFF</span>
+                    <div class="related-product-card">
+                        <a href="{{ route('front.product', $product->slug) }}" class="related-product-img">
+                            <img src="{{ $product->thumb_url }}" alt="{{ $product->name }}" loading="lazy">
+                        </a>
+                        <div class="related-product-info">
+                            <a href="{{ route('front.product', $product->slug) }}" class="related-product-name">{{ Str::limit($product->name, 25, '...') }}</a>
+                            <div class="related-product-price">
+                                <span class="sale-price">₹{{ $product->sale_price }}</span>
+                                @if($product->mrp_price > $product->sale_price)
+                                <del class="mrp-price">₹{{ $product->mrp_price }}</del>
+                                @endif
                             </div>
-                            <div class="discount-from" style="text-align: right;">
-                                <p style="font-size: 9px; opacity: 0.9; margin: 0;">For orders<br>above ₹500</p>
-                            </div>
-                        </div>
-                        <div class="discount-bot" style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.2); border-radius: 5px; padding: 5px 8px;">
-                            <span style="font-size: 11px; font-weight: 600;">SAVE10</span>
-                            <button type="button" class="btn-copy-code" style="background: #fff; color: #667eea; border: none; border-radius: 4px; padding: 3px 8px; font-size: 9px; font-weight: 600; cursor: pointer;">Copy</button>
+                            <button type="button" class="related-add-btn" onclick="add_to_cart({{ $product->id }}, 'Single', 'Add to cart')">
+                                <span class="plus-icon">+</span> Add
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="box-discount" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 8px; padding: 10px; color: #fff;">
-                        <div class="discount-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                            <div class="discount-off">
-                                <div style="font-size: 10px; opacity: 0.8;">Discount</div>
-                                <span style="font-size: 16px; font-weight: 700;">15% OFF</span>
-                            </div>
-                            <div class="discount-from" style="text-align: right;">
-                                <p style="font-size: 9px; opacity: 0.9; margin: 0;">For orders<br>above ₹1000</p>
-                            </div>
-                        </div>
-                        <div class="discount-bot" style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.2); border-radius: 5px; padding: 5px 8px;">
-                            <span style="font-size: 11px; font-weight: 600;">SAVE15</span>
-                            <button type="button" class="btn-copy-code" style="background: #fff; color: #f5576c; border: none; border-radius: 4px; padding: 3px 8px; font-size: 9px; font-weight: 600; cursor: pointer;">Copy</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="box-discount" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 8px; padding: 10px; color: #fff;">
-                        <div class="discount-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                            <div class="discount-off">
-                                <div style="font-size: 10px; opacity: 0.8;">Discount</div>
-                                <span style="font-size: 16px; font-weight: 700;">20% OFF</span>
-                            </div>
-                            <div class="discount-from" style="text-align: right;">
-                                <p style="font-size: 9px; opacity: 0.9; margin: 0;">For orders<br>above ₹2000</p>
-                            </div>
-                        </div>
-                        <div class="discount-bot" style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.2); border-radius: 5px; padding: 5px 8px;">
-                            <span style="font-size: 11px; font-weight: 600;">SAVE20</span>
-                            <button type="button" class="btn-copy-code" style="background: #fff; color: #4facfe; border: none; border-radius: 4px; padding: 3px 8px; font-size: 9px; font-weight: 600; cursor: pointer;">Copy</button>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div> -->
+    </div>
+    @endif
+      
+   
     
     <div class="tf-mini-cart-bottom">   
         <div class="tf-mini-cart-tool">
-            <div class="tf-mini-cart-tool-btn btn-add-note">
-                <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_6133_36620)">
-                        <path
-                            d="M10 3.33325H4.16667C3.72464 3.33325 3.30072 3.50885 2.98816 3.82141C2.67559 4.13397 2.5 4.55789 2.5 4.99992V16.6666C2.5 17.1086 2.67559 17.5325 2.98816 17.8451C3.30072 18.1577 3.72464 18.3333 4.16667 18.3333H15.8333C16.2754 18.3333 16.6993 18.1577 17.0118 17.8451C17.3244 17.5325 17.5 17.1086 17.5 16.6666V10.8333"
-                            stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path
-                            d="M16.25 2.0832C16.5815 1.75168 17.0312 1.56543 17.5 1.56543C17.9688 1.56543 18.4185 1.75168 18.75 2.0832C19.0815 2.41472 19.2678 2.86436 19.2678 3.3332C19.2678 3.80204 19.0815 4.25168 18.75 4.5832L10.8333 12.4999L7.5 13.3332L8.33333 9.99986L16.25 2.0832Z"
-                            stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </g>
-                    <defs>
-                        <clippath id="clip0_6133_36620">
-                            <rect width="20" height="20" fill="white" transform="translate(0.833008)"></rect>
-                        </clippath>
-                    </defs>
-                </svg>
-                <div class="text-caption-1">Note</div>
-            </div>
             <div class="tf-mini-cart-tool-btn btn-add-coupon">
                 <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -187,14 +112,24 @@
                     <path d="M5.99902 5.83325H6.00902" stroke="#181818" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round"></path>
                 </svg>
-                <div class="text-caption-1">Coupon</div>
+                <div class="text-caption-1" id="toggleCoupons" >View All Coupons</div>
             </div>
         </div>
         <div class="tf-mini-cart-bottom-wrap">
             <div class="tf-cart-totals-discounts">
-                <h5>Subtotal </h5>
-                <h5 class="tf-totals-total-value">{{ price(($cart_items->sum('total_amount') ?? 0)) }} </small></h5>
+                <span>Subtotal </span>
+                <span class="tf-totals-total-value">{{ price(($subtotal ?? 0)) }}</span>
             </div>
+            @if(isset($applied_coupon) && $applied_coupon && $discount_amount > 0)
+            <div class="tf-cart-totals-discounts" style="font-size: 12px;">
+                <span>Discount ({{ $applied_coupon->code }}) </span>
+                <span class="tf-totals-total-value">- {{ price($discount_amount) }}</span>
+            </div>
+            <div class="tf-cart-totals-discounts" style="border-top: 1px solid #eee; padding-top: 8px;">
+                <span>Total </span>
+                <span class="tf-totals-total-value">{{ price($subtotal - $discount_amount) }}</span>
+            </div>
+            @endif
             <div class="tf-mini-cart-view-checkout">
                 <a href="{{ route('front.cart') }}" class="tf-btn w-100 btn-white radius-4 has-border"><span
                         class="text">View cart</span></a>
@@ -239,43 +174,63 @@
                 </form>
             </div>
         </div>
-        <div class="tf-mini-cart-tool-openable add-coupon">
-            <div class="tf-mini-cart-tool-content">
-                <label class="tf-mini-cart-tool-text">
-                    <span class="icon">
-                        <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_6766_32777)">
-                                <path
-                                    d="M9.16699 3.33325H3.33366C2.89163 3.33325 2.46771 3.50885 2.15515 3.82141C1.84259 4.13397 1.66699 4.55789 1.66699 4.99992V16.6666C1.66699 17.1086 1.84259 17.5325 2.15515 17.8451C2.46771 18.1577 2.89163 18.3333 3.33366 18.3333H15.0003C15.4424 18.3333 15.8663 18.1577 16.1788 17.8451C16.4914 17.5325 16.667 17.1086 16.667 16.6666V10.8333"
-                                    stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                                <path
-                                    d="M15.417 2.0832C15.7485 1.75168 16.1981 1.56543 16.667 1.56543C17.1358 1.56543 17.5855 1.75168 17.917 2.0832C18.2485 2.41472 18.4348 2.86436 18.4348 3.3332C18.4348 3.80204 18.2485 4.25168 17.917 4.5832L10.0003 12.4999L6.66699 13.3332L7.50033 9.99986L15.417 2.0832Z"
-                                    stroke="#181818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                            </g>
-                            <defs>
-                                <clippath id="clip0_6766_32777">
-                                    <rect width="20" height="20" fill="white"></rect>
-                                </clippath>
-                            </defs>
-                        </svg>
-                    </span>
-                    <span class="text-title">Add Coupon Code</span>
-                </label>
-                <form class="form-add-coupon tf-mini-cart-tool-wrap">
-                    <fieldset class="">
-                        <div class="text-caption-1 text-secondary mb_8">Enter Code</div>
-                        <input class="" type="text" placeholder="Discount code" name="text" tabindex="2" value=""
-                            aria-required="true" required="">
-                    </fieldset>
-                    <div class="tf-cart-tool-btns">
-                        <button type="submit" class="btn-style-2 w-100"><span
-                                class="text text-btn-uppercase">Save</span></button>
-                        <div class="text-center w-100 text-btn-uppercase tf-mini-cart-tool-close">Cancel</div>
+        <div class="tf-mini-cart-tool-openable add-coupon" id="couponBox" style="display: none;"> 
+            <div class="tf-mini-cart-tool-content"  style="position: relative;">
+                <div class="header">
+                    <h5 class="title">Selected Coupon</h5>
+                    <span class="icon-close icon-close-popup" id="closeCoupon"></span>
+                </div>
+                @if(isset($coupons) && count($coupons) > 0)
+                <div class="sec-discount" style="padding: 6px 8px; border-top: 1px solid #eee;">
+                    <div dir="ltr" class="swiper tf-sw-discount" data-preview="3" data-space="10">
+                        <div class="swiper-wrapper">
+                            @foreach($coupons as $coupon)
+                            <div class="swiper-slide">
+                                <div class="box-discount" style="background: #faf8ec; border-radius: 8px; padding: 10px; color: #381d10; min-width:180px;">
+                                    <div class="discount-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <div class="discount-off">
+                                            <div style="font-size: 11px; opacity: 0.85;">Discount</div>
+                                            <span style="font-size: 16px; font-weight: 800;">{{ $coupon->discount }}% OFF</span>
+                                        </div>
+                                        <div class="discount-from" style="text-align: right;">
+                                            <p style="font-size: 10px; opacity: 0.9; margin: 0;">For all<br>orders</p>
+                                        </div>
+                                    </div>
+                                    <div class="discount-bot" style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.22); border-radius: 6px; padding: 6px 10px;">
+                                        <span style="font-size: 11px; font-weight: 700;">{{ $coupon->code }}</span>
+                                        <button type="button" class="btn-apply-coupon" data-coupon-code="{{ $coupon->code }}" style="background: #fff; color: #667eea; border: none; border-radius: 5px; padding: 4px 8px; font-size: 10px; font-weight: 700; cursor: pointer;">
+                                            @if($applied_coupon && $applied_coupon->id == $coupon->id)
+                                                Applied ✓
+                                            @else
+                                                Apply
+                                            @endif
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
-                </form>
+                </div>
+                @endif
             </div>
         </div>
     </div>
 </div>
+<script>
+    const toggleBtn = document.getElementById('toggleCoupons');
+    const couponBox = document.getElementById('couponBox');
+    const closeBtn  = document.getElementById('closeCoupon');
+
+    // View All Coupons click
+    toggleBtn.addEventListener('click', function () {
+        couponBox.style.display = 'block';
+        this.innerText = 'Hide Coupons';
+    });
+
+    // Close button click
+    closeBtn.addEventListener('click', function () {
+        couponBox.style.display = 'none';
+        toggleBtn.innerText = 'View All Coupons';
+    });
+</script>

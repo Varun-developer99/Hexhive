@@ -316,6 +316,7 @@ Route::get('ajax/quick_view_product', [AjaxController::class, 'quick_view_produc
 Route::get('ajax/get_combo_product_variant_data', [AjaxController::class, 'get_combo_product_variant_data'])->name('ajax.get_combo_product_variant_data');
 Route::get('ajax/add_to_cart', [AjaxController::class, 'add_to_cart'])->name('ajax.add_to_cart');
 Route::get('ajax/remove_from_cart', [AjaxController::class, 'remove_from_cart'])->name('ajax.remove_from_cart');
+Route::get('ajax/cart_items_html', [AjaxController::class, 'cart_items_html'])->name('ajax.cart_items_html');
 Route::get('ajax/get_rental_activity', [AjaxController::class, 'get_rental_activity'])->name('ajax.get_rental_activity');
 Route::get('ajax/extend_rental_modal', [AjaxController::class, 'extend_rental_modal'])->name('ajax.extend_rental_modal');
 

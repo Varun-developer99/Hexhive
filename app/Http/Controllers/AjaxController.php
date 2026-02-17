@@ -139,6 +139,11 @@ class AjaxController extends Controller
         $response['cart_count'] = count(cart_items_data(Auth::user()->id));
         return $response;
     }
+    
+    public function cart_items_html(Request $request)
+    {
+        return cart_items_html(Auth::user()->id);
+    }
 
     public function get_rental_activity(Request $request)
     {
